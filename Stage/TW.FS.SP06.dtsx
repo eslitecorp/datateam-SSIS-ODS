@@ -1,0 +1,2500 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/10/2018 2:31:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1701003NB01"
+  DTS:CreatorName="IEAD\1701003"
+  DTS:DTSID="{15A40F54-93E1-4C4A-88A3-2071CD417FDD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="TW FS SP06"
+  DTS:PackageType="5"
+  DTS:VersionBuild="273"
+  DTS:VersionGUID="{B98F0FEF-0227-416C-B7DB-81F9323E5076}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[一般檔案連接管理員]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{6E5C3F13-F49A-4388-870E-E9C339B49901}"
+      DTS:ObjectName="一般檔案連接管理員">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1028"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="950"
+          DTS:ConnectionString="C:\Users\1703001\Desktop\testSP01.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PKEY"
+              DTS:DTSID="{2ED012D7-32E5-40D5-9A1B-FEF5006D602E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FILE_NAME"
+              DTS:DTSID="{7C7BCF6B-BD6F-4B12-9D7C-7C62546DE6CE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WERKS 的副本"
+              DTS:DTSID="{1F8758AC-2766-497E-B725-F286C644D193}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATNR 的副本"
+              DTS:DTSID="{7F8D0AB2-29DF-4BC1-9023-193B430B24B1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="80"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MAKTX 的副本"
+              DTS:DTSID="{695A8C35-1A7D-4C66-AAE2-80F410839849}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="9"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MATKL 的副本"
+              DTS:DTSID="{2D0D1AA7-4B11-4DB3-80AD-D0AFB4F027C8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MSTAV 的副本"
+              DTS:DTSID="{63486DFF-6F59-4408-A548-BF68DFAB3F37}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MTART 的副本"
+              DTS:DTSID="{16A9CAB0-4B80-4AB0-848F-1009FC5F0431}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LIFNR 的副本"
+              DTS:DTSID="{6BD6A578-4514-4D1C-B14E-7357FC0F9C26}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RBZUL 的副本"
+              DTS:DTSID="{BE7FE7F3-4EFE-4123-9AED-F3C078ECF474}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="KWDHT 的副本"
+              DTS:DTSID="{1231C6E5-72D1-4B58-B09C-BEB900419683}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TAKLV 的副本"
+              DTS:DTSID="{38DA678C-4375-4F9C-8F57-BC5EDDA38E05}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="300"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZSUBT 的副本"
+              DTS:DTSID="{3D1EF2A7-9131-4FD4-924C-616CAFF00E78}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="300"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZCT1 的副本"
+              DTS:DTSID="{1F824007-A0F8-4FC2-A0B1-44E6E568874B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="300"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZCT2 的副本"
+              DTS:DTSID="{C18EA605-4D54-487C-A764-8EFBAE61BE40}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MEINS 的副本"
+              DTS:DTSID="{7E5ECD78-DFA2-4A37-9C23-489B7EFE228D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ERSDA 的副本"
+              DTS:DTSID="{0A15C16C-5815-46ED-AC59-7B1E0BF25840}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MSTDV 的副本"
+              DTS:DTSID="{1191690F-8005-441D-9BD0-C77149D5FCBB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MSTAE 的副本"
+              DTS:DTSID="{3F008FAE-9922-4CBE-ACE1-63A7ABD7E9BB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MSTDE 的副本"
+              DTS:DTSID="{AFEEE518-E142-4A34-8E42-8A00931045B5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZAUTH 的副本"
+              DTS:DTSID="{5E1E6EB7-0BC2-4690-8604-935B320D8188}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZEAUTH 的副本"
+              DTS:DTSID="{0FBA9F24-465C-4A84-A006-0B4F6998A86A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZNORMT 的副本"
+              DTS:DTSID="{B56FF2A9-5E4A-4225-B435-43542B4CA8A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZPDATE 的副本"
+              DTS:DTSID="{0B497886-448D-4BA4-8F1F-BC1A458E4BDB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="120"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZTHNUM 的副本"
+              DTS:DTSID="{6315DCAD-D097-4F04-8B99-523FC7B177FA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="80"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZTHEM 的副本"
+              DTS:DTSID="{5B380AF4-C0DF-48A4-BFE2-3D2F1665753D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZCTYP 的副本"
+              DTS:DTSID="{415D584A-758F-43EF-9BDF-B2E79D766D98}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZTRAN 的副本"
+              DTS:DTSID="{D6CB8747-02F1-4FED-A47C-98C1A5E4F45E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZVERS2 的副本"
+              DTS:DTSID="{C4B4C9B0-C34F-4EAE-AE2B-7134BF6222D8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZPAGE 的副本"
+              DTS:DTSID="{2EA97263-2F98-4394-BB2A-2ABD3FA9791F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZLANG 的副本"
+              DTS:DTSID="{2A04EED4-23B7-4D5A-92BE-95E7721C9189}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZFPDAT 的副本"
+              DTS:DTSID="{AE1D2B9F-A9D9-4BD7-8E96-CF493E732992}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="80"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZMATU 的副本"
+              DTS:DTSID="{AFFCB53D-C0BC-41FA-9369-90A2E31F0325}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZRAT 的副本"
+              DTS:DTSID="{7DBE372E-A8B0-4DCD-9582-3E609251E3E0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZTHEC 的副本"
+              DTS:DTSID="{354B250C-6D5F-43E5-83B2-8091A8A0D610}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZPS 的副本"
+              DTS:DTSID="{44681E0C-1E37-4AF9-9B3B-F38BF5221D95}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VTEXT 的副本"
+              DTS:DTSID="{ACE26575-9282-470A-AED3-111ED0DD2F00}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LFRHY 的副本"
+              DTS:DTSID="{B1F636A8-C9C2-4788-B575-F4C51FEE13B1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MMSTA 的副本"
+              DTS:DTSID="{31B99D02-19C5-4AF7-81C6-22C58572BA32}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MMSTD 的副本"
+              DTS:DTSID="{359D37B3-A2F9-499D-9F8C-B14382D73836}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZRTV 的副本"
+              DTS:DTSID="{4B9C0D55-47BD-4E37-9781-F15F3E99B780}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZRTVD 的副本"
+              DTS:DTSID="{2054D25C-002E-49EC-A78A-5E43B4F5678B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZINTYP 的副本"
+              DTS:DTSID="{9EFAA514-B439-4D1B-BDE9-86389F34557F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZINVST 的副本"
+              DTS:DTSID="{7BAFA063-8CE3-4533-A58D-FC96941D455D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZVPURO 的副本"
+              DTS:DTSID="{74FA0A1A-5AD5-4644-8B38-BE0D5E791497}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZCONSI 的副本"
+              DTS:DTSID="{15F2E996-5655-4BB8-95AB-6A64EEBEF256}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZIMCHK 的副本"
+              DTS:DTSID="{2785643E-49B4-4738-9E5B-9C2F282569F7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BWSCL 的副本"
+              DTS:DTSID="{0C7449D0-CB74-44B4-A723-B9E650013836}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="70"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IDNLF 的副本"
+              DTS:DTSID="{BDC4E0BB-5514-4ADA-9618-B9A48E76DA42}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="KOLIF 的副本"
+              DTS:DTSID="{61BAE3A9-9411-4C62-8C96-1B171DA920FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EKORG 的副本"
+              DTS:DTSID="{2BCEC93A-0D58-48F1-8316-276741E27C3D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MINBM 的副本"
+              DTS:DTSID="{F3783810-84C2-46D9-AA75-F8887DE0CC4F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EKGRP 的副本"
+              DTS:DTSID="{FC356CD2-4B5A-4C46-B7D7-C05E95ACE202}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="APLFZ 的副本"
+              DTS:DTSID="{D56406EC-DAEC-4694-A152-29F7F0BF4AA9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="13"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NETPR 的副本"
+              DTS:DTSID="{1787DE27-EACB-459D-8D2F-49DCBB60E0DC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WAERS 的副本"
+              DTS:DTSID="{F8F51B50-7AB8-4D6D-91EA-25AD0214A08D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VKORG 的副本"
+              DTS:DTSID="{0F950723-F40A-4DE0-9155-55D9798588A2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VTWEG 的副本"
+              DTS:DTSID="{1366FE3D-262F-4740-94D1-E92CF156B741}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="80"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZSE 的副本"
+              DTS:DTSID="{F07CDD70-75D5-4DE3-8014-4DA11D163EB3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZPR 的副本"
+              DTS:DTSID="{F752FBAD-994E-4D32-AF71-C1B059253547}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="300"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZCT 的副本"
+              DTS:DTSID="{2349022B-507A-4A0C-A89C-3700DD97B5D2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="400"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZZKEY 的副本"
+              DTS:DTSID="{A13FC75B-F06E-4F4A-8BC9-6A2CD82A1CD5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INCO1 的副本"
+              DTS:DTSID="{A81BEAAB-6DD5-465A-A0DD-E7FCC2A29D37}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZFWEIGHT 的副本"
+              DTS:DTSID="{A195162C-ABBC-48CA-9F81-2F4CFDFEDB73}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZFVOLUME 的副本"
+              DTS:DTSID="{DA6E8B15-9966-44E9-96DC-5A9819241B99}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZFPRODUCT_P 的副本"
+              DTS:DTSID="{28C9942A-2B28-4F8F-AF02-AA06FBD15504}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZFPRESERVE_C 的副本"
+              DTS:DTSID="{E185BE05-30C4-45F8-BD27-A985DD50C47E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZFPRESERVE_D 的副本"
+              DTS:DTSID="{5F2BC745-7732-48C8-BAFE-BB3C91B74753}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZFELEMENT 的副本"
+              DTS:DTSID="{0DF74879-E6A3-4F3F-A65C-19B34349C7BF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZEAN11 的副本"
+              DTS:DTSID="{E7BFA066-39F1-4B5F-A90A-156F99A1064F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="19"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TAXCODE 的副本"
+              DTS:DTSID="{F1F80162-54AE-41A7-BAA3-0E6888334A77}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TAXTEXT 的副本"
+              DTS:DTSID="{E39BC032-98C3-4BA6-8500-C7995589FD17}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="6"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TAX 的副本"
+              DTS:DTSID="{28FD359B-BD7D-4476-8D1B-7980166309D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DISMM 的副本"
+              DTS:DTSID="{749A8622-4C1D-493A-B35F-AD8027089DCE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VALUE1 的副本"
+              DTS:DTSID="{30763CB7-D962-49EB-8FB9-3B427A4D927E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VALUE2 的副本"
+              DTS:DTSID="{44E71308-B2C9-4A1F-B6C0-E8BF50EBD755}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VALUE3 的副本"
+              DTS:DTSID="{0819F6E4-33B1-440D-989C-C5AA0D4B62B9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VALUE4 的副本"
+              DTS:DTSID="{58E890B2-C49F-4324-A02A-14FE2AA17964}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VALUE5 的副本"
+              DTS:DTSID="{84D0B51E-6D76-4E8F-BBF2-7CCB1F55F9EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VALUE6 的副本"
+              DTS:DTSID="{EC6E9EED-BEBF-4637-A33A-CEF83D64D357}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VALUE7 的副本"
+              DTS:DTSID="{C8BD56F8-F1A8-4587-A0D3-169377A59AB2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VALUE8 的副本"
+              DTS:DTSID="{B73D6C78-F1FE-446B-9BFA-9F36D9B4C6AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETL_DATE"
+              DTS:DTSID="{02ABA8E5-555E-4159-888A-88B5127807AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DELETE_MARK"
+              DTS:DTSID="{0C839AF0-773E-4BBA-A554-F342EC335182}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{7F4BBC28-BF50-4E2C-9C86-32595CFFAA07}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{ECD8064E-3B5F-4CEE-BCEC-F436349ACAC2}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="StagingDB_TW"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="將事件的記錄項目寫入 SQL Server 資料庫"
+      DTS:DTSID="{E5DD5828-4A84-4AD5-836D-2A69C67291CF}"
+      DTS:ObjectName="SQL Server 的 SSIS 記錄提供者">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{D58AF14D-D6AF-4BAE-83B8-186E55DD2B83}"
+      DTS:ObjectName="dbPrestageTableName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">prestage_FS.SP06</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{AF0F2E25-976F-4222-838D-BA5D74EA0D97}"
+      DTS:ObjectName="dbSchemaName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{E17E22AF-9F89-4828-B7B8-DF4C8881AF33}"
+      DTS:ObjectName="dbStageTableName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">FS.SP06</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{058AF54C-F562-403D-89D1-C26DD5BCEDCE}"
+      DTS:ObjectName="dbTableName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SP06</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{B345BCB1-5C32-47B1-8122-CFFE7488AE26}"
+      DTS:ObjectName="srcRawDataFileName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SP060530.P011</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{DC77CA9A-1212-4388-A6D9-51577EE95167}"
+      DTS:ObjectName="srcSysName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">FS</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{F2CF5602-E23D-4CB0-B0D8-92F4ADC6949B}"
+      DTS:ObjectName="writeInEvent">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">IU</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3402EE98-D550-4CC5-838F-DD8E8AC2FDA3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT *  FROM &quot; + @[$Package::dbPrestageTableName] + &quot; WHERE FILE_NAME =  '&quot; + @[$Package::srcRawDataFileName]  +&quot;' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = '&quot;+ @[$Package::srcRawDataFileName] +&quot;' and l.executionid = &quot;+ (DT_WSTR,100) @[System::ServerExecutionID] +&quot;)&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sqlQueryPrestage">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT *  FROM prestage_FS.SP06 WHERE FILE_NAME =  'SP060530.P011' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = 'SP060530.P011' and l.executionid = 0)</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{E5DD5828-4A84-4AD5-836D-2A69C67291CF}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\I／IU資料流程"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="資料流程工作"
+      DTS:DTSID="{A4080BB5-1758-42F1-A547-07B47BB197A3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="I／IU資料流程"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\I／IU資料流程\intsert into stage 資料表"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目的地"
+              name="intsert into stage 資料表"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">[SAP].[SP01]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable">$Package::dbStageTableName</property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">4</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出提供給識別欄位的值是否複製到目的地。如果為 False，則會在目的地自動產生識別欄位的值。只有在開啟快速載入時才會套用。"
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出包含 Null 之資料行的 Null 是否會插入目的地。若是 False，則包含 Null 的資料行的預設值會插入目的地。唯有開啟快速載入時才適用。"
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="指定快速載入使用的選項。只有開啟快速載入時才會套用。"
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在資料插入期間發出認可的時間。值為 0 指定在資料插入結束時發出一次認可。只有開啟快速載入時才會套用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\I／IU資料流程\intsert into stage 資料表.Connections[OleDbConnection]"
+                  connectionManagerID="{317F7F78-B848-480C-B983-2137EF141394}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[StagingDB_TW]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].Columns[FILE_NAME]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FILE_NAME"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[FILE_NAME]"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[FILE_NAME]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].Columns[ETL_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ETL_DATE"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[ETL_DATE]"
+                      lineageId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出].Columns[ETL_DATE]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].Columns[WERKS 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="WERKS 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[WERKS]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[WERKS 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].Columns[MSGFN 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MSGFN 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[MSGFN]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[MSGFN 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].Columns[MATKL 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="MATKL 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[MATKL]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[MATKL 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].Columns[WGBEZ 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="35"
+                      cachedName="WGBEZ 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[WGBEZ]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[WGBEZ 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].Columns[ZMC1 的副本]"
+                      cachedDataType="numeric"
+                      cachedName="ZMC1 的副本"
+                      cachedPrecision="2"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[ZMC1]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ZMC1 的副本]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[FILE_NAME]"
+                      codePage="950"
+                      dataType="str"
+                      length="100"
+                      name="FILE_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[ETL_DATE]"
+                      dataType="dbTimeStamp"
+                      name="ETL_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[DELETE_MARK]"
+                      dataType="i4"
+                      name="DELETE_MARK" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[WERKS]"
+                      codePage="950"
+                      dataType="str"
+                      length="4"
+                      name="WERKS" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[MSGFN]"
+                      codePage="950"
+                      dataType="str"
+                      length="4"
+                      name="MSGFN" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[MATKL]"
+                      codePage="950"
+                      dataType="str"
+                      length="15"
+                      name="MATKL" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[WGBEZ]"
+                      codePage="950"
+                      dataType="str"
+                      length="35"
+                      name="WGBEZ" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[ZMC1]"
+                      dataType="numeric"
+                      name="ZMC1"
+                      precision="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\I／IU資料流程\intsert into stage 資料表.Outputs[OLE DB 目的地錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目的地錯誤輸出"
+                  synchronousInputId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\intsert into stage 資料表.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\intsert into stage 資料表.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\intsert into stage 資料表.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="資料轉換;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="資料轉換"
+              name="依Stage資料表的欄位格式做資料轉換"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入]"
+                  name="資料轉換輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[衍生的資料行 WERKS]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="衍生的資料行 WERKS"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行 WERKS]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[衍生的資料行 MSGFN]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="衍生的資料行 MSGFN"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行 MSGFN]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[MATKL]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="MATKL"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[MATKL]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[WGBEZ]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="WGBEZ"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[WGBEZ]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[ZMC1]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="ZMC1"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ZMC1]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出]"
+                  exclusionGroup="1"
+                  name="資料轉換輸出"
+                  synchronousInputId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[WERKS 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="4"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[WERKS 的副本]"
+                      name="WERKS 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行 WERKS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[MSGFN 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="4"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[MSGFN 的副本]"
+                      name="MSGFN 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行 MSGFN]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[MATKL 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="15"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[MATKL 的副本]"
+                      name="MATKL 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[MATKL]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[WGBEZ 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="35"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[WGBEZ 的副本]"
+                      name="WGBEZ 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[WGBEZ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ZMC1 的副本]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ZMC1 的副本]"
+                      name="ZMC1 的副本"
+                      precision="2"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ZMC1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="資料轉換錯誤輸出"
+                  synchronousInputId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB 來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;7"
+              description="OLE DB 來源"
+              name="從prestage資料表把驗證通過的資料取出"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable">$Package::insertTable</property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT *
+  FROM prestage_SAP.SP01
+WHERE FILE_NAME = ? and VER_VALUE = 0</property>
+                <property
+                  dataType="System.String"
+                  description="包含要執行之 SQL 命令的變數。"
+                  name="SqlCommandVariable">User::sqlQueryPrestage</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.String"
+                  description="SQL 命令中的參數和變數之間的對應。"
+                  name="ParameterMapping">"參數0:Input",{EFA7D5F7-0A59-44AD-9421-23FC4F43C955};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Connections[OleDbConnection]"
+                  connectionManagerID="{317F7F78-B848-480C-B983-2137EF141394}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[StagingDB_TW]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出]"
+                  isSorted="true"
+                  name="OLE DB 來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[VER_VALUE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[VER_VALUE]"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[VER_VALUE]"
+                      name="VER_VALUE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[PKEY]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[PKEY]"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[PKEY]"
+                      name="PKEY"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[FILE_NAME]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[FILE_NAME]"
+                      length="100"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[FILE_NAME]"
+                      name="FILE_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ETL_INSERT_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[ETL_INSERT_DATE]"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ETL_INSERT_DATE]"
+                      name="ETL_INSERT_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[WERKS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[WERKS]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[WERKS]"
+                      name="WERKS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[MSGFN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[MSGFN]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[MSGFN]"
+                      name="MSGFN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[MATKL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[MATKL]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[MATKL]"
+                      name="MATKL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[WGBEZ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[WGBEZ]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[WGBEZ]"
+                      name="WGBEZ"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ZMC1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[ZMC1]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ZMC1]"
+                      name="ZMC1"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[VER_VALUE]"
+                      dataType="i4"
+                      name="VER_VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[PKEY]"
+                      dataType="i4"
+                      name="PKEY" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[FILE_NAME]"
+                      codePage="950"
+                      dataType="str"
+                      length="100"
+                      name="FILE_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[ETL_INSERT_DATE]"
+                      dataType="dbTimeStamp"
+                      name="ETL_INSERT_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[WERKS]"
+                      dataType="wstr"
+                      length="300"
+                      name="WERKS" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[MSGFN]"
+                      dataType="wstr"
+                      length="300"
+                      name="MSGFN" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[MATKL]"
+                      dataType="wstr"
+                      length="300"
+                      name="MATKL" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[WGBEZ]"
+                      dataType="wstr"
+                      length="300"
+                      name="WGBEZ" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[ZMC1]"
+                      dataType="wstr"
+                      length="300"
+                      name="ZMC1" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="OLE DB 來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[PKEY]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[PKEY]"
+                      name="PKEY" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[WERKS]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[WERKS]"
+                      name="WERKS" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[MSGFN]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[MSGFN]"
+                      name="MSGFN" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[MATKL]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[MATKL]"
+                      name="MATKL" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[WGBEZ]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[WGBEZ]"
+                      name="WGBEZ" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ZMC1]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ZMC1]"
+                      name="ZMC1" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[FILE_NAME]"
+                      codePage="950"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[FILE_NAME]"
+                      name="FILE_NAME" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ETL_INSERT_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ETL_INSERT_DATE]"
+                      name="ETL_INSERT_DATE" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[VER_VALUE]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[VER_VALUE]"
+                      name="VER_VALUE" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\I／IU資料流程\衍生的資料行 ETL_DATE"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="衍生的資料行;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="透過套用運算式到轉換輸入資料行來建立新資料行值。建立新資料行或覆寫現有資料行。例如，將 [名字] 和 [姓氏] 資料行的值串連成 [全名] 資料行。"
+              name="衍生的資料行 ETL_DATE"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Inputs[衍生的資料行輸入]"
+                  description="輸入至衍生的資料行轉換"
+                  name="衍生的資料行輸入">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出]"
+                  description="衍生的資料行轉換的預設輸出"
+                  exclusionGroup="1"
+                  name="衍生的資料行輸出"
+                  synchronousInputId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出].Columns[ETL_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出].Columns[ETL_DATE]"
+                      name="ETL_DATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出]"
+                  description="衍生的資料行轉換的錯誤輸出"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="衍生的資料行錯誤輸出"
+                  synchronousInputId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="衍生的資料行;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="透過套用運算式到轉換輸入資料行來建立新資料行值。建立新資料行或覆寫現有資料行。例如，將 [名字] 和 [姓氏] 資料行的值串連成 [全名] 資料行。"
+              name="轉換ODS ETL Empty String為空字串"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入]"
+                  description="輸入至衍生的資料行轉換"
+                  name="衍生的資料行輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入].Columns[WERKS]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="WERKS"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[WERKS]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入].Columns[MSGFN]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="MSGFN"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[MSGFN]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出]"
+                  description="衍生的資料行轉換的預設輸出"
+                  exclusionGroup="1"
+                  name="衍生的資料行輸出"
+                  synchronousInputId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行 WERKS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行 WERKS]"
+                      name="衍生的資料行 WERKS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[WERKS]} == "ODS ETL Empty String" ? "" : #{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[WERKS]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">WERKS == "ODS ETL Empty String" ? "" : WERKS</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行 MSGFN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行 MSGFN]"
+                      name="衍生的資料行 MSGFN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[MSGFN]} == "ODS ETL Empty String" ? "" : #{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[MSGFN]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">MSGFN == "ODS ETL Empty String" ? "" : MSGFN</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行錯誤輸出]"
+                  description="衍生的資料行轉換的錯誤輸出"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="衍生的資料行錯誤輸出"
+                  synchronousInputId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\I／IU資料流程.Paths[OLE DB 來源輸出]"
+              endId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入]"
+              name="OLE DB 來源輸出"
+              startId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出]" />
+            <path
+              refId="Package\I／IU資料流程.Paths[衍生的資料行輸出]"
+              endId="Package\I／IU資料流程\intsert into stage 資料表.Inputs[OLE DB 目的地輸入]"
+              name="衍生的資料行輸出"
+              startId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出]" />
+            <path
+              refId="Package\I／IU資料流程.Paths[衍生的資料行輸出1]"
+              endId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入]"
+              name="衍生的資料行輸出"
+              startId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出]" />
+            <path
+              refId="Package\I／IU資料流程.Paths[資料轉換輸出]"
+              endId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Inputs[衍生的資料行輸入]"
+              name="資料轉換輸出"
+              startId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\紀錄目前檔案執行封裝至dbo sysssislog"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="指令碼工作"
+      DTS:DTSID="{B47FE1B1-892D-412E-9D07-E4350632670F}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="紀錄目前檔案執行封裝至dbo sysssislog"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:Property
+          DTS:DataType="8"
+          DTS:Name="EventFilter">1,18,ScriptTaskLogEntry</DTS:Property>
+        <DTS:Property
+          DTS:EventName="ScriptTaskLogEntry"
+          DTS:Name="ColumnFilter">
+          <DTS:Property
+            DTS:Name="Computer">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="Operator">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceName">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="ExecutionID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="MessageText">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="DataBytes">-1</DTS:Property>
+        </DTS:Property>
+      </DTS:LoggingOptions>
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_4279782243b54b089e84c37cb3903c9e"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadOnlyVariables="$Package::srcRawDataFileName">
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Settings.get_Default():ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Sett" +
+    "ings")]
+
+namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+#endregion
+
+namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            Dts.Log(Dts.Variables["$Package::srcRawDataFileName"].Value.ToString(),999,null);
+            Dts.TaskResult = (int)ScriptResults.Success;
+		}
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_88b66b7a93474dfdb44072a8f5f739a7</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_88b66b7a93474dfdb44072a8f5f739a7</msb:DisplayName>
+    <msb:ProjectId>{3ADFC14B-C087-4F91-A1AA-EDB1DA2CBF27}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_4279782243b54b089e84c37cb3903c9e.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="ST_4279782243b54b089e84c37cb3903c9e.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?><Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"><PropertyGroup><ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids><Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration><Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform><ProductVersion>8.0.30703</ProductVersion><SchemaVersion>2.0</SchemaVersion><ProjectGuid>{a04cefb7-a3c2-4d76-8e8a-32b1e518d64f}</ProjectGuid><OutputType>Library</OutputType><AppDesignerFolder>Properties</AppDesignerFolder><RootNamespace>ST_8b98b3e4edfb4eb5b79b43c89c378d70</RootNamespace><AssemblyName>ST_4279782243b54b089e84c37cb3903c9e</AssemblyName><TargetFrameworkVersion>v4.5</TargetFrameworkVersion><FileAlignment>512</FileAlignment><ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch><TargetFrameworkProfile></TargetFrameworkProfile></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Debug' "><DebugSymbols>true</DebugSymbols><DebugType>full</DebugType><Optimize>false</Optimize><OutputPath>.\bin\Debug\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>DEBUG;TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Release' "><DebugSymbols>false</DebugSymbols><Optimize>true</Optimize><OutputPath>.\bin\Release\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><ItemGroup><Reference Include="System" /><Reference Include="System.Data" /><Reference Include="System.Windows.Forms" /><Reference Include="System.Xml" /><Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /><Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /></ItemGroup><ItemGroup><AppDesigner Include="Properties\" /><Compile Include="Properties\AssemblyInfo.cs"><SubType>Code</SubType></Compile><EmbeddedResource Include="Properties\Resources.resx"><Generator>ResXFileCodeGenerator</Generator><LastGenOutput>Resources.Designer.cs</LastGenOutput></EmbeddedResource><Compile Include="Properties\Resources.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Resources.resx</DependentUpon></Compile><None Include="Properties\Settings.settings"><Generator>SettingsSingleFileGenerator</Generator><LastGenOutput>Settings.Designer.cs</LastGenOutput></None><Compile Include="Properties\Settings.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Settings.settings</DependentUpon></Compile><Compile Include="ScriptMain.cs"><SubType>Code</SubType></Compile></ItemGroup><!-- Include the build rules for a C# project.--><Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" /><ProjectExtensions><VisualStudio><FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}"><ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" /><Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host><ProjectClient><HostIdentifier>SSIS_ST140</HostIdentifier></ProjectClient></FlavorProperties></VisualStudio></ProjectExtensions></Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_88b66b7a93474dfdb44072a8f5f739a7.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAFHDTlwAAAAAAAAAAOAAIiALATAAAA4AAAAIAAAAAAAA0i0A
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAIAtAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA2A0AAAAgAAAADgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAAQAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAFgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAC0
+LQAAAAAAAEgAAAACAAUA9CAAANQLAAABAAAAAAAAAMgsAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPYCKBAAAAoCKBAAAApvEQAACnIBAABwbxIAAApvEwAACm8U
+AAAKIOcDAAAUbxUAAAoCKBAAAAoWbxYAAAoqHgIoFwAACioeAigYAAAKKq5+AQAABC0ecjsAAHDQ
+AwAAAigZAAAKbxoAAApzGwAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4CKBwA
+AAoqLnMIAAAGgAMAAAQqQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAAvAMAACN+
+AAAoBAAAhAUAACNTdHJpbmdzAAAAAKwJAACwAAAAI1VTAFwKAAAQAAAAI0dVSUQAAABsCgAAaAEA
+ACNCbG9iAAAAAAAAAAIAAAFXHaABCQMAAAD6ATMAFgAAAQAAAB0AAAAFAAAABgAAAAkAAAABAAAA
+HAAAAAIAAAAQAAAAAgAAAAMAAAAEAAAAAQAAAAQAAAABAAAAAQAAAAAAnQMBAAAAAAAGAEkCbQQG
+ANgCbQQGAJUBWgQPAOEEAAAGAMIBGwQGACwCGwQGAA0CGwQGAL8CGwQGAGkCGwQGAIICGwQGANkB
+GwQGAPQBBgMKAJ0CTAMKABQBTAMGANUDzgMGAHgBWgQGAFQFzgMGAD0EjQQGAC0EBgQOAEgBhwMO
+AKkBhwMOADAB8QMGAF0BbQQKAHUDTAMSACMFvwASAJIAvwAGAN8AzgMGAJsAzgMGAHoFGwQAAAAA
+SQAAAAAAAQABAAEAEADmAwEAOQABAAEAAAAQAJQE8ARFAAEAAwAAARAALQXwBFkAAwAHAAMBAABG
+BQAAPQAEAAoAEQDaA2oAEQAEAW4AEQCCAHIABgZxAHYAVoA2BXkAVoDkAHkAUCAAAAAAhgDsAwYA
+AQCOIAAAAACGGE0EBgABAJYgAAAAAIMYTQQGAAEAniAAAAAAkwg5BH0AAQDKIAAAAACTCOwAggAB
+ANEgAAAAAJMI+ACHAAEA2SAAAAAAlghbBY0AAgDgIAAAAACGGE0EBgACAOggAAAAAJEYUwSSAAIA
+AAABAAADCQBNBAEAEQBNBAYAGQBNBAoAKQBNBBAAMQBNBBAAOQBNBBAAQQBNBBAASQBNBBAAUQBN
+BBAAWQBNBBAAYQBNBBAAaQBNBAYAgQBNBAYAqQBNBBUAuQBNBAYAcQA+BRsAwQAfBSAAyQDFAyUA
+0QD2AisAiQAgAy8AwQApAzMAwQBnBQEAcQBNBAYAiQBNBAYA2QCtADsA2QB2BUIAkQBNBEcAsQBN
+BAYACAAUAGAACAAYAGUAKQBzAM0ALgALAKUALgATAK4ALgAbAM0ALgAjANYALgArAP8ALgAzAP8A
+LgA7AP8ALgBDANYALgBLAAUBLgBTAP8ALgBbABwBQwBjAGUASQBzAM0AYQB7AGUAYwBrAGUAAwAB
+AAQAAwAAAD0ElgAAAAwBmwAAAF8FoAACAAQAAwACAAUABQABAAYABQACAAcABwAEgAAAAQAAADcb
+6HYAAAAAAAAlAAAABAAAAAAAAAAAAAAATgB5AAAAAAAOAAAAAAAAAAAAAABXAC0DAAAAAAQAAAAA
+AAAAAAAAAE4AzgMAAAAADgAAAAAAAAAAAAAAVwBSAAAAAAAAAAAAAQAAAJ4EAAAFAAIAAAAAU1Rf
+OGI5OGIzZTRlZGZiNGViNWI3OWI0M2M4OWMzNzhkNzAAU1RfODhiNjZiN2E5MzQ3NGRmZGI0NDA3
+MmE4ZjVmNzM5YTcAPE1vZHVsZT4ATWljcm9zb2Z0LlNxbFNlcnZlci5NYW5hZ2VkRFRTAHZhbHVl
+X18AbXNjb3JsaWIAZGVmYXVsdEluc3RhbmNlAFZhcmlhYmxlAFJ1bnRpbWVUeXBlSGFuZGxlAEdl
+dFR5cGVGcm9tSGFuZGxlAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlJ1bnRpbWUAVHlwZQBGYWls
+dXJlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJlAHJlc291cmNlQ3VsdHVyZQBWU1RBUlRTY3JpcHRP
+YmplY3RNb2RlbEJhc2UAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UARWRpdG9yQnJvd3NhYmxlU3Rh
+dGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0dHJpYnV0
+ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBBc3NlbWJseVRp
+dGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRhcmdldEZyYW1ld29ya0F0
+dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlwdGlv
+bkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRlAEFzc2VtYmx5UHJvZHVj
+dEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lTU2NyaXB0VGFza0VudHJ5
+UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRpYmls
+aXR5QXR0cmlidXRlAGdldF9WYWx1ZQB2YWx1ZQBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAFRv
+U3RyaW5nAExvZwBNaWNyb3NvZnQuU3FsU2VydmVyLlNjcmlwdFRhc2sATWljcm9zb2Z0LlNxbFNl
+cnZlci5EdHMuVGFza3MuU2NyaXB0VGFzawBTY3JpcHRPYmplY3RNb2RlbABTeXN0ZW0uQ29tcG9u
+ZW50TW9kZWwAU1RfODhiNjZiN2E5MzQ3NGRmZGI0NDA3MmE4ZjVmNzM5YTcuZGxsAGdldF9JdGVt
+AFN5c3RlbQBFbnVtAHJlc291cmNlTWFuAFNjcmlwdE1haW4AU3lzdGVtLkNvbmZpZ3VyYXRpb24A
+U3lzdGVtLkdsb2JhbGl6YXRpb24AU3lzdGVtLlJlZmxlY3Rpb24AQ3VsdHVyZUluZm8AZ2V0X1Jl
+c291cmNlTWFuYWdlcgAuY3RvcgAuY2N0b3IAU3lzdGVtLkRpYWdub3N0aWNzAFN5c3RlbS5SdW50
+aW1lLkNvbXBpbGVyU2VydmljZXMAU3lzdGVtLlJlc291cmNlcwBTVF84Yjk4YjNlNGVkZmI0ZWI1
+Yjc5YjQzYzg5YzM3OGQ3MC5Qcm9wZXJ0aWVzLlJlc291cmNlcy5yZXNvdXJjZXMARGVidWdnaW5n
+TW9kZXMAU1RfOGI5OGIzZTRlZGZiNGViNWI3OWI0M2M4OWMzNzhkNzAuUHJvcGVydGllcwBnZXRf
+VmFyaWFibGVzAFNldHRpbmdzAFN1Y2Nlc3MAZ2V0X0R0cwBTY3JpcHRSZXN1bHRzAE9iamVjdABn
+ZXRfRGVmYXVsdABzZXRfVGFza1Jlc3VsdABnZXRfQXNzZW1ibHkAAAA5JABQAGEAYwBrAGEAZwBl
+ADoAOgBzAHIAYwBSAGEAdwBEAGEAdABhAEYAaQBsAGUATgBhAG0AZQAAcVMAVABfADgAYgA5ADgA
+YgAzAGUANABlAGQAZgBiADQAZQBiADUAYgA3ADkAYgA0ADMAYwA4ADkAYwAzADcAOABkADcAMAAu
+AFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAAAAADBkFOJgKVEi0FfA0
+DkEWMwAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERUQQgABJhBCAAEmUFIAESaRwDIAAcAyAADgcg
+AwEOCB0FBgABEm0RcQQgABJ1BiACAQ4SdQi3elxWGTTgiQiJhF3NgIDMkQQAAAAABAEAAAADBhJJ
+AwYSTQMGEhACBggDBhEUBAAAEkkEAAASTQUAAQESTQQAABIQAwAAAQQIABJJBAgAEk0ECAASEAgB
+AAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEIAQACAAAAAAAoAQAjU1RfOGI5
+OGIzZTRlZGZiNGViNWI3OWI0M2M4OWMzNzhkNzAAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAx
+OQAASQEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC41AQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFt
+ZRIuTkVUIEZyYW1ld29yayA0LjUAALQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5S
+ZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFs
+LCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGlt
+ZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAACoLQAAAAAAAAAAAADCLQAAACAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAtC0AAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVlLmRsbAAA
+AAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAA
+AAAASAAAAFhAAAAaBAAAAAAAAAAAAAAaBDQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYA
+TwAAAAAAvQTv/gAAAQAAAAEA6HY3GwAAAQDodjcbPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAA
+AEQAAAABAFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkA
+bwBuAAAAAAAAALAEegMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAVgMAAAEAMAAw
+ADAAMAAwADQAYgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAA
+YQBuAHkATgBhAG0AZQAAAAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBu
+AAAAAABTAFQAXwA4AGIAOQA4AGIAMwBlADQAZQBkAGYAYgA0AGUAYgA1AGIANwA5AGIANAAzAGMA
+OAA5AGMAMwA3ADgAZAA3ADAAAAA+AA8AAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAw
+AC4ANgA5ADYANwAuADMAMAA0ADQAMAAAAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUA
+AABTAFQAXwA4ADgAYgA2ADYAYgA3AGEAOQAzADQANwA0AGQAZgBkAGIANAA0ADAANwAyAGEAOABm
+ADUAZgA3ADMAOQBhADcALgBkAGwAbAAAAEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgA
+dAAAAEMAbwBwAHkAcgBpAGcAaAB0ACAAQAAgACAAMgAwADEAOQAAACoAAQABAEwAZQBnAGEAbABU
+AHIAYQBkAGUAbQBhAHIAawBzAAAAAAAAAAAAeAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUA
+bgBhAG0AZQAAAFMAVABfADgAOABiADYANgBiADcAYQA5ADMANAA3ADQAZABmAGQAYgA0ADQAMAA3
+ADIAYQA4AGYANQBmADcAMwA5AGEANwAuAGQAbABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEA
+bQBlAAAAAABTAFQAXwA4AGIAOQA4AGIAMwBlADQAZQBkAGYAYgA0AGUAYgA1AGIANwA5AGIANAAz
+AGMAOAA5AGMAMwA3ADgAZAA3ADAAAABCAA8AAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4A
+AAAxAC4AMAAuADYAOQA2ADcALgAzADAANAA0ADAAAAAAAEYADwABAEEAcwBzAGUAbQBiAGwAeQAg
+AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADYAOQA2ADcALgAzADAANAA0ADAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAMAAAA1D0A
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\I／IU資料流程"
+          TopLeft="347.407395986863,103.928592191666" />
+        <NodeLayout
+          Size="289,42"
+          Id="Package\紀錄目前檔案執行封裝至dbo sysssislog"
+          TopLeft="4.6296294456647,102.619044192794" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\I／IU資料流程">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="274,42"
+          Id="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串"
+          TopLeft="175.880961127697,105.255101925604" />
+        <NodeLayout
+          Size="294,42"
+          Id="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出"
+          TopLeft="168.238094235224,30.1020385120772" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\I／IU資料流程\intsert into stage 資料表"
+          TopLeft="213.547637860926,319.969399405116" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\I／IU資料流程\衍生的資料行 ETL_DATE"
+          TopLeft="211.047638158949,244.469398408867" />
+        <EdgeLayout
+          Id="Package\I／IU資料流程.Paths[衍生的資料行輸出]"
+          TopLeft="317.547638009937,286.469398408867">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.500000996249"
+              Start="0,0"
+              End="0,26.000000996249">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.000000996249" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\I／IU資料流程.Paths[OLE DB 來源輸出]"
+          TopLeft="314.059527681461,72.1020385120772">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.1530634135268"
+              Start="0,0"
+              End="0,25.6530634135268">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6530634135268" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="278,42"
+          Id="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換"
+          TopLeft="174.166659745905,174.57142098096" />
+        <EdgeLayout
+          Id="Package\I／IU資料流程.Paths[衍生的資料行輸出1]"
+          TopLeft="313.023810436801,147.255101925604">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.3163190553559"
+              Start="0,0"
+              End="0,19.8163190553559">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.8163190553559" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\I／IU資料流程.Paths[資料轉換輸出]"
+          TopLeft="315.857148952427,216.57142098096">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.8979774279071"
+              Start="0,0"
+              End="0,20.3979774279071">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3979774279071" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\I／IU資料流程\intsert into stage 資料表">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

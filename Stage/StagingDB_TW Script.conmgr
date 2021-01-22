@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="StagingDB_TW Script"
+  DTS:DTSID="{31BFAE57-E082-4A61-8386-F205966F3FDC}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=ODSSQLDB1;Initial Catalog=StagingDB_TW;Integrated Security=True;Application Name=&quot;SSIS-{31BFAE57-E082-4A61-8386-F205966F3FDC}StagingDB_TW Script&quot;;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

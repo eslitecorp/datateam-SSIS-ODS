@@ -1,0 +1,845 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/12/2019 9:15:17 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1505003NB02"
+  DTS:CreatorName="IEAD\1505003"
+  DTS:DTSID="{81C6F6B5-BD97-4A80-8834-A79806F9223C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="MF_PRODUCT_TYPE_EC"
+  DTS:PackageType="5"
+  DTS:VersionBuild="155"
+  DTS:VersionGUID="{46AA07BB-6E56-4BF5-AC1C-FC0F6B57EF47}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{2B6F9729-4B21-44C9-8D65-E8E194344BD6}"
+      DTS:ObjectName="sysName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">MF</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{6A841E52-A6BB-4B61-881B-3EC524B4AF3C}"
+      DTS:ObjectName="tableName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D_ProductType_EC</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Stage To ODS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="資料流程工作"
+      DTS:DTSID="{DA157676-5AAD-49A3-AD55-6E4A6E6DE2EF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Stage To ODS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Stage To ODS\Insert into ODS資料表"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目的地"
+              name="Insert into ODS資料表"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">[dbo].[MF_PRODUCT_TYPE_EC]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable">User::odsTableName</property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出提供給識別欄位的值是否複製到目的地。如果為 False，則會在目的地自動產生識別欄位的值。只有在開啟快速載入時才會套用。"
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出包含 Null 之資料行的 Null 是否會插入目的地。若是 False，則包含 Null 的資料行的預設值會插入目的地。唯有開啟快速載入時才適用。"
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定快速載入使用的選項。只有開啟快速載入時才會套用。"
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在資料插入期間發出認可的時間。值為 0 指定在資料插入結束時發出一次認可。只有開啟快速載入時才會套用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Stage To ODS\Insert into ODS資料表.Connections[OleDbConnection]"
+                  connectionManagerID="{BCE09612-5D02-4D81-A529-B6EDFCA7C1E3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODSDB]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].Columns[ODS_ETL_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ODS_ETL_DATE"
+                      externalMetadataColumnId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[ETL_DATE]"
+                      lineageId="Package\Stage To ODS\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出].Columns[ODS_ETL_DATE]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].Columns[SN]"
+                      cachedDataType="i4"
+                      cachedName="SN"
+                      externalMetadataColumnId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[Sn]"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[SN]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].Columns[MCH]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MCH"
+                      externalMetadataColumnId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[MCH]"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[MCH]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].Columns[category_id]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="category_id"
+                      externalMetadataColumnId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[category_id]"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[category_id]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].Columns[category_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="category_name"
+                      externalMetadataColumnId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[category_name]"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[category_name]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].Columns[EC_L]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EC_L"
+                      externalMetadataColumnId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[CAT_L]"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_L]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].Columns[EC_L_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EC_L_Name"
+                      externalMetadataColumnId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[CAT_L_Name]"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_L_Name]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].Columns[EC_M]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EC_M"
+                      externalMetadataColumnId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[CAT_M]"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_M]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].Columns[EC_M_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EC_M_Name"
+                      externalMetadataColumnId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[CAT_M_Name]"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_M_Name]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].Columns[EC_S]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EC_S"
+                      externalMetadataColumnId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[CAT_S]"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_S]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].Columns[EC_S_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EC_S_Name"
+                      externalMetadataColumnId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[CAT_S_Name]"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_S_Name]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].Columns[level]"
+                      cachedDataType="i4"
+                      cachedName="level"
+                      externalMetadataColumnId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[level]"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[level]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[ETL_DATE]"
+                      dataType="dbTimeStamp"
+                      name="ETL_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[Sn]"
+                      dataType="i4"
+                      name="Sn" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[MCH]"
+                      dataType="wstr"
+                      length="50"
+                      name="MCH" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[category_id]"
+                      dataType="wstr"
+                      length="50"
+                      name="category_id" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[category_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="category_name" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[CAT_L]"
+                      dataType="wstr"
+                      length="50"
+                      name="CAT_L" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[CAT_L_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="CAT_L_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[CAT_M]"
+                      dataType="wstr"
+                      length="50"
+                      name="CAT_M" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[CAT_M_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="CAT_M_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[CAT_S]"
+                      dataType="wstr"
+                      length="50"
+                      name="CAT_S" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[CAT_S_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="CAT_S_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[level]"
+                      dataType="i4"
+                      name="level" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Stage To ODS\Insert into ODS資料表.Outputs[OLE DB 目的地錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目的地錯誤輸出"
+                  synchronousInputId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Stage To ODS\Insert into ODS資料表.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\Insert into ODS資料表.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Stage To ODS\Insert into ODS資料表.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Stage To ODS\取得Stage所需資料"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB 來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;7"
+              description="OLE DB 來源"
+              name="取得Stage所需資料"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">[SMS].[SMS]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT CM.SN, MCH
+		, PEC_LV.category_id, PEC_LV.category_name
+		, PEC_LV.EC_L, PEC_LV.EC_L_Name
+		, PEC_LV.EC_M, PEC_LV.EC_M_Name
+		, PEC_LV.EC_S, PEC_LV.EC_S_Name
+		, PEC_LV.level
+	FROM EC.C_MCHConfig CM JOIN EC.P_EsliteCategory PEC ON  CAST(CM.CategoryID AS nvarchar(50)) = PEC.category_id
+	JOIN (
+		SELECT category_id as category_id, category_name as category_name
+			, category_id as EC_L, category_name as EC_L_Name
+			, null EC_M, null as EC_M_Name
+			, null as EC_S, null as EC_S_Name
+			, level
+		FROM EC.P_EsliteCategory 
+		WHERE level = 0
+		 union
+		--- LV1  153
+		SELECT PELV1.category_id as category_id, PELV1.category_name as category_name
+			, PELV0.category_id as EC_L, PELV0.category_name as EC_L_Name
+			, PELV1.category_id EC_M, PELV1.category_name as EC_M_Name
+			, null as EC_S, null as EC_S_Name
+			, PELV1.level
+		FROM (SELECT * FROM EC.P_EsliteCategory WHERE level = 1) PELV1
+		JOIN EC.P_EsliteCategory PELV0 ON CAST(PELV1.parent_id AS nvarchar(50)) = PELV0.category_id AND PELV0.level = 0
+		union
+		--- LV2  644
+		SELECT PELV2.category_id as category_id, PELV2.category_name as category_name
+			, PELV0.category_id as EC_L, PELV0.category_name as EC_L_Name
+			, PELV1.category_id EC_M, PELV1.category_name as EC_M_Name
+			, PELV2.category_id as EC_S, PELV2.category_name as EC_S_Name
+			, PELV2.level
+		FROM (SELECT * FROM EC.P_EsliteCategory WHERE level = 2) PELV2
+		JOIN EC.P_EsliteCategory PELV1 ON CAST(PELV2.parent_id AS nvarchar(50)) = PELV1.category_id AND PELV1.level = 1
+		JOIN EC.P_EsliteCategory PELV0 ON CAST(PELV1.parent_id AS nvarchar(50)) = PELV0.category_id AND PELV0.level = 0
+	) PEC_LV ON CAST(CM.CategoryID AS nvarchar(50)) = PEC_LV.category_id and PEC.level = PEC_LV.level
+		--(CASE WHEN PEC.level = 0 THEN PEC_LV.EC_L WHEN PEC.level = 1 THEN PEC_LV.EC_M WHEN PEC.level = 2 THEN PEC_LV.EC_S END)
+	WHERE LEN(MCH) = 9
+	ORDER BY PEC.level;</property>
+                <property
+                  dataType="System.String"
+                  description="包含要執行之 SQL 命令的變數。"
+                  name="SqlCommandVariable">User::odsSql</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="SQL 命令中的參數和變數之間的對應。"
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Stage To ODS\取得Stage所需資料.Connections[OleDbConnection]"
+                  connectionManagerID="{A57FD12F-31B0-4921-B126-1B199EEB4D66}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[StagingDB_TW]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出]"
+                  name="OLE DB 來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[SN]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[SN]"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[SN]"
+                      name="SN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[MCH]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[MCH]"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[MCH]"
+                      name="MCH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_L]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[EC_L]"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_L]"
+                      name="EC_L"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_L_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[EC_L_Name]"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_L_Name]"
+                      name="EC_L_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_M]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[EC_M]"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_M]"
+                      name="EC_M"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_M_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[EC_M_Name]"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_M_Name]"
+                      name="EC_M_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_S]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[EC_S]"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_S]"
+                      name="EC_S"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_S_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[EC_S_Name]"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[EC_S_Name]"
+                      name="EC_S_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[category_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[category_id]"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[category_id]"
+                      name="category_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[category_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[category_name]"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[category_name]"
+                      name="category_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[level]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[level]"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].Columns[level]"
+                      name="level"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[SN]"
+                      dataType="i4"
+                      name="SN" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[MCH]"
+                      dataType="wstr"
+                      length="50"
+                      name="MCH" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[EC_L]"
+                      dataType="wstr"
+                      length="50"
+                      name="EC_L" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[EC_L_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="EC_L_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[EC_M]"
+                      dataType="wstr"
+                      length="50"
+                      name="EC_M" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[EC_M_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="EC_M_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[EC_S]"
+                      dataType="wstr"
+                      length="50"
+                      name="EC_S" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[EC_S_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="EC_S_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[category_id]"
+                      dataType="wstr"
+                      length="50"
+                      name="category_id" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[category_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="category_name" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出].ExternalColumns[level]"
+                      dataType="i4"
+                      name="level" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="OLE DB 來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[SN]"
+                      dataType="i4"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[SN]"
+                      name="SN" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[MCH]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[MCH]"
+                      name="MCH" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[category_id]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[category_id]"
+                      name="category_id" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[category_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[category_name]"
+                      name="category_name" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[EC_L]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[EC_L]"
+                      name="EC_L" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[EC_L_Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[EC_L_Name]"
+                      name="EC_L_Name" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[EC_M]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[EC_M]"
+                      name="EC_M" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[EC_M_Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[EC_M_Name]"
+                      name="EC_M_Name" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[EC_S]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[EC_S]"
+                      name="EC_S" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[EC_S_Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[EC_S_Name]"
+                      name="EC_S_Name" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[level]"
+                      dataType="i4"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[level]"
+                      name="level" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Stage To ODS\衍生的資料行 ETL_DATE"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="衍生的資料行;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="透過套用運算式到轉換輸入資料行來建立新資料行值。建立新資料行或覆寫現有資料行。例如，將 [名字] 和 [姓氏] 資料行的值串連成 [全名] 資料行。"
+              name="衍生的資料行 ETL_DATE"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Stage To ODS\衍生的資料行 ETL_DATE.Inputs[衍生的資料行輸入]"
+                  description="輸入至衍生的資料行轉換"
+                  name="衍生的資料行輸入">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Stage To ODS\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出]"
+                  description="衍生的資料行轉換的預設輸出"
+                  exclusionGroup="1"
+                  name="衍生的資料行輸出"
+                  synchronousInputId="Package\Stage To ODS\衍生的資料行 ETL_DATE.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage To ODS\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出].Columns[ODS_ETL_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Stage To ODS\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出].Columns[ODS_ETL_DATE]"
+                      name="ODS_ETL_DATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Stage To ODS\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出]"
+                  description="衍生的資料行轉換的錯誤輸出"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="衍生的資料行錯誤輸出"
+                  synchronousInputId="Package\Stage To ODS\衍生的資料行 ETL_DATE.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage To ODS\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Stage To ODS\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Stage To ODS\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Stage To ODS.Paths[OLE DB 來源輸出]"
+              endId="Package\Stage To ODS\衍生的資料行 ETL_DATE.Inputs[衍生的資料行輸入]"
+              name="OLE DB 來源輸出"
+              startId="Package\Stage To ODS\取得Stage所需資料.Outputs[OLE DB 來源輸出]" />
+            <path
+              refId="Package\Stage To ODS.Paths[衍生的資料行輸出]"
+              endId="Package\Stage To ODS\Insert into ODS資料表.Inputs[OLE DB 目的地輸入]"
+              name="衍生的資料行輸出"
+              startId="Package\Stage To ODS\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Stage To ODS"
+          TopLeft="248.333323465454,125.357136452685" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Stage To ODS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Stage To ODS\Insert into ODS資料表"
+          TopLeft="296.666654878193,193.571420316794" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Stage To ODS\取得Stage所需資料"
+          TopLeft="299.166654778852,27.357141101847" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Stage To ODS\衍生的資料行 ETL_DATE"
+          TopLeft="289.166655176217,112.214288513271" />
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[衍生的資料行輸出]"
+          TopLeft="395.916655027205,154.214288513271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.3571318035229"
+              Start="0,0"
+              End="0,31.8571318035229">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8571318035229" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[OLE DB 來源輸出]"
+          TopLeft="393.416654977534,69.357141101847">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.8571474114242"
+              Start="0,0"
+              End="0,35.3571474114242">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.3571474114242" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Stage To ODS\Insert into ODS資料表">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Stage To ODS\取得Stage所需資料">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

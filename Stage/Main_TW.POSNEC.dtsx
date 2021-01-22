@@ -1,0 +1,88 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/7/2019 2:39:34 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1701003NB01"
+  DTS:CreatorName="IEAD\1701003"
+  DTS:DTSID="{247EF13E-6D6E-4669-9B4F-43CCD24619D4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="Main_TW POSNEC"
+  DTS:PackageType="5"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{BEA689F3-2AF9-4C46-AF61-415DB23A3EBB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{89E254DD-56F8-4371-B713-7A8DFC4FBA7D}"
+      DTS:ObjectName="srcNatName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">TW</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{7FA02002-49D3-4803-A01F-B4C36EBD402E}"
+      DTS:ObjectName="srcSysName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">POSNEC</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\啟動POS NEC資料清洗ETL作業"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{F27A7D14-DFE3-4A03-A9C7-E68CBF6111E4}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="啟動POS NEC資料清洗ETL作業"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Main_EnterPoint.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>srcSysName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcNatName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="251,42"
+          Id="Package\啟動POS NEC資料清洗ETL作業"
+          TopLeft="138.333330220646,74.857142098096" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,2678 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/8/2019 9:47:44 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1701003NB01"
+  DTS:CreatorName="IEAD\1701003"
+  DTS:DTSID="{E0B5F795-4A2A-4052-822B-CF3F47102B2C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="TW SAP SP04"
+  DTS:PackageType="5"
+  DTS:VersionBuild="227"
+  DTS:VersionGUID="{BB3B8C0E-F16D-4AA6-B355-28A197956089}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="StagingDB_TW"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="將事件的記錄項目寫入 SQL Server 資料庫"
+      DTS:DTSID="{A3AD6BE6-1368-4773-8E86-14267DDBB69E}"
+      DTS:ObjectName="SQL Server 的 SSIS 記錄提供者">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{BBE0DD02-80DB-435C-8119-A8C709A82AF7}"
+      DTS:ObjectName="dbPrestageTableName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">prestage_SAP_EADB.SP04</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{FCF579D0-9996-4684-9327-1AA8F05E44EC}"
+      DTS:ObjectName="dbSchemaName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{AF5BD896-6D00-4D78-B899-1035F0CE6E07}"
+      DTS:ObjectName="dbStageTableName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SAP_EADB.SP04</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{AF19166A-C72B-4E79-BE2E-D5910A727781}"
+      DTS:ObjectName="dbTableName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{D0036168-E751-4C5E-8D93-F3C4A55AB134}"
+      DTS:ObjectName="srcEncodedFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{4FC0908E-BD31-42B8-BCC9-33387AB4475B}"
+      DTS:ObjectName="srcRawDataFileName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">ODSSAP-SP04-IU-20190629220105SPP.PUB</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{5EE93ED7-89ED-4329-B01D-C9B2F89BF89B}"
+      DTS:ObjectName="srcSysName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{9605FFFE-87B8-4A7C-B96B-FFC259A74C6A}"
+      DTS:ObjectName="writeInEvent">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FD92998D-47EC-4215-983C-1321AA04EC9F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT *  FROM &quot; + @[$Package::dbPrestageTableName] + &quot; WHERE FILE_NAME =  '&quot; + @[$Package::srcRawDataFileName]  +&quot;' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = '&quot;+ @[$Package::srcRawDataFileName] +&quot;' and l.executionid = &quot;+ (DT_WSTR,100) @[System::ServerExecutionID] +&quot;)&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sqlQueryPrestage">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT *  FROM prestage_SAP_EADB.SP04 WHERE FILE_NAME =  'ODSSAP-SP04-IU-20190629220105SPP.PUB' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = 'ODSSAP-SP04-IU-20190629220105SPP.PUB' and l.executionid = 0)</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{A3AD6BE6-1368-4773-8E86-14267DDBB69E}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\I／IU資料流程"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="資料流程工作"
+      DTS:DTSID="{33600154-E1DD-4D1D-B1DC-8D5EE02C218F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="I／IU資料流程"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\I／IU資料流程\intsert into stage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目的地"
+              name="intsert into stage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">[SAP].[SP01]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable">$Package::dbStageTableName</property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">4</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出提供給識別欄位的值是否複製到目的地。如果為 False，則會在目的地自動產生識別欄位的值。只有在開啟快速載入時才會套用。"
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出包含 Null 之資料行的 Null 是否會插入目的地。若是 False，則包含 Null 的資料行的預設值會插入目的地。唯有開啟快速載入時才適用。"
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定快速載入使用的選項。只有開啟快速載入時才會套用。"
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在資料插入期間發出認可的時間。值為 0 指定在資料插入結束時發出一次認可。只有開啟快速載入時才會套用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\I／IU資料流程\intsert into stage.Connections[OleDbConnection]"
+                  connectionManagerID="{317F7F78-B848-480C-B983-2137EF141394}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[StagingDB_TW]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[FILE_NAME]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="FILE_NAME"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[FILE_NAME]"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[FILE_NAME]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[ETL_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ETL_DATE"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[ETL_DATE]"
+                      lineageId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出].Columns[ETL_DATE]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[udflg 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="udflg 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[udflg]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[udflg 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[lifnr 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="lifnr 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[lifnr]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[lifnr 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[name1 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="name1 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[name1]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[name1 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[tcper 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="tcper 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[tcper]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[tcper 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[tctno 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="tctno 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[tctno]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[tctno 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[ctfdt 的副本]"
+                      cachedDataType="date"
+                      cachedName="ctfdt 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[ctfdt]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ctfdt 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[cttdt 的副本]"
+                      cachedDataType="date"
+                      cachedName="cttdt 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[cttdt]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[cttdt 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[floor 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="floor 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[floor]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[floor 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[cabin 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="cabin 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[cabin]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[cabin 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[CouItemCat31 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="CouItemCat31 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[CouItemCat31]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat31 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[CouItemCat32 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="CouItemCat32 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[CouItemCat32]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat32 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[CouItemCat33 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="CouItemCat33 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[CouItemCat33]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat33 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[CouItemCat34 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="CouItemCat34 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[CouItemCat34]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat34 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[CouItemCat35 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="CouItemCat35 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[CouItemCat35]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat35 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[werks 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="werks 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[werks]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[werks 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[tcgvd 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="tcgvd 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[tcgvd]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[tcgvd 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[gvdnm 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="gvdnm 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[gvdnm]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[gvdnm 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[cctdt 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="cctdt 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[cctdt]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[cctdt 的副本]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[FILE_NAME]"
+                      codePage="950"
+                      dataType="str"
+                      length="100"
+                      name="FILE_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[ETL_DATE]"
+                      dataType="dbTimeStamp"
+                      name="ETL_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[DELETE_MARK]"
+                      dataType="i4"
+                      name="DELETE_MARK" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[udflg]"
+                      codePage="950"
+                      dataType="str"
+                      length="1"
+                      name="udflg" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[lifnr]"
+                      codePage="950"
+                      dataType="str"
+                      length="10"
+                      name="lifnr" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[name1]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="name1" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[tcper]"
+                      codePage="950"
+                      dataType="str"
+                      length="6"
+                      name="tcper" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[tctno]"
+                      codePage="950"
+                      dataType="str"
+                      length="4"
+                      name="tctno" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[ctfdt]"
+                      dataType="dbDate"
+                      name="ctfdt" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[cttdt]"
+                      dataType="dbDate"
+                      name="cttdt" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[floor]"
+                      codePage="950"
+                      dataType="str"
+                      length="4"
+                      name="floor" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[cabin]"
+                      codePage="950"
+                      dataType="str"
+                      length="12"
+                      name="cabin" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[CouItemCat31]"
+                      codePage="950"
+                      dataType="str"
+                      length="8"
+                      name="CouItemCat31" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[CouItemCat32]"
+                      codePage="950"
+                      dataType="str"
+                      length="8"
+                      name="CouItemCat32" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[CouItemCat33]"
+                      codePage="950"
+                      dataType="str"
+                      length="8"
+                      name="CouItemCat33" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[CouItemCat34]"
+                      codePage="950"
+                      dataType="str"
+                      length="8"
+                      name="CouItemCat34" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[CouItemCat35]"
+                      codePage="950"
+                      dataType="str"
+                      length="8"
+                      name="CouItemCat35" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[werks]"
+                      codePage="950"
+                      dataType="str"
+                      length="4"
+                      name="werks" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[tcgvd]"
+                      codePage="950"
+                      dataType="str"
+                      length="10"
+                      name="tcgvd" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[gvdnm]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="gvdnm" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[cctdt]"
+                      codePage="950"
+                      dataType="str"
+                      length="8"
+                      name="cctdt" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\I／IU資料流程\intsert into stage.Outputs[OLE DB 目的地錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目的地錯誤輸出"
+                  synchronousInputId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\intsert into stage.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\intsert into stage.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="資料轉換;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="資料轉換"
+              name="依Stage資料表的欄位格式做資料轉換"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入]"
+                  name="資料轉換輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[name1]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="name1"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[name1]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[floor]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="floor"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[floor]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[cabin]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="cabin"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cabin]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[CouItemCat31]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="CouItemCat31"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat31]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[CouItemCat32]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="CouItemCat32"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat32]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[CouItemCat33]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="CouItemCat33"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat33]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[CouItemCat34]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="CouItemCat34"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat34]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[CouItemCat35]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="CouItemCat35"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat35]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[tcgvd]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="tcgvd"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[tcgvd]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[gvdnm]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="gvdnm"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[gvdnm]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[衍生的資料行werks]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="衍生的資料行werks"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行werks]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[衍生的資料行udflg]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="衍生的資料行udflg"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行udflg]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[衍生的資料行lifnr]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="衍生的資料行lifnr"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行lifnr]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[衍生的資料行tcper]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="衍生的資料行tcper"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行tcper]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[衍生的資料行tctno]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="衍生的資料行tctno"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行tctno]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[衍生的資料行ctfdt]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="衍生的資料行ctfdt"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行ctfdt]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[衍生的資料行cttdt]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="衍生的資料行cttdt"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行cttdt]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[cctdt]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="cctdt"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cctdt]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出]"
+                  exclusionGroup="1"
+                  name="資料轉換輸出"
+                  synchronousInputId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[name1 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="50"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[name1 的副本]"
+                      name="name1 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[name1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ctfdt 的副本]"
+                      dataType="date"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ctfdt 的副本]"
+                      name="ctfdt 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行ctfdt]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[cttdt 的副本]"
+                      dataType="date"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[cttdt 的副本]"
+                      name="cttdt 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行cttdt]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[floor 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="4"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[floor 的副本]"
+                      name="floor 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[floor]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[cabin 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="12"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[cabin 的副本]"
+                      name="cabin 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cabin]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat31 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="8"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat31 的副本]"
+                      name="CouItemCat31 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat31]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat32 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="8"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat32 的副本]"
+                      name="CouItemCat32 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat32]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat33 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="8"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat33 的副本]"
+                      name="CouItemCat33 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat33]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat34 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="8"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat34 的副本]"
+                      name="CouItemCat34 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat34]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat35 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="8"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CouItemCat35 的副本]"
+                      name="CouItemCat35 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat35]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[tcgvd 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="10"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[tcgvd 的副本]"
+                      name="tcgvd 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[tcgvd]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[gvdnm 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="50"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[gvdnm 的副本]"
+                      name="gvdnm 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[gvdnm]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[werks 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="4"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[werks 的副本]"
+                      name="werks 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行werks]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[udflg 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="1"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[udflg 的副本]"
+                      name="udflg 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行udflg]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[lifnr 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="10"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[lifnr 的副本]"
+                      name="lifnr 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行lifnr]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[tcper 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="6"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[tcper 的副本]"
+                      name="tcper 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行tcper]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[tctno 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="4"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[tctno 的副本]"
+                      name="tctno 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行tctno]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[cctdt 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="8"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[cctdt 的副本]"
+                      name="cctdt 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cctdt]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="資料轉換錯誤輸出"
+                  synchronousInputId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB 來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;7"
+              description="OLE DB 來源"
+              name="從prestage資料表把驗證通過的資料取出"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable">$Package::insertTable</property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT *
+  FROM prestage_SAP.SP01
+WHERE FILE_NAME = ? and VER_VALUE = 0</property>
+                <property
+                  dataType="System.String"
+                  description="包含要執行之 SQL 命令的變數。"
+                  name="SqlCommandVariable">User::sqlQueryPrestage</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.String"
+                  description="SQL 命令中的參數和變數之間的對應。"
+                  name="ParameterMapping">"參數0:Input",{EFA7D5F7-0A59-44AD-9421-23FC4F43C955};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Connections[OleDbConnection]"
+                  connectionManagerID="{317F7F78-B848-480C-B983-2137EF141394}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[StagingDB_TW]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出]"
+                  isSorted="true"
+                  name="OLE DB 來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[VER_VALUE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[VER_VALUE]"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[VER_VALUE]"
+                      name="VER_VALUE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[PKEY]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[PKEY]"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[PKEY]"
+                      name="PKEY"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[FILE_NAME]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[FILE_NAME]"
+                      length="100"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[FILE_NAME]"
+                      name="FILE_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ETL_INSERT_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[ETL_INSERT_DATE]"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ETL_INSERT_DATE]"
+                      name="ETL_INSERT_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[udflg]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[udflg]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[udflg]"
+                      name="udflg"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[lifnr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[lifnr]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[lifnr]"
+                      name="lifnr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[name1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[name1]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[name1]"
+                      name="name1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[tcper]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[tcper]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[tcper]"
+                      name="tcper"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[tctno]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[tctno]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[tctno]"
+                      name="tctno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ctfdt]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[ctfdt]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ctfdt]"
+                      name="ctfdt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cttdt]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[cttdt]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cttdt]"
+                      name="cttdt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[floor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[floor]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[floor]"
+                      name="floor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cabin]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[cabin]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cabin]"
+                      name="cabin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat31]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[CouItemCat31]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat31]"
+                      name="CouItemCat31"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat32]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[CouItemCat32]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat32]"
+                      name="CouItemCat32"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat33]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[CouItemCat33]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat33]"
+                      name="CouItemCat33"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat34]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[CouItemCat34]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat34]"
+                      name="CouItemCat34"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat35]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[CouItemCat35]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CouItemCat35]"
+                      name="CouItemCat35"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[werks]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[werks]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[werks]"
+                      name="werks"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[tcgvd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[tcgvd]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[tcgvd]"
+                      name="tcgvd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[gvdnm]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[gvdnm]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[gvdnm]"
+                      name="gvdnm"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cctdt]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[cctdt]"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cctdt]"
+                      name="cctdt"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[VER_VALUE]"
+                      dataType="i4"
+                      name="VER_VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[PKEY]"
+                      dataType="i4"
+                      name="PKEY" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[FILE_NAME]"
+                      codePage="950"
+                      dataType="str"
+                      length="100"
+                      name="FILE_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[ETL_INSERT_DATE]"
+                      dataType="dbTimeStamp"
+                      name="ETL_INSERT_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[udflg]"
+                      dataType="wstr"
+                      length="300"
+                      name="udflg" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[lifnr]"
+                      dataType="wstr"
+                      length="300"
+                      name="lifnr" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[name1]"
+                      dataType="wstr"
+                      length="300"
+                      name="name1" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[tcper]"
+                      dataType="wstr"
+                      length="300"
+                      name="tcper" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[tctno]"
+                      dataType="wstr"
+                      length="300"
+                      name="tctno" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[ctfdt]"
+                      dataType="wstr"
+                      length="300"
+                      name="ctfdt" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[cttdt]"
+                      dataType="wstr"
+                      length="300"
+                      name="cttdt" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[floor]"
+                      dataType="wstr"
+                      length="300"
+                      name="floor" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[cabin]"
+                      dataType="wstr"
+                      length="300"
+                      name="cabin" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[CouItemCat31]"
+                      dataType="wstr"
+                      length="300"
+                      name="CouItemCat31" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[CouItemCat32]"
+                      dataType="wstr"
+                      length="300"
+                      name="CouItemCat32" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[CouItemCat33]"
+                      dataType="wstr"
+                      length="300"
+                      name="CouItemCat33" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[CouItemCat34]"
+                      dataType="wstr"
+                      length="300"
+                      name="CouItemCat34" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[CouItemCat35]"
+                      dataType="wstr"
+                      length="300"
+                      name="CouItemCat35" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[werks]"
+                      dataType="wstr"
+                      length="300"
+                      name="werks" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[tcgvd]"
+                      dataType="wstr"
+                      length="300"
+                      name="tcgvd" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[gvdnm]"
+                      dataType="wstr"
+                      length="300"
+                      name="gvdnm" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[cctdt]"
+                      dataType="wstr"
+                      length="300"
+                      name="cctdt" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="OLE DB 來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[werks]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[werks]"
+                      name="werks" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[udflg]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[udflg]"
+                      name="udflg" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[lifnr]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[lifnr]"
+                      name="lifnr" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[name1]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[name1]"
+                      name="name1" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[tcper]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[tcper]"
+                      name="tcper" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[tctno]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[tctno]"
+                      name="tctno" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ctfdt]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ctfdt]"
+                      name="ctfdt" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[cttdt]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[cttdt]"
+                      name="cttdt" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[floor]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[floor]"
+                      name="floor" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[cabin]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[cabin]"
+                      name="cabin" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[CouItemCat31]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[CouItemCat31]"
+                      name="CouItemCat31" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[CouItemCat32]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[CouItemCat32]"
+                      name="CouItemCat32" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[CouItemCat33]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[CouItemCat33]"
+                      name="CouItemCat33" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[CouItemCat34]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[CouItemCat34]"
+                      name="CouItemCat34" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[CouItemCat35]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[CouItemCat35]"
+                      name="CouItemCat35" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[tcgvd]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[tcgvd]"
+                      name="tcgvd" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[gvdnm]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[gvdnm]"
+                      name="gvdnm" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[cctdt]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[cctdt]"
+                      name="cctdt" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[VER_VALUE]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[VER_VALUE]"
+                      name="VER_VALUE" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[PKEY]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[PKEY]"
+                      name="PKEY" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[FILE_NAME]"
+                      codePage="950"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[FILE_NAME]"
+                      name="FILE_NAME" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ETL_INSERT_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ETL_INSERT_DATE]"
+                      name="ETL_INSERT_DATE" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\I／IU資料流程\衍生的資料行 ETL_DATE"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="衍生的資料行;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="透過套用運算式到轉換輸入資料行來建立新資料行值。建立新資料行或覆寫現有資料行。例如，將 [名字] 和 [姓氏] 資料行的值串連成 [全名] 資料行。"
+              name="衍生的資料行 ETL_DATE"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Inputs[衍生的資料行輸入]"
+                  description="輸入至衍生的資料行轉換"
+                  name="衍生的資料行輸入">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出]"
+                  description="衍生的資料行轉換的預設輸出"
+                  exclusionGroup="1"
+                  name="衍生的資料行輸出"
+                  synchronousInputId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出].Columns[ETL_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出].Columns[ETL_DATE]"
+                      name="ETL_DATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出]"
+                  description="衍生的資料行轉換的錯誤輸出"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="衍生的資料行錯誤輸出"
+                  synchronousInputId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="衍生的資料行;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="透過套用運算式到轉換輸入資料行來建立新資料行值。建立新資料行或覆寫現有資料行。例如，將 [名字] 和 [姓氏] 資料行的值串連成 [全名] 資料行。"
+              name="轉換ODS ETL Empty String為空字串"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入]"
+                  description="輸入至衍生的資料行轉換"
+                  name="衍生的資料行輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入].Columns[werks]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="werks"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[werks]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入].Columns[udflg]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="udflg"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[udflg]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入].Columns[lifnr]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="lifnr"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[lifnr]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入].Columns[tcper]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="tcper"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[tcper]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入].Columns[tctno]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="tctno"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[tctno]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入].Columns[ctfdt]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="ctfdt"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ctfdt]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入].Columns[cttdt]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="cttdt"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cttdt]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出]"
+                  description="衍生的資料行轉換的預設輸出"
+                  exclusionGroup="1"
+                  name="衍生的資料行輸出"
+                  synchronousInputId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行werks]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行werks]"
+                      name="衍生的資料行werks"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[werks]} == "ODS ETL Empty String" ? "" : #{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[werks]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">werks == "ODS ETL Empty String" ? "" : werks</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行udflg]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行udflg]"
+                      name="衍生的資料行udflg"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[udflg]} == "ODS ETL Empty String" ? "" : #{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[udflg]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">udflg == "ODS ETL Empty String" ? "" : udflg</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行lifnr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行lifnr]"
+                      name="衍生的資料行lifnr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[lifnr]} == "ODS ETL Empty String" ? "" : #{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[lifnr]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">lifnr == "ODS ETL Empty String" ? "" : lifnr</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行tcper]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行tcper]"
+                      name="衍生的資料行tcper"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[tcper]} == "ODS ETL Empty String" ? "" : #{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[tcper]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">tcper == "ODS ETL Empty String" ? "" : tcper</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行tctno]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行tctno]"
+                      name="衍生的資料行tctno"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[tctno]} == "ODS ETL Empty String" ? "" : #{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[tctno]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">tctno == "ODS ETL Empty String" ? "" : tctno</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行ctfdt]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行ctfdt]"
+                      name="衍生的資料行ctfdt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">![ISNULL](#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ctfdt]}) &amp;&amp; [LEN](#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ctfdt]}) == 8 ? [SUBSTRING](#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ctfdt]},1,4) + "-" + [SUBSTRING](#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ctfdt]},5,2) + "-" + [SUBSTRING](#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ctfdt]},7,2) : #{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ctfdt]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">!ISNULL(ctfdt) &amp;&amp; LEN(ctfdt) == 8 ? SUBSTRING(ctfdt,1,4) + "-" + SUBSTRING(ctfdt,5,2) + "-" + SUBSTRING(ctfdt,7,2) : ctfdt</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行cttdt]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出].Columns[衍生的資料行cttdt]"
+                      name="衍生的資料行cttdt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">![ISNULL](#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cttdt]}) &amp;&amp; [LEN](#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cttdt]}) == 8 ? [SUBSTRING](#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cttdt]},1,4) + "-" + [SUBSTRING](#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cttdt]},5,2) + "-" + [SUBSTRING](#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cttdt]},7,2) : #{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[cttdt]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">!ISNULL(cttdt) &amp;&amp; LEN(cttdt) == 8 ? SUBSTRING(cttdt,1,4) + "-" + SUBSTRING(cttdt,5,2) + "-" + SUBSTRING(cttdt,7,2) : cttdt</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行錯誤輸出]"
+                  description="衍生的資料行轉換的錯誤輸出"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="衍生的資料行錯誤輸出"
+                  synchronousInputId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\I／IU資料流程.Paths[OLE DB 來源輸出]"
+              endId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Inputs[衍生的資料行輸入]"
+              name="OLE DB 來源輸出"
+              startId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出]" />
+            <path
+              refId="Package\I／IU資料流程.Paths[衍生的資料行輸出]"
+              endId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入]"
+              name="衍生的資料行輸出"
+              startId="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串.Outputs[衍生的資料行輸出]" />
+            <path
+              refId="Package\I／IU資料流程.Paths[衍生的資料行輸出1]"
+              endId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入]"
+              name="衍生的資料行輸出"
+              startId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Outputs[衍生的資料行輸出]" />
+            <path
+              refId="Package\I／IU資料流程.Paths[資料轉換輸出]"
+              endId="Package\I／IU資料流程\衍生的資料行 ETL_DATE.Inputs[衍生的資料行輸入]"
+              name="資料轉換輸出"
+              startId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\紀錄目前檔案執行封裝至dbo sysssislog"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="指令碼工作"
+      DTS:DTSID="{BB52744E-4D69-4077-A96A-B55CCF546641}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="紀錄目前檔案執行封裝至dbo sysssislog"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:Property
+          DTS:DataType="8"
+          DTS:Name="EventFilter">1,18,ScriptTaskLogEntry</DTS:Property>
+        <DTS:Property
+          DTS:EventName="ScriptTaskLogEntry"
+          DTS:Name="ColumnFilter">
+          <DTS:Property
+            DTS:Name="Computer">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="Operator">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceName">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="ExecutionID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="MessageText">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="DataBytes">-1</DTS:Property>
+        </DTS:Property>
+      </DTS:LoggingOptions>
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_6c07eefe69104da3a521014fa72d5e7b"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadOnlyVariables="$Package::srcRawDataFileName">
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Settings.get_Default():ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Sett" +
+    "ings")]
+
+namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+#endregion
+
+namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            Dts.Log(Dts.Variables["$Package::srcRawDataFileName"].Value.ToString(),999,null);
+            Dts.TaskResult = (int)ScriptResults.Success;
+		}
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_88b66b7a93474dfdb44072a8f5f739a7</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_88b66b7a93474dfdb44072a8f5f739a7</msb:DisplayName>
+    <msb:ProjectId>{3ADFC14B-C087-4F91-A1AA-EDB1DA2CBF27}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_6c07eefe69104da3a521014fa72d5e7b.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="ST_6c07eefe69104da3a521014fa72d5e7b.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?><Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"><PropertyGroup><ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids><Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration><Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform><ProductVersion>8.0.30703</ProductVersion><SchemaVersion>2.0</SchemaVersion><ProjectGuid>{a04cefb7-a3c2-4d76-8e8a-32b1e518d64f}</ProjectGuid><OutputType>Library</OutputType><AppDesignerFolder>Properties</AppDesignerFolder><RootNamespace>ST_8b98b3e4edfb4eb5b79b43c89c378d70</RootNamespace><AssemblyName>ST_6c07eefe69104da3a521014fa72d5e7b</AssemblyName><TargetFrameworkVersion>v4.5</TargetFrameworkVersion><FileAlignment>512</FileAlignment><ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch><TargetFrameworkProfile></TargetFrameworkProfile></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Debug' "><DebugSymbols>true</DebugSymbols><DebugType>full</DebugType><Optimize>false</Optimize><OutputPath>.\bin\Debug\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>DEBUG;TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Release' "><DebugSymbols>false</DebugSymbols><Optimize>true</Optimize><OutputPath>.\bin\Release\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><ItemGroup><Reference Include="System" /><Reference Include="System.Data" /><Reference Include="System.Windows.Forms" /><Reference Include="System.Xml" /><Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /><Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /></ItemGroup><ItemGroup><AppDesigner Include="Properties\" /><Compile Include="Properties\AssemblyInfo.cs"><SubType>Code</SubType></Compile><EmbeddedResource Include="Properties\Resources.resx"><Generator>ResXFileCodeGenerator</Generator><LastGenOutput>Resources.Designer.cs</LastGenOutput></EmbeddedResource><Compile Include="Properties\Resources.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Resources.resx</DependentUpon></Compile><None Include="Properties\Settings.settings"><Generator>SettingsSingleFileGenerator</Generator><LastGenOutput>Settings.Designer.cs</LastGenOutput></None><Compile Include="Properties\Settings.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Settings.settings</DependentUpon></Compile><Compile Include="ScriptMain.cs"><SubType>Code</SubType></Compile></ItemGroup><!-- Include the build rules for a C# project.--><Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" /><ProjectExtensions><VisualStudio><FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}"><ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" /><Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host><ProjectClient><HostIdentifier>SSIS_ST140</HostIdentifier></ProjectClient></FlavorProperties></VisualStudio></ProjectExtensions></Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_88b66b7a93474dfdb44072a8f5f739a7.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAFHDTlwAAAAAAAAAAOAAIiALATAAAA4AAAAIAAAAAAAA0i0A
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAIAtAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA2A0AAAAgAAAADgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAAQAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAFgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAC0
+LQAAAAAAAEgAAAACAAUA9CAAANQLAAABAAAAAAAAAMgsAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPYCKBAAAAoCKBAAAApvEQAACnIBAABwbxIAAApvEwAACm8U
+AAAKIOcDAAAUbxUAAAoCKBAAAAoWbxYAAAoqHgIoFwAACioeAigYAAAKKq5+AQAABC0ecjsAAHDQ
+AwAAAigZAAAKbxoAAApzGwAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4CKBwA
+AAoqLnMIAAAGgAMAAAQqQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAAvAMAACN+
+AAAoBAAAhAUAACNTdHJpbmdzAAAAAKwJAACwAAAAI1VTAFwKAAAQAAAAI0dVSUQAAABsCgAAaAEA
+ACNCbG9iAAAAAAAAAAIAAAFXHaABCQMAAAD6ATMAFgAAAQAAAB0AAAAFAAAABgAAAAkAAAABAAAA
+HAAAAAIAAAAQAAAAAgAAAAMAAAAEAAAAAQAAAAQAAAABAAAAAQAAAAAAnQMBAAAAAAAGAEkCbQQG
+ANgCbQQGAJUBWgQPAOEEAAAGAMIBGwQGACwCGwQGAA0CGwQGAL8CGwQGAGkCGwQGAIICGwQGANkB
+GwQGAPQBBgMKAJ0CTAMKABQBTAMGANUDzgMGAHgBWgQGAFQFzgMGAD0EjQQGAC0EBgQOAEgBhwMO
+AKkBhwMOADAB8QMGAF0BbQQKAHUDTAMSACMFvwASAJIAvwAGAN8AzgMGAJsAzgMGAHoFGwQAAAAA
+SQAAAAAAAQABAAEAEADmAwEAOQABAAEAAAAQAJQE8ARFAAEAAwAAARAALQXwBFkAAwAHAAMBAABG
+BQAAPQAEAAoAEQDaA2oAEQAEAW4AEQCCAHIABgZxAHYAVoA2BXkAVoDkAHkAUCAAAAAAhgDsAwYA
+AQCOIAAAAACGGE0EBgABAJYgAAAAAIMYTQQGAAEAniAAAAAAkwg5BH0AAQDKIAAAAACTCOwAggAB
+ANEgAAAAAJMI+ACHAAEA2SAAAAAAlghbBY0AAgDgIAAAAACGGE0EBgACAOggAAAAAJEYUwSSAAIA
+AAABAAADCQBNBAEAEQBNBAYAGQBNBAoAKQBNBBAAMQBNBBAAOQBNBBAAQQBNBBAASQBNBBAAUQBN
+BBAAWQBNBBAAYQBNBBAAaQBNBAYAgQBNBAYAqQBNBBUAuQBNBAYAcQA+BRsAwQAfBSAAyQDFAyUA
+0QD2AisAiQAgAy8AwQApAzMAwQBnBQEAcQBNBAYAiQBNBAYA2QCtADsA2QB2BUIAkQBNBEcAsQBN
+BAYACAAUAGAACAAYAGUAKQBzAM0ALgALAKUALgATAK4ALgAbAM0ALgAjANYALgArAP8ALgAzAP8A
+LgA7AP8ALgBDANYALgBLAAUBLgBTAP8ALgBbABwBQwBjAGUASQBzAM0AYQB7AGUAYwBrAGUAAwAB
+AAQAAwAAAD0ElgAAAAwBmwAAAF8FoAACAAQAAwACAAUABQABAAYABQACAAcABwAEgAAAAQAAADcb
+6HYAAAAAAAAlAAAABAAAAAAAAAAAAAAATgB5AAAAAAAOAAAAAAAAAAAAAABXAC0DAAAAAAQAAAAA
+AAAAAAAAAE4AzgMAAAAADgAAAAAAAAAAAAAAVwBSAAAAAAAAAAAAAQAAAJ4EAAAFAAIAAAAAU1Rf
+OGI5OGIzZTRlZGZiNGViNWI3OWI0M2M4OWMzNzhkNzAAU1RfODhiNjZiN2E5MzQ3NGRmZGI0NDA3
+MmE4ZjVmNzM5YTcAPE1vZHVsZT4ATWljcm9zb2Z0LlNxbFNlcnZlci5NYW5hZ2VkRFRTAHZhbHVl
+X18AbXNjb3JsaWIAZGVmYXVsdEluc3RhbmNlAFZhcmlhYmxlAFJ1bnRpbWVUeXBlSGFuZGxlAEdl
+dFR5cGVGcm9tSGFuZGxlAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlJ1bnRpbWUAVHlwZQBGYWls
+dXJlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJlAHJlc291cmNlQ3VsdHVyZQBWU1RBUlRTY3JpcHRP
+YmplY3RNb2RlbEJhc2UAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UARWRpdG9yQnJvd3NhYmxlU3Rh
+dGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0dHJpYnV0
+ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBBc3NlbWJseVRp
+dGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRhcmdldEZyYW1ld29ya0F0
+dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlwdGlv
+bkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRlAEFzc2VtYmx5UHJvZHVj
+dEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lTU2NyaXB0VGFza0VudHJ5
+UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRpYmls
+aXR5QXR0cmlidXRlAGdldF9WYWx1ZQB2YWx1ZQBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAFRv
+U3RyaW5nAExvZwBNaWNyb3NvZnQuU3FsU2VydmVyLlNjcmlwdFRhc2sATWljcm9zb2Z0LlNxbFNl
+cnZlci5EdHMuVGFza3MuU2NyaXB0VGFzawBTY3JpcHRPYmplY3RNb2RlbABTeXN0ZW0uQ29tcG9u
+ZW50TW9kZWwAU1RfODhiNjZiN2E5MzQ3NGRmZGI0NDA3MmE4ZjVmNzM5YTcuZGxsAGdldF9JdGVt
+AFN5c3RlbQBFbnVtAHJlc291cmNlTWFuAFNjcmlwdE1haW4AU3lzdGVtLkNvbmZpZ3VyYXRpb24A
+U3lzdGVtLkdsb2JhbGl6YXRpb24AU3lzdGVtLlJlZmxlY3Rpb24AQ3VsdHVyZUluZm8AZ2V0X1Jl
+c291cmNlTWFuYWdlcgAuY3RvcgAuY2N0b3IAU3lzdGVtLkRpYWdub3N0aWNzAFN5c3RlbS5SdW50
+aW1lLkNvbXBpbGVyU2VydmljZXMAU3lzdGVtLlJlc291cmNlcwBTVF84Yjk4YjNlNGVkZmI0ZWI1
+Yjc5YjQzYzg5YzM3OGQ3MC5Qcm9wZXJ0aWVzLlJlc291cmNlcy5yZXNvdXJjZXMARGVidWdnaW5n
+TW9kZXMAU1RfOGI5OGIzZTRlZGZiNGViNWI3OWI0M2M4OWMzNzhkNzAuUHJvcGVydGllcwBnZXRf
+VmFyaWFibGVzAFNldHRpbmdzAFN1Y2Nlc3MAZ2V0X0R0cwBTY3JpcHRSZXN1bHRzAE9iamVjdABn
+ZXRfRGVmYXVsdABzZXRfVGFza1Jlc3VsdABnZXRfQXNzZW1ibHkAAAA5JABQAGEAYwBrAGEAZwBl
+ADoAOgBzAHIAYwBSAGEAdwBEAGEAdABhAEYAaQBsAGUATgBhAG0AZQAAcVMAVABfADgAYgA5ADgA
+YgAzAGUANABlAGQAZgBiADQAZQBiADUAYgA3ADkAYgA0ADMAYwA4ADkAYwAzADcAOABkADcAMAAu
+AFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAAAAADBkFOJgKVEi0FfA0
+DkEWMwAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERUQQgABJhBCAAEmUFIAESaRwDIAAcAyAADgcg
+AwEOCB0FBgABEm0RcQQgABJ1BiACAQ4SdQi3elxWGTTgiQiJhF3NgIDMkQQAAAAABAEAAAADBhJJ
+AwYSTQMGEhACBggDBhEUBAAAEkkEAAASTQUAAQESTQQAABIQAwAAAQQIABJJBAgAEk0ECAASEAgB
+AAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEIAQACAAAAAAAoAQAjU1RfOGI5
+OGIzZTRlZGZiNGViNWI3OWI0M2M4OWMzNzhkNzAAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAx
+OQAASQEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC41AQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFt
+ZRIuTkVUIEZyYW1ld29yayA0LjUAALQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5S
+ZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFs
+LCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGlt
+ZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAACoLQAAAAAAAAAAAADCLQAAACAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAtC0AAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVlLmRsbAAA
+AAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAA
+AAAASAAAAFhAAAAaBAAAAAAAAAAAAAAaBDQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYA
+TwAAAAAAvQTv/gAAAQAAAAEA6HY3GwAAAQDodjcbPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAA
+AEQAAAABAFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkA
+bwBuAAAAAAAAALAEegMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAVgMAAAEAMAAw
+ADAAMAAwADQAYgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAA
+YQBuAHkATgBhAG0AZQAAAAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBu
+AAAAAABTAFQAXwA4AGIAOQA4AGIAMwBlADQAZQBkAGYAYgA0AGUAYgA1AGIANwA5AGIANAAzAGMA
+OAA5AGMAMwA3ADgAZAA3ADAAAAA+AA8AAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAw
+AC4ANgA5ADYANwAuADMAMAA0ADQAMAAAAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUA
+AABTAFQAXwA4ADgAYgA2ADYAYgA3AGEAOQAzADQANwA0AGQAZgBkAGIANAA0ADAANwAyAGEAOABm
+ADUAZgA3ADMAOQBhADcALgBkAGwAbAAAAEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgA
+dAAAAEMAbwBwAHkAcgBpAGcAaAB0ACAAQAAgACAAMgAwADEAOQAAACoAAQABAEwAZQBnAGEAbABU
+AHIAYQBkAGUAbQBhAHIAawBzAAAAAAAAAAAAeAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUA
+bgBhAG0AZQAAAFMAVABfADgAOABiADYANgBiADcAYQA5ADMANAA3ADQAZABmAGQAYgA0ADQAMAA3
+ADIAYQA4AGYANQBmADcAMwA5AGEANwAuAGQAbABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEA
+bQBlAAAAAABTAFQAXwA4AGIAOQA4AGIAMwBlADQAZQBkAGYAYgA0AGUAYgA1AGIANwA5AGIANAAz
+AGMAOAA5AGMAMwA3ADgAZAA3ADAAAABCAA8AAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4A
+AAAxAC4AMAAuADYAOQA2ADcALgAzADAANAA0ADAAAAAAAEYADwABAEEAcwBzAGUAbQBiAGwAeQAg
+AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADYAOQA2ADcALgAzADAANAA0ADAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAMAAAA1D0A
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\I／IU資料流程"
+          TopLeft="368.749987731378,132.623020234899" />
+        <NodeLayout
+          Size="289,42"
+          Id="Package\紀錄目前檔案執行封裝至dbo sysssislog"
+          TopLeft="1.87499992549431,132.107138279141" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\I／IU資料流程">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="230,42"
+          Id="Package\I／IU資料流程\衍生的資料行 ETL_DATE"
+          TopLeft="399.000010530153,283.785720120887" />
+        <NodeLayout
+          Size="278,42"
+          Id="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換"
+          TopLeft="379,189" />
+        <NodeLayout
+          Size="274,42"
+          Id="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串"
+          TopLeft="374.833323962159,98.0714538571772" />
+        <NodeLayout
+          Size="294,42"
+          Id="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出"
+          TopLeft="368.166657560402,25.285713147144" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\I／IU資料流程\intsert into stage"
+          TopLeft="426.000010530153,376.785720120887" />
+        <EdgeLayout
+          Id="Package\I／IU資料流程.Paths[資料轉換輸出]"
+          TopLeft="516.000005265077,231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.785720120887"
+              Start="0,0"
+              End="0,45.285720120887">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.285720120887" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\I／IU資料流程.Paths[衍生的資料行輸出1]"
+          TopLeft="511.750010530153,325.785720120887">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\I／IU資料流程.Paths[衍生的資料行輸出]"
+          TopLeft="514.91666198108,140.071453857177">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.9285461428228"
+              Start="0,0"
+              End="0,41.4285461428228">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.4285461428228" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\I／IU資料流程.Paths[OLE DB 來源輸出]"
+          TopLeft="513.499990761281,67.285713147144">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.7857407100332"
+              Start="0,0"
+              End="0,23.2857407100332">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.2857407100332" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\I／IU資料流程\intsert into stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/25/2019 10:32:47 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1505003NB02"
+  DTS:CreatorName="IEAD\1505003"
+  DTS:DTSID="{4BEAC21D-9E52-4B71-91BB-F11F5BFE5651}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="Util_File_Unzip"
+  DTS:PackageType="5"
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{4F9741E8-B07C-481F-A245-CC966E27952D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{D43DB40F-20CE-4FEB-9E58-1ACE047E1A4A}"
+      DTS:ObjectName="destFileFolder">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\EAI\ODS TestCase\Loading34-35\POSNEC\unzip\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{7BC9263B-745E-44ED-80DD-D7A639F8A9AB}"
+      DTS:ObjectName="srcFileFolder">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D:\EAI\ODS TestCase\Loading34-35\POSNEC\</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{18EBCC6D-DE01-45AB-AC97-3A9592972A66}"
+      DTS:ObjectName="zipFileName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">ODS.20191002102821.BAC.A.zip</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A5A3574F-1617-4920-B4DF-AF7DAA427139}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;x \&quot;&quot; + @[$Package::srcFileFolder] + @[$Package::zipFileName]   +&quot;\&quot; -o\&quot;&quot; + @[$Package::destFileFolder]  + &quot;\&quot; -y&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varCommand">
+      <DTS:VariableValue
+        DTS:DataType="8">x "D:\EAI\ODS TestCase\Loading34-35\POSNEC\ODS.20191002102821.BAC.A.zip" -o"D:\EAI\ODS TestCase\Loading34-35\POSNEC\unzip\" -y</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\解壓檔案"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="執行處理工作"
+      DTS:DTSID="{201F589D-56F4-4878-976D-D3D5623F0777}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="解壓檔案"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="Arguments">@[User::varCommand]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="WorkingDirectory">@[$Package::srcFileFolder]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\Program Files\7-Zip\7z.exe"
+          Arguments="x &quot;D:\EAI\ODS TestCase\Loading34-35\POSNEC\ODS.20191002102821.BAC.A.zip&quot; -o&quot;D:\EAI\ODS TestCase\Loading34-35\POSNEC\unzip\&quot; -y"
+          WorkingDirectory="D:\EAI\ODS TestCase\Loading34-35\POSNEC\"
+          TimeOut="60" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="127,42"
+          Id="Package\解壓檔案"
+          TopLeft="321.666653884782,219.142845946916" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

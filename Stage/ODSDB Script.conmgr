@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ODSDB Script"
+  DTS:DTSID="{D7625A1A-1DD6-4E2F-B27A-272A6DA863F6}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=ODSSQLDB1;Initial Catalog=ODSDB;Integrated Security=True;Application Name=SSIS-Stage-{D7625A1A-1DD6-4E2F-B27A-272A6DA863F6}TPODS402.ODSDB;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,303 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/12/2019 9:15:17 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1505003NB02"
+  DTS:CreatorName="IEAD\1505003"
+  DTS:DTSID="{5106CB56-CC9A-465E-9C23-DB84F981C055}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="1028"
+  DTS:MaxConcurrentExecutables="1"
+  DTS:ObjectName="PKGS_WEBTRACK_SHOPCART"
+  DTS:PackageType="5"
+  DTS:VersionBuild="354"
+  DTS:VersionGUID="{957FE211-DA00-41EE-9975-1E75C5A953A8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{0DAE172A-EBBC-446E-98B3-00DE1E1C6D81}"
+      DTS:ObjectName="DG">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">EC_TRANS_SHOPCART</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A0EF6F2F-13C8-4C97-87AD-5BAFC92831F4}"
+      DTS:ObjectName="fullTableName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">dbo.WEBTRACK_SHOPCART</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{28A27BD1-5BA9-4F78-8F25-66E4F338F008}"
+      DTS:ObjectName="queryBaseDate">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7609DFC2-CC97-4318-B411-75344CF06036}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="GID">
+      <DTS:VariableValue
+        DTS:DataType="8">PKGS_WEBTRACK_SHOPCART.dtsx</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\執行封裝工作 SHOPCART"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{2D6C3933-F77A-4F42-B42E-9F964DB8F6C5}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行封裝工作 SHOPCART"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>WEBTRACK_SHOPCART_SHOPCART.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>fullTableName</ParameterName>
+            <BindedVariableOrParameterName>$Package::fullTableName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>queryBaseDate</ParameterName>
+            <BindedVariableOrParameterName>$Package::queryBaseDate</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>DG</ParameterName>
+            <BindedVariableOrParameterName>$Package::DG</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>GID</ParameterName>
+            <BindedVariableOrParameterName>User::GID</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行封裝工作 SHOPNOTICE"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{54cab8eb-be86-4178-b582-9dc8dc2f5582}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行封裝工作 SHOPNOTICE"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>WEBTRACK_SHOPCART_SHOPNOTICE.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>fullTableName</ParameterName>
+            <BindedVariableOrParameterName>$Package::fullTableName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>queryBaseDate</ParameterName>
+            <BindedVariableOrParameterName>$Package::queryBaseDate</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>DG</ParameterName>
+            <BindedVariableOrParameterName>$Package::DG</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>GID</ParameterName>
+            <BindedVariableOrParameterName>User::GID</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行封裝工作 SHOPORDERS"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{02571303-4652-4257-9df4-34c9b2a94e2a}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行封裝工作 SHOPORDERS"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>WEBTRACK_SHOPCART_SHOPORDERS.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>fullTableName</ParameterName>
+            <BindedVariableOrParameterName>$Package::fullTableName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>queryBaseDate</ParameterName>
+            <BindedVariableOrParameterName>$Package::queryBaseDate</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>DG</ParameterName>
+            <BindedVariableOrParameterName>$Package::DG</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>GID</ParameterName>
+            <BindedVariableOrParameterName>User::GID</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行封裝工作 TRACKINGLIST"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{042e0ab1-aaa7-499b-a315-84921f2031ed}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行封裝工作 TRACKINGLIST"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>WEBTRACK_SHOPCART_TRACKINGLIST.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>fullTableName</ParameterName>
+            <BindedVariableOrParameterName>$Package::fullTableName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>queryBaseDate</ParameterName>
+            <BindedVariableOrParameterName>$Package::queryBaseDate</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>DG</ParameterName>
+            <BindedVariableOrParameterName>$Package::DG</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>GID</ParameterName>
+            <BindedVariableOrParameterName>User::GID</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="235.2,41.6"
+          Id="Package\執行封裝工作 SHOPCART"
+          TopLeft="187.571424102297,134.533607169617" />
+        <NodeLayout
+          Size="238.4,41.6"
+          Id="Package\執行封裝工作 SHOPNOTICE"
+          TopLeft="189.238090702736,211.46217987908" />
+        <NodeLayout
+          Size="240.8,41.6"
+          Id="Package\執行封裝工作 SHOPORDERS"
+          TopLeft="186.738090802078,287.462181207412" />
+        <NodeLayout
+          Size="241.6,41.6"
+          Id="Package\執行封裝工作 TRACKINGLIST"
+          TopLeft="185.904757501858,361.605039773482" />
+        <AnnotationLayout
+          Text="已成立訂單"
+          ParentId="Package"
+          Size="84,37.6"
+          Id="3af28cd6-2f1f-4354-938a-442f69bff464"
+          TopLeft="426.857150126476,290.235297935644">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="到貨提醒清單"
+          ParentId="Package"
+          Size="95.2,37.6"
+          Id="3f105c29-6aa9-4055-a944-47ccd211b0ed"
+          TopLeft="427.047618751353,214.216800987398">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="未結帳購物車"
+          ParentId="Package"
+          Size="95.2,37.6"
+          Id="0b547ce6-f3cd-4cc3-b738-746e8b11ba7b"
+          TopLeft="427.428578707636,138.352942892425">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="下次再買清單"
+          ParentId="Package"
+          Size="95.2,37.6"
+          Id="58e97df8-5328-464d-9111-6696ebed0c9f"
+          TopLeft="427.428578707636,363.482357814486">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="// ###############################&#xA;// DataMart Def.：SRC047 數位軌跡 - 客戶使用行為 (EC購物車主檔)&#xA;// ODS DB Table Name：dbo.WEBTRACK_SHOPCART&#xA;// ODS DB View Name：dbo.VW_WEBTRACK_SHOPCART&#xA;// Brief Desc.：&#xA;//        不同的購物車行為，分別透過呼叫獨立的SSIS封裝執行寫入&#xA;// ###############################"
+          ParentId="Package"
+          Size="361.6,116.8"
+          Id="e39f7cf3-a91d-43e2-b095-6d171508ed67"
+          TopLeft="17.1428574347981,11.7226805004358">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

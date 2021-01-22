@@ -1,0 +1,147 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/19/2019 10:12:32 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1703001NB01"
+  DTS:CreatorName="IEAD\1703001"
+  DTS:DTSID="{F3B1E510-E2E2-4EF3-859F-C73463538799}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="PKGS_MF_DEPTS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{4F523ED0-2A0C-428C-9DF5-95666E5626DD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{4302D51B-13CF-446A-BDE3-7A87357CADEE}"
+      DTS:ObjectName="DG">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">MF_DEPT</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1F0183CC-0746-42C9-9824-7C2B7F85B46D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="GID">
+      <DTS:VariableValue
+        DTS:DataType="8">PKGS_MF_DEPTS.dtsx</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\執行封裝工作 六大通路 MF_DEPT_WERKS_GROUP"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{942A3CC8-76B7-467C-9449-B065AC441E72}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行封裝工作 六大通路 MF_DEPT_WERKS_GROUP"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>MF_DEPT_WERKS_GROUP.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>DG</ParameterName>
+            <BindedVariableOrParameterName>$Package::DG</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>GID</ParameterName>
+            <BindedVariableOrParameterName>User::GID</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行封裝工作 商場主檔 MF_DEPT_BUILDING"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{491a499e-45ea-4e6c-9239-06fe02458d1d}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行封裝工作 商場主檔 MF_DEPT_BUILDING"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>MF_DEPT_BUILDING.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>DG</ParameterName>
+            <BindedVariableOrParameterName>$Package::DG</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>GID</ParameterName>
+            <BindedVariableOrParameterName>User::GID</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行封裝工作 門市主檔 MF_DEPT_WERKS"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{b698a5e4-4cb2-4441-b5e0-50ce5dab6ce7}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行封裝工作 門市主檔 MF_DEPT_WERKS"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>MF_DEPT_WERKS.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>DG</ParameterName>
+            <BindedVariableOrParameterName>$Package::DG</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>GID</ParameterName>
+            <BindedVariableOrParameterName>User::GID</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="363.2,41.6"
+          Id="Package\執行封裝工作 六大通路 MF_DEPT_WERKS_GROUP"
+          TopLeft="157.499993741513,119.785708165899" />
+        <NodeLayout
+          Size="312,41.6"
+          Id="Package\執行封裝工作 門市主檔 MF_DEPT_WERKS"
+          TopLeft="159.166660341952,195.785709494231" />
+        <NodeLayout
+          Size="324.8,41.6"
+          Id="Package\執行封裝工作 商場主檔 MF_DEPT_BUILDING"
+          TopLeft="159.999993642171,278.28571049048" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

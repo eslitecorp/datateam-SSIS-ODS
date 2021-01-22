@@ -1,0 +1,163 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/10/2019 11:13:42 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1703001NB01"
+  DTS:CreatorName="1703001NB01\1703001NB01"
+  DTS:DTSID="{CF1CBEB2-ED13-4A6A-9893-BB30EBE39AF0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="PKGS_FREEBIE_DISCOUNT_LMS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{BDF6341B-9E77-47ED-B1A4-2E6BBAB2A128}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{D8233569-4396-4DDF-B719-C71918C6C408}"
+      DTS:ObjectName="DG">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">LMS_DISCOUNT</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A931743A-6359-4642-94BE-C0F125EA769C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="GID">
+      <DTS:VariableValue
+        DTS:DataType="8">PKGS_FREEBIE_DISCOUNT_LMS.dtsx</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\執行封裝工作 LMS 優惠券獲得使用狀態"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{3DA57C59-69EF-4B45-888C-E78DD881C465}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行封裝工作 LMS 優惠券獲得使用狀態"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>FREEBIE_COUPON_LMS.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>DG</ParameterName>
+            <BindedVariableOrParameterName>$Package::DG</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>GID</ParameterName>
+            <BindedVariableOrParameterName>User::GID</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行封裝工作 LMS 贈品互動檔案"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{87750F3E-1FAC-483C-9E8E-37ABA9081807}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行封裝工作 LMS 贈品互動檔案"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>TRANS_FREEBIE_PNTEX.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>DG</ParameterName>
+            <BindedVariableOrParameterName>$Package::DG</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>GID</ParameterName>
+            <BindedVariableOrParameterName>User::GID</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="289.6,41.6"
+          Id="Package\執行封裝工作 LMS 優惠券獲得使用狀態"
+          TopLeft="133.333328035143,328.52857089668" />
+        <NodeLayout
+          Size="287.2,41.6"
+          Id="Package\執行封裝工作 LMS 贈品互動檔案"
+          TopLeft="134.428566054422,391.070582715593" />
+        <AnnotationLayout
+          Text="SRC052 優惠券獲得/使用狀態"
+          ParentId="Package"
+          Size="172.8,37.6"
+          Id="12ac5a83-b955-4053-8141-cd6b58054b7b"
+          TopLeft="420.000007152558,329.129416380621">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="SRC062 贈品互動檔案 - LMS"
+          ParentId="Package"
+          Size="166.4,37.6"
+          Id="56304d2a-0a2b-493f-ad72-0cb95dd2d8a7"
+          TopLeft="420.761904358594,392.952934258267">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="// ######################&#xA;// DG/GID設計&#xA;// DG = LMS_DISCOUNT&#xA;// GOD：2 ==&gt; GID=MF_MEMBER_DISCOUNT.dtsx&#xA;//                |--&gt;【SRC056 折扣促銷活動主檔 - LMS】&#xA;//                      Stage Tables：PNTEX_H&#xA;//      ||&#xA;//      ||&#xA;//      Ｖ&#xA;// GOD：1 ==&gt; GID=PKGS_FREEBIE_DISCOUNT_LMS.dtsx&#xA;//                |--&gt;【SRC052 優惠券獲得/使用狀態】&#xA;//                      Stage Tables：LMS.COUPON、LMS.PNTEX_H&#xA;//                |--&gt;【SRC062 贈品互動檔案 - LMS】&#xA;//                      Stage Tables：LMS.PNTEX_REG、LMS.PNTEX_H&#xA;// ######################&#xA;// 此封裝設計目的：&#xA;// 用來同時執行產製SRC052 &amp; SRC062，&#xA;// 因為此二個項目均須等待SRC056的完成，&#xA;// 才能執行，但SRC052 &amp; SRC062彼此間卻無相依性，&#xA;// 故建立此封裝，透過呼叫執行封裝工作，平行執行產製SRC052 &amp; SRC062&#xA;// ######################"
+          ParentId="Package"
+          Size="394.4,303.2"
+          Id="460effec-2889-47f9-bd94-358ee4b1c5a4"
+          TopLeft="7.61904017995582,16.4352805501216">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

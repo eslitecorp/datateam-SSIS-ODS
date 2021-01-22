@@ -1,0 +1,88 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/4/2019 10:32:02 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1703001NB01"
+  DTS:CreatorName="1703001NB01\1703001NB01"
+  DTS:DTSID="{F2299F34-4A8C-42D1-A515-549C86E663EC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="MF_PRODUCT_MASTER_SAP_EADB"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{478D2550-790C-451C-96CE-057EB6F59337}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A6A9D95E-2DDB-4983-85D9-DB4530BE7EBC}"
+      DTS:ObjectName="ekorg">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">EADB</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\執行封裝工作"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{3EEBC32C-7A73-4815-89A6-C6F0627E6923}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行封裝工作"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>MF_PRODUCT_MASTER_SAP.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>ekorg</ParameterName>
+            <BindedVariableOrParameterName>$Package::ekorg</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\執行封裝工作"
+          TopLeft="191.476184749009,218.006717765383" />
+        <AnnotationLayout
+          Text="// ###############################&#xA;// DataMart Def.：SRC023 商品主檔&#xA;// ODS DB Table Name：dbo.MF_PRODUCT_MASTER_SAP&#xA;// ODS DB View Name：dbo.VW_MF_PRODUCT_MASTER&#xA;// Brief Desc.：&#xA;//        由此封裝傳入採購組織EADB作為參數，&#xD;&#xA;//        透過執行封裝工作，呼叫SAP商品主檔共用流程封裝(MF_PRODUCT_MASTER_SAP.dtsx)，&#xA;//        產製EADB的商品主檔&#xA;// ###############################"
+          ParentId="Package"
+          Size="497.6,143.2"
+          Id="2d18aba8-e65b-4944-b62f-2a291990b220"
+          TopLeft="24.6190390503056,56.5478905466706">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
