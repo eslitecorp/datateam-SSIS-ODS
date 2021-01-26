@@ -1,26 +1,26 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="1/4/2019 5:55:29 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1703001NB01"
   DTS:CreatorName="IEAD\1703001"
-  DTS:DTSID="{37F954B6-7A45-4AC6-8722-C82E38A186C8}"
+  DTS:DTSID="{8106F21E-9B32-4B6E-9F24-1B2A6C079E53}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:MaxConcurrentExecutables="2"
   DTS:ObjectName="Main_TW LMS_Container"
   DTS:PackageType="5"
-  DTS:VersionBuild="287"
-  DTS:VersionGUID="{2D5052BD-95E5-40C2-8E8A-28E51348528F}">
+  DTS:VersionBuild="294"
+  DTS:VersionGUID="{592E68C6-D522-4395-9780-5306EEB209E1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{3E5B1A23-8BF2-4E58-9686-6DDBBEDB3D58}"
+      DTS:DTSID="{37887B96-7529-4FC5-B25B-34E50DDD6A3F}"
       DTS:ObjectName="concurrentFiles">
       <DTS:Property
         DTS:DataType="8"
@@ -30,7 +30,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{7D5138B2-AFF5-48C6-ABF0-B4E62B2CA150}"
+      DTS:DTSID="{2818CB8D-85E9-4A97-926A-86AA5CE8D7BB}"
       DTS:ObjectName="mailFrom">
       <DTS:Property
         DTS:DataType="8"
@@ -40,7 +40,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{CBA2A8F6-B88F-4668-8300-CCC8EE5C7B19}"
+      DTS:DTSID="{0D42A897-2154-434D-80CA-A0E345098697}"
       DTS:ObjectName="param_mailTo">
       <DTS:Property
         DTS:DataType="8"
@@ -50,7 +50,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="3"
-      DTS:DTSID="{22532CB5-F29E-4AA0-85BF-648211BACE72}"
+      DTS:DTSID="{31302679-BBA1-48B7-80EF-4434028B5FB6}"
       DTS:ObjectName="param_maxConcurrent">
       <DTS:Property
         DTS:DataType="3"
@@ -59,7 +59,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{D601F1A4-E424-48EF-8DC8-77E7C6496F47}"
+      DTS:DTSID="{24378C78-705F-4CC5-BA1F-954B3412C341}"
       DTS:ObjectName="srcEkorg">
       <DTS:Property
         DTS:DataType="8"
@@ -69,7 +69,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{F9C76609-C5F1-446B-8DFB-74DBFA9657E6}"
+      DTS:DTSID="{6903B16C-46CB-4EE5-B630-BC6BC8810CB0}"
       DTS:ObjectName="srcFileFolder">
       <DTS:Property
         DTS:DataType="8"
@@ -79,7 +79,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{7B61B4F4-9060-4465-9852-4235939AA07D}"
+      DTS:DTSID="{72B1EC08-FC1A-43D9-B498-D78D457C67B6}"
       DTS:ObjectName="srcNatName">
       <DTS:Property
         DTS:DataType="8"
@@ -88,7 +88,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{976F8617-FC9E-4D97-B195-B6E3DE4A6F0E}"
+      DTS:DTSID="{4B5E61A2-23E4-4DE7-B16E-20316E512328}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -98,7 +98,16 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{2C122D17-833C-4BAC-889A-56EF7F34D02C}"
+      DTS:DTSID="{137FA277-1466-4BAA-B5FB-3E32617827B1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tableName_BADGE_LVL_CHG">
+      <DTS:VariableValue
+        DTS:DataType="8">BADGE_LVL_CHG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C0A7A3D3-3B0D-4B89-90C8-F6936FC4D796}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_CARD">
@@ -107,7 +116,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{DB9FBDCA-1C68-4A17-B904-8930A0D59864}"
+      DTS:DTSID="{0A4419C1-A5AD-412A-8A04-8F1EEE397D2C}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_COUPON">
@@ -116,7 +125,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{405647E3-FC72-4B0E-90A1-54BFD7868279}"
+      DTS:DTSID="{3A297AE8-F9A9-4F57-8DB5-ADBC259C4D46}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_CUSL_D">
@@ -125,7 +134,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{61F55615-060E-4911-A5CD-B443B43FA564}"
+      DTS:DTSID="{4F4AAD87-BA1F-4D98-BCD0-511708EDD856}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_CUSL_H">
@@ -134,7 +143,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{61D2C446-DA39-4C78-8A9B-0585EE568869}"
+      DTS:DTSID="{6E509FDD-E578-4E7A-B7CB-E1146FC581B9}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_CUST_CRD_CAL">
@@ -143,7 +152,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CD1F36D9-2B3E-45B3-A1F8-4621CFEAC515}"
+      DTS:DTSID="{DC48311D-D250-44BB-9E84-62167529B62B}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_CUST_CRD_LOG">
@@ -152,7 +161,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{FE184B20-4C2C-4FB0-8160-1E9FCF42BBEA}"
+      DTS:DTSID="{AA086CE0-D257-4887-8106-BF5859D78EA0}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_CUST_CRD_OUT">
@@ -161,7 +170,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C6C48018-8080-400B-8007-FB484CA99C80}"
+      DTS:DTSID="{83C8DC04-3B73-45E5-A4E5-2FE61844C940}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_CUST_FAMILY">
@@ -170,7 +179,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{BC961139-E31F-4474-9678-82D7E4B87056}"
+      DTS:DTSID="{AC59B9B1-6D78-434A-84EC-1D4C4E817DD0}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_CUST_LVL_CHG">
@@ -179,7 +188,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{5FE0A860-094D-49FB-BF61-687DB6335B79}"
+      DTS:DTSID="{ECB8A89E-1536-464F-B107-AFE7E39353FB}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_CUST_OUT">
@@ -188,7 +197,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4465B838-14AA-48D5-9F9D-11F1AF75DD2F}"
+      DTS:DTSID="{2E717B0A-6A11-47EB-B48B-737F63539724}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_GIFT">
@@ -197,7 +206,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E296E547-4833-4CC2-900E-D4046D0C4F46}"
+      DTS:DTSID="{69415D1F-4F46-4C8C-A3C7-A24783B3398F}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_GROUP_C">
@@ -206,7 +215,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9661F449-A91E-4DE2-A313-BF79720C52D4}"
+      DTS:DTSID="{AB585DC8-B039-44F6-8F84-D2137CE18EF1}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_MGM_DETAIL">
@@ -215,7 +224,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{DB503A1D-7DCF-446C-AAAA-BD820B31A5CF}"
+      DTS:DTSID="{4848163E-4775-4D00-B053-180B07E0846E}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_PNTEX_D">
@@ -224,7 +233,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{40FD9037-1E3D-4443-8CC0-6CE9ADB55B67}"
+      DTS:DTSID="{BF9AAF82-CCE2-453B-9475-0480E0FE7A2F}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_PNTEX_H">
@@ -233,7 +242,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7C601856-A2B1-48E9-85F5-D5185683D624}"
+      DTS:DTSID="{B77D3FAE-BF82-45AF-BAB0-5FECBADB0952}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_PNTEX_LIST">
@@ -242,7 +251,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3A332C78-FE78-4FEF-8D6C-EC60F9D9CEE5}"
+      DTS:DTSID="{19A50CBC-FB3A-4468-9CF2-F02D498B05A5}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_PNTEX_REG">
@@ -251,7 +260,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{DB1F25C1-EE1D-488B-9134-D7E22B4DB5E9}"
+      DTS:DTSID="{F8DEC763-ACF2-4FC6-82FE-BEBCA9825FB8}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_PNTEX_REG_INVOICE">
@@ -260,7 +269,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{F1BEEFE4-BF25-44DC-92E4-62B0444ADA45}"
+      DTS:DTSID="{0D5DF82A-F734-4F05-8972-227EA8D3CCBD}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_POINT_EXPIRE">
@@ -269,7 +278,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7BE1B412-2104-4136-85C7-CF843B36DB2A}"
+      DTS:DTSID="{E8B30879-836C-4F6C-A645-0508EFA9E8FB}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_POINT_LOG">
@@ -278,7 +287,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{65ED9C23-AB11-48E2-B6E6-5A8EA590F039}"
+      DTS:DTSID="{E6742A24-D74C-43EC-95DD-556D4F443F39}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_TDCODE">
@@ -287,7 +296,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1C5EBCC2-DCAD-4FBC-8308-283ECADB6141}"
+      DTS:DTSID="{DAF67036-8EC6-4DFA-B5B5-2E9C1384643E}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_ZIPCODE">
@@ -299,10 +308,59 @@
     DTS:Name="MaxConcurrentExecutables">@[$Package::param_maxConcurrent]</DTS:PropertyExpression>
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\執行此BADGE_LVL_CHG檔案處理流程"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{E3C95482-301C-4F9A-8349-E534B248EC2B}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行此BADGE_LVL_CHG檔案處理流程"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Main_Container_Process.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>concurrentFiles</ParameterName>
+            <BindedVariableOrParameterName>$Package::concurrentFiles</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcNatName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcSysName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcEkorg</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcEkorg</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>tableName</ParameterName>
+            <BindedVariableOrParameterName>User::tableName_BADGE_LVL_CHG</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>mailFrom</ParameterName>
+            <BindedVariableOrParameterName>$Package::mailFrom</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_mailTo</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_mailTo</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcFileFolder</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcFileFolder</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\執行此CARD檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{7204f41a-61b7-4e48-bfa9-d117cdfb3ae7}"
+      DTS:DTSID="{CC65088F-A523-4ABF-BA98-CA354A4D7FA2}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此CARD檔案處理流程"
@@ -351,7 +409,7 @@
       DTS:refId="Package\執行此COUPON檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{29576252-9d8b-449a-9ed0-90dde4140cf0}"
+      DTS:DTSID="{B6EFCEF3-967F-41E4-B1F9-EB41F2A4F1DF}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此COUPON檔案處理流程"
@@ -400,7 +458,7 @@
       DTS:refId="Package\執行此CUSL_D檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{F52B636E-C1B5-42E9-83E2-D6794F716A92}"
+      DTS:DTSID="{56D2FE97-948D-44C0-9DA3-F4CE025904D6}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此CUSL_D檔案處理流程"
@@ -449,7 +507,7 @@
       DTS:refId="Package\執行此CUSL_H檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{b04dc595-6e9d-44c0-944c-7473fc68cd95}"
+      DTS:DTSID="{60A220D5-29D2-494C-B9DC-0C209C1D6600}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此CUSL_H檔案處理流程"
@@ -498,7 +556,7 @@
       DTS:refId="Package\執行此CUST_CRD_CAL檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{0860a0c3-99a5-4f99-a8ba-59f5699af436}"
+      DTS:DTSID="{B1BCC472-27CC-4D79-B5A2-03BD1B07FE44}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此CUST_CRD_CAL檔案處理流程"
@@ -547,7 +605,7 @@
       DTS:refId="Package\執行此CUST_CRD_LOG檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{53fe9ae8-2734-48ea-93ee-6f0ec2e4c936}"
+      DTS:DTSID="{17D96314-BA36-4F7D-AE56-82AB28310FC2}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此CUST_CRD_LOG檔案處理流程"
@@ -596,7 +654,7 @@
       DTS:refId="Package\執行此CUST_CRD_OUT檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{9fe49377-d89d-4597-a05f-f14f3da0a72d}"
+      DTS:DTSID="{DF7F7C4C-3385-4E14-8271-75FA3AB70030}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此CUST_CRD_OUT檔案處理流程"
@@ -645,7 +703,7 @@
       DTS:refId="Package\執行此CUST_FAMILY檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{ef830169-6024-44fe-87fb-bcd7be84bc1b}"
+      DTS:DTSID="{B3F098F0-9C33-4828-9F0A-8F1656B7B524}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此CUST_FAMILY檔案處理流程"
@@ -694,7 +752,7 @@
       DTS:refId="Package\執行此CUST_LVL_CHG檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{0e88b121-8153-421f-bc25-db05d043f140}"
+      DTS:DTSID="{45BDCF1F-5C50-44D6-84CC-A9DB510E57CB}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此CUST_LVL_CHG檔案處理流程"
@@ -743,7 +801,7 @@
       DTS:refId="Package\執行此CUST_OUT檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{a1ab8ff9-0016-421a-a1d5-eafe63ac9734}"
+      DTS:DTSID="{37B423E0-53AF-4865-8567-E2CD8D08178C}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此CUST_OUT檔案處理流程"
@@ -792,7 +850,7 @@
       DTS:refId="Package\執行此GIFT檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{ec125939-064c-4a0a-8873-5e546995e79f}"
+      DTS:DTSID="{55E30C77-C8D1-4596-8A7B-3FCB78BD72C3}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此GIFT檔案處理流程"
@@ -841,7 +899,7 @@
       DTS:refId="Package\執行此GROUP_C檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{6d2cdf08-aacf-4ba4-8b6c-1440592f48f7}"
+      DTS:DTSID="{BF69C150-9D22-4DED-8BD3-698B0555F337}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此GROUP_C檔案處理流程"
@@ -890,7 +948,7 @@
       DTS:refId="Package\執行此MGM_DETAIL檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{2aaac6d7-a782-4358-81b0-3e7fcd4ed93c}"
+      DTS:DTSID="{638092C8-831B-42AE-840D-25CE10BDFF65}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此MGM_DETAIL檔案處理流程"
@@ -939,7 +997,7 @@
       DTS:refId="Package\執行此PNTEX_D檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{84639397-15de-4cbe-9e81-275dcc460e03}"
+      DTS:DTSID="{4F718DFB-BF71-477F-9291-D5AB0EFBB6F3}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此PNTEX_D檔案處理流程"
@@ -988,7 +1046,7 @@
       DTS:refId="Package\執行此PNTEX_H檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{642eb976-2d07-4800-8356-09f70c3452a6}"
+      DTS:DTSID="{B6385BD0-7969-45A2-AC55-2623F39CAB4D}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此PNTEX_H檔案處理流程"
@@ -1037,7 +1095,7 @@
       DTS:refId="Package\執行此PNTEX_LIST檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{16efecf0-1031-4a92-b8c4-9a5a37ccecce}"
+      DTS:DTSID="{E56A2C55-9CCA-4D2F-B126-1BFF9C3F905E}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此PNTEX_LIST檔案處理流程"
@@ -1086,7 +1144,7 @@
       DTS:refId="Package\執行此PNTEX_REG_INVOICE檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{334803b2-c335-4571-8a45-4b22eb86e985}"
+      DTS:DTSID="{3F44DB91-2215-464E-93AA-9F86AF51A07B}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此PNTEX_REG_INVOICE檔案處理流程"
@@ -1135,7 +1193,7 @@
       DTS:refId="Package\執行此PNTEX_REG檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{45759c8b-31fc-49b2-874f-a7c8e31aad8a}"
+      DTS:DTSID="{2F40690F-E3B4-40BB-A2F6-C9BFA417EBA8}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此PNTEX_REG檔案處理流程"
@@ -1184,7 +1242,7 @@
       DTS:refId="Package\執行此POINT_EXPIRE檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{d7f0dea1-59a6-4a7c-8cf1-e760dee04189}"
+      DTS:DTSID="{AB7B3C67-5AE7-40BB-8F52-6A03AAC70B79}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此POINT_EXPIRE檔案處理流程"
@@ -1233,7 +1291,7 @@
       DTS:refId="Package\執行此POINT_LOG檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{a1f5a35f-fe9e-43a6-85da-237e15a6c42d}"
+      DTS:DTSID="{454412BF-CB48-46B9-B478-826D89DC879A}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此POINT_LOG檔案處理流程"
@@ -1282,7 +1340,7 @@
       DTS:refId="Package\執行此TDCODE檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{fd493129-9617-4eec-8083-36820f377481}"
+      DTS:DTSID="{316542BF-4E90-43C0-8B5C-620B49A1FBC1}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此TDCODE檔案處理流程"
@@ -1331,7 +1389,7 @@
       DTS:refId="Package\執行此ZIPCODE檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{814cd838-45da-44a5-a2e0-0979a8d26c4f}"
+      DTS:DTSID="{8D074896-C80E-4333-A437-F305143393B4}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此ZIPCODE檔案處理流程"
@@ -1765,9 +1823,26 @@
           PanelSize="227,105"
           Size="227,148"
           Id="9926cc4f-2d3b-4465-b686-d6dbe3493db6"
-          TopLeft="723.611129544404,1131.80158023296">
+          TopLeft="578.611129544404,1135.26824692718">
           <GroupLayout.ChildrenIds>
             <s:String>Package\執行此MGM_DETAIL檔案處理流程</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="283,42"
+          Id="Package\執行此BADGE_LVL_CHG檔案處理流程"
+          TopLeft="5.5,4.63333332644584" />
+        <GroupLayout
+          Text="BADGE_LVL_CHG"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="294,102"
+          Size="294,145"
+          Id="749e0153-2c19-4726-ab0e-411ccdeb0ee2"
+          TopLeft="932.5,1076.83333605395">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\執行此BADGE_LVL_CHG檔案處理流程</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
       </GraphLayout>

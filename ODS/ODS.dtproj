@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">1505003NB02</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9VWzsUJPYEq8MzFQg+K/KQAAAAACAAAAAAADZgAAwAAAABAAAACbHKgrmguIXnEONxW2UyVYAAAAAASAAACgAAAAEAAAAGsWZdnCAYRSJjjajyEXU/iIAAAACpfE3JTm2ov05N20xHbSOI8yY3v+5+03ijNaFy7C8Ipd5lpV8GT6Moch4zSjLpdMgrT9J4EDOTgHV+qYx2ZeZenGj9CODEVotsmsAX7EcdXuG6NW7XBcSO6QkNHzwzdlEaxabC4Mcz4FvUerHLWzA7eyJBJq7gAKLnOR/AXNx0nFCGHZ5LbHrRQAAAAjP4vxkJ2Z0TgsBMtQe5qozh3oxg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9VWzsUJPYEq8MzFQg+K/KQAAAAACAAAAAAADZgAAwAAAABAAAAAYtyt/FtTla4FkjVfPLYpJAAAAAASAAACgAAAAEAAAANlgoo/HAvRR8oAS8Moow96IAAAA9rPd1Xdl9GI/X06pv7L3aPkLcBI03xI4fy+TMfYKtxQLOZwPf91RhYtLAFJt1WsjKAveStURfHSSxelQXOxS62KCQAUp3tmULQAjuahgAQwXkjmtdZLJ1qm+ZPws7llOi7tXfvqIEqCPq604MMy9/9fiJWFmyh1KB/BdDC1UkA0bue/Qs9ZdghQAAADRBLIChQ2owIqsoqvXXletXjqQtg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -132,6 +132,7 @@
           <SSIS:Package SSIS:Name="TRANS_DETAIL_PAYMENT_EC.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="TRANS_DETAIL_PAYMENT_HYPOS.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="TRANS_DETAIL_PAYMENT_LMS.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="MF_MEMBER_BADGE.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="ODSDB.conmgr" />
@@ -5165,8 +5166,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -5226,8 +5225,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -5305,8 +5302,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -5334,14 +5329,57 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="queryBaseDate">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">{A6CC8345-D361-42F7-92F5-74A7362DCFFB}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="MF_MEMBER_BADGE.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{384DD5FA-AC13-4A51-BEF9-E79CE093A711}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">MF_MEMBER_BADGE</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">275</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{7CECF1EE-8E68-4F82-A525-3859A727F1C7}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="fullTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{5E3511CF-B680-480C-9690-6D669E1E8EB9}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">dbo.MF_MEMBER_BADGE</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="queryBaseDate">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{123CFFAB-2367-4F72-AA74-7EFD17FAB90F}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">
