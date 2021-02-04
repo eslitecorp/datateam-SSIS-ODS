@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="6/12/2019 9:15:17 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{ED88A406-6CD8-4FCF-A313-EFF3B19D752C}"
+  DTS:DTSID="{4F9443E2-8C56-4968-B2EA-AF89B352B6C7}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="CMS_EMAIL"
   DTS:PackageType="5"
-  DTS:VersionBuild="239"
-  DTS:VersionGUID="{6126A49B-BE4F-42AA-BABE-6F258FA78915}">
+  DTS:VersionBuild="240"
+  DTS:VersionGUID="{CBC48C8A-6E2A-4115-B847-306A86DA8CB8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{AA7B852B-DAA8-4F14-B6C6-2E5B13DA8721}"
+      DTS:DTSID="{EC238993-14C3-4EDF-8ABB-36D2238D8B0F}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{8568153C-E0E4-4D41-9FF2-7AB0FCD4FC30}"
+      DTS:DTSID="{DF56C4DD-5909-4BFA-B48B-4CDF2938C4E3}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +38,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7AB98DB4-FA72-4AB5-9000-1D20FD34274D}"
+      DTS:DTSID="{A371EC46-D907-4B17-A906-E15516E36731}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -47,7 +47,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{53327398-A0DB-4490-9F00-975BD03EBB28}"
+      DTS:DTSID="{EAD1C51A-2C80-4C86-9CD7-E0E4D36516AC}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(),0,?,?);&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -59,7 +59,7 @@ values(?,?,?,(select count(*) from dbo.CMS_EMAIL_),?,GETDATE(),0,?,?);</DTS:Vari
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7DFDCCDD-677F-4B14-86F1-0B460336BCA9}"
+      DTS:DTSID="{75D72ED9-57DE-4D03-96EC-26EA76323AC6}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName] +  @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -70,7 +70,7 @@ values(?,?,?,(select count(*) from dbo.CMS_EMAIL_),?,GETDATE(),0,?,?);</DTS:Vari
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{740C30B8-157B-44CC-8F59-09E9FB9DC5C2}"
+      DTS:DTSID="{03677C24-CC02-475B-BDFF-9CA957277B31}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -80,7 +80,7 @@ values(?,?,?,(select count(*) from dbo.CMS_EMAIL_),?,GETDATE(),0,?,?);</DTS:Vari
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E73D16DC-FB7E-4A37-B148-77C507762715}"
+      DTS:DTSID="{B6114A8F-FCCF-4117-A33B-EC6B7E2E0CA1}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -89,7 +89,7 @@ values(?,?,?,(select count(*) from dbo.CMS_EMAIL_),?,GETDATE(),0,?,?);</DTS:Vari
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{FD580059-D70B-4570-B508-DEB4C1179F83}"
+      DTS:DTSID="{23CC1D96-C39B-4E02-A46F-E1A9E45EE60B}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]  +&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -104,7 +104,7 @@ values(?,?,?,(select count(*) from dbo.CMS_EMAIL_),?,GETDATE(),0,?,?);</DTS:Vari
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{73CDD242-804D-4D91-AC29-D6C05648B14A}"
+      DTS:DTSID="{346AB058-03DB-4EEC-B837-EFF0537A13A1}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -5008,14 +5008,14 @@ where ETL_DATE &gt; CAST(CAST(getdate() as DATE) AS DATETIME)</property>
     (
 select Member_ID,Node_ID,Campaign_ID,min(Return_Time) as IsType_FIRST_TimeStamp,
 case when SS.Status = 0 then 'EMAIL_OUTBOUND'
-			when SS.Status in (1903,1907,1908,1909,1910,1914,1915,1916,1920,1922,1933,1934,1936,1939,101,102,104) then 'EMAIL_BOUNCE_HARD'
+			when SS.Status in (1903,1907,1908,1909,1910,1914,1915,1916,1920,1922,1933,1934,1936,1939,101,102,104) then 'EMAIL_BOUNCE_SOFT'
 			when SS.Status in (1000,1900,1901,1902,1904,1905,1906,1911,1912,1913,1917,1918,1919,1921,1923,1924,1925
 				,1926,1927,1928,1929,1930,1931,1932,1935,1937,1938,1940,1941,103,105,106,107) then 'EMAIL_BOUNCE_SOFT'
 			end as IaType
   from OMI.[EmailStatus] SS
  group by Member_ID,Node_ID,Campaign_ID,
  case when SS.Status = 0 then 'EMAIL_OUTBOUND'
-			when SS.Status in (1903,1907,1908,1909,1910,1914,1915,1916,1920,1922,1933,1934,1936,1939,101,102,104) then 'EMAIL_BOUNCE_HARD'
+			when SS.Status in (1903,1907,1908,1909,1910,1914,1915,1916,1920,1922,1933,1934,1936,1939,101,102,104) then 'EMAIL_BOUNCE_SOFT'
 			when SS.Status in (1000,1900,1901,1902,1904,1905,1906,1911,1912,1913,1917,1918,1919,1921,1923,1924,1925
 				,1926,1927,1928,1929,1930,1931,1932,1935,1937,1938,1940,1941,103,105,106,107) then 'EMAIL_BOUNCE_SOFT'
 			end 
@@ -5027,7 +5027,7 @@ case when SS.Status = 0 then 'EMAIL_OUTBOUND'
   and SS.Return_Time = TMP.IsType_FIRST_TimeStamp
   and (
    case when SS.Status = 0 then 'EMAIL_OUTBOUND'
-			when SS.Status in (1903,1907,1908,1909,1910,1914,1915,1916,1920,1922,1933,1934,1936,1939,101,102,104) then 'EMAIL_BOUNCE_HARD'
+			when SS.Status in (1903,1907,1908,1909,1910,1914,1915,1916,1920,1922,1933,1934,1936,1939,101,102,104) then 'EMAIL_BOUNCE_SOFT'
 			when SS.Status in (1000,1900,1901,1902,1904,1905,1906,1911,1912,1913,1917,1918,1919,1921,1923,1924,1925
 				,1926,1927,1928,1929,1930,1931,1932,1935,1937,1938,1940,1941,103,105,106,107) then 'EMAIL_BOUNCE_SOFT'
 			end 
@@ -6117,7 +6117,7 @@ and SS.Status in(
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{c813f94c-42cf-49a4-a732-482412029ca8}"
+      DTS:DTSID="{20AFA7F0-3667-44A6-AF95-1C3D7043123B}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -6142,7 +6142,7 @@ and SS.Status in(
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{9c7037ba-94dd-4d5b-bcd3-53eb5c8a7865}"
+      DTS:DTSID="{A99D5825-6DF4-4A8A-918E-DFFCF6E2DE67}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -6163,7 +6163,7 @@ and SS.Status in(
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{c0e2c865-49a7-43aa-934e-068038f3ab73}"
+      DTS:DTSID="{91188F4F-0963-4B52-B17F-3F523288BCD9}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -6174,7 +6174,7 @@ and SS.Status in(
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{89ca0018-2491-4739-98af-5bfdfdab5da7}"
+          DTS:DTSID="{7B6C9B70-8273-4C4F-AF5D-107AD722226C}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -6211,7 +6211,7 @@ and SS.Status in(
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{5348a309-4cf0-4338-8f95-81bd53aa9cb8}"
+      DTS:DTSID="{76E624E2-38AD-4F40-9557-B36DE9A791FA}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -6268,7 +6268,7 @@ and SS.Status in(
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{237F250D-667E-424F-B27B-AE77BC08322B}"
+      DTS:DTSID="{1F25A317-E4E6-4994-A054-EBA3C72FC8F8}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -6276,7 +6276,7 @@ and SS.Status in(
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{BF3BF38D-E2BB-44DA-A1C4-3CDF89A5B116}"
+      DTS:DTSID="{593CA44F-6C58-4D9C-874B-51434ECA81A1}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -6284,7 +6284,7 @@ and SS.Status in(
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{B2CFFB2A-5A93-4540-9DE1-640F0175DE9A}"
+      DTS:DTSID="{30124377-B50B-4E44-8752-718629ACBD7E}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -6292,7 +6292,7 @@ and SS.Status in(
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{E7C1070D-A75A-48F4-B6F1-A9EF748641FC}"
+      DTS:DTSID="{CCA0BB95-FAED-4FCC-840D-EEE872938A34}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -6309,7 +6309,7 @@ and SS.Status in(
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="157,42"
           Id="Package\Stage To ODS"
@@ -6342,7 +6342,7 @@ and SS.Status in(
           TopLeft="348.825830251731,195.098313317943">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,31.3815115270333"
               Start="0,0"
               End="0,23.8815115270333">
@@ -6364,7 +6364,7 @@ and SS.Status in(
           TopLeft="348.340461448194,268.079824844976">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,49.9831966632776"
               Start="0,0"
               End="0,42.4831966632776">
@@ -6386,7 +6386,7 @@ and SS.Status in(
           TopLeft="347.59046378271,359.663021508253">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,50.2453597741194"
               Start="0,0"
               End="0,42.7453597741194">
@@ -6408,7 +6408,7 @@ and SS.Status in(
           TopLeft="347.728024373605,578.708381282372">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,38.5254769660741"
               Start="0,0"
               End="0,31.0254769660741">
