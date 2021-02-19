@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="6/19/2019 10:12:32 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1703001NB01"
   DTS:CreatorName="IEAD\1703001"
-  DTS:DTSID="{A519044F-C303-4003-B278-668752ED7AEF}"
+  DTS:DTSID="{4A274580-D3E3-4A9B-88E7-8DC21F653267}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="MF_DEPT_WERKS"
   DTS:PackageType="5"
-  DTS:VersionBuild="59"
-  DTS:VersionGUID="{E14086C6-5E9A-480F-B540-A28008706130}">
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{2FA25726-28E1-46B8-981A-FB4BA77A4853}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{3D9BFF95-F721-4806-8BC7-E9F0BB38AE4D}"
+      DTS:DTSID="{4213364F-E722-4E96-913A-56FEC6AB20DD}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -29,7 +29,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{0AC7D700-3D7C-4004-BAF7-19131406F911}"
+      DTS:DTSID="{97E2383F-9D68-46B2-83F4-CBDCCEA71372}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +38,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{75BE774D-A1FB-40C6-9DD0-6B52B06771C3}"
+      DTS:DTSID="{B07EE678-8AB9-4CAC-AC96-40F2339B0E47}"
       DTS:ObjectName="GID">
       <DTS:Property
         DTS:DataType="8"
@@ -49,7 +49,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{86095C41-BD54-41ED-8AF5-3026E3D25F51}"
+      DTS:DTSID="{1F9D4AE5-360F-4438-B86C-8330B5143D6B}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -58,7 +58,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{F62128D8-2E4B-4388-88D1-91F756CF7724}"
+      DTS:DTSID="{234F63DB-5B0A-4A81-9F1B-346BE5ADCEA9}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), -1,?,? );&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -70,7 +70,7 @@ values(?,?,?,(select count(*) from dbo.MF_DEPT_WERKS_),?,GETDATE(), -1,?,? );</D
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{0EB829ED-96D2-49A2-A408-24960A026484}"
+      DTS:DTSID="{2E310EA7-8DA7-4DDE-A4E6-55C3ADEE82B6}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -80,7 +80,7 @@ values(?,?,?,(select count(*) from dbo.MF_DEPT_WERKS_),?,GETDATE(), -1,?,? );</D
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B5118978-592D-4507-9816-FB300729D0AC}"
+      DTS:DTSID="{152992A6-458D-4889-B8D5-BEB05B1166C8}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -89,7 +89,7 @@ values(?,?,?,(select count(*) from dbo.MF_DEPT_WERKS_),?,GETDATE(), -1,?,? );</D
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{F2983EAB-6645-4908-B560-C09CA7CEF845}"
+      DTS:DTSID="{23DE58A6-7508-4F1F-A440-07991374A257}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -104,7 +104,7 @@ values(?,?,?,(select count(*) from dbo.MF_DEPT_WERKS_),?,GETDATE(), -1,?,? );</D
       DTS:refId="Package\Stage to ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{FC2688D8-781B-4C00-8FE9-396C981334C7}"
+      DTS:DTSID="{B6E7CDB8-A9B2-4206-AB93-165AA1AF942A}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage to ODS"
@@ -4085,8 +4085,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
   FROM DW.[DimDeptsList] Depts
   left join DW.DimGroupList Groups on Depts.GroupFlag = Groups.GroupFlag
   left join POSNEC.Store pos on Depts.WERKS = pos.StoreID
-  where [LevelVersion] = 0
-and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
+  where [LevelVersion] = 0</property>
                 <property
                   dataType="System.String"
                   description="包含要執行之 SQL 命令的變數。"
@@ -5803,7 +5802,7 @@ and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{906d667a-727b-4619-bbff-ef1ce73fe748}"
+      DTS:DTSID="{B7D99348-C066-4513-8201-49185FE3A266}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -5828,7 +5827,7 @@ and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{9c15efbf-5a98-458a-956c-8e843831ba0a}"
+      DTS:DTSID="{8FC2FC83-BF71-4856-820D-E07CEC1D2CB5}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -5849,7 +5848,7 @@ and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{9291b0e6-19b9-41c6-ba7f-b82064d06f56}"
+      DTS:DTSID="{CFC68607-D9C9-4A61-9BC8-C3109C14CEB9}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -5860,7 +5859,7 @@ and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{ab73c0b3-c281-4dad-a250-db7f88fa7c80}"
+          DTS:DTSID="{F3AD1A35-26AA-4672-8C5F-26F23A14695C}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -5895,7 +5894,7 @@ and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
           DTS:refId="Package\時序容器\Truncate ODS Table"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{6be3edbd-42d3-481e-b340-03613a5fba97}"
+          DTS:DTSID="{B99EB478-5E16-4E12-87C8-5F7943EED3F3}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Truncate ODS Table"
@@ -5925,7 +5924,7 @@ and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{c1cd5139-4f2c-452b-8b37-83af5a555334}"
+          DTS:DTSID="{2B7B006E-62FE-4058-B458-AEF63EDF442B}"
           DTS:From="Package\時序容器\Truncate ODS Table"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -5936,7 +5935,7 @@ and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{0629d53a-af1b-4400-a23d-6fb043c077cc}"
+      DTS:DTSID="{F8CC2174-05D9-413B-81CD-F331E783574C}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -5993,7 +5992,7 @@ and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{CD4375FE-7ED4-4AE3-962C-4190CF94C17A}"
+      DTS:DTSID="{518543BB-2E0B-401C-9651-E9A95FF829E5}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -6001,7 +6000,7 @@ and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{30348B20-5F5C-4D92-B4E0-627DE4FFB70B}"
+      DTS:DTSID="{4CF03961-B73A-475E-8765-0981A195D3E3}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -6009,7 +6008,7 @@ and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{15827706-A9A8-4699-A238-F018F66D2AE1}"
+      DTS:DTSID="{4E7B06A4-1ADA-4285-9B47-347AA23A5EE2}"
       DTS:From="Package\Stage to ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -6017,7 +6016,7 @@ and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{A2B1E8FC-BA7B-4A96-9523-88E7D3772E19}"
+      DTS:DTSID="{46431B14-7834-497E-B92D-DC3DAD3905D1}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -6036,27 +6035,27 @@ and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152.8,41.6"
+          Size="153,42"
           Id="Package\Stage to ODS"
           TopLeft="200.833325352934,161.428563079056" />
         <NodeLayout
-          Size="139.2,41.6"
+          Size="139,42"
           Id="Package\初始化作業"
           TopLeft="204.50001023213,84.5714269584538" />
         <NodeLayout
-          Size="156,41.6"
+          Size="156,42"
           Id="Package\取得WorkDate"
           TopLeft="197.33334353235,0.78571414339309" />
         <NodeLayout
-          Size="151.2,41.6"
+          Size="151,42"
           Id="Package\紀錄執行筆數"
           TopLeft="196.77778799887,490.214269252457" />
         <NodeLayout
-          Size="303.2,41.6"
+          Size="303,42"
           Id="Package\時序容器\insert into ODS table from WorkDateTable"
           TopLeft="46.3333317107626,85.142840633588" />
         <NodeLayout
-          Size="188.8,41.6"
+          Size="189,42"
           Id="Package\時序容器\Truncate ODS Table"
           TopLeft="96.3333297239411,13.7856962109109" />
         <EdgeLayout
@@ -6084,8 +6083,8 @@ and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="403.2,153.6"
-          Size="403.2,196.8"
+          PanelSize="403,154"
+          Size="403,197"
           Id="Package\時序容器"
           TopLeft="75.5000066558516,244.928572709463" />
         <EdgeLayout
@@ -6185,59 +6184,59 @@ and ParentID_Mall not in ('9994','999A','9996','9999','#')</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209.6,41.6"
+          Size="210,42"
           Id="Package\Stage to ODS\衍生的資料行 (固定字串)"
           TopLeft="194.166659348541,486.642842958169" />
         <NodeLayout
-          Size="284.8,41.6"
+          Size="285,42"
           Id="Package\Stage to ODS\衍生資料行 - 記錄錯誤資訊欄位(select)"
           TopLeft="511.684522987596,20" />
         <NodeLayout
-          Size="151.2,41.6"
+          Size="151,42"
           Id="Package\Stage to ODS\衍生的資料行"
           TopLeft="218.333326644368,305.928570716965" />
         <NodeLayout
-          Size="208.8,41.6"
+          Size="209,42"
           Id="Package\Stage to ODS\GetErrorDetail (Convert)"
           TopLeft="518.708333027033,393.714269821743" />
         <NodeLayout
-          Size="235.2,41.6"
+          Size="235,42"
           Id="Package\Stage to ODS\Insert Into Error Log(Convert)"
           TopLeft="500,487.897938479313" />
         <NodeLayout
-          Size="223.2,41.6"
+          Size="223,42"
           Id="Package\Stage to ODS\Insert Into Error Log(Insert)"
           TopLeft="514.482142520093,681.040788079143" />
         <NodeLayout
-          Size="172,41.6"
+          Size="172,42"
           Id="Package\Stage to ODS\select from Stage"
           TopLeft="209.333326247003,23.499997675419" />
         <NodeLayout
-          Size="151.2,41.6"
+          Size="151,42"
           Id="Package\Stage to ODS\資料型態轉換"
           TopLeft="219.83332495557,392.99999003751" />
         <NodeLayout
-          Size="268.8,41.6"
+          Size="269,42"
           Id="Package\Stage to ODS\衍生資料行 - 建立記錄錯誤資訊欄位"
           TopLeft="161.166659348541,196.229573534895" />
         <NodeLayout
-          Size="139.2,41.6"
+          Size="139,42"
           Id="Package\Stage to ODS\資料列計數"
           TopLeft="226.744037258012,115.642842958169" />
         <NodeLayout
-          Size="148.8,41.6"
+          Size="149,42"
           Id="Package\Stage to ODS\寫入 ODSDB"
           TopLeft="224.166659348541,593.642842958169" />
         <NodeLayout
-          Size="200,41.6"
+          Size="200,42"
           Id="Package\Stage to ODS\GetErrorDetail (Select)"
           TopLeft="555.017853605606,105.142849931912" />
         <NodeLayout
-          Size="200,41.6"
+          Size="200,42"
           Id="Package\Stage to ODS\GetErrorDetail  (Insert)"
           TopLeft="531.690475646466,589.29334394017" />
         <NodeLayout
-          Size="230.4,41.6"
+          Size="230,42"
           Id="Package\Stage to ODS\Insert Into Error Log (Select)"
           TopLeft="542.517854102312,189.642845614833" />
         <EdgeLayout
