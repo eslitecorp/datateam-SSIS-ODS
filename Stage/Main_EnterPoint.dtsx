@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="12/8/2018 12:22:50 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1701003NB01"
   DTS:CreatorName="IEAD\1701003"
-  DTS:DTSID="{321F6000-8AE5-4D25-9A0E-6D00DF5679EE}"
+  DTS:DTSID="{AA0BDF3E-C95E-4836-8313-A84E0B550F78}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="Main_EnterPoint"
   DTS:PackageType="5"
-  DTS:VersionBuild="998"
-  DTS:VersionGUID="{4C0BEB7D-02F9-4754-A6AE-64624BCB67ED}">
+  DTS:VersionBuild="1002"
+  DTS:VersionGUID="{99EA82EA-2C7A-4619-A00C-C168877BE799}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{DE39B7F9-DFE9-4AF1-86F5-4A71756EB88D}"
+      DTS:DTSID="{BF1674E3-776D-41B7-A4ED-F48A6BBBD2B6}"
       DTS:ObjectName="srcEkorg">
       <DTS:Property
         DTS:DataType="8"
@@ -29,7 +29,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{C7980603-9E2B-4115-981B-D5B8FC1AF7BD}"
+      DTS:DTSID="{6DD684C8-3266-45BD-A516-D5AF71F74604}"
       DTS:ObjectName="srcNatName">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +38,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{630A5D79-47B9-4367-9BA3-F8BE38DCA278}"
+      DTS:DTSID="{9B63BCE6-CACB-4597-8AEF-4C2C4D2898CF}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -48,7 +48,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{F4BAD480-26AD-4412-B82D-B603AA9EFC71}"
+      DTS:DTSID="{014F913D-981B-4F7F-ACA3-F8528077159B}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="concurrentFiles">
@@ -58,7 +58,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3E11A4EB-9F66-4B3C-A695-072085AB1C50}"
+      DTS:DTSID="{85ADE225-B73D-432B-AC3B-D49E0330267E}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="dbCategory">
@@ -68,7 +68,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{353DB603-AFD0-4748-8C4F-ED30ED5CC589}"
+      DTS:DTSID="{2D3AED45-28BA-47F1-B001-F6D5DEF2B729}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="dbParamName">
@@ -78,7 +78,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{29B8B365-1935-423E-A856-F55D4F1681C2}"
+      DTS:DTSID="{1DC32B63-DF77-4E66-98CA-1DE823DB9D6F}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="dbParamNameList">
@@ -96,7 +96,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D0F769B4-B9D2-48C0-997B-337A9ABBC8A5}"
+      DTS:DTSID="{58E38689-62D0-42C9-ADCA-0D3705DBA9DD}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="dbParamValue">
@@ -106,7 +106,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{591DF534-401A-44C7-8E26-8682A21454A4}"
+      DTS:DTSID="{C4EFAEF1-D0D7-43D2-8AA9-279C4A5EE841}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dbResultSet">
@@ -124,7 +124,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9E3435FF-0BFC-48E3-9205-5C09249479B9}"
+      DTS:DTSID="{526F1DD4-13A9-4C27-81CC-D9A488BE1120}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dbResultSet_STA">
@@ -142,7 +142,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9B657D36-ABF4-4346-AE6D-A7357E98F200}"
+      DTS:DTSID="{BF7D6BA5-B03D-4E14-BDC1-07F9A4CA8439}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="dbTableOrder">
@@ -160,7 +160,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9319D619-9114-458E-B411-A78870F536C6}"
+      DTS:DTSID="{7FB07BAF-7729-4BEE-8528-088BEB66D949}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="dbZipFileNamePatternList">
@@ -170,7 +170,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{42474B51-0DD0-4D4C-8B52-BFC08A16BA55}"
+      DTS:DTSID="{92E15926-26A6-4B5A-AB3C-91E0456D9103}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="errNo">
@@ -179,18 +179,18 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7471A69C-D6A4-4EF7-9983-62A077E1D4D4}"
+      DTS:DTSID="{CE16E9A5-ADF9-4B5A-B2F9-A224C87BF9B2}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="(DT_DBTIMESTAMP) GETDATE()"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="etlFileLoadedTime">
       <DTS:VariableValue
-        DTS:DataType="7">12/23/2019 9:38:12 AM</DTS:VariableValue>
+        DTS:DataType="7">2/25/2021 3:04:03 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B5CC3A3A-4129-4E9B-AA9E-3C246004BC40}"
+      DTS:DTSID="{8525F4EC-426C-422A-827B-326BD86194C7}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="fileExistMap">
@@ -208,7 +208,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{F5D5B492-C5E0-4CEB-9A82-41DEAC9B99F7}"
+      DTS:DTSID="{17BEA227-4F83-4058-A773-55D5E020001B}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="fileNonExistList">
@@ -226,7 +226,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{829BB829-9218-4C6F-9760-42D30C56F95D}"
+      DTS:DTSID="{37EF57C5-2517-4455-A3BE-953303D37419}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="fileNonExistVal">
@@ -236,7 +236,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{313B57C1-02AC-476B-A2D3-49962BAEACCB}"
+      DTS:DTSID="{35507006-2F79-4022-B9B1-B7C7B66EEB4E}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="fileNotMatchedDataTable">
@@ -254,7 +254,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B87DC5D7-8E9C-4E39-9E99-172131509616}"
+      DTS:DTSID="{D208484A-4435-44E1-AADE-33E1185C8C63}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="fileNotMatchedHashSet">
@@ -272,7 +272,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{A2B35589-5BB2-4B65-8C8E-E10D53567773}"
+      DTS:DTSID="{D04326A6-EFB7-4E39-86B3-ECD721F91873}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="fileOrders">
@@ -290,7 +290,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{07172AF9-A9C0-4524-B7BD-E3D7F933674F}"
+      DTS:DTSID="{BA9F5C6F-3697-44CE-A290-3B7C1EB55B19}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="hasConcurrentFiles">
@@ -299,7 +299,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{2165D28A-14D6-4BB8-8768-9D615D1D77D0}"
+      DTS:DTSID="{DE799E80-BEDB-442E-BEA0-9AA0696ED479}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="isZipFile">
@@ -308,7 +308,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{6E53759A-2719-4F37-B5B7-DBC65E30BD51}"
+      DTS:DTSID="{B9B2C222-3C60-4EF2-B38A-2644E624DD0B}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="keepPooling">
@@ -317,17 +317,16 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B3CD6C60-C198-482B-86DE-078870FC360F}"
+      DTS:DTSID="{3221840B-97D2-437B-A324-6E4F05878140}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="mail_From">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">ODSTEST@eslite.com</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{A40A787E-F5E5-4FB0-8370-8BE08123497B}"
+      DTS:DTSID="{F3B8B85F-166F-4F6F-BAD0-778014BABBEE}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="mail_messageSource">
@@ -337,7 +336,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{6FFC94F8-8F19-4FDE-B708-7E09383BF75A}"
+      DTS:DTSID="{015CF5B3-D239-4265-91FA-E60402E9ABB2}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="mail_subject">
@@ -347,17 +346,16 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9E049229-03B8-4CA1-A270-DB4F9DE4706B}"
+      DTS:DTSID="{89883A37-68BB-4155-A6B4-21EF4E1FF70E}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="mail_To">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">yunchenliou@eslite.com</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{EC6600FC-6132-4FB5-8593-BAFE4B0C8384}"
+      DTS:DTSID="{9CADF9BB-622F-4421-BF01-10C9F37EFDB1}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;Main_&quot;+ @[$Package::srcNatName]+&quot;.&quot; +&#xA;SUBSTRING(  @[$Package::srcSysName], 1, FINDSTRING( @[$Package::srcSysName] ,&quot;_&quot;,1) == 0 ?  LEN( @[$Package::srcSysName] ) : FINDSTRING( @[$Package::srcSysName] ,&quot;_&quot;,1)-1 ) &#xA;+&quot;_Container.dtsx&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -368,7 +366,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{24AE7015-3299-47A2-B727-D49C65CFD61D}"
+      DTS:DTSID="{FD0C169A-9892-4945-B1B3-052A0D9D6FEB}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="param_columnNameRowNo">
@@ -377,7 +375,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{2B8BFB6B-7030-40A9-934B-C8E1FEEF1941}"
+      DTS:DTSID="{CB869629-641B-4A39-8C8A-CBA3582C68B5}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="param_concurrentTables">
@@ -386,7 +384,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{EDEE06A8-F79E-4856-8447-F3240CD23BB9}"
+      DTS:DTSID="{8802D7BD-A0B3-4FA4-A1B4-218AE8D131BE}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_fileNamePattern">
@@ -396,7 +394,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1CA1AC66-D24D-47B8-A897-15E980FE4108}"
+      DTS:DTSID="{DD1215A1-65C7-444B-AD63-95D89AFF956B}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="param_fileStatusNonExist">
@@ -405,7 +403,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9567BB62-1BB0-4DDD-A392-33B170E6BD04}"
+      DTS:DTSID="{3FACA649-5214-4CB8-98D2-AADD15D6A5A5}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="param_fileStatusPatternNotMatched">
@@ -414,7 +412,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{55AF31A0-DCA4-46E1-AFFB-597505CCD1CA}"
+      DTS:DTSID="{177A0342-72A5-4EA9-A78A-3135D94E5268}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_folderPath">
@@ -423,7 +421,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{954C7801-E12F-4FCD-95D9-4C92569CFF1A}"
+      DTS:DTSID="{57473504-1346-425A-A5CA-AB1E3F6FC028}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_folderPathWQL">
@@ -432,7 +430,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3B7E5B2D-68D3-439A-8F3E-A7BC7BEB13FF}"
+      DTS:DTSID="{11B8D4A1-3B84-4F1C-B156-F900BDEBB97B}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="param_headerSkipRowsNo">
@@ -441,7 +439,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{47B65AE4-0311-4C52-9B48-1E00BD12083B}"
+      DTS:DTSID="{52553511-4D38-4C63-81E9-90C20D26F400}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="param_maxConcurrent">
@@ -450,7 +448,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{288CAA97-64B9-4F81-A179-945BA5D50CC6}"
+      DTS:DTSID="{DEDC65F6-B011-43A1-990D-1BE4E7FA876E}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="param_poolingTimeOutMins">
@@ -459,7 +457,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C5102A8A-1331-4BC3-9D47-47322924F718}"
+      DTS:DTSID="{91FA7560-AEAA-4EE9-AECA-292395B8EE08}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="param_srcFileTypeCheckFile">
@@ -468,7 +466,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{ED3451EE-EF2E-49FF-94C7-8BD98FD80292}"
+      DTS:DTSID="{0E7AE53A-024C-4AFB-A304-2A6672DA9D85}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="param_srcFileTypeEmpty">
@@ -477,7 +475,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{0AE5A37E-C317-4DEA-9CB4-FFD921402AA4}"
+      DTS:DTSID="{2D78F6A4-C111-4AA9-A1B6-F6AA268E4694}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="param_srcFileTypeRawData">
@@ -486,7 +484,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D2FB9958-3109-458C-8C4D-079089E94442}"
+      DTS:DTSID="{8B80C944-88E1-4D45-A7E6-13BB905F0E65}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_tableName">
@@ -496,7 +494,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{F0446AC3-901D-4779-B596-EF51123FD8B3}"
+      DTS:DTSID="{E3D9324F-96DA-4834-84FC-A2C415ADA8B2}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_wmiTimeout">
@@ -505,7 +503,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B733737F-3F33-478C-A282-34DD4E631F48}"
+      DTS:DTSID="{84578C54-E40C-42CE-A34E-CA6556B48629}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -515,7 +513,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{A0B6ED79-016A-4891-9C2D-9F21507458AF}"
+      DTS:DTSID="{FB243DB3-4962-4D78-962F-988F72EB10F7}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="param_workDateFlag">
@@ -524,7 +522,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{630B3D42-C18B-455F-AFBB-F4E7DF2801D5}"
+      DTS:DTSID="{8791890B-4CFD-4289-B3B7-A68CAF28F7F1}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_zipFileNamePattern">
@@ -534,7 +532,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{0C36E19B-7EA7-401F-ADE2-28A598AB33CB}"
+      DTS:DTSID="{D548BEDA-5106-4435-914E-ED6A7AEEC44E}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::param_folderPath]+ &quot;patternNotMatched\\&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -545,7 +543,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7F986590-A83B-4437-A2F6-4F7929807C98}"
+      DTS:DTSID="{CBD390BF-454A-48A0-9831-679BF45A6B7C}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="patternTableMap">
@@ -563,7 +561,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C20C5CD6-EA00-4FD4-83C6-DA01DA50614E}"
+      DTS:DTSID="{E2CF8A7A-2ECE-45E3-97E9-C52846BC00E8}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::param_folderPath]+ &quot;done\\&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -574,7 +572,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{08FB56CF-4A2C-4277-AD6B-C8F82FEA4AFE}"
+      DTS:DTSID="{E3B627E9-EBE1-44AC-8AED-0B1634180C81}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::param_folderPath]+ &quot;error\\&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -585,7 +583,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{87D516D8-F32B-4C6C-A25E-119B3582BC4A}"
+      DTS:DTSID="{EB643507-35EA-4F1C-A1D3-0322C986631B}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="srcFileName">
@@ -595,7 +593,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CA2A680A-98E2-47A3-9E14-FC9F88EB3176}"
+      DTS:DTSID="{4A70A943-6EC9-48C1-B197-F60370905D95}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="srcFileType">
@@ -604,7 +602,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9A7F6EF3-AF11-4402-B212-ADF054EB5505}"
+      DTS:DTSID="{56F7087A-8082-4CC1-AD5E-C000B765ECCE}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="srcNonExistFileName">
@@ -614,7 +612,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{26A430F6-22B8-4C02-8FE5-F13C0DF82D5A}"
+      DTS:DTSID="{FBD7BD66-F85F-439B-B516-CB85B7A0AC50}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::param_folderPath]+ &quot;ongoing\\&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -625,7 +623,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{A345F745-912E-4206-B376-CB8DE4046CB0}"
+      DTS:DTSID="{4DED3F8A-DB50-4211-896D-AD4C3B976A5D}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="tableDefOpMap">
@@ -643,7 +641,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B15E25C9-6B95-4069-954F-09C7985E0A32}"
+      DTS:DTSID="{90D21CFF-C9D7-453D-BDDE-5FCA4C5F7DE3}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="tableOrderMap">
@@ -661,7 +659,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{203F3299-AB65-4D0D-AC63-65D846DD3DA0}"
+      DTS:DTSID="{10DA3A40-352F-462B-BB78-CF17B07B1E60}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="tablePatternMap">
@@ -679,7 +677,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{EAB46EA9-C13E-43FC-B835-F6897A917EA6}"
+      DTS:DTSID="{C967089C-4CEA-4FCD-82AA-1091E08F49B9}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::param_folderPath] + &quot;unzip\\&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -694,7 +692,7 @@
       DTS:refId="Package\(1)檢查STAGE_TAB_ACT中的FolderPath、FILE_NAME_PATTERN是否存在  (2)Daily Initial Job是否成功 (3)建立相關folder"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="指令碼工作"
-      DTS:DTSID="{2DCF1E14-0DC6-47B0-B3FB-88BC18841798}"
+      DTS:DTSID="{9663F0C3-689B-4FA3-9719-E4586C5E87AB}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="(1)檢查STAGE_TAB_ACT中的FolderPath、FILE_NAME_PATTERN是否存在  (2)Daily Initial Job是否成功 (3)建立相關folder"
@@ -708,6 +706,220 @@
           Language="CSharp"
           ReadOnlyVariables="User::dbParamNameList,User::dbResultSet_STA,User::param_columnNameRowNo,User::param_folderPath,User::param_headerSkipRowsNo,User::param_workDateFlag,User::patternNotMatchedFileFolder,User::srcDoneFileFolder,User::srcErrorFileFolder,User::srcOngoingFileFolder,$Package::srcSysName,$Project::EmailTilte"
           ReadWriteVariables="User::mail_messageSource,User::mail_subject,User::patternTableMap,User::tableDefOpMap,User::tablePatternMap">
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="ST_af6001d683ba4f269e0f8f96c2b180e8.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{43eb52a7-388b-429c-90ab-69245eb386c8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_af6001d683ba4f269e0f8f96c2b180e8</RootNamespace>
+    <AssemblyName>ST_af6001d683ba4f269e0f8f96c2b180e8</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST140</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[
@@ -995,124 +1207,25 @@ namespace ST_af6001d683ba4f269e0f8f96c2b180e8
     }
 }]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Resources.resx"
-            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-</root>]]></ProjectItem>
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_af6001d683ba4f269e0f8f96c2b180e8</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_af6001d683ba4f269e0f8f96c2b180e8</msb:DisplayName>
+    <msb:ProjectId>{A16DBF56-645D-4B44-B3CF-FE78B55BA5CF}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_af6001d683ba4f269e0f8f96c2b180e8.csproj" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Settings.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -1143,112 +1256,6 @@ namespace ST_af6001d683ba4f269e0f8f96c2b180e8.Properties {
     }
 }]]></ProjectItem>
           <ProjectItem
-            Name="ST_af6001d683ba4f269e0f8f96c2b180e8.csproj"
-            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{43eb52a7-388b-429c-90ab-69245eb386c8}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ST_af6001d683ba4f269e0f8f96c2b180e8</RootNamespace>
-    <AssemblyName>ST_af6001d683ba4f269e0f8f96c2b180e8</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>.\bin\Debug\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DebugSymbols>false</DebugSymbols>
-    <Optimize>true</Optimize>
-    <OutputPath>.\bin\Release\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-  </ItemGroup>
-  <ItemGroup>
-    <AppDesigner Include="Properties\" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="ScriptMain.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <!-- Include the build rules for a C# project.-->
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
-        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
-        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
-        <ProjectClient>
-          <HostIdentifier>SSIS_ST140</HostIdentifier>
-        </ProjectClient>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-</Project>]]></ProjectItem>
-          <ProjectItem
-            Name="Project"
-            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
-<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
-  <msb:PropertyGroup>
-    <msb:CodeName>ST_af6001d683ba4f269e0f8f96c2b180e8</msb:CodeName>
-    <msb:Language>msBuild</msb:Language>
-    <msb:DisplayName>ST_af6001d683ba4f269e0f8f96c2b180e8</msb:DisplayName>
-    <msb:ProjectId>{A16DBF56-645D-4B44-B3CF-FE78B55BA5CF}</msb:ProjectId>
-  </msb:PropertyGroup>
-  <msb:ItemGroup>
-    <msb:Project Include="ST_af6001d683ba4f269e0f8f96c2b180e8.csproj" />
-    <msb:File Include="Properties\Resources.resx" />
-    <msb:File Include="Properties\Settings.settings" />
-    <msb:File Include="Properties\AssemblyInfo.cs" />
-    <msb:File Include="Properties\Resources.Designer.cs" />
-    <msb:File Include="Properties\Settings.Designer.cs" />
-    <msb:File Include="ScriptMain.cs" />
-  </msb:ItemGroup>
-</c:Project>]]></ProjectItem>
-          <ProjectItem
             Name="Properties\AssemblyInfo.cs"
             Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -1278,15 +1285,6 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-          <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -1552,7 +1550,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       DTS:refId="Package\主ETL作業區塊"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{83B3BDAF-CBC9-4B41-BD31-985BD9867244}"
+      DTS:DTSID="{61AE101A-70F2-444E-9356-5090C0E2D21D}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="主ETL作業區塊">
@@ -1562,7 +1560,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           DTS:refId="Package\主ETL作業區塊\patternNotMatched檔案內容寫入或更新FILE_REC"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="資料流程工作"
-          DTS:DTSID="{66d67efb-4dcc-46c3-9aa9-ea75967f7ed8}"
+          DTS:DTSID="{620789D4-6221-4747-9D3E-0E063BE02550}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="patternNotMatched檔案內容寫入或更新FILE_REC"
@@ -3319,7 +3317,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           DTS:refId="Package\主ETL作業區塊\不符合pattern的檔案Move to patternNotMatched"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="指令碼工作"
-          DTS:DTSID="{923716D3-E982-4A4E-92D9-E1F5A472A42F}"
+          DTS:DTSID="{F6B40C94-2332-4D4C-ACCF-56B3FEDA5FCA}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="不符合pattern的檔案Move to patternNotMatched"
@@ -3334,14 +3332,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
               ReadOnlyVariables="User::fileNotMatchedHashSet,User::patternNotMatchedFileFolder"
               ReadWriteVariables="User::fileNotMatchedDataTable">
               <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_6c8bd7ff8dab4325891bd0f95cffc7f9")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_6c8bd7ff8dab4325891bd0f95cffc7f9")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -3731,35 +3750,14 @@ namespace ST_6c8bd7ff8dab4325891bd0f95cffc7f9.Properties {
     }
 }]]></ProjectItem>
               <ProjectItem
-                Name="Properties\AssemblyInfo.cs"
-                Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_6c8bd7ff8dab4325891bd0f95cffc7f9")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_6c8bd7ff8dab4325891bd0f95cffc7f9")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -3962,7 +3960,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾"
           DTS:CreationName="STOCK:FORLOOP"
           DTS:Description="For 迴圈容器"
-          DTS:DTSID="{E04B7887-A710-48B9-9F4D-902C8C3A501F}"
+          DTS:DTSID="{7AA0AF05-8BD9-4300-A8C9-EA9BEB2FD395}"
           DTS:EvalExpression="@keepPooling"
           DTS:ExecutableType="STOCK:FORLOOP"
           DTS:InitExpression="@keepPooling"
@@ -3975,7 +3973,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
               DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\WMI-持續監看指定資料夾是否有新的檔案"
               DTS:CreationName="Microsoft.WmiEventWatcherTask"
               DTS:Description="WMI 事件監看員工作"
-              DTS:DTSID="{862CA60C-609D-4FAA-8D13-A98CF097941B}"
+              DTS:DTSID="{822F8F24-5CD4-4F30-BB59-1ED36411CBB8}"
               DTS:ExecutableType="Microsoft.WmiEventWatcherTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="WMI-持續監看指定資料夾是否有新的檔案"
@@ -3992,7 +3990,7 @@ AND TargetInstance.GroupComponent = \"Win32_Directory.Name=\\"+
                 <DTS:EventHandler
                   DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\WMI-持續監看指定資料夾是否有新的檔案.EventHandlers[WMIEventWatcherEventTimedout]"
                   DTS:CreationName="WMIEventWatcherEventTimedout"
-                  DTS:DTSID="{2EEDF341-FF66-41DA-B2E8-ADE23F2866D2}"
+                  DTS:DTSID="{1C066C87-8365-417E-97CD-4B2C6B1EC224}"
                   DTS:EventID="0"
                   DTS:EventName="WMIEventWatcherEventTimedout"
                   DTS:LocaleID="-1">
@@ -4000,7 +3998,7 @@ AND TargetInstance.GroupComponent = \"Win32_Directory.Name=\\"+
                     <DTS:Variable
                       DTS:CreationName=""
                       DTS:Description="事件的傳播屬性"
-                      DTS:DTSID="{FFA96083-9940-4BC9-9B8B-0F5B76A91D88}"
+                      DTS:DTSID="{BBD8417C-76AA-42FD-AA3A-083BA0381427}"
                       DTS:IncludeInDebugDump="6789"
                       DTS:Namespace="System"
                       DTS:ObjectName="Propagate">
@@ -4013,7 +4011,7 @@ AND TargetInstance.GroupComponent = \"Win32_Directory.Name=\\"+
                       DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\WMI-持續監看指定資料夾是否有新的檔案.EventHandlers[WMIEventWatcherEventTimedout]\still keep pooling?"
                       DTS:CreationName="Microsoft.ExpressionTask"
                       DTS:Description="運算式工作"
-                      DTS:DTSID="{6FC3C808-BF63-421E-B17A-BD8E735FC531}"
+                      DTS:DTSID="{C2BEDE93-1835-4475-A6C5-1FE9D59B8C99}"
                       DTS:ExecutableType="Microsoft.ExpressionTask"
                       DTS:LocaleID="-1"
                       DTS:ObjectName="still keep pooling?">
@@ -4037,7 +4035,7 @@ AND TargetInstance.GroupComponent = \"Win32_Directory.Name=\\"+
               DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\初始化變數"
               DTS:CreationName="Microsoft.ScriptTask"
               DTS:Description="指令碼工作"
-              DTS:DTSID="{59B1A507-AB30-47F9-93D3-6030F7875E9C}"
+              DTS:DTSID="{6B7F6D3F-DDF8-4A85-9947-6ED98D4CEB1E}"
               DTS:ExecutableType="Microsoft.ScriptTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="初始化變數"
@@ -4716,7 +4714,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
               DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\取得每次掃描得到的所有檔案的資料清洗結果"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="執行 SQL 工作"
-              DTS:DTSID="{832EACE9-465C-4C22-AB35-A86985BE63DC}"
+              DTS:DTSID="{76554D19-7A56-4EA6-BE3F-8B97E94057DB}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="取得每次掃描得到的所有檔案的資料清洗結果"
@@ -4761,7 +4759,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
               DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\寄發通知信件 - 資料清洗結果錯誤報表"
               DTS:CreationName="Microsoft.ExecutePackageTask"
               DTS:Description="執行封裝工作"
-              DTS:DTSID="{F9FEC125-222E-44BE-988C-12EB608CF15C}"
+              DTS:DTSID="{F42CF0B6-265B-4CF5-A883-07C590A57C5C}"
               DTS:ExecutableType="Microsoft.ExecutePackageTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="寄發通知信件 - 資料清洗結果錯誤報表"
@@ -4802,7 +4800,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
               DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保容器內的工作執行完畢才往下繼續執行"
               DTS:CreationName="STOCK:SEQUENCE"
               DTS:Description="時序容器"
-              DTS:DTSID="{E4ABBE6D-495E-4169-A9D3-7CE812543FEF}"
+              DTS:DTSID="{5A5DBA38-A85B-4D87-AA7F-88D2DE5BDB44}"
               DTS:ExecutableType="STOCK:SEQUENCE"
               DTS:LocaleID="-1"
               DTS:ObjectName="用時序容器確保容器內的工作執行完畢才往下繼續執行">
@@ -4812,13 +4810,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保容器內的工作執行完畢才往下繼續執行\將同一順序的資料表對應的檔案清單，同時concurrent執行"
                   DTS:CreationName="STOCK:FOREACHLOOP"
                   DTS:Description="Foreach 迴圈容器"
-                  DTS:DTSID="{3EC3EFE2-7CA1-44E9-9B56-B9D3BAB63761}"
+                  DTS:DTSID="{C6053288-5D65-4E44-B181-351DDB7B39E5}"
                   DTS:ExecutableType="STOCK:FOREACHLOOP"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="將同一順序的資料表對應的檔案清單，同時concurrent執行">
                   <DTS:ForEachEnumerator
                     DTS:CreationName="Microsoft.ForEachFromVarEnumerator"
-                    DTS:DTSID="{8C3EA7B6-FC9A-4BE9-8B3F-2ABE0F785636}"
+                    DTS:DTSID="{F22685E3-4941-429D-A3DE-AA4144117F39}"
                     DTS:ObjectName="{E355EF40-D714-4B99-83B1-5090B88D7C1E}">
                     <DTS:ObjectData>
                       <FEEFVE
@@ -4832,7 +4830,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                       DTS:CreationName="Microsoft.ExecutePackageTask"
                       DTS:DelayValidation="True"
                       DTS:Description="執行封裝工作"
-                      DTS:DTSID="{3CC5548D-AAE6-47A6-9CD7-3E03F1487DA8}"
+                      DTS:DTSID="{842795B2-87A4-499D-8B79-3A28737B331F}"
                       DTS:ExecutableType="Microsoft.ExecutePackageTask"
                       DTS:LocaleID="-1"
                       DTS:ObjectName="由container判斷同時concurrent執行的資料檔"
@@ -4883,7 +4881,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   <DTS:ForEachVariableMappings>
                     <DTS:ForEachVariableMapping
                       DTS:CreationName=""
-                      DTS:DTSID="{B8AE303D-A9C9-4AA4-8CF1-E28A184B198A}"
+                      DTS:DTSID="{B5C65354-7D30-4FD7-8647-D8413CFE1558}"
                       DTS:ObjectName="{6F0AA0F9-208E-4458-BFE1-97601ED670BE}"
                       DTS:ValueIndex="0"
                       DTS:VariableName="User::concurrentFiles" />
@@ -4895,7 +4893,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
               DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行"
               DTS:CreationName="STOCK:SEQUENCE"
               DTS:Description="時序容器"
-              DTS:DTSID="{99387167-6E66-44A4-974A-09F3FCB00604}"
+              DTS:DTSID="{6F9F44BB-DF42-4F91-B8B7-4F65971F2C5C}"
               DTS:ExecutableType="STOCK:SEQUENCE"
               DTS:LocaleID="-1"
               DTS:ObjectName="用時序容器確保檔案都排序好才往下繼續執行">
@@ -4905,7 +4903,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行\排序好之fileOrders最後在依I-&gt;IU-&gt;D排序"
                   DTS:CreationName="Microsoft.ScriptTask"
                   DTS:Description="指令碼工作"
-                  DTS:DTSID="{BBBE1088-DE70-4A01-B9CD-F889F6A24B9F}"
+                  DTS:DTSID="{BC24E507-C107-4B2E-A394-A12705DDBF90}"
                   DTS:ExecutableType="Microsoft.ScriptTask"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="排序好之fileOrders最後在依I-&gt;IU-&gt;D排序"
@@ -4919,36 +4917,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                       Language="CSharp"
                       ReadOnlyVariables="User::patternTableMap,User::tableDefOpMap"
                       ReadWriteVariables="User::fileOrders">
-                      <ProjectItem
-                        Name="Properties\AssemblyInfo.cs"
-                        Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_ab90e71829eb43e4a95ba72d3e901bfa")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_ab90e71829eb43e4a95ba72d3e901bfa")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
                       <ProjectItem
                         Name="Properties\Resources.resx"
                         Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -5154,6 +5122,35 @@ using System.Runtime.CompilerServices;
     </VisualStudio>
   </ProjectExtensions>
 </Project>]]></ProjectItem>
+                      <ProjectItem
+                        Name="Properties\Settings.Designer.cs"
+                        Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_ab90e71829eb43e4a95ba72d3e901bfa.Properties.Settings.get_Default():ST_ab90e71829eb43e4a95ba72d3e901bfa.Properties.Sett" +
+    "ings")]
+
+namespace ST_ab90e71829eb43e4a95ba72d3e901bfa.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
                       <ProjectItem
                         Name="ScriptMain.cs"
                         Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -5395,34 +5392,35 @@ namespace ST_ab90e71829eb43e4a95ba72d3e901bfa
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
                       <ProjectItem
-                        Name="Properties\Settings.Designer.cs"
-                        Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
+                        Name="Properties\AssemblyInfo.cs"
+                        Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
 //
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_ab90e71829eb43e4a95ba72d3e901bfa")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_ab90e71829eb43e4a95ba72d3e901bfa")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
 
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_ab90e71829eb43e4a95ba72d3e901bfa.Properties.Settings.get_Default():ST_ab90e71829eb43e4a95ba72d3e901bfa.Properties.Sett" +
-    "ings")]
-
-namespace ST_ab90e71829eb43e4a95ba72d3e901bfa.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
                       <ProjectItem
                         Name="Properties\Settings.settings"
                         Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
@@ -5652,14 +5650,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                   DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行\針對每次掃描指定資料夾得到的多個檔案執行For迴圈"
                   DTS:CreationName="STOCK:FOREACHLOOP"
                   DTS:Description="Foreach 迴圈容器"
-                  DTS:DTSID="{E78AF958-E77E-425C-BFE5-E0B8981D4DF9}"
+                  DTS:DTSID="{0FDDDCBC-4A9C-4D0E-B44C-7F09DC81BDF3}"
                   DTS:ExecutableType="STOCK:FOREACHLOOP"
                   DTS:LocaleID="-1"
                   DTS:ObjectName="針對每次掃描指定資料夾得到的多個檔案執行For迴圈">
                   <DTS:ForEachEnumerator
                     DTS:CreationName="Microsoft.ForEachFileEnumerator"
-                    DTS:DTSID="{BF5ED9D1-CCC9-4337-A2EA-B8FC2086EE6E}"
-                    DTS:ObjectName="{BF5ED9D1-CCC9-4337-A2EA-B8FC2086EE6E}">
+                    DTS:DTSID="{945F3A6C-765F-4AC7-9CAB-B6031C67E57B}"
+                    DTS:ObjectName="{945F3A6C-765F-4AC7-9CAB-B6031C67E57B}">
                     <DTS:PropertyExpression
                       DTS:Name="Directory">@[User::param_folderPath]</DTS:PropertyExpression>
                     <DTS:ObjectData>
@@ -5681,7 +5679,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                       DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行\針對每次掃描指定資料夾得到的多個檔案執行For迴圈\如果檔案屬於checkfile，執行Checkfile處理"
                       DTS:CreationName="Microsoft.ExecutePackageTask"
                       DTS:Description="執行封裝工作"
-                      DTS:DTSID="{8A52C51D-63BC-4767-BA36-85CDD4E7A12C}"
+                      DTS:DTSID="{4A4EF904-9B21-4EA8-BB0D-AC2FDD9C14BC}"
                       DTS:ExecutableType="Microsoft.ExecutePackageTask"
                       DTS:LocaleID="-1"
                       DTS:ObjectName="如果檔案屬於checkfile，執行Checkfile處理"
@@ -5730,7 +5728,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                       DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行\針對每次掃描指定資料夾得到的多個檔案執行For迴圈\把資料檔依照資料表載入順序進行排序"
                       DTS:CreationName="Microsoft.ScriptTask"
                       DTS:Description="指令碼工作"
-                      DTS:DTSID="{6CDB49A8-FD6D-42FA-A25D-4244124CE8F9}"
+                      DTS:DTSID="{7ACDAEC8-5F38-43F2-85DA-F8ED041CDD88}"
                       DTS:ExecutableType="Microsoft.ScriptTask"
                       DTS:LocaleID="-1"
                       DTS:ObjectName="把資料檔依照資料表載入順序進行排序"
@@ -5745,14 +5743,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                           ReadOnlyVariables="User::isZipFile,User::param_folderPath,User::param_srcFileTypeCheckFile,User::param_srcFileTypeRawData,User::patternTableMap,User::srcFileName,User::tableOrderMap,User::unzipFileFolder,$Package::srcSysName"
                           ReadWriteVariables="User::fileNotMatchedHashSet,User::fileOrders,User::hasConcurrentFiles,User::srcFileType">
                           <ProjectItem
-                            Name="Properties\Settings.settings"
-                            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                            Name="Properties\AssemblyInfo.cs"
+                            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_c551596b80f14010b40912bd1abf9b4d")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_c551596b80f14010b40912bd1abf9b4d")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
                           <ProjectItem
                             Name="Properties\Resources.resx"
                             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -6273,35 +6292,14 @@ namespace ST_c551596b80f14010b40912bd1abf9b4d.Properties {
     }
 }]]></ProjectItem>
                           <ProjectItem
-                            Name="Properties\AssemblyInfo.cs"
-                            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_c551596b80f14010b40912bd1abf9b4d")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_c551596b80f14010b40912bd1abf9b4d")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                            Name="Properties\Settings.settings"
+                            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
                           <ProjectItem
                             Name="Properties\Resources.Designer.cs"
                             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -6558,7 +6556,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
                       DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行\針對每次掃描指定資料夾得到的多個檔案執行For迴圈\把資料檔解壓"
                       DTS:CreationName="Microsoft.ExecutePackageTask"
                       DTS:Description="執行封裝工作"
-                      DTS:DTSID="{B14C54CB-953A-4087-8502-720E7C7ECE3D}"
+                      DTS:DTSID="{8528A064-4F67-4A7D-8FDB-EA9C18150EF4}"
                       DTS:ExecutableType="Microsoft.ExecutePackageTask"
                       DTS:LocaleID="-1"
                       DTS:ObjectName="把資料檔解壓"
@@ -6595,7 +6593,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
                       DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行\針對每次掃描指定資料夾得到的多個檔案執行For迴圈\設定是否為壓縮檔變數"
                       DTS:CreationName="Microsoft.ExpressionTask"
                       DTS:Description="運算式工作"
-                      DTS:DTSID="{DAFAB1F1-AD01-4A35-B407-EBDD426CC0E5}"
+                      DTS:DTSID="{56BE3C2C-E78C-4445-B897-4EAEC068503E}"
                       DTS:ExecutableType="Microsoft.ExpressionTask"
                       DTS:LocaleID="-1"
                       DTS:ObjectName="設定是否為壓縮檔變數"
@@ -6611,7 +6609,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
                     <DTS:PrecedenceConstraint
                       DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行\針對每次掃描指定資料夾得到的多個檔案執行For迴圈.PrecedenceConstraints[條件約束]"
                       DTS:CreationName=""
-                      DTS:DTSID="{256E5007-6903-4386-8994-05A8D2A7734B}"
+                      DTS:DTSID="{68A87433-A0F2-4EB6-9C7E-4FE772F3AD8A}"
                       DTS:From="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行\針對每次掃描指定資料夾得到的多個檔案執行For迴圈\把資料檔解壓"
                       DTS:LogicalAnd="True"
                       DTS:ObjectName="條件約束"
@@ -6619,7 +6617,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
                     <DTS:PrecedenceConstraint
                       DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行\針對每次掃描指定資料夾得到的多個檔案執行For迴圈.PrecedenceConstraints[條件約束 1]"
                       DTS:CreationName=""
-                      DTS:DTSID="{9C946082-429B-4E72-A91E-4DAC0AF4A93C}"
+                      DTS:DTSID="{68893593-8DF9-47FC-B541-F025818F37E2}"
                       DTS:EvalOp="3"
                       DTS:Expression="@[User::srcFileType]== @[User::param_srcFileTypeCheckFile]"
                       DTS:From="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行\針對每次掃描指定資料夾得到的多個檔案執行For迴圈\把資料檔依照資料表載入順序進行排序"
@@ -6629,7 +6627,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
                     <DTS:PrecedenceConstraint
                       DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行\針對每次掃描指定資料夾得到的多個檔案執行For迴圈.PrecedenceConstraints[條件約束 2]"
                       DTS:CreationName=""
-                      DTS:DTSID="{05ED1973-302F-4A84-8D18-93817263F86A}"
+                      DTS:DTSID="{3896D687-6DB8-456C-AA8B-E8FE84CB44E3}"
                       DTS:From="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行\針對每次掃描指定資料夾得到的多個檔案執行For迴圈\設定是否為壓縮檔變數"
                       DTS:LogicalAnd="True"
                       DTS:ObjectName="條件約束 2"
@@ -6638,8 +6636,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
                   <DTS:ForEachVariableMappings>
                     <DTS:ForEachVariableMapping
                       DTS:CreationName=""
-                      DTS:DTSID="{C985DF98-ED51-482D-88CE-4F2C5A720F29}"
-                      DTS:ObjectName="{C985DF98-ED51-482D-88CE-4F2C5A720F29}"
+                      DTS:DTSID="{E63402D6-897F-47A3-858C-75315E3936D4}"
+                      DTS:ObjectName="{E63402D6-897F-47A3-858C-75315E3936D4}"
                       DTS:ValueIndex="0"
                       DTS:VariableName="User::srcFileName" />
                   </DTS:ForEachVariableMappings>
@@ -6649,7 +6647,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
                 <DTS:PrecedenceConstraint
                   DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行.PrecedenceConstraints[條件約束]"
                   DTS:CreationName=""
-                  DTS:DTSID="{0DD409DA-ABD7-4712-BB4A-8222F990D683}"
+                  DTS:DTSID="{3ED4DB7F-1749-48E5-8700-8A87AA388E50}"
                   DTS:From="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行\針對每次掃描指定資料夾得到的多個檔案執行For迴圈"
                   DTS:LogicalAnd="True"
                   DTS:ObjectName="條件約束"
@@ -6660,7 +6658,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
               DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\設定param_folderPathWQL"
               DTS:CreationName="Microsoft.ScriptTask"
               DTS:Description="指令碼工作"
-              DTS:DTSID="{41b7a2a9-ab67-4296-ae4f-ffcd5bd3e4af}"
+              DTS:DTSID="{FF19F914-1319-4331-B4FF-7514A6D32B3E}"
               DTS:ExecutableType="Microsoft.ScriptTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="設定param_folderPathWQL"
@@ -6674,6 +6672,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
                   Language="CSharp"
                   ReadOnlyVariables="User::param_folderPath"
                   ReadWriteVariables="User::param_folderPathWQL">
+                  <ProjectItem
+                    Name="Properties\Settings.settings"
+                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.resx"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -6793,35 +6800,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-                  <ProjectItem
-                    Name="Properties\Settings.Designer.cs"
-                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_d74faf3369d14c42b56aeacc4f1e8b21.Properties.Settings.get_Default():ST_d74faf3369d14c42b56aeacc4f1e8b21.Properties.Sett" +
-    "ings")]
-
-namespace ST_d74faf3369d14c42b56aeacc4f1e8b21.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
                   <ProjectItem
                     Name="ScriptMain.cs"
                     Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -6970,6 +6948,35 @@ namespace ST_d74faf3369d14c42b56aeacc4f1e8b21
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
                   <ProjectItem
+                    Name="Properties\Settings.Designer.cs"
+                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_d74faf3369d14c42b56aeacc4f1e8b21.Properties.Settings.get_Default():ST_d74faf3369d14c42b56aeacc4f1e8b21.Properties.Sett" +
+    "ings")]
+
+namespace ST_d74faf3369d14c42b56aeacc4f1e8b21.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+                  <ProjectItem
                     Name="Properties\AssemblyInfo.cs"
                     Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -6999,15 +7006,6 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-                  <ProjectItem
-                    Name="Properties\Settings.settings"
-                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.Designer.cs"
                     Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -7197,12 +7195,39 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                 </ScriptProject>
               </DTS:ObjectData>
             </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾\非預期性錯誤發信"
+              DTS:CreationName="Microsoft.SendMailTask"
+              DTS:Description="非預期性錯誤發信"
+              DTS:DTSID="{D4BCDDEA-F59F-41FA-A87B-0C2F118AF9C5}"
+              DTS:ExecutableType="Microsoft.SendMailTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="非預期性錯誤發信"
+              DTS:ThreadHint="1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="FromLine">@[User::mail_From]</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="MessageSource">@[$Package::srcSysName] + " " +  @[$Package::srcEkorg] + " 發生非預期性錯誤導致中止"</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="Subject">"「ODS」" +  @[$Package::srcSysName] + " " +  @[$Package::srcEkorg] + " 發生非預期性錯誤導致中止_" + replace( @[User::param_WorkDate],"-","")</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="ToLine">@[User::mail_To]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SendMailTask:SendMailTaskData
+                  SendMailTask:SMTPServer="{AAA07245-3276-4E20-A98C-093FFC81D00F}"
+                  SendMailTask:From="ODSTEST@eslite.com"
+                  SendMailTask:To="yunchenliou@eslite.com"
+                  SendMailTask:Subject="「ODS」LMS  發生非預期性錯誤導致中止_"
+                  SendMailTask:MessageSource="LMS  發生非預期性錯誤導致中止" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
           </DTS:Executables>
           <DTS:PrecedenceConstraints>
             <DTS:PrecedenceConstraint
               DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾.PrecedenceConstraints[條件約束]"
               DTS:CreationName=""
-              DTS:DTSID="{A87C8D01-35B1-4E6F-B395-238E92295CAE}"
+              DTS:DTSID="{EC4E1666-46E6-4D7F-996E-1271C9DDAD5A}"
               DTS:From="Package\主ETL作業區塊\持續掃描指定資料夾\WMI-持續監看指定資料夾是否有新的檔案"
               DTS:LogicalAnd="True"
               DTS:ObjectName="條件約束"
@@ -7210,7 +7235,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             <DTS:PrecedenceConstraint
               DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾.PrecedenceConstraints[條件約束 1]"
               DTS:CreationName=""
-              DTS:DTSID="{3D917F46-553A-470B-8813-207A87F00E29}"
+              DTS:DTSID="{8F67F517-1166-42A6-AC62-80B60970B79A}"
               DTS:From="Package\主ETL作業區塊\持續掃描指定資料夾\初始化變數"
               DTS:LogicalAnd="True"
               DTS:ObjectName="條件約束 1"
@@ -7218,7 +7243,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             <DTS:PrecedenceConstraint
               DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾.PrecedenceConstraints[條件約束 2]"
               DTS:CreationName=""
-              DTS:DTSID="{A27B4D32-F3AA-4D74-8CD4-191442CD8B43}"
+              DTS:DTSID="{72AC23A4-2BCF-40AA-8619-B4EE1052D206}"
               DTS:From="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保檔案都排序好才往下繼續執行"
               DTS:LogicalAnd="True"
               DTS:ObjectName="條件約束 2"
@@ -7226,7 +7251,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             <DTS:PrecedenceConstraint
               DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾.PrecedenceConstraints[條件約束 3]"
               DTS:CreationName=""
-              DTS:DTSID="{4D87B170-D9A7-4484-8D52-DE944DB32D1F}"
+              DTS:DTSID="{D7A39302-8E37-453F-9D18-E4F9B2867773}"
               DTS:EvalOp="3"
               DTS:Expression="@[User::hasConcurrentFiles]"
               DTS:From="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保容器內的工作執行完畢才往下繼續執行"
@@ -7236,7 +7261,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             <DTS:PrecedenceConstraint
               DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾.PrecedenceConstraints[條件約束 4]"
               DTS:CreationName=""
-              DTS:DTSID="{15DBA3D8-8DF3-4A6E-9162-8C39D1E3AE8C}"
+              DTS:DTSID="{0832855A-FFFB-40A3-8AA2-94FC30B6658A}"
               DTS:EvalOp="1"
               DTS:Expression="@[User::errNo] &gt; 0"
               DTS:From="Package\主ETL作業區塊\持續掃描指定資料夾\取得每次掃描得到的所有檔案的資料清洗結果"
@@ -7246,11 +7271,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             <DTS:PrecedenceConstraint
               DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾.PrecedenceConstraints[條件約束 5]"
               DTS:CreationName=""
-              DTS:DTSID="{253138F2-7D19-4DAA-89C3-1C5AAB265802}"
+              DTS:DTSID="{8DE7002E-C75B-40CC-A0F7-C2E00EB1BC72}"
               DTS:From="Package\主ETL作業區塊\持續掃描指定資料夾\設定param_folderPathWQL"
               DTS:LogicalAnd="True"
               DTS:ObjectName="條件約束 5"
               DTS:To="Package\主ETL作業區塊\持續掃描指定資料夾\WMI-持續監看指定資料夾是否有新的檔案" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\主ETL作業區塊\持續掃描指定資料夾.PrecedenceConstraints[條件約束 6]"
+              DTS:CreationName=""
+              DTS:DTSID="{864DFB5D-ABC9-4D3C-BA70-5143669D21CE}"
+              DTS:From="Package\主ETL作業區塊\持續掃描指定資料夾\用時序容器確保容器內的工作執行完畢才往下繼續執行"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="條件約束 6"
+              DTS:To="Package\主ETL作業區塊\持續掃描指定資料夾\非預期性錯誤發信"
+              DTS:Value="1" />
           </DTS:PrecedenceConstraints>
         </DTS:Executable>
       </DTS:Executables>
@@ -7258,7 +7292,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\主ETL作業區塊.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{B07A3238-F5FD-4C9B-A264-139C944EBDF8}"
+          DTS:DTSID="{DB3F83F9-D72D-43BC-AE08-A889B9ED9B07}"
           DTS:From="Package\主ETL作業區塊\持續掃描指定資料夾"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -7266,7 +7300,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\主ETL作業區塊.PrecedenceConstraints[條件約束 1]"
           DTS:CreationName=""
-          DTS:DTSID="{B2A25290-B692-47B8-81A0-00504C74B874}"
+          DTS:DTSID="{60373E8E-4F0B-4BA3-B1FF-682CB42FD130}"
           DTS:From="Package\主ETL作業區塊\不符合pattern的檔案Move to patternNotMatched"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束 1"
@@ -7277,7 +7311,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       DTS:refId="Package\寄發通知信件 - 資料清洗結果"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{5fe6bd26-c3fa-4944-b1c8-02cd0d2789e8}"
+      DTS:DTSID="{6522F858-7926-4D46-81F3-3D407D9528CB}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="寄發通知信件 - 資料清洗結果"
@@ -7318,7 +7352,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       DTS:refId="Package\建立是否處理過檔案對應Map"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="指令碼工作"
-      DTS:DTSID="{adbf5404-5e2f-4b12-9a36-a8933b277b28}"
+      DTS:DTSID="{22FD6A75-D8B2-4CF6-8E6C-5919648746CA}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="建立是否處理過檔案對應Map"
@@ -7333,14 +7367,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           ReadOnlyVariables="User::dbTableOrder,$Package::srcSysName"
           ReadWriteVariables="User::fileExistMap,User::fileNotMatchedHashSet">
           <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_c551596b80f14010b40912bd1abf9b4d")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_c551596b80f14010b40912bd1abf9b4d")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -7729,35 +7784,14 @@ namespace ST_c551596b80f14010b40912bd1abf9b4d.Properties {
     }
 }]]></ProjectItem>
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_c551596b80f14010b40912bd1abf9b4d")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_c551596b80f14010b40912bd1abf9b4d")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -7960,7 +7994,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       DTS:refId="Package\從資料表PROJECT_PARAMS取得參數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{A27C0C94-C7B6-4769-9189-8D16C7F5F635}"
+      DTS:DTSID="{BAC3D96B-1D5F-4329-A45E-B813474685B8}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="從資料表PROJECT_PARAMS取得參數"
@@ -7983,7 +8017,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       DTS:refId="Package\從資料表STAGE_TAB_ACT取得FILE_NAME_PATTERN LIST"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{029e3cf9-1063-4985-a81e-9a95a1b9a582}"
+      DTS:DTSID="{183D03F1-801A-4711-82CD-27CD7AB3D997}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="從資料表STAGE_TAB_ACT取得FILE_NAME_PATTERN LIST"
@@ -8024,7 +8058,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       DTS:refId="Package\從資料表STAGE_TAB_ACT取得FOLDER_PATH LIST"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{71b34c89-2f01-4a56-b6c2-cb3e4595fa80}"
+      DTS:DTSID="{D83ED5D3-D4B3-4C20-91BD-EB0AF5910B7B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="從資料表STAGE_TAB_ACT取得FOLDER_PATH LIST"
@@ -8065,7 +8099,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       DTS:refId="Package\從資料表USER_PARAMS取得參數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{97A2B096-8D60-4932-9F69-24A0B6F37565}"
+      DTS:DTSID="{7A962D16-44FB-4566-8F35-3B5C29C482CF}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="從資料表USER_PARAMS取得參數"
@@ -8106,7 +8140,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       DTS:refId="Package\從資料表取得ZIP_FILE_NAME_PATTERN LIST"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{65535bbe-ddd1-4b44-9918-43c4c7f6e375}"
+      DTS:DTSID="{FE7156E1-ABBA-4519-8C96-45B281641628}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="從資料表取得ZIP_FILE_NAME_PATTERN LIST"
@@ -8147,7 +8181,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{E165D2C5-B786-4412-81C8-E764ADDA31B2}"
+      DTS:DTSID="{4B00D25B-D44A-43BE-BE58-498D2956B74F}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器">
@@ -8157,14 +8191,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           DTS:refId="Package\時序容器\Foreach 迴圈容器"
           DTS:CreationName="STOCK:FOREACHLOOP"
           DTS:Description="Foreach 迴圈容器"
-          DTS:DTSID="{6D429DD8-8A2E-44DA-A16F-2293F0A78874}"
+          DTS:DTSID="{AAD745E5-1517-45FB-99A3-860E69E1FE34}"
           DTS:ExecutableType="STOCK:FOREACHLOOP"
           DTS:LocaleID="-1"
           DTS:ObjectName="Foreach 迴圈容器">
           <DTS:ForEachEnumerator
             DTS:CreationName="Microsoft.ForEachFromVarEnumerator"
-            DTS:DTSID="{AE286F09-4BB1-4511-A508-F9622F7E7C7A}"
-            DTS:ObjectName="{AE286F09-4BB1-4511-A508-F9622F7E7C7A}">
+            DTS:DTSID="{C59DC8DE-5299-4163-929A-A6A37E7E9178}"
+            DTS:ObjectName="{C59DC8DE-5299-4163-929A-A6A37E7E9178}">
             <DTS:ObjectData>
               <FEEFVE
                 VariableName="User::fileNonExistList" />
@@ -8176,7 +8210,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
               DTS:refId="Package\時序容器\Foreach 迴圈容器\insert into FILE_REC"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="執行 SQL 工作"
-              DTS:DTSID="{ee4d755b-bcf6-41d5-b176-adc08c21b8d5}"
+              DTS:DTSID="{F3F14CE9-37E9-4F68-BE93-46BFDB399269}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="insert into FILE_REC"
@@ -8279,7 +8313,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
               DTS:refId="Package\時序容器\Foreach 迴圈容器\設定假檔名"
               DTS:CreationName="Microsoft.ScriptTask"
               DTS:Description="指令碼工作"
-              DTS:DTSID="{58839132-7e1a-44fe-99ae-653cb35abf16}"
+              DTS:DTSID="{3E12D4F0-C502-42C8-B616-B91329A9EEBC}"
               DTS:ExecutableType="Microsoft.ScriptTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="設定假檔名"
@@ -8294,14 +8328,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
                   ReadOnlyVariables="User::fileNonExistVal,$Package::srcEkorg"
                   ReadWriteVariables="User::srcNonExistFileName">
                   <ProjectItem
-                    Name="Properties\Settings.settings"
-                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                    Name="Properties\AssemblyInfo.cs"
+                    Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_c997bf4ec200483288c747271c7dba74")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_c997bf4ec200483288c747271c7dba74")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.resx"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -8685,35 +8740,14 @@ namespace ST_c997bf4ec200483288c747271c7dba74.Properties {
     }
 }]]></ProjectItem>
                   <ProjectItem
-                    Name="Properties\AssemblyInfo.cs"
-                    Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_c997bf4ec200483288c747271c7dba74")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_c997bf4ec200483288c747271c7dba74")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                    Name="Properties\Settings.settings"
+                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.Designer.cs"
                     Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -8908,7 +8942,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             <DTS:PrecedenceConstraint
               DTS:refId="Package\時序容器\Foreach 迴圈容器.PrecedenceConstraints[條件約束]"
               DTS:CreationName=""
-              DTS:DTSID="{BD776855-7AB1-4B33-82D8-3055D2D1531F}"
+              DTS:DTSID="{5941F68C-CC86-47D2-80F1-132C2A1AFFE0}"
               DTS:From="Package\時序容器\Foreach 迴圈容器\設定假檔名"
               DTS:LogicalAnd="True"
               DTS:ObjectName="條件約束"
@@ -8917,8 +8951,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           <DTS:ForEachVariableMappings>
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{1FB51900-69A6-462E-90A5-8612948B22EF}"
-              DTS:ObjectName="{1FB51900-69A6-462E-90A5-8612948B22EF}"
+              DTS:DTSID="{E5347767-F23B-4F40-AC8A-2FDA44274C2D}"
+              DTS:ObjectName="{E5347767-F23B-4F40-AC8A-2FDA44274C2D}"
               DTS:ValueIndex="0"
               DTS:VariableName="User::fileNonExistVal" />
           </DTS:ForEachVariableMappings>
@@ -8927,7 +8961,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           DTS:refId="Package\時序容器\設定無資料檔List"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="指令碼工作"
-          DTS:DTSID="{d70c5444-7f43-45a2-8dbe-cb625b801cd9}"
+          DTS:DTSID="{FE123254-44B3-4972-9663-C0B5944E9769}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="設定無資料檔List"
@@ -9147,35 +9181,34 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
   </resheader>
 </root>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\AssemblyInfo.cs"
-                Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
 
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_c997bf4ec200483288c747271c7dba74")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_c997bf4ec200483288c747271c7dba74")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_c997bf4ec200483288c747271c7dba74.Properties.Settings.get_Default():ST_c997bf4ec200483288c747271c7dba74.Properties.Sett" +
+    "ings")]
 
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+namespace ST_c997bf4ec200483288c747271c7dba74.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
               <ProjectItem
                 Name="ScriptMain.cs"
                 Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -9322,34 +9355,35 @@ namespace ST_c997bf4ec200483288c747271c7dba74
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
 //
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_c997bf4ec200483288c747271c7dba74")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_c997bf4ec200483288c747271c7dba74")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
 
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_c997bf4ec200483288c747271c7dba74.Properties.Settings.get_Default():ST_c997bf4ec200483288c747271c7dba74.Properties.Sett" +
-    "ings")]
-
-namespace ST_c997bf4ec200483288c747271c7dba74.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Settings.settings"
                 Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
@@ -9553,7 +9587,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{FF7EFDE7-DAB0-40B7-AE94-53187ADCBEF5}"
+          DTS:DTSID="{B19346E5-651D-441B-874F-6145B23DB298}"
           DTS:From="Package\時序容器\設定無資料檔List"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -9564,7 +9598,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       DTS:refId="Package\系統前置作業 - 從資料表STAGE_TAB_ACT取得來源系統資料表的載入順序"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{349A4EBC-D607-45F5-92FC-81DBD8200B27}"
+      DTS:DTSID="{849118B6-49A4-4EAB-86CD-489A72B3CB7D}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="系統前置作業 - 從資料表STAGE_TAB_ACT取得來源系統資料表的載入順序"
@@ -9603,7 +9637,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       DTS:refId="Package\設定檔錯誤寄發MAIL"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{609672F1-C126-4DC5-A3E7-12AB945DA7C7}"
+      DTS:DTSID="{C2B3E39B-D5F8-48AB-B111-AFEFA2570FE7}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="設定檔錯誤寄發MAIL"
@@ -9636,7 +9670,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       DTS:refId="Package\路徑與組態錯誤寄發MAIL"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{45E63742-63F0-4E3A-9FE1-ED258159385E}"
+      DTS:DTSID="{4E5F4328-DEAD-4823-BFC9-A539E08D6250}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="路徑與組態錯誤寄發MAIL"
@@ -9669,13 +9703,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       DTS:refId="Package\針對取得參數執行Foreach 迴圈"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach 迴圈容器"
-      DTS:DTSID="{DF187D64-2975-45EB-B47D-3BFFAE7D5EF9}"
+      DTS:DTSID="{649D5871-8DFD-4FBE-AA8B-DCB9AFE0AA5C}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="針對取得參數執行Foreach 迴圈">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachADOEnumerator"
-        DTS:DTSID="{58394171-410A-4D8B-929A-800653985D57}"
+        DTS:DTSID="{585CCDDF-DA91-4574-8619-73524ED73D39}"
         DTS:ObjectName="{A2962493-F56E-401F-A929-0469C2944826}">
         <DTS:ObjectData>
           <FEEADO
@@ -9689,7 +9723,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           DTS:refId="Package\針對取得參數執行Foreach 迴圈\把取得的參數值設定到封裝變數"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="指令碼工作"
-          DTS:DTSID="{6C358B7B-BD38-4E45-B197-19068780759E}"
+          DTS:DTSID="{AC16DAD2-006B-49DF-AAE4-65F54386A0BA}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="把取得的參數值設定到封裝變數"
@@ -9703,36 +9737,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
               Language="CSharp"
               ReadOnlyVariables="User::dbCategory,User::dbParamName,User::dbParamValue,User::dbResultSet,$Project::EmailTilte"
               ReadWriteVariables="User::dbParamNameList,User::mail_From,User::mail_messageSource,User::mail_subject,User::mail_To,User::param_columnNameRowNo,User::param_headerSkipRowsNo,User::param_maxConcurrent,User::param_poolingTimeOutMins,User::param_srcFileTypeCheckFile,User::param_srcFileTypeRawData,User::param_wmiTimeout,User::param_WorkDate,User::param_workDateFlag,User::param_zipFileNamePattern">
-              <ProjectItem
-                Name="Properties\AssemblyInfo.cs"
-                Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_6bfbf82519434f06b6c3eee18d07e94f")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_6bfbf82519434f06b6c3eee18d07e94f")]
-[assembly: AssemblyCopyright("Copyright @  2018")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -9852,6 +9856,35 @@ using System.Runtime.CompilerServices;
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_6bfbf82519434f06b6c3eee18d07e94f.Properties.Settings.get_Default():ST_6bfbf82519434f06b6c3eee18d07e94f.Properties.Sett" +
+    "ings")]
+
+namespace ST_6bfbf82519434f06b6c3eee18d07e94f.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
               <ProjectItem
                 Name="ScriptMain.cs"
                 Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -10136,34 +10169,35 @@ namespace ST_6bfbf82519434f06b6c3eee18d07e94f
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
 //
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_6bfbf82519434f06b6c3eee18d07e94f")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_6bfbf82519434f06b6c3eee18d07e94f")]
+[assembly: AssemblyCopyright("Copyright @  2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
 
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_6bfbf82519434f06b6c3eee18d07e94f.Properties.Settings.get_Default():ST_6bfbf82519434f06b6c3eee18d07e94f.Properties.Sett" +
-    "ings")]
-
-namespace ST_6bfbf82519434f06b6c3eee18d07e94f.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Settings.settings"
                 Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
@@ -10402,20 +10436,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{5B6682F5-193A-4639-878F-36FBFC62ACD9}"
-          DTS:ObjectName="{5B6682F5-193A-4639-878F-36FBFC62ACD9}"
+          DTS:DTSID="{C0952660-4148-483D-B2F8-F68D22E43A0F}"
+          DTS:ObjectName="{C0952660-4148-483D-B2F8-F68D22E43A0F}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::dbParamName" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{3096AF5E-0424-4F8E-AD86-7E5369B80C6A}"
-          DTS:ObjectName="{3096AF5E-0424-4F8E-AD86-7E5369B80C6A}"
+          DTS:DTSID="{1BB238E0-010A-4F40-B2C0-E87990FCEBD0}"
+          DTS:ObjectName="{1BB238E0-010A-4F40-B2C0-E87990FCEBD0}"
           DTS:ValueIndex="1"
           DTS:VariableName="User::dbParamValue" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{8E79FE2F-5E39-4E7A-A780-E931C19BB1EB}"
-          DTS:ObjectName="{8E79FE2F-5E39-4E7A-A780-E931C19BB1EB}"
+          DTS:DTSID="{8BAD520F-A2E5-49FE-B6C6-2E6DAD221D18}"
+          DTS:ObjectName="{8BAD520F-A2E5-49FE-B6C6-2E6DAD221D18}"
           DTS:ValueIndex="2"
           DTS:VariableName="User::dbCategory" />
       </DTS:ForEachVariableMappings>
@@ -10424,13 +10458,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       DTS:refId="Package\針對取得參數執行Foreach迴圈"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach 迴圈容器"
-      DTS:DTSID="{676E8F85-6137-4CA2-8FF7-9C27D7D90347}"
+      DTS:DTSID="{667042B7-9A3C-4BE1-8A7E-6B960CC0C4C5}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="針對取得參數執行Foreach迴圈">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachADOEnumerator"
-        DTS:DTSID="{B75C915A-6CD2-42FF-8111-7E75B174F344}"
+        DTS:DTSID="{B9E0AFAE-A11C-4EC4-BAD2-0444103BC1A5}"
         DTS:ObjectName="{A2962493-F56E-401F-A929-0469C2944826}">
         <DTS:ObjectData>
           <FEEADO
@@ -10444,7 +10478,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           DTS:refId="Package\針對取得參數執行Foreach迴圈\把取得的參數值設定到封裝變數"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="指令碼工作"
-          DTS:DTSID="{AE35BDBE-6212-4B8A-AC73-E2FE90C1978D}"
+          DTS:DTSID="{A64D5FE2-F24A-4D3E-9B08-1C30485424A8}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="把取得的參數值設定到封裝變數"
@@ -10459,14 +10493,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
               ReadOnlyVariables="User::dbCategory,User::dbParamName,User::dbParamValue"
               ReadWriteVariables="User::param_fileStatusNonExist,User::param_fileStatusPatternNotMatched,User::param_srcFileTypeCheckFile,User::param_srcFileTypeEmpty,User::param_srcFileTypeRawData">
               <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_6bfbf82519434f06b6c3eee18d07e94f")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_6bfbf82519434f06b6c3eee18d07e94f")]
+[assembly: AssemblyCopyright("Copyright @  2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -10673,6 +10728,26 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
   </ProjectExtensions>
 </Project>]]></ProjectItem>
               <ProjectItem
+                Name="Project"
+                Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_68b3356ffdd240f5ab50a9571dfd6b0f</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_68b3356ffdd240f5ab50a9571dfd6b0f</msb:DisplayName>
+    <msb:ProjectId>{52E29A0B-3E81-4D16-8E9F-512A7BC85AEF}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_68b3356ffdd240f5ab50a9571dfd6b0f.csproj" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+              <ProjectItem
                 Name="ScriptMain.cs"
                 Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
 /* The Script Task allows you to perform virtually any operation that can be accomplished in
@@ -10816,26 +10891,6 @@ namespace ST_6bfbf82519434f06b6c3eee18d07e94f
 	}
 }]]></ProjectItem>
               <ProjectItem
-                Name="Project"
-                Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
-<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
-  <msb:PropertyGroup>
-    <msb:CodeName>ST_68b3356ffdd240f5ab50a9571dfd6b0f</msb:CodeName>
-    <msb:Language>msBuild</msb:Language>
-    <msb:DisplayName>ST_68b3356ffdd240f5ab50a9571dfd6b0f</msb:DisplayName>
-    <msb:ProjectId>{52E29A0B-3E81-4D16-8E9F-512A7BC85AEF}</msb:ProjectId>
-  </msb:PropertyGroup>
-  <msb:ItemGroup>
-    <msb:Project Include="ST_68b3356ffdd240f5ab50a9571dfd6b0f.csproj" />
-    <msb:File Include="Properties\Settings.Designer.cs" />
-    <msb:File Include="Properties\Settings.settings" />
-    <msb:File Include="Properties\AssemblyInfo.cs" />
-    <msb:File Include="Properties\Resources.resx" />
-    <msb:File Include="Properties\Resources.Designer.cs" />
-    <msb:File Include="ScriptMain.cs" />
-  </msb:ItemGroup>
-</c:Project>]]></ProjectItem>
-              <ProjectItem
                 Name="Properties\Settings.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
 // <auto-generated>
@@ -10865,35 +10920,14 @@ namespace ST_6bfbf82519434f06b6c3eee18d07e94f.Properties {
     }
 }]]></ProjectItem>
               <ProjectItem
-                Name="Properties\AssemblyInfo.cs"
-                Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_6bfbf82519434f06b6c3eee18d07e94f")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_6bfbf82519434f06b6c3eee18d07e94f")]
-[assembly: AssemblyCopyright("Copyright @  2018")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -11096,20 +11130,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{0F3BBFFF-971A-460C-AED2-9850888441A4}"
-          DTS:ObjectName="{5B6682F5-193A-4639-878F-36FBFC62ACD9}"
+          DTS:DTSID="{69634411-F6F7-4C27-8D68-56A9F0175247}"
+          DTS:ObjectName="{C0952660-4148-483D-B2F8-F68D22E43A0F}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::dbParamName" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{CDEFDD5A-A1A2-4C59-BFEE-777280E62472}"
-          DTS:ObjectName="{3096AF5E-0424-4F8E-AD86-7E5369B80C6A}"
+          DTS:DTSID="{D8A85EB2-6870-4E97-8582-5997D94D9A51}"
+          DTS:ObjectName="{1BB238E0-010A-4F40-B2C0-E87990FCEBD0}"
           DTS:ValueIndex="1"
           DTS:VariableName="User::dbParamValue" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{EA298C04-CEE1-49F9-88C3-7EF0ABA0B207}"
-          DTS:ObjectName="{8E79FE2F-5E39-4E7A-A780-E931C19BB1EB}"
+          DTS:DTSID="{163FC879-9570-491A-9A3E-BBA14A7CDB14}"
+          DTS:ObjectName="{8BAD520F-A2E5-49FE-B6C6-2E6DAD221D18}"
           DTS:ValueIndex="2"
           DTS:VariableName="User::dbCategory" />
       </DTS:ForEachVariableMappings>
@@ -11119,7 +11153,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{89DC3AC3-F75E-4D9E-AFF6-27910DBC4DF3}"
+      DTS:DTSID="{13D61567-8F29-4173-8988-20508E1B1117}"
       DTS:From="Package\從資料表USER_PARAMS取得參數"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -11127,7 +11161,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{0B528DB7-C932-492A-BC3C-1A0A158F406B}"
+      DTS:DTSID="{9C5D253B-F614-4517-975D-D75875F724A7}"
       DTS:From="Package\針對取得參數執行Foreach迴圈"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -11135,7 +11169,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 10]"
       DTS:CreationName=""
-      DTS:DTSID="{C8AE9D08-3B69-4AB3-AC4B-95D71181C7A6}"
+      DTS:DTSID="{2862889C-A06A-4A8D-903B-C46BFB98B8F8}"
       DTS:From="Package\從資料表取得ZIP_FILE_NAME_PATTERN LIST"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 10"
@@ -11143,7 +11177,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 11]"
       DTS:CreationName=""
-      DTS:DTSID="{955ACA96-7C27-42DF-8659-C8E51D0490CC}"
+      DTS:DTSID="{6AAB549E-113E-4B34-B1DB-3B17B134EF3C}"
       DTS:From="Package\建立是否處理過檔案對應Map"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 11"
@@ -11151,7 +11185,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 12]"
       DTS:CreationName=""
-      DTS:DTSID="{3185D123-BB57-4EBE-90BD-16EEC313535C}"
+      DTS:DTSID="{EC9D1FCA-0B8D-47D9-843D-9D962168EFB5}"
       DTS:From="Package\主ETL作業區塊"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 12"
@@ -11159,7 +11193,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 13]"
       DTS:CreationName=""
-      DTS:DTSID="{28A4E805-494D-4D01-B070-05D79DF4D6AC}"
+      DTS:DTSID="{02D45A9E-B932-4A4E-B54E-5EEB18EDA483}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 13"
@@ -11167,7 +11201,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{DDB7E984-196C-41FF-AF32-32F4422569AC}"
+      DTS:DTSID="{AC9B7B9A-70ED-46B3-81F6-94307DA8717A}"
       DTS:From="Package\針對取得參數執行Foreach 迴圈"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -11175,7 +11209,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{0BC1E9D9-2146-4E54-B619-B51169C61AAB}"
+      DTS:DTSID="{29805905-94AC-4A05-875D-0F95DB0ECAFA}"
       DTS:From="Package\(1)檢查STAGE_TAB_ACT中的FolderPath、FILE_NAME_PATTERN是否存在  (2)Daily Initial Job是否成功 (3)建立相關folder"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -11184,7 +11218,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 4]"
       DTS:CreationName=""
-      DTS:DTSID="{A8284F6D-32E8-48C5-9761-8BEC1B98B0D2}"
+      DTS:DTSID="{22B87C3E-6511-4671-A90C-CCF6DC11CB37}"
       DTS:From="Package\針對取得參數執行Foreach 迴圈"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 4"
@@ -11193,7 +11227,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 5]"
       DTS:CreationName=""
-      DTS:DTSID="{CD3F53CE-9FA3-4711-9653-B1F838AB914B}"
+      DTS:DTSID="{8802A9F3-084E-49E5-AEBA-8A95F2A86A86}"
       DTS:From="Package\系統前置作業 - 從資料表STAGE_TAB_ACT取得來源系統資料表的載入順序"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 5"
@@ -11201,7 +11235,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 6]"
       DTS:CreationName=""
-      DTS:DTSID="{BB64EC1D-6FE7-4790-9FE7-8EDC76707BF4}"
+      DTS:DTSID="{C744469C-031B-4D96-AE10-A855E161D9F1}"
       DTS:From="Package\(1)檢查STAGE_TAB_ACT中的FolderPath、FILE_NAME_PATTERN是否存在  (2)Daily Initial Job是否成功 (3)建立相關folder"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 6"
@@ -11209,7 +11243,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 7]"
       DTS:CreationName=""
-      DTS:DTSID="{D5229651-FB45-4BDC-AF56-0F7BCCB8018F}"
+      DTS:DTSID="{564B39B9-A8BB-4119-84B5-3EF48963BF74}"
       DTS:From="Package\從資料表STAGE_TAB_ACT取得FOLDER_PATH LIST"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 7"
@@ -11217,7 +11251,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 8]"
       DTS:CreationName=""
-      DTS:DTSID="{E7C93EEF-B3DE-4557-88F8-F83EBF175DF1}"
+      DTS:DTSID="{88B995C3-AD9E-4C9C-8C9E-AD8CD1320DD3}"
       DTS:From="Package\從資料表PROJECT_PARAMS取得參數"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 8"
@@ -11225,7 +11259,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 9]"
       DTS:CreationName=""
-      DTS:DTSID="{E3983B47-6CED-421D-B304-65D5EA1DB500}"
+      DTS:DTSID="{0C8B3C3C-5D4D-4148-A8F9-79B1A3703CE9}"
       DTS:From="Package\從資料表STAGE_TAB_ACT取得FILE_NAME_PATTERN LIST"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 9"
@@ -11235,7 +11269,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:EventHandler
       DTS:refId="Package.EventHandlers[OnError]"
       DTS:CreationName="OnError"
-      DTS:DTSID="{7E4F3C40-8A2D-4B77-83A7-EF9BC9F1A663}"
+      DTS:DTSID="{FDD5F873-D30E-45EF-9DC0-EDE2E8032C07}"
       DTS:EventID="0"
       DTS:EventName="OnError"
       DTS:LocaleID="-1">
@@ -11243,7 +11277,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
         <DTS:Variable
           DTS:CreationName=""
           DTS:Description="事件的傳播屬性"
-          DTS:DTSID="{C4CD064E-3FBD-4053-8DD0-1D946C255A5D}"
+          DTS:DTSID="{E49DFAD8-8954-4601-A2A3-25A2AAF1DA78}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="System"
           DTS:ObjectName="Propagate">
@@ -11256,7 +11290,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           DTS:refId="Package.EventHandlers[OnError]\紀錄OnError資訊"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{8a9c7577-bc83-474f-8798-353f8aaba12d}"
+          DTS:DTSID="{E4BE707F-20EF-486A-AC0F-CFAC9B52E834}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="紀錄OnError資訊">
@@ -11321,7 +11355,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
     <DTS:EventHandler
       DTS:refId="Package.EventHandlers[WMIEventWatcherEventTimedout]"
       DTS:CreationName="WMIEventWatcherEventTimedout"
-      DTS:DTSID="{0390DBA6-030F-4F25-A221-E0EDA60D7BFE}"
+      DTS:DTSID="{819FA01A-D161-4A98-B3DE-F72B461AA8ED}"
       DTS:EventID="0"
       DTS:EventName="WMIEventWatcherEventTimedout"
       DTS:LocaleID="-1">
@@ -11329,7 +11363,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
         <DTS:Variable
           DTS:CreationName=""
           DTS:Description="事件的傳播屬性"
-          DTS:DTSID="{12D0B8A2-5089-47DA-B406-682132F1F09D}"
+          DTS:DTSID="{30B080E9-1D88-48DC-BF47-108C4E88F9CF}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="System"
           DTS:ObjectName="Propagate">
@@ -11513,11 +11547,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
         <NodeLayout
           Size="319,42"
           Id="Package\主ETL作業區塊\持續掃描指定資料夾\取得每次掃描得到的所有檔案的資料清洗結果"
-          TopLeft="105.270494468919,1122.71651709841" />
+          TopLeft="67.270494468919,1117.51651705708" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\主ETL作業區塊\持續掃描指定資料夾\非預期性錯誤發信"
+          TopLeft="401,1111.80000140508" />
         <NodeLayout
           Size="281,42"
           Id="Package\主ETL作業區塊\持續掃描指定資料夾\寄發通知信件 - 資料清洗結果錯誤報表"
-          TopLeft="124.907379992951,1217.12920096202" />
+          TopLeft="87.907379992951,1207.59586755292" />
         <NodeLayout
           Size="226,42"
           Id="Package\主ETL作業區塊\持續掃描指定資料夾\設定param_folderPathWQL"
@@ -11590,49 +11628,61 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\主ETL作業區塊\持續掃描指定資料夾.PrecedenceConstraints[條件約束 3]"
-          TopLeft="265.125987300049,1074.5396384728">
+          TopLeft="265.481480131179,1074.5396384728">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48.1768786256148"
+              EndConnector="-38.71098566226,42.9768785842889"
               Start="0,0"
-              End="0,40.6768786256148">
+              End="-38.71098566226,35.4768785842889">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.6768786256148" />
+                    End="0,17.4884392921444" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.4884392921444"
+                    Point2="0,21.4884392921444"
+                    Point3="-4,21.4884392921444" />
+                  <mssgle:LineSegment
+                    End="-34.71098566226,21.4884392921444" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.71098566226,21.4884392921444"
+                    Point2="-38.71098566226,21.4884392921444"
+                    Point3="-38.71098566226,25.4884392921444" />
+                  <mssgle:LineSegment
+                    End="-38.71098566226,35.4768785842889" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-8,12.3384393128074,16,16"
+              BoundingBox="-27.35549283113,26.4884392921444,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\主ETL作業區塊\持續掃描指定資料夾.PrecedenceConstraints[條件約束 4]"
-          TopLeft="265.088937230935,1164.71651709841">
+          TopLeft="227.588937230935,1159.51651705708">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,52.4126838636134"
+              EndConnector="0,48.0793504958388"
               Start="0,0"
-              End="0,44.9126838636134">
+              End="0,40.5793504958388">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.9126838636134" />
+                    End="0,40.5793504958388" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-8,14.4563419318067,16,16"
+              BoundingBox="-8,12.2896752479194,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -11670,27 +11720,75 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="531,1332"
-          Size="531,1375"
-          Id="Package\主ETL作業區塊\持續掃描指定資料夾"
-          TopLeft="54.3333364791337,7.3571427622619" />
         <EdgeLayout
-          Id="Package\主ETL作業區塊.PrecedenceConstraints[條件約束]"
-          TopLeft="318.249993046125,1382.35714276226">
+          Id="Package\主ETL作業區塊\持續掃描指定資料夾.PrecedenceConstraints[條件約束 6]"
+          TopLeft="339.814813464512,1074.5396384728">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,67.1428529206582"
+              EndConnector="136.685186535488,37.2603629322853"
               Start="0,0"
-              End="0,59.6428529206582">
+              End="136.685186535488,29.7603629322853">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,59.6428529206582" />
+                    End="0,10.982656912192" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.982656912192"
+                    Point2="0,14.982656912192"
+                    Point3="4,14.982656912192" />
+                  <mssgle:LineSegment
+                    End="132.685186535488,14.982656912192" />
+                  <mssgle:CubicBezierSegment
+                    Point1="132.685186535488,14.982656912192"
+                    Point2="136.685186535488,14.982656912192"
+                    Point3="136.685186535488,18.982656912192" />
+                  <mssgle:LineSegment
+                    End="136.685186535488,29.7603629322853" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="57.9285307677438,19.982656912192,20.828125,10.8330078125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="605,1332"
+          Size="605,1375"
+          Id="Package\主ETL作業區塊\持續掃描指定資料夾"
+          TopLeft="54.3333364791337,7.3571427622619" />
+        <EdgeLayout
+          Id="Package\主ETL作業區塊.PrecedenceConstraints[條件約束]"
+          TopLeft="356.833336479134,1382.35714276226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-40.1666868660178,67.142852920658"
+              Start="0,0"
+              End="-40.1666868660178,59.642852920658">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.571426460329" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.571426460329"
+                    Point2="0,33.571426460329"
+                    Point3="-4,33.571426460329" />
+                  <mssgle:LineSegment
+                    End="-36.1666868660178,33.571426460329" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-36.1666868660178,33.571426460329"
+                    Point2="-40.1666868660178,33.571426460329"
+                    Point3="-40.1666868660178,37.571426460329" />
+                  <mssgle:LineSegment
+                    End="-40.1666868660178,59.642852920658" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11724,8 +11822,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="642,1661"
-          Size="642,1704"
+          PanelSize="664,1661"
+          Size="664,1704"
           Id="Package\主ETL作業區塊"
           TopLeft="292.333327637778,1311.49999435459" />
         <NodeLayout
@@ -11834,18 +11932,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[條件約束 11]"
-          TopLeft="615.749988426765,1257.57152724753">
+          TopLeft="621.249988426765,1257.57152724753">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,53.9284671070573"
+              EndConnector="0,53.92846710706"
               Start="0,0"
-              End="0,46.4284671070573">
+              End="0,46.42846710706">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.4284671070573" />
+                    End="0,46.42846710706" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11856,18 +11954,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[條件約束 12]"
-          TopLeft="614.3333240615,3015.49999435459">
+          TopLeft="624.333327637778,3015.49999435459">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,105.642903397281"
+              EndConnector="-9.00000715255601,105.64290339728"
               Start="0,0"
-              End="0,98.1429033972809">
+              End="-9.00000715255601,98.14290339728">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,98.1429033972809" />
+                    End="0,48.82145169864" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48.82145169864"
+                    Point2="0,52.82145169864"
+                    Point3="-4,52.82145169864" />
+                  <mssgle:LineSegment
+                    End="-5.00000715255601,52.82145169864" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.00000715255601,52.82145169864"
+                    Point2="-9.00000715255601,52.82145169864"
+                    Point3="-9.00000715255601,56.82145169864" />
+                  <mssgle:LineSegment
+                    End="-9.00000715255601,98.14290339728" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11926,14 +12036,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,126.049854903812"
+              EndConnector="0,126.04985490381"
               Start="0,0"
-              End="0,118.549854903812">
+              End="0,118.54985490381">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,118.549854903812" />
+                    End="0,118.54985490381" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
