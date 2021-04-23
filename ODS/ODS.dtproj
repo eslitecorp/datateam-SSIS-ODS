@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">1505003NB02</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9VWzsUJPYEq8MzFQg+K/KQAAAAACAAAAAAADZgAAwAAAABAAAAAYtyt/FtTla4FkjVfPLYpJAAAAAASAAACgAAAAEAAAANlgoo/HAvRR8oAS8Moow96IAAAA9rPd1Xdl9GI/X06pv7L3aPkLcBI03xI4fy+TMfYKtxQLOZwPf91RhYtLAFJt1WsjKAveStURfHSSxelQXOxS62KCQAUp3tmULQAjuahgAQwXkjmtdZLJ1qm+ZPws7llOi7tXfvqIEqCPq604MMy9/9fiJWFmyh1KB/BdDC1UkA0bue/Qs9ZdghQAAADRBLIChQ2owIqsoqvXXletXjqQtg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfWSSLnF2OUWNziFwBDqaGQAAAAACAAAAAAADZgAAwAAAABAAAADOZo4wjIDaI8pOg8bfyVJ6AAAAAASAAACgAAAAEAAAAEqH6uFsc7JcoIiSCq1wGB6IAAAAxj1PSddqnCkCLzjmLUJFIUgrityw+wL7x9rfYJxO4qumxT4nQ1tN3CCe4xDdqbceJ6uj3S5s9b7iAaTl1QlBfebWvz+7zUIwzeqcY7r6OuSSTDKckHImpqD7Yh5y0ph+Llz6g/jIg+lb+Cr8MaGFHrLGe0rDfuWx0pKca4gdSeaVvbIFyr14VxQAAACP4RszEeyd5mTTwALu1m9mug+rVQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -133,6 +133,7 @@
           <SSIS:Package SSIS:Name="TRANS_DETAIL_PAYMENT_HYPOS.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="TRANS_DETAIL_PAYMENT_LMS.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="MF_MEMBER_BADGE.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="MF_PRODUCT_TYPE_LOG_EC.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="ODSDB.conmgr" />
@@ -5380,6 +5381,51 @@
                 <SSIS:Parameter SSIS:Name="queryBaseDate">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">{123CFFAB-2367-4F72-AA74-7EFD17FAB90F}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="MF_PRODUCT_TYPE_LOG_EC.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{532BB2AA-E87A-4A88-957F-29A052CC31AC}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">MF_MEMBER_EXTEND</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">209</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{C45BFCA7-A729-4936-8176-4D6E7BC567D8}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="fullTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{FFC1290D-1927-423B-9109-9069EBC4870A}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">dbo.MF_PRODUCT_TYPE_LOG_EC</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="queryBaseDate">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{4B553EB9-C6A5-41B5-84FF-3186E18255F5}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">
