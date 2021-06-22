@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="6/12/2019 9:15:17 AM"
@@ -9,10 +9,10 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
-  DTS:ObjectName="WEBTRACK_LOGIN"
+  DTS:ObjectName="WEBTRACK_LOGIN_ECS2"
   DTS:PackageType="5"
-  DTS:VersionBuild="374"
-  DTS:VersionGUID="{034BE1E2-319A-4E1F-9204-2798DF5BB91E}">
+  DTS:VersionBuild="377"
+  DTS:VersionGUID="{CCE59F13-5C16-4E89-9B29-B0AB9DEB396E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -100,7 +100,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DG">
       <DTS:VariableValue
-        DTS:DataType="8">WEBTRACK_LOGIN</DTS:VariableValue>
+        DTS:DataType="8">WEBTRACK_LOGIN_ECS2</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -123,7 +123,7 @@ values(?,?,?,(select count(*) from dbo.WEBTRACK_LOGIN_ECS2_),?,GETDATE(), 0 ,?,?
       DTS:Namespace="User"
       DTS:ObjectName="GID">
       <DTS:VariableValue
-        DTS:DataType="8">WEBTRACK_LOGIN.dtsx</DTS:VariableValue>
+        DTS:DataType="8">WEBTRACK_LOGIN_ECS2.dtsx</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -149,7 +149,7 @@ values(?,?,?,(select count(*) from dbo.WEBTRACK_LOGIN_ECS2_),?,GETDATE(), 0 ,?,?
       DTS:CreationName=""
       DTS:DTSID="{D6CEB6C8-4A7F-407F-8779-7F9317989619}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT MAPPING.CARDNUMBER AS MEMBER_ID&#xA;     , SUMMARY.LOG_SOURCE&#xA;&#x9; , CAST(SUMMARY.CREATED_AT AS DATE) AS LOG_DATE&#xA;&#x9; , SUM(ISNULL(SUMMARY.LOG_CNT,0)) AS LOG_CNT&#xA;  FROM (&#xA;SELECT UUID, 'ECS2' AS LOG_SOURCE, CREATED_AT, 1 AS LOG_CNT&#xA;  FROM ECS2.LOGIN&#xA; WHERE CAST(CREATED_AT AS DATE) &gt; CAST('&quot; + @[User::lastLogDate] + &quot;' AS DATE)&#xA;   AND CAST(CREATED_AT AS DATE) &lt; CAST(CAST(GETDATE() AS DATE) AS DATETIME) &#xA; GROUP BY UUID,  CREATED_AT&#xA;) SUMMARY &#xA;OUTER APPLY(&#xA;&#x9;SELECT TOP 1 CARDNUMBER FROM EC.MEMBER_ESLITECARDINF MAPPING WHERE SUMMARY.UUID = MAPPING.USERID AND ISNULL(MAPPING.DELETE_MARK,0) &lt;&gt; 1 ORDER BY LASTMODIFYDATE DESC&#xA;)MAPPING&#xA;WHERE ISNULL(MAPPING.CARDNUMBER,'') &lt;&gt; ''&#xA;GROUP BY MAPPING.CARDNUMBER, SUMMARY.LOG_SOURCE , CAST(SUMMARY.CREATED_AT AS DATE)&quot;"
+      DTS:Expression="&quot;SELECT MAPPING.CARDNUMBER AS MEMBER_ID&#xA;     , SUMMARY.LOG_SOURCE&#xA;&#x9; , CAST(SUMMARY.CREATED_AT AS DATE) AS LOG_DATE&#xA;&#x9; , SUM(ISNULL(SUMMARY.LOG_CNT,0)) AS LOG_CNT&#xA;  FROM (&#xA;SELECT UUID, 'ECS2' AS LOG_SOURCE, CREATED_AT, 1 AS LOG_CNT&#xA;  FROM StagingDB_TW.ECS2.LOGIN&#xA; WHERE CAST(CREATED_AT AS DATE) &gt; CAST('&quot; + @[User::lastLogDate] + &quot;' AS DATE)&#xA;   AND CAST(CREATED_AT AS DATE) &lt; CAST(CAST(GETDATE() AS DATE) AS DATETIME) &#xA; GROUP BY UUID,  CREATED_AT&#xA;) SUMMARY &#xA;OUTER APPLY(&#xA;&#x9;SELECT TOP 1 CARDNUMBER FROM StagingDB_TW.EC.MEMBER_ESLITECARDINF MAPPING WHERE SUMMARY.UUID = MAPPING.USERID AND ISNULL(MAPPING.DELETE_MARK,0) &lt;&gt; 1 ORDER BY LASTMODIFYDATE DESC&#xA;)MAPPING&#xA;WHERE ISNULL(MAPPING.CARDNUMBER,'') &lt;&gt; ''&#xA;GROUP BY MAPPING.CARDNUMBER, SUMMARY.LOG_SOURCE , CAST(SUMMARY.CREATED_AT AS DATE)&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="queryFromStage">
@@ -160,13 +160,13 @@ values(?,?,?,(select count(*) from dbo.WEBTRACK_LOGIN_ECS2_),?,GETDATE(), 0 ,?,?
 	 , SUM(ISNULL(SUMMARY.LOG_CNT,0)) AS LOG_CNT
   FROM (
 SELECT UUID, 'ECS2' AS LOG_SOURCE, CREATED_AT, 1 AS LOG_CNT
-  FROM ECS2.LOGIN
+  FROM StagingDB_TW.ECS2.LOGIN
  WHERE CAST(CREATED_AT AS DATE) &gt; CAST('' AS DATE)
    AND CAST(CREATED_AT AS DATE) &lt; CAST(CAST(GETDATE() AS DATE) AS DATETIME) 
  GROUP BY UUID,  CREATED_AT
 ) SUMMARY 
 OUTER APPLY(
-	SELECT TOP 1 CARDNUMBER FROM EC.MEMBER_ESLITECARDINF MAPPING WHERE SUMMARY.UUID = MAPPING.USERID AND ISNULL(MAPPING.DELETE_MARK,0) &lt;&gt; 1 ORDER BY LASTMODIFYDATE DESC
+	SELECT TOP 1 CARDNUMBER FROM StagingDB_TW.EC.MEMBER_ESLITECARDINF MAPPING WHERE SUMMARY.UUID = MAPPING.USERID AND ISNULL(MAPPING.DELETE_MARK,0) &lt;&gt; 1 ORDER BY LASTMODIFYDATE DESC
 )MAPPING
 WHERE ISNULL(MAPPING.CARDNUMBER,'') &lt;&gt; ''
 GROUP BY MAPPING.CARDNUMBER, SUMMARY.LOG_SOURCE , CAST(SUMMARY.CREATED_AT AS DATE)</DTS:VariableValue>
@@ -6152,7 +6152,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{BCE09612-5D02-4D81-A529-B6EDFCA7C1E3}"
-          SQLTask:SqlStatementSource="  select cast(LastLoginDate as varchar) from&#xA;  (&#xA;  select case when isnull(max(Log_Date),'') = '' &#xA;&#x9;&#x9;&#x9;then cast('2016-12-31' as date)&#xA;&#x9;&#x9;&#x9;else cast(max(Log_Date) as date) end as LastLoginDate&#xA;  from [dbo].[WEBTRACK_LOGIN]&#xA;  )tmp"
+          SQLTask:SqlStatementSource="  select cast(LastLoginDate as varchar) from&#xA;  (&#xA;  select case when isnull(max(Log_Date),'') = '' &#xA;&#x9;&#x9;&#x9;then cast('2016-12-31' as date)&#xA;&#x9;&#x9;&#x9;else cast(max(Log_Date) as date) end as LastLoginDate&#xA;  from [dbo].[WEBTRACK_LOGIN_ECS2]&#xA;  )tmp"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="0"
@@ -6320,34 +6320,34 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="157,42"
+          Size="156.8,41.6"
           Id="Package\Stage To ODS"
           TopLeft="146.619031613918,287.731078479421" />
         <NodeLayout
-          Size="139,42"
+          Size="139.2,41.6"
           Id="Package\初始化作業"
           TopLeft="155.452365913223,112.383173334121" />
         <NodeLayout
-          Size="156,42"
+          Size="156,41.6"
           Id="Package\取得WorkDate"
           TopLeft="145.690461026704,37.5663676637007" />
         <NodeLayout
-          Size="175,42"
+          Size="175.2,41.6"
           Id="Package\取得要計算的日期"
           TopLeft="141.690460958584,195.895796955189" />
         <NodeLayout
-          Size="151,42"
+          Size="151.2,41.6"
           Id="Package\紀錄執行筆數"
           TopLeft="149.119032513663,599.11931332739" />
         <NodeLayout
-          Size="303,42"
+          Size="303.2,41.6"
           Id="Package\時序容器\insert into ODS table from WorkDateTable"
           TopLeft="42.6428555047433,49.2453600502035" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="403,139"
-          Size="403,182"
+          PanelSize="403.2,139.2"
+          Size="403.2,182.4"
           Id="Package\時序容器"
           TopLeft="27.9761733077555,370.366372331095" />
         <EdgeLayout
@@ -6469,59 +6469,59 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Stage To ODS\資料型態轉換"
           TopLeft="319.76189156914,411.630235254947" />
         <NodeLayout
-          Size="269,42"
+          Size="268.8,41.6"
           Id="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位"
           TopLeft="254.642845794864,243.863469828609" />
         <NodeLayout
-          Size="139,42"
+          Size="139.2,41.6"
           Id="Package\Stage To ODS\資料列計數"
           TopLeft="313.424589090226,149.268171176928" />
         <NodeLayout
-          Size="144,42"
+          Size="144,41.6"
           Id="Package\Stage To ODS\寫入 ODSDB"
           TopLeft="320.679882637423,607.076022344013" />
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\Stage To ODS\GetErrorDetail (Convert)"
           TopLeft="646.34180969971,406.778124358683" />
         <NodeLayout
-          Size="235,42"
+          Size="235.2,41.6"
           Id="Package\Stage To ODS\Insert Into Error Log(Convert)"
           TopLeft="641.175142801246,499.635262471781" />
         <NodeLayout
-          Size="223,42"
+          Size="223.2,41.6"
           Id="Package\Stage To ODS\Insert Into Error Log(Insert)"
           TopLeft="640.249216912113,709.182870813677" />
         <NodeLayout
-          Size="158,42"
+          Size="158.4,41.6"
           Id="Package\Stage To ODS\select from Stage"
           TopLeft="305.02379741785,38.8403255900497" />
         <NodeLayout
-          Size="215,42"
+          Size="215.2,41.6"
           Id="Package\Stage To ODS\衍生的資料行 ETL_DATE"
           TopLeft="283.333322074679,504.678555441147" />
         <NodeLayout
-          Size="230,42"
+          Size="230.4,41.6"
           Id="Package\Stage To ODS\Insert Into Error Log (Select)"
           TopLeft="680.661913568931,206.678135528393" />
         <NodeLayout
-          Size="285,42"
+          Size="284.8,41.6"
           Id="Package\Stage To ODS\衍生資料行 - 記錄錯誤資訊欄位(select)"
           TopLeft="649.828582454215,37.0352899135601" />
         <NodeLayout
-          Size="219,42"
+          Size="219.2,41.6"
           Id="Package\Stage To ODS\TRIM 所有字串型態的欄位"
           TopLeft="277.499988973142,323.035701192156" />
         <NodeLayout
-          Size="200,42"
+          Size="200,41.6"
           Id="Package\Stage To ODS\GetErrorDetail (Select)"
           TopLeft="693.161913072225,122.178139845472" />
         <NodeLayout
-          Size="200,42"
+          Size="200,41.6"
           Id="Package\Stage To ODS\GetErrorDetail  (Insert)"
           TopLeft="650.665883164859,603.325733364745" />
         <EdgeLayout
@@ -6681,6 +6681,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Stage To ODS.Paths[衍生的資料行輸出2]"
+          TopLeft="391.756602356051,546.678555441147">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.3974669028661"
+              Start="0,0"
+              End="0,52.8974669028661">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.8974669028661" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Stage To ODS.Paths[衍生的資料行輸出1]"
           TopLeft="792.74524776322,79.0352899135603">
           <EdgeLayout.Curve>
@@ -6770,28 +6792,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             <mssgm:EdgeLabel
               BoundingBox="41.0979133515159,5,97.1089583333333,10.8623046875"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[衍生的資料行輸出2]"
-          TopLeft="391.756602356051,546.678555441147">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.3974669028661"
-              Start="0,0"
-              End="0,52.8974669028661">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.8974669028661" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

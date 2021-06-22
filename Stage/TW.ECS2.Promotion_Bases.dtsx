@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{4DE18E00-F700-4624-9AC1-D5CB5F4646FC}"
+  DTS:DTSID="{7055BDF7-A3CA-4A2D-977C-1EC0421CCA9D}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="TW ECS2 Promotion_Bases"
   DTS:PackageType="5"
-  DTS:VersionBuild="128"
-  DTS:VersionGUID="{B88133CE-BC23-45AB-A560-8A36DBD4E880}">
+  DTS:VersionBuild="129"
+  DTS:VersionGUID="{6F50F246-625C-42CE-90F0-960FB9671475}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{5A572052-ED8B-4BCD-B97D-EE5B0C517071}"
+      DTS:DTSID="{4FAE8936-51F6-4E28-8C9D-487833F8CC63}"
       DTS:ObjectName="dbPrestageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{BBF0E700-3730-4902-A0EB-8CC0C6198861}"
+      DTS:DTSID="{AB7C8114-2020-46FE-B238-2CA2F53CB3A2}"
       DTS:ObjectName="dbSchemaName">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +38,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{4A43DB94-A263-4D37-9B14-36441AEA007F}"
+      DTS:DTSID="{00F60345-7985-4D62-8B8F-19840BB602C3}"
       DTS:ObjectName="dbStageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -47,7 +47,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{7D8348E4-D2D8-4A0A-8B20-593AD72723AC}"
+      DTS:DTSID="{ED2E4753-EE92-4BF7-AD05-CE56AE2BB575}"
       DTS:ObjectName="dbTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -57,7 +57,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{D62FCC8B-FF20-4196-826C-B799CE4EFE8E}"
+      DTS:DTSID="{82A87F5B-D2C1-4BBF-BCEF-160AED941FFB}"
       DTS:ObjectName="srcRawDataFileName">
       <DTS:Property
         DTS:DataType="8"
@@ -66,7 +66,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{D6338C2D-7575-42B9-83AD-3C21F9472D6B}"
+      DTS:DTSID="{616D9789-A2D3-4843-9BAF-C2773C2E512E}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -75,7 +75,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{74C7AA3C-5652-41CA-B115-5A64AB19A7F2}"
+      DTS:DTSID="{E5C0F480-2063-41B6-AECC-1AF133B9A9F9}"
       DTS:ObjectName="writeInEvent">
       <DTS:Property
         DTS:DataType="8"
@@ -86,7 +86,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{784875DF-98CB-4DCB-859B-F79DD5683EAB}"
+      DTS:DTSID="{31CE45CC-C6F5-4C7F-92A6-3F7770A73DB8}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;SELECT *  FROM &quot; + @[$Package::dbPrestageTableName] + &quot; WHERE FILE_NAME =  '&quot; + @[$Package::srcRawDataFileName]  +&quot;' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = '&quot;+ @[$Package::srcRawDataFileName] +&quot;' and l.executionid = &quot;+ (DT_WSTR,100) @[System::ServerExecutionID] +&quot;)&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -101,7 +101,7 @@
       DTS:refId="Package\I／IU資料流程"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{9ADDA00F-636F-42DD-AE1F-960CFBBFD6DE}"
+      DTS:DTSID="{104B22C8-BED1-40FB-A660-EEE575ED0184}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:ForceExecValue="True"
       DTS:LocaleID="-1"
@@ -280,21 +280,21 @@
                     <inputColumn
                       refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[coupon_name(ready)]"
                       cachedDataType="wstr"
-                      cachedLength="50"
+                      cachedLength="100"
                       cachedName="coupon_name(ready)"
                       externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[coupon_name]"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[coupon_name(ready)]" />
                     <inputColumn
                       refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[description(ready)]"
                       cachedDataType="wstr"
-                      cachedLength="70"
+                      cachedLength="100"
                       cachedName="description(ready)"
                       externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[description]"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[description(ready)]" />
                     <inputColumn
                       refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[name(ready)]"
                       cachedDataType="wstr"
-                      cachedLength="50"
+                      cachedLength="100"
                       cachedName="name(ready)"
                       externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[name]"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[name(ready)]" />
@@ -329,17 +329,17 @@
                     <externalMetadataColumn
                       refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[name]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="name" />
                     <externalMetadataColumn
                       refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[description]"
                       dataType="wstr"
-                      length="70"
+                      length="100"
                       name="description" />
                     <externalMetadataColumn
                       refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[coupon_name]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="coupon_name" />
                     <externalMetadataColumn
                       refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[started_at]"
@@ -566,7 +566,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
-                      length="50"
+                      length="100"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[name(ready)]"
                       name="name(ready)"
                       truncationRowDisposition="FailComponent">
@@ -587,7 +587,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
-                      length="70"
+                      length="100"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[description(ready)]"
                       name="description(ready)"
                       truncationRowDisposition="FailComponent">
@@ -608,7 +608,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
-                      length="50"
+                      length="100"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[coupon_name(ready)]"
                       name="coupon_name(ready)"
                       truncationRowDisposition="FailComponent">
@@ -1700,7 +1700,7 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
       DTS:refId="Package\紀錄目前檔案執行封裝至dbo sysssislog"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="指令碼工作"
-      DTS:DTSID="{9F698523-AFC4-4F32-87E5-C8A33006925F}"
+      DTS:DTSID="{21C59EBE-5EB7-4222-BF41-76EE95C0AB6C}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄目前檔案執行封裝至dbo sysssislog"
@@ -1739,14 +1739,35 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
           Language="CSharp"
           ReadOnlyVariables="$Package::srcRawDataFileName">
           <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -2033,35 +2054,14 @@ namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
     }
 }]]></ProjectItem>
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -2256,11 +2256,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="154,42"
+          Size="153.6,41.6"
           Id="Package\I／IU資料流程"
           TopLeft="440.089270610895,59.7749254147891" />
         <NodeLayout
-          Size="289,42"
+          Size="288.8,41.6"
           Id="Package\紀錄目前檔案執行封裝至dbo sysssislog"
           TopLeft="60,60" />
       </GraphLayout>
@@ -2272,23 +2272,23 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="151,42"
+          Size="151.2,41.6"
           Id="Package\I／IU資料流程\衍生的資料行"
           TopLeft="376,124.200000867844" />
         <NodeLayout
-          Size="294,42"
+          Size="294.4,41.6"
           Id="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出"
           TopLeft="305.259248957223,52.99999667917" />
         <NodeLayout
-          Size="272,42"
+          Size="272,41.6"
           Id="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換"
           TopLeft="313.999987483025,199.209517827531" />
         <NodeLayout
-          Size="230,42"
+          Size="230.4,41.6"
           Id="Package\I／IU資料流程\衍生的資料行 ETL_DATE"
           TopLeft="338.081998737296,285.830177205149" />
         <NodeLayout
-          Size="173,42"
+          Size="172.8,41.6"
           Id="Package\I／IU資料流程\intsert into stage"
           TopLeft="370.748684013856,365.115877068973" />
         <EdgeLayout
