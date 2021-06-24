@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{9537C870-88DC-4EAA-8DB5-9C9B1167DA01}"
+  DTS:DTSID="{028968F1-0689-4B72-8A3C-93EE6911AF29}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="WEBTRACK_SHOPCART_CART_ITEMS_ECS2"
   DTS:PackageType="5"
-  DTS:VersionBuild="399"
-  DTS:VersionGUID="{C3B7CDC2-97BE-4C1A-822F-F95FD767142A}">
+  DTS:VersionBuild="407"
+  DTS:VersionGUID="{C18DC212-B8CC-490E-9AE2-C747C349D52B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{BFA6538C-3C16-4F7B-AB3A-3236BCDAAC21}"
+      DTS:DTSID="{01DF6282-3A0A-468C-AE79-BCB95E745ABE}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -29,7 +29,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{78A1CDA0-17AC-4981-A096-EB61AC2C19DF}"
+      DTS:DTSID="{62BA4AA0-6999-447D-8A01-4FE57895C920}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +38,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{FDFE4AFE-7A23-4988-8DA9-55A442BD1E8E}"
+      DTS:DTSID="{1FB83C39-822A-43FE-B6DA-7069E64A3367}"
       DTS:ObjectName="GID">
       <DTS:Property
         DTS:DataType="8"
@@ -48,7 +48,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{E0D46887-C0C0-4983-B04F-F39C01D1AF48}"
+      DTS:DTSID="{A5CE8E44-3517-4FA7-BA06-C4ACCBB75CA1}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -59,7 +59,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C5D0A545-06A0-4873-9217-AF9EA16F5308}"
+      DTS:DTSID="{3F16F995-6F81-47F9-BCB7-C45829D3A7C1}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -68,7 +68,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B19AB7D2-1150-4DAA-B4DF-F85FA03E36C5}"
+      DTS:DTSID="{D08B5841-059F-4D63-A693-C28D157D2BD1}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ? ,?,?);&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -80,7 +80,7 @@ values(?,?,?,(select count(*) from dbo.WEBTRACK_SHOPCART_ECS2_CART_ITEMS_),?,GET
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E9065C2D-126E-4ADF-9053-2BDF7D371DD7}"
+      DTS:DTSID="{19CDA40E-2FF2-4294-B600-2AB2C83EF8EB}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -90,22 +90,23 @@ values(?,?,?,(select count(*) from dbo.WEBTRACK_SHOPCART_ECS2_CART_ITEMS_),?,GET
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{A50D005E-2F24-4959-AC26-B630BAE56DC2}"
+      DTS:DTSID="{B0DC7902-CB00-4702-950C-3D9A22018166}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT MAPPING.CARDNUMBER AS MEMBER_ID&#xA;     , MAPPING.CARDLEVEL AS MEMBER_EN&#xA;&#x9; , ID AS ORDER_ID&#xA;&#x9; , MAIN.ESLITE_SN AS MATNR&#xA;&#x9; , MAIN.QUANTITY AS QUANTITY&#xA;&#x9; , '0' AS SHOP_TYPE&#xA;&#x9; , 'ShopCart' AS SHOP_STS&#xA;&#x9; , MAIN.CREATED_AT AS SHOP_DATE&#xA;&#x9; , MAIN.STATUS AS SHOP_STATUS&#xA;  FROM ( select * , rank() over(partition by member_uuid , eslite_sn , created_at order by updated_at desc , id desc ) rnk &#xA;           from ECS2.CART_ITEMS ) MAIN&#xA;  OUTER APPLY(&#xA;&#x9;&#x9;SELECT TOP 1 CARDNUMBER,CARDLEVEL FROM EC.MEMBER_ESLITECARDINF MAPPING WHERE MAIN.MEMBER_UUID = MAPPING.USERID ORDER BY LASTMODIFYDATE DESC&#xA;  )MAPPING&#xA;WHERE ISNULL(MAPPING.CARDNUMBER,'') &lt;&gt; ''&#xA;   AND ISNULL(MAIN.ESLITE_SN,'') &lt;&gt; ''&#xA;   AND MAIN.rnk = 1&#xA;   and main.ETL_DATE &gt;= cast(cast( '&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime) and main.created_at &gt;= '2017-01-01'&quot;"
+      DTS:Expression="&quot;SELECT MAPPING.CARDNUMBER AS MEMBER_ID&#xA;     , MAPPING.CARDLEVEL AS MEMBER_EN&#xA;&#x9; , MAIN.ID AS ORDER_ID&#xA;&#x9; , MAIN.ESLITE_SN AS MATNR&#xA;&#x9; , MAIN.QUANTITY AS QUANTITY&#xA;&#x9; , '0' AS SHOP_TYPE&#xA;&#x9; , 'ShopCart' AS SHOP_STS&#xA;&#x9; , MAIN.CREATED_AT AS SHOP_DATE&#xA;&#x9; , MAIN.STATUS AS SHOP_STATUS&#xA;&#x9; , MAIN.CART_ID&#xA;  FROM ( select * , rank() over(partition by member_uuid , eslite_sn , created_at order by updated_at desc , id desc ) rnk &#xA;           from ECS2.CART_ITEMS ) MAIN&#xA;  OUTER APPLY(&#xA;&#x9;&#x9;SELECT TOP 1 CARDNUMBER,CARDLEVEL FROM EC.MEMBER_ESLITECARDINF MAPPING WHERE MAIN.MEMBER_UUID = MAPPING.USERID ORDER BY LASTMODIFYDATE DESC&#xA;  )MAPPING&#xA;WHERE ISNULL(MAPPING.CARDNUMBER,'') &lt;&gt; ''&#xA;   AND ISNULL(MAIN.ESLITE_SN,'') &lt;&gt; ''&#xA;   AND MAIN.rnk = 1&#xA;   and main.ETL_DATE &gt;= cast(cast( '&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime) and main.created_at &gt;= '2017-01-01'&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="queryFromStage">
       <DTS:VariableValue
         DTS:DataType="8">SELECT MAPPING.CARDNUMBER AS MEMBER_ID
      , MAPPING.CARDLEVEL AS MEMBER_EN
-	 , ID AS ORDER_ID
+	 , MAIN.ID AS ORDER_ID
 	 , MAIN.ESLITE_SN AS MATNR
 	 , MAIN.QUANTITY AS QUANTITY
 	 , '0' AS SHOP_TYPE
 	 , 'ShopCart' AS SHOP_STS
 	 , MAIN.CREATED_AT AS SHOP_DATE
 	 , MAIN.STATUS AS SHOP_STATUS
+	 , MAIN.CART_ID
   FROM ( select * , rank() over(partition by member_uuid , eslite_sn , created_at order by updated_at desc , id desc ) rnk 
            from ECS2.CART_ITEMS ) MAIN
   OUTER APPLY(
@@ -114,11 +115,11 @@ values(?,?,?,(select count(*) from dbo.WEBTRACK_SHOPCART_ECS2_CART_ITEMS_),?,GET
 WHERE ISNULL(MAPPING.CARDNUMBER,'') &lt;&gt; ''
    AND ISNULL(MAIN.ESLITE_SN,'') &lt;&gt; ''
    AND MAIN.rnk = 1
-   and main.ETL_DATE &gt;= cast(cast( '2021-06-24 10:13:13.011000000' as date) as datetime) and main.created_at &gt;= '2017-01-01'</DTS:VariableValue>
+   and main.ETL_DATE &gt;= cast(cast( '2021-06-24 15:02:00.716000000' as date) as datetime) and main.created_at &gt;= '2017-01-01'</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CC77C927-990C-465B-A23E-01DE5E899E01}"
+      DTS:DTSID="{895DAB7F-2B29-4C22-B34E-9DF54D4F38FD}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -127,7 +128,7 @@ WHERE ISNULL(MAPPING.CARDNUMBER,'') &lt;&gt; ''
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9E2A96E1-BEC1-4FBF-BB15-0B2A1295C51B}"
+      DTS:DTSID="{6542B73A-AB9E-48A6-8DD8-C9E2331C3474}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -136,7 +137,7 @@ WHERE ISNULL(MAPPING.CARDNUMBER,'') &lt;&gt; ''
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B03256ED-ED7E-4D82-870C-C63B31B13159}"
+      DTS:DTSID="{65A029BA-C5B3-4DF4-92EA-27799C46ED7D}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+ &quot;_CART_ITEMS_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -151,7 +152,7 @@ WHERE ISNULL(MAPPING.CARDNUMBER,'') &lt;&gt; ''
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{8592EC5F-23D4-480C-82DC-4DABC9445BFB}"
+      DTS:DTSID="{32317286-867E-4F48-A58A-5937EC5B9CAF}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -4254,6 +4255,15 @@ where isnull(mapping.CardNumber,'') &lt;&gt; ''
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[SHOP_STATUS]"
                       name="SHOP_STATUS"
                       truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[CART_ID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[CART_ID]"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[CART_ID]"
+                      name="CART_ID"
+                      truncationRowDisposition="RedirectRow" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4302,6 +4312,10 @@ where isnull(mapping.CardNumber,'') &lt;&gt; ''
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[SHOP_STATUS]"
                       dataType="i4"
                       name="SHOP_STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[CART_ID]"
+                      dataType="i8"
+                      name="CART_ID" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -4363,6 +4377,11 @@ where isnull(mapping.CardNumber,'') &lt;&gt; ''
                       dataType="i4"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[SHOP_STATUS]"
                       name="SHOP_STATUS" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[CART_ID]"
+                      dataType="i8"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[CART_ID]"
+                      name="CART_ID" />
                     <outputColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
                       dataType="i4"
@@ -4770,6 +4789,10 @@ public class 輸入0Buffer: ScriptBuffer
         {
             return Buffer.GetString(BufferColumnIndexes[1]);
         }
+        set
+        {
+            this[1] = value;
+        }
     }
     public bool MEMBEREN_IsNull
     {
@@ -4777,20 +4800,16 @@ public class 輸入0Buffer: ScriptBuffer
         {
             return IsNull(1);
         }
-    }
-
-    public String ORDERID
-    {
-        get
+        set
         {
-            return Buffer.GetString(BufferColumnIndexes[2]);
-        }
-    }
-    public bool ORDERID_IsNull
-    {
-        get
-        {
-            return IsNull(2);
+            if (value)
+            {
+                SetNull(1);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull 屬性不能設定為 False。請為屬性指派一個值。");
+            }
         }
     }
 
@@ -4798,14 +4817,29 @@ public class 輸入0Buffer: ScriptBuffer
     {
         get
         {
-            return Buffer.GetString(BufferColumnIndexes[3]);
+            return Buffer.GetString(BufferColumnIndexes[2]);
+        }
+        set
+        {
+            this[2] = value;
         }
     }
     public bool MATNR_IsNull
     {
         get
         {
-            return IsNull(3);
+            return IsNull(2);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(2);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull 屬性不能設定為 False。請為屬性指派一個值。");
+            }
         }
     }
 
@@ -4813,14 +4847,29 @@ public class 輸入0Buffer: ScriptBuffer
     {
         get
         {
-            return Buffer.GetString(BufferColumnIndexes[4]);
+            return Buffer.GetString(BufferColumnIndexes[3]);
+        }
+        set
+        {
+            this[3] = value;
         }
     }
     public bool SHOPTYPE_IsNull
     {
         get
         {
-            return IsNull(4);
+            return IsNull(3);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(3);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull 屬性不能設定為 False。請為屬性指派一個值。");
+            }
         }
     }
 
@@ -4952,7 +5001,7 @@ public class Variables
     <msb:CodeName>SC_229342ce7839431880383c445a141c92</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_229342ce7839431880383c445a141c92</msb:DisplayName>
-    <msb:ProjectId>{F78EC914-C40A-4259-9AA2-A577FFA121DC}</msb:ProjectId>
+    <msb:ProjectId>{53A957C0-06E4-4B45-8AC8-D61D71FEBC60}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_229342ce7839431880383c445a141c92.csproj" />
@@ -5157,109 +5206,109 @@ namespace SC_229342ce7839431880383c445a141c92.Properties {
                     <arrayElement
                       dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAPsYv2AAAAAAAAAAAOAAIiALATAAABYAAAAIAAAAAAAAUjQA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAIst1GAAAAAAAAAAAOAAIiALATAAABYAAAAIAAAAAAAAPjUA
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAAA0AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAOw0AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAWBQAAAAgAAAAFgAAAAIA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAARBUAAAAgAAAAFgAAAAIA
 AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAQAAAAAYAAAAYAAAAAAAAAAAAAAAAAABAAABA
-LnJlbG9jAAAMAAAAAGAAAAACAAAAHgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAA0
-NAAAAAAAAEgAAAACAAUAnCIAAKwQAAABAAAAAAAAAEgzAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAHgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAAg
+NQAAAAAAAEgAAAACAAUA5CIAAFARAAABAAAAAAAAADQ0AAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBAAAAoqHgIoEQAACiobMAYATAAAAAEAABEDbxIAAApv
 EwAACgoWCys1BgeaDAhvFAAACtAdAAABKBUAAAozGwgDAggDFG8WAAAKKAQAAAYUbxcAAAreAybe
 AAcXWAsHBo5pMsUqARAAAAAAJgAYPgADDwAAARMwAQAYAAAAAgAAEQMsEwNvGAAACgoGLAcGbxkA
-AAoKBioUKh4CKBUAAAYqKgIDBAUoGgAACipSAnsbAAAKAnscAAAKFpRvHQAACiomAhYDKB4AAAoq
-IgIWKB8AAAoqWgMsCAIWKCAAAAoqcgEAAHBzIQAACnpSAnsbAAAKAnscAAAKF5RvHQAACioiAhco
-HwAACipSAnsbAAAKAnscAAAKGJRvHQAACioiAhgoHwAACipSAnsbAAAKAnscAAAKGZRvHQAACioi
-AhkoHwAACipSAnsbAAAKAnscAAAKGpRvHQAACioiAhooHwAACioeAigiAAAKKh4CKCMAAAoqfgIo
-JAAACgICcxkAAAZ9AQAABAICcxoAAAZ9AgAABCqSBHJBAABwGm8lAAAKLBUCBQIDKCYAAAoOBHMG
-AAAGbxcAAAYqSisHAgNvGAAABgNvEwAABi3xKgYqOgIoJwAACgIDfQMAAAQqOgIoJwAACgIDfQQA
-AAQqHgIoJwAACiqufgUAAAQtHnJLAABw0AcAAAIoFQAACm8oAAAKcykAAAqABQAABH4FAAAEKhp+
-BgAABCoeAoAGAAAEKhp+BwAABCoeAigqAAAKKi5zIAAABoAHAAAEKkJTSkIBAAEAAAAAAAwAAAB2
-NC4wLjMwMzE5AAAAAAUAbAAAAHwGAAAjfgAA6AYAACQHAAAjU3RyaW5ncwAAAAAMDgAAwAAAACNV
-UwDMDgAAEAAAACNHVUlEAAAA3A4AANABAAAjQmxvYgAAAAAAAAACAAABVxWiAQkBAAAA+gEzABYA
-AAEAAAAhAAAACAAAAAcAAAAhAAAAEAAAACoAAAAQAAAAAgAAAAMAAAANAAAAEAAAAAEAAAAEAAAA
-AQAAAAAAeQMBAAAAAAAGAEICSgUGANYCSgUGAI4BNwUPAL4FAAAGALsBfgQGACUCfgQGAAYCfgQG
-AL0CfgQGAGICfgQGAHsCfgQGANIBfgQGAO0BIwMKAJYCxwAGAMcEfgQGAKAEJgQGAFUGJgQKAAkF
-xwAOAPoExwAKANQExwAKAJIGxwAGAHEBNwUGABoFagUGALsEaQQSAEEBYwMSAKIBYwMSACkBVAQG
-AFYBSgUGAPwAJgQGAEkDJgQGAJkAJgQGAJAEJgQGAKoEJgQGABkHfgQAAAAAJQAAAAAAAQABAAEA
-EAA+BAAAEAABAAEAAQAQAOwEAABFAAEABgABABAAdAYAAFEAAQAVAAEAEABJBgAAQQADABkAAQAQ
-AAoGAABBAAQAGgAAABAAcQXNBUEABQAbAAABEAA5Bs0FaQAHAB8ABgBJBqEABgAKBqUAAQCCBqkA
-AQCCBqkAEQAyBK0AEQAZAbEAEQCJALUAUCAAAAAAxgD0AgYAAQBYIAAAAADGAP8CBgABAGAgAAAA
-AMYA9Qa5AAEAyCAAAAAAgQBJBL8AAgDsIAAAAACGGCoFBgADAPQgAAAAAIYYKgVNAAMA/yAAAAAA
-hgguAEkABgAUIQAAAACGCDsAEAAGAB4hAAAAAIYIoQNvAAcAJyEAAAAAhgi1A8QABwA+IQAAAACG
-CGkASQAIAFMhAAAAAIYI8ANvAAgAXCEAAAAAhghIAEkACABxIQAAAACGCMkDbwAIAHohAAAAAIYI
-dgBJAAgAjyEAAAAAhggEBG8ACACYIQAAAACGCFwASQAIAK0hAAAAAIYI3ANvAAgAtiEAAAAAhgAN
-B28ACAC+IQAAAACGAFwGbwAIAMYhAAAAAIYYKgUGAAgA5iEAAAAAxgDoBskACAALIgAAAADGAeAG
-uQAMAB4iAAAAAMYB9Qa5AA0AICIAAAAAhhgqBdMADgAvIgAAAACGGCoF0wAPAD4iAAAAAIMYKgUG
-ABAARiIAAAAAkwgWBdkAEAByIgAAAACTCAEB3gAQAHkiAAAAAJMIDQHjABAAgSIAAAAAlghoBukA
-EQCIIgAAAACGGCoFBgARAJAiAAAAAJEYMAXuABEAAAABABEHAAABAFADAAABAA8FAAACABQGAAAD
-AOIEAAABAB0DAAABAB0DAAABAFQAAAACAL0AAAADAA8FAAAEAOIEAAABAA8FAAABABEHAAABAJgG
-AAABAJgGAAABAB0DCQAqBQEAEQAqBQYAGQAqBQoAKQAqBRAAMQAqBRAAOQAqBRAAQQAqBRAASQAq
-BRAAUQAqBRAAWQAqBRAAYQAqBRAAaQAqBQYAqQAqBQYAyQAqBRUA2QAqBQYAoQD0AgYAoQD/AgYA
-gQDoACQA4QD8BSkAcQDwACQA4QCrAC8AcQALAzYAcQAUAz0AgQA9A0kA6QAtBEkAiQAqBU0AiQAP
-BVcAiQAUBlsAkQBGA18AiQAdBGQAiQAOBGoAiQAVBAEA+QAqBRAAiQANB28AiQBcBm8AoQAqBQYA
-6QBCBnMAoQAoBnsAgQAqBQYA4QAVB4EAsQAqBYcA0QAqBQYALgALAAkBLgATABIBLgAbADEBLgAj
-ADoBLgArAGMBLgAzAGMBLgA7AGMBLgBDADoBLgBLAGkBLgBTAGMBLgBbAIABQwBjAMoB4QB7AMoB
-4wBrAMoBaQFzADEBiQFzADEBGwBFAAMAAQAHAAsACAANAAAAPwDyAAAAuQP2AAAAbQDyAAAA9AP2
-AAAATADyAAAAzQP2AAAAegDyAAAACAT2AAAAYADyAAAA4AP2AAAAGgX6AAAAIQH/AAAAbAYEAQIA
-BwADAAEACAADAAIACQAFAAEACgAFAAIACwAHAAIADAAJAAIADQALAAIADgANAAIADwAPAAIAEAAR
-AAIAEQATAAIAEgAVAAIAHAAXAAIAHQAZAAEAHgAZAAIAHwAbAASAAAABAAAAAAAAAAAAAAAAAAEA
-AAAEAAAAAAAAAAAAAACPAIAAAAAAAA4AAAAAAAAAAAAAAJgAogYAAAAADgAAAAAAAAAAAAAAmAC/
-BgAAAAAEAAAAAAAAAAAAAACPACYEAAAAAAAAAAABAAAAewUAAAAAAAAAU0NfMjI5MzQyY2U3ODM5
-NDMxODgwMzgzYzQ0NWExNDFjOTIAPE1vZHVsZT4AZ2V0X01FTUJFUklEAHNldF9NRU1CRVJJRABn
-ZXRfT1JERVJJRABJbnB1dElEAGdldF9TSE9QVFlQRQBnZXRfTUVNQkVSRU4AZ2V0X01BVE5SAG1z
-Y29ybGliAGRlZmF1bHRJbnN0YW5jZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRs
-ZQBJbnB1dE5hbWUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUGlwZWxpbmUAR2V0VHlwZQBnZXRf
-UHJvcGVydHlUeXBlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJlAHJlc291cmNlQ3VsdHVyZQBBcHBs
-aWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdlbmVyYXRl
-ZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1
-dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1i
-bHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29u
-ZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0
-aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5
-Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRDb21wb25lbnRFbnRyeVBvaW50QXR0cmlidXRl
-AEFzc2VtYmx5Q29tcGFueUF0dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBQ
-cmVFeGVjdXRlAFBvc3RFeGVjdXRlAEdldFZhbHVlAFNldFZhbHVlAHZhbHVlAFN5c3RlbS5SdW50
-aW1lLlZlcnNpb25pbmcAVG9TdHJpbmcAR2V0U3RyaW5nAFZhbHVlT2ZQcm9wZXJ0eU9iagBTeXN0
-ZW0uQ29tcG9uZW50TW9kZWwAU0NfMjI5MzQyY2U3ODM5NDMxODgwMzgzYzQ0NWExNDFjOTIuZGxs
-AGdldF9NRU1CRVJJRF9Jc051bGwAc2V0X01FTUJFUklEX0lzTnVsbABnZXRfT1JERVJJRF9Jc051
-bGwAZ2V0X1NIT1BUWVBFX0lzTnVsbABnZXRfTUVNQkVSRU5fSXNOdWxsAGdldF9NQVROUl9Jc051
-bGwAU2V0TnVsbABzZXRfSXRlbQBTeXN0ZW0AVHJpbQByZXNvdXJjZU1hbgBTY3JpcHRNYWluAHRy
-aW1Db2x1bW4AU3lzdGVtLkNvbmZpZ3VyYXRpb24AU3lzdGVtLkdsb2JhbGl6YXRpb24AU3lzdGVt
-LlJlZmxlY3Rpb24ASW52YWxpZE9wZXJhdGlvbkV4Y2VwdGlvbgBTdHJpbmdDb21wYXJpc29uAEN1
-bHR1cmVJbmZvAFByb3BlcnR5SW5mbwBPdXRwdXROYW1lTWFwAE91dHB1dE1hcADovLjlhaUwQnVm
-ZmVyAFBpcGVsaW5lQnVmZmVyAFNjcmlwdEJ1ZmZlcgBnZXRfUmVzb3VyY2VNYW5hZ2VyAC5jdG9y
-AC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNl
-cwBTeXN0ZW0uUmVzb3VyY2VzAFNDXzIyOTM0MmNlNzgzOTQzMTg4MDM4M2M0NDVhMTQxYzkyLlBy
-b3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTQ18yMjkzNDJjZTc4
-Mzk0MzE4ODAzODNjNDQ1YTE0MWM5Mi5Qcm9wZXJ0aWVzAEdldFByb3BlcnRpZXMAVmFyaWFibGVz
-AEJ1ZmZlckNvbHVtbkluZGV4ZXMAR2V0Q29sdW1uSW5kZXhlcwBTZXR0aW5ncwBFcXVhbHMAQ29u
-bmVjdGlvbnMAT2JqZWN0AEVuZE9mUm93c2V0AGdldF9EZWZhdWx0AFVzZXJDb21wb25lbnQAUGFy
-ZW50Q29tcG9uZW50AFNjcmlwdENvbXBvbmVudABNaWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0
-AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuUGlwZWxpbmVIb3N0AOi8uOWFpTBfUHJvY2Vzc0lucHV0AOi8
-uOWFpTBfUHJvY2Vzc0lucHV0Um93AE5leHRSb3cAZ2V0X0Fzc2VtYmx5AAAAAD9JAHMATgB1AGwA
-bAAgAGxcJ2ANTv2ALYqaW7pwIABGAGEAbABzAGUAAjDLirpwbFwnYAdjPm0ATgtQPFACMAEJOI9l
-USAAMAABcVMAQwBfADIAMgA5ADMANAAyAGMAZQA3ADgAMwA5ADQAMwAxADgAOAAwADMAOAAzAGMA
-NAA0ADUAYQAxADQAMQBjADkAMgAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBj
-AGUAcwAAAAAAue4DdgQMUU+WbzVNqYW2UgAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERYQgHAx0S
-OQgSOQQgABJxBSAAHRI5BgABEnEReQYgAhwcHRwHIAMBHBwdHAMHAQ4DIAAOCSADARJJHQgSTQMG
-EkkDBh0IBCABDggFIAIBCBwEIAECCAMgAAIHIAICDhGAgQUgAR0ICAUgABKAhQcgAgEOEoCFCLd6
-XFYZNOCJCImEXc2AgMyRAwYSFAMGEhgDBhJRAwYSWQMGEl0DBhIgBSABARIMBCABDhwEIAEBAgkg
-BAEIDhJJEk0FIAEBElEEAAASWQQAABJdBQABARJdBAAAEiADAAABAygADgMoAAIECAASWQQIABJd
-BAgAEiAIAQAIAAAAAAAeAQABAFQCFldyYXBOb25FeGNlcHRpb25UaHJvd3MBCAEAAgAAAAAAKAEA
-I1NDXzIyOTM0MmNlNzgzOTQzMTg4MDM4M2M0NDVhMTQxYzkyAAAFAQAAAAAWAQARQ29weXJpZ2h0
-IEAgIDIwMTkAAEkBABouTkVURnJhbWV3b3JrLFZlcnNpb249djQuNQEAVA4URnJhbWV3b3JrRGlz
-cGxheU5hbWUSLk5FVCBGcmFtZXdvcmsgNC41BAEAAAAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0u
-UmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0
-dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291
-cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAAACg0AAAAAAAAAAAA
-AEI0AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0NAAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1z
-Y29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAoKBioUKh4CKBkAAAYqKgIDBAUoGgAACipSAnsbAAAKAnscAAAKFpRvHQAACiomAhYDKB4AAAoq
+IgIWKB8AAAoqWgMsCAIWKCAAAAoqcgEAAHBzIQAACnpSAnsbAAAKAnscAAAKF5RvHQAACiomAhcD
+KB4AAAoqIgIXKB8AAAoqWgMsCAIXKCAAAAoqcgEAAHBzIQAACnpSAnsbAAAKAnscAAAKGJRvHQAA
+CiomAhgDKB4AAAoqIgIYKB8AAAoqWgMsCAIYKCAAAAoqcgEAAHBzIQAACnpSAnsbAAAKAnscAAAK
+GZRvHQAACiomAhkDKB4AAAoqIgIZKB8AAAoqWgMsCAIZKCAAAAoqcgEAAHBzIQAACnoeAigiAAAK
+Kh4CKCMAAAoqfgIoJAAACgICcx0AAAZ9AQAABAICcx4AAAZ9AgAABCqSBHJBAABwGm8lAAAKLBUC
+BQIDKCYAAAoOBHMGAAAGbxsAAAYqSisHAgNvHAAABgNvFwAABi3xKgYqOgIoJwAACgIDfQMAAAQq
+OgIoJwAACgIDfQQAAAQqHgIoJwAACiqufgUAAAQtHnJLAABw0AcAAAIoFQAACm8oAAAKcykAAAqA
+BQAABH4FAAAEKhp+BgAABCoeAoAGAAAEKhp+BwAABCoeAigqAAAKKi5zJAAABoAHAAAEKgAAAEJT
+SkIBAAEAAAAAAAwAAAB2NC4wLjMwMzE5AAAAAAUAbAAAAOQGAAAjfgAAUAcAAGAHAAAjU3RyaW5n
+cwAAAACwDgAAwAAAACNVUwBwDwAAEAAAACNHVUlEAAAAgA8AANABAAAjQmxvYgAAAAAAAAACAAAB
+VxWiAQkBAAAA+gEzABYAAAEAAAAhAAAACAAAAAcAAAAlAAAAFgAAACoAAAAQAAAAAgAAAAMAAAAL
+AAAAFAAAAAEAAAAEAAAAAQAAAAAAkQMBAAAAAAAGAFoCiAUGAO4CiAUGAKYBdQUPAPwFAAAGANMB
+vAQGAD0CvAQGAB4CvAQGANUCvAQGAHoCvAQGAJMCvAQGAOoBvAQGAAUCOwMKAK4C3wAGAAUFvAQG
+AN4EZAQGAJMGZAQKAEcF3wAOADgF3wAKABIF3wAKANAG3wAGAIkBdQUGAFgFqAUGAPkEpwQSAFkB
+ewMSALoBewMSAEEBkgQGAG4BiAUGABQBZAQGAGEDZAQGALEAZAQGAM4EZAQGAOgEZAQGAFcHvAQA
+AAAAJQAAAAAAAQABAAEAEAB8BAAAEAABAAEAAQAQACoFAABFAAEABgABABAAsgYAAFEAAQAZAAEA
+EACHBgAAQQADAB0AAQAQAEgGAABBAAQAHgAAABAArwULBkEABQAfAAABEAB3BgsGaQAHACMABgCH
+BqEABgBIBqUAAQDABqkAAQDABqkAEQBwBK0AEQAxAbEAEQChALUAUCAAAAAAxgAMAwYAAQBYIAAA
+AADGABcDBgABAGAgAAAAAMYAMwe5AAEAyCAAAAAAgQCHBL8AAgDsIAAAAACGGGgFBgADAPQgAAAA
+AIYYaAVNAAMA/yAAAAAAhgguAEkABgAUIQAAAACGCDsAEAAGAB4hAAAAAIYIuQNvAAcAJyEAAAAA
+hgjNA8QABwA+IQAAAACGCGoASQAIAFMhAAAAAIYIdwAQAAgAXSEAAAAAhggJBG8ACQBmIQAAAACG
+CB0ExAAJAH0hAAAAAIYIhABJAAoAkiEAAAAAhgiOABAACgCcIQAAAACGCDEEbwALAKUhAAAAAIYI
+QgTEAAsAvCEAAAAAhghQAEkADADRIQAAAACGCF0AEAAMANshAAAAAIYI4QNvAA0A5CEAAAAAhgj1
+A8QADQD7IQAAAACGAEsHbwAOAAMiAAAAAIYAmgZvAA4ACyIAAAAAhhhoBQYADgArIgAAAADGACYH
+yQAOAFAiAAAAAMYBHge5ABIAYyIAAAAAxgEzB7kAEwBlIgAAAACGGGgF0wAUAHQiAAAAAIYYaAXT
+ABUAgyIAAAAAgxhoBQYAFgCLIgAAAACTCFQF2QAWALciAAAAAJMIGQHeABYAviIAAAAAkwglAeMA
+FgDGIgAAAACWCKYG6QAXAM0iAAAAAIYYaAUGABcA1SIAAAAAkRhuBe4AFwAAAAEATwcAAAEAaAMA
+AAEATQUAAAIAUgYAAAMAIAUAAAEANQMAAAEANQMAAAEANQMAAAEANQMAAAEANQMAAAEANQMAAAEA
+NQMAAAEANQMAAAEASAAAAAIA1QAAAAMATQUAAAQAIAUAAAEATQUAAAEATwcAAAEA1gYAAAEA1gYA
+AAEANQMJAGgFAQARAGgFBgAZAGgFCgApAGgFEAAxAGgFEAA5AGgFEABBAGgFEABJAGgFEABRAGgF
+EABZAGgFEABhAGgFEABpAGgFBgCpAGgFBgDJAGgFFQDZAGgFBgChAAwDBgChABcDBgCBAAABJADh
+ADoGKQBxAAgBJADhAMMALwBxACMDNgBxACwDPQCBAFUDSQDpAGsESQCJAGgFTQCJAE0FVwCJAFIG
+WwCRAF4DXwCJAFsEZACJAEwEagCJAFMEAQD5AGgFEACJAEsHbwCJAJoGbwChAGgFBgDpAIAGcwCh
+AGYGewCBAGgFBgDhAFMHgQCxAGgFhwDRAGgFBgAuAAsACQEuABMAEgEuABsAMQEuACMAOgEuACsA
+YwEuADMAYwEuADsAYwEuAEMAOgEuAEsAaQEuAFMAYwEuAFsAgAFDAGMAygHhAHsAygHjAGsAygEp
+AXMAMQFJAXMAMQEbAEUAAwABAAcACQAIAAsAAAA/APIAAADRA/YAAAB7APIAAAAhBPYAAACSAPIA
+AABGBPYAAABhAPIAAAD5A/YAAABYBfoAAAA5Af8AAACqBgQBAgAHAAMAAQAIAAMAAgAJAAUAAQAK
+AAUAAgALAAcAAQAMAAcAAgANAAkAAQAOAAkAAgAPAAsAAQAQAAsAAgARAA0AAQASAA0AAgATAA8A
+AQAUAA8AAgAVABEAAQAWABEAAgAgABMAAgAhABUAAQAiABUAAgAjABcABIAAAAEAAAAAAAAAAAAA
+AAAAAQAAAAQAAAAAAAAAAAAAAI8AmAAAAAAADgAAAAAAAAAAAAAAmADgBgAAAAAOAAAAAAAAAAAA
+AACYAP0GAAAAAAQAAAAAAAAAAAAAAI8AZAQAAAAAAAAAAAEAAAC5BQAAAAAAAABTQ18yMjkzNDJj
+ZTc4Mzk0MzE4ODAzODNjNDQ1YTE0MWM5MgA8TW9kdWxlPgBnZXRfTUVNQkVSSUQAc2V0X01FTUJF
+UklEAElucHV0SUQAZ2V0X1NIT1BUWVBFAHNldF9TSE9QVFlQRQBnZXRfTUVNQkVSRU4Ac2V0X01F
+TUJFUkVOAGdldF9NQVROUgBzZXRfTUFUTlIAbXNjb3JsaWIAZGVmYXVsdEluc3RhbmNlAFJ1bnRp
+bWVUeXBlSGFuZGxlAEdldFR5cGVGcm9tSGFuZGxlAElucHV0TmFtZQBNaWNyb3NvZnQuU3FsU2Vy
+dmVyLkR0cy5QaXBlbGluZQBHZXRUeXBlAGdldF9Qcm9wZXJ0eVR5cGUAZ2V0X0N1bHR1cmUAc2V0
+X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAEFwcGxpY2F0aW9uU2V0dGluZ3NCYXNlAEVkaXRvckJy
+b3dzYWJsZVN0YXRlAENvbXBpbGVyR2VuZXJhdGVkQXR0cmlidXRlAERlYnVnZ2VyTm9uVXNlckNv
+ZGVBdHRyaWJ1dGUARGVidWdnYWJsZUF0dHJpYnV0ZQBFZGl0b3JCcm93c2FibGVBdHRyaWJ1dGUA
+QXNzZW1ibHlUaXRsZUF0dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFya0F0dHJpYnV0ZQBUYXJnZXRG
+cmFtZXdvcmtBdHRyaWJ1dGUAQXNzZW1ibHlDb25maWd1cmF0aW9uQXR0cmlidXRlAEFzc2VtYmx5
+RGVzY3JpcHRpb25BdHRyaWJ1dGUAQ29tcGlsYXRpb25SZWxheGF0aW9uc0F0dHJpYnV0ZQBBc3Nl
+bWJseVByb2R1Y3RBdHRyaWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRBdHRyaWJ1dGUAU1NJU1Njcmlw
+dENvbXBvbmVudEVudHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1
+bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRlAFByZUV4ZWN1dGUAUG9zdEV4ZWN1dGUAR2V0VmFs
+dWUAU2V0VmFsdWUAdmFsdWUAU3lzdGVtLlJ1bnRpbWUuVmVyc2lvbmluZwBUb1N0cmluZwBHZXRT
+dHJpbmcAVmFsdWVPZlByb3BlcnR5T2JqAFN5c3RlbS5Db21wb25lbnRNb2RlbABTQ18yMjkzNDJj
+ZTc4Mzk0MzE4ODAzODNjNDQ1YTE0MWM5Mi5kbGwAZ2V0X01FTUJFUklEX0lzTnVsbABzZXRfTUVN
+QkVSSURfSXNOdWxsAGdldF9TSE9QVFlQRV9Jc051bGwAc2V0X1NIT1BUWVBFX0lzTnVsbABnZXRf
+TUVNQkVSRU5fSXNOdWxsAHNldF9NRU1CRVJFTl9Jc051bGwAZ2V0X01BVE5SX0lzTnVsbABzZXRf
+TUFUTlJfSXNOdWxsAFNldE51bGwAc2V0X0l0ZW0AU3lzdGVtAFRyaW0AcmVzb3VyY2VNYW4AU2Ny
+aXB0TWFpbgB0cmltQ29sdW1uAFN5c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0
+aW9uAFN5c3RlbS5SZWZsZWN0aW9uAEludmFsaWRPcGVyYXRpb25FeGNlcHRpb24AU3RyaW5nQ29t
+cGFyaXNvbgBDdWx0dXJlSW5mbwBQcm9wZXJ0eUluZm8AT3V0cHV0TmFtZU1hcABPdXRwdXRNYXAA
+6Ly45YWlMEJ1ZmZlcgBQaXBlbGluZUJ1ZmZlcgBTY3JpcHRCdWZmZXIAZ2V0X1Jlc291cmNlTWFu
+YWdlcgAuY3RvcgAuY2N0b3IAU3lzdGVtLkRpYWdub3N0aWNzAFN5c3RlbS5SdW50aW1lLkNvbXBp
+bGVyU2VydmljZXMAU3lzdGVtLlJlc291cmNlcwBTQ18yMjkzNDJjZTc4Mzk0MzE4ODAzODNjNDQ1
+YTE0MWM5Mi5Qcm9wZXJ0aWVzLlJlc291cmNlcy5yZXNvdXJjZXMARGVidWdnaW5nTW9kZXMAU0Nf
+MjI5MzQyY2U3ODM5NDMxODgwMzgzYzQ0NWExNDFjOTIuUHJvcGVydGllcwBHZXRQcm9wZXJ0aWVz
+AFZhcmlhYmxlcwBCdWZmZXJDb2x1bW5JbmRleGVzAEdldENvbHVtbkluZGV4ZXMAU2V0dGluZ3MA
+RXF1YWxzAENvbm5lY3Rpb25zAE9iamVjdABFbmRPZlJvd3NldABnZXRfRGVmYXVsdABVc2VyQ29t
+cG9uZW50AFBhcmVudENvbXBvbmVudABTY3JpcHRDb21wb25lbnQATWljcm9zb2Z0LlNxbFNlcnZl
+ci5UeFNjcmlwdABNaWNyb3NvZnQuU3FsU2VydmVyLlBpcGVsaW5lSG9zdADovLjlhaUwX1Byb2Nl
+c3NJbnB1dADovLjlhaUwX1Byb2Nlc3NJbnB1dFJvdwBOZXh0Um93AGdldF9Bc3NlbWJseQAAP0kA
+cwBOAHUAbABsACAAbFwnYA1O/YAtippbunAgAEYAYQBsAHMAZQACMMuKunBsXCdgB2M+bQBOC1A8
+UAIwAQk4j2VRIAAwAAFxUwBDAF8AMgAyADkAMwA0ADIAYwBlADcAOAAzADkANAAzADEAOAA4ADAA
+MwA4ADMAYwA0ADQANQBhADEANAAxAGMAOQAyAC4AUAByAG8AcABlAHIAdABpAGUAcwAuAFIAZQBz
+AG8AdQByAGMAZQBzAAAAAAABA6Zm5dkiQ7iLW2juuR2WAAQgAQEIAyAAAQUgAQEREQQgAQEOBSAB
+ARFhCAcDHRI5CBI5BCAAEnEFIAAdEjkGAAEScRF5BiACHBwdHAcgAwEcHB0cAwcBDgMgAA4JIAMB
+EkkdCBJNAwYSSQMGHQgEIAEOCAUgAgEIHAQgAQIIAyAAAgcgAgIOEYCBBSABHQgIBSAAEoCFByAC
+AQ4SgIUIt3pcVhk04IkIiYRdzYCAzJEDBhIUAwYSGAMGElEDBhJZAwYSXQMGEiAFIAEBEgwEIAEO
+HAQgAQECCSAEAQgOEkkSTQUgAQESUQQAABJZBAAAEl0FAAEBEl0EAAASIAMAAAEDKAAOAygAAgQI
+ABJZBAgAEl0ECAASIAgBAAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEIAQAC
+AAAAAAAoAQAjU0NfMjI5MzQyY2U3ODM5NDMxODgwMzgzYzQ0NWExNDFjOTIAAAUBAAAAABYBABFD
+b3B5cmlnaHQgQCAgMjAxOQAASQEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC41AQBUDhRGcmFt
+ZXdvcmtEaXNwbGF5TmFtZRIuTkVUIEZyYW1ld29yayA0LjUEAQAAAAC0AAAAzsrvvgEAAACRAAAA
+bFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4w
+LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0
+ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAAFDUA
+AAAAAAAAAAAALjUAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA1AAAAAAAAAAAAAAAAX0NvckRs
+bE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -5289,7 +5338,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAwAAABUNAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAwAAABANQAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -5334,7 +5383,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   dataType="System.String"
                   description="將元件中繼資料比對編譯程式碼的總和檢查碼。"
                   name="MetadataChecksum140"
-                  typeConverter="NOTBROWSABLE">A5</property>
+                  typeConverter="NOTBROWSABLE">02</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
@@ -5359,12 +5408,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       cachedLength="5"
                       cachedName="MEMBER_EN"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[MEMBER_EN]"
-                      usageType="readWrite" />
-                    <inputColumn
-                      refId="Package\Stage To ODS\TRIM 所有字串型態的欄位.Inputs[輸入 0].Columns[ORDER_ID]"
-                      cachedDataType="i8"
-                      cachedName="ORDER_ID"
-                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[ORDER_ID]"
                       usageType="readWrite" />
                     <inputColumn
                       refId="Package\Stage To ODS\TRIM 所有字串型態的欄位.Inputs[輸入 0].Columns[MATNR]"
@@ -5546,6 +5589,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       cachedName="SHOP_STATUS (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[SHOP_STATUS]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[SHOP_STATUS (ready)]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[CART_ID (ready)]"
+                      cachedDataType="i8"
+                      cachedName="CART_ID (ready)"
+                      externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[CART_ID]"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[CART_ID (ready)]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5605,6 +5654,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[SHOP_STATUS]"
                       dataType="i4"
                       name="SHOP_STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[CART_ID]"
+                      dataType="numeric"
+                      name="CART_ID"
+                      precision="23" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -6195,6 +6249,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       cachedDataType="i4"
                       cachedName="SHOP_STATUS"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[SHOP_STATUS]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[CART_ID]"
+                      cachedDataType="i8"
+                      cachedName="CART_ID"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[CART_ID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -6398,6 +6457,26 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                           name="FastParse">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[CART_ID (ready)]"
+                      dataType="i8"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[CART_ID (ready)]"
+                      name="CART_ID (ready)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[CART_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -6505,7 +6584,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{45C42340-8474-4237-98DB-D5D48EEF4683}"
+      DTS:DTSID="{D74874D5-BFDD-4FFA-8A86-4CCB18BB689A}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -6530,7 +6609,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{F31DE2A8-77D8-4446-97A1-53C9094B0657}"
+      DTS:DTSID="{DE6FACC5-B891-4C0F-92ED-7384236A2F78}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -6551,7 +6630,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{B1DB5EAF-CC48-44E3-884D-0374758A98AA}"
+      DTS:DTSID="{504D6610-0DB1-4E63-BB8B-5F93455D82B5}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -6562,7 +6641,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           DTS:refId="Package\時序容器\Delete ODS Table by PK"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{5D487EE1-590C-4E8B-8C5A-C7289329CA04}"
+          DTS:DTSID="{0D9A7734-987B-4974-8933-2352B945E04F}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete ODS Table by PK"
@@ -6603,7 +6682,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{CCBBDA45-4E87-4895-9F89-762E9A2FE43A}"
+          DTS:DTSID="{3C039FF9-62CC-48CE-8E4A-346E7264FE7A}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -6639,7 +6718,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{BE8DD468-39F6-4EF7-B11E-D2744893C284}"
+          DTS:DTSID="{81C29099-0401-496C-A4A2-837B01A833B6}"
           DTS:From="Package\時序容器\Delete ODS Table by PK"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -6650,7 +6729,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{D292A727-5FEF-4701-85F7-3BC961FD2562}"
+      DTS:DTSID="{7C3C1332-430A-4429-87F4-7B18CC90A1FF}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -6713,7 +6792,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{51561DD4-C62D-4583-85B3-00A0A5EA9A5E}"
+      DTS:DTSID="{A9714B50-1BF7-4557-BED9-426A459ADBEE}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -6721,7 +6800,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{80C8193C-9601-4A93-84B2-2E7B63C1F83D}"
+      DTS:DTSID="{AA0FB47A-8C9D-45AD-8A20-238C885395C8}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -6729,7 +6808,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{50EFE775-5CD5-4182-9CAB-4673906E7E69}"
+      DTS:DTSID="{905BE4FF-DFB1-4916-A3A8-2BCB9023C416}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -6737,7 +6816,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{3A3B0897-92B9-49A4-B951-E54D9ED916A4}"
+      DTS:DTSID="{0B4CD51A-3B93-407A-8F4A-D7F5E4F2EEEA}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -6920,6 +6999,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
+          Size="223.2,41.6"
+          Id="Package\Stage To ODS\Insert Into Error Log(Insert)"
+          TopLeft="678.823397565852,851.084145563555" />
+        <NodeLayout
           Size="151.2,41.6"
           Id="Package\Stage To ODS\資料型態轉換"
           TopLeft="364.880937881887,571.204056435009" />
@@ -6944,33 +7027,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           Id="Package\Stage To ODS\Insert Into Error Log(Convert)"
           TopLeft="672.920620022629,669.006772253036" />
         <NodeLayout
-          Size="223.2,41.6"
-          Id="Package\Stage To ODS\Insert Into Error Log(Insert)"
-          TopLeft="678.823397565852,851.084145563555" />
+          Size="209.6,41.6"
+          Id="Package\Stage To ODS\衍生的資料行 (固定字串)"
+          TopLeft="334.523796231029,669.168342955782" />
         <NodeLayout
           Size="141.6,41.6"
           Id="Package\Stage To ODS\select from Stage"
           TopLeft="369.209509949079,150.130471136391" />
         <NodeLayout
-          Size="209.6,41.6"
-          Id="Package\Stage To ODS\衍生的資料行 (固定字串)"
-          TopLeft="334.523796231029,669.168342955782" />
-        <NodeLayout
-          Size="148.8,41.6"
-          Id="Package\Stage To ODS\寫入 ODSDB"
-          TopLeft="370.370355653175,761.778875544916" />
+          Size="284.8,41.6"
+          Id="Package\Stage To ODS\衍生資料行 - 記錄錯誤資訊欄位(select)"
+          TopLeft="669.41069909008,147.357137781017" />
         <NodeLayout
           Size="230.4,41.6"
           Id="Package\Stage To ODS\Insert Into Error Log (Select)"
           TopLeft="700.244030204796,316.99998339585" />
         <NodeLayout
-          Size="284.8,41.6"
-          Id="Package\Stage To ODS\衍生資料行 - 記錄錯誤資訊欄位(select)"
-          TopLeft="669.41069909008,147.357137781017" />
-        <NodeLayout
           Size="151.2,41.6"
           Id="Package\Stage To ODS\衍生的資料行"
           TopLeft="361.285700008984,487.795900394202" />
+        <NodeLayout
+          Size="148.8,41.6"
+          Id="Package\Stage To ODS\寫入 ODSDB"
+          TopLeft="370.370355653175,761.778875544916" />
         <NodeLayout
           Size="200,41.6"
           Id="Package\Stage To ODS\GetErrorDetail (Select)"
@@ -6979,52 +7058,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           Size="200,41.6"
           Id="Package\Stage To ODS\GetErrorDetail  (Insert)"
           TopLeft="686.809508359623,762.637721510829" />
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[OLE DB 來源錯誤輸出]"
-          TopLeft="510.809509949079,169.543804458704">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="158.601189141001,0"
-              Start="0,0"
-              End="151.101189141001,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="151.101189141001,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="26.9961154038339,5,97.1089583333333,10.8623046875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[OLE DB 來源輸出]"
-          TopLeft="438.471414124399,191.730471136391">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,35.0782013282752"
-              Start="0,0"
-              End="0,27.5782013282752">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.5782013282752" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[輸出 03]"
           TopLeft="440.226177840953,357.872436252003">
@@ -7291,6 +7324,52 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             <mssgm:EdgeLabel
               BoundingBox="26.4150971865576,5,107.108958333333,10.8623046875"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[OLE DB 來源錯誤輸出]"
+          TopLeft="510.809509949079,169.543804458704">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="158.601189141001,0"
+              Start="0,0"
+              End="151.101189141001,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="151.101189141001,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="26.9961154038338,5,97.1089583333333,10.8623046875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[OLE DB 來源輸出]"
+          TopLeft="438.4714141244,191.730471136391">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,35.078201328275"
+              Start="0,0"
+              End="0,27.578201328275">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.578201328275" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
