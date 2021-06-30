@@ -1,18 +1,18 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="6/12/2019 9:15:17 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{9D051780-C8E2-4F3E-A665-E5897F4DB7F9}"
+  DTS:DTSID="{48381F38-91D7-44E7-BBF8-4E483B8E9677}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
-  DTS:ObjectName="WEBTRACK_SHOPCART_PRODUCT_NOTIFICATIONS_ECS2"
+  DTS:ObjectName="WEBTRACK_SHOPCART_NOTIFICATIONS_ECS2"
   DTS:PackageType="5"
-  DTS:VersionBuild="395"
-  DTS:VersionGUID="{98BB8EA3-9B98-4C2B-8CBC-23BD8FBBB6A7}">
+  DTS:VersionBuild="396"
+  DTS:VersionGUID="{2A37C615-EC13-42C3-9FDD-3A91B33F5704}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -111,7 +111,7 @@ values(?,?,?,(select count(*) from dbo.WEBTRACK_SHOPCART_ECS2_PRODUCT_NOTIFICATI
 where isnull(mapping.CardNumber,'') &lt;&gt; ''
    and isnull(main.ESLITE_SN,'') &lt;&gt; ''
    and main.rnk = 1
-and main.ETL_DATE &gt;= cast(cast('2021-06-23 17:30:39.821000000' as date) as datetime) and main.created_at &gt;= '2017-01-01'</DTS:VariableValue>
+and main.ETL_DATE &gt;= cast(cast('2021-06-30 10:52:59.661000000' as date) as datetime) and main.created_at &gt;= '2017-01-01'</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -6585,7 +6585,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="156.8,41.6"
           Id="Package\Stage To ODS"
@@ -6615,7 +6615,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="200.201380029597,61.9047529306151">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,23.2380877029729"
               Start="0,0"
               End="0,15.7380877029729">
@@ -6644,7 +6644,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="334.521804848103,177.345002158362">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,41.7857128150612"
               Start="0,0"
               End="0,34.2857128150612">
@@ -6666,7 +6666,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="333.077360629935,261.130714973423">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,41.4999877129293"
               Start="0,0"
               End="0,33.9999877129293">
@@ -6688,7 +6688,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="333.660696562692,344.630702686352">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,36.000005313328"
               Start="0,0"
               End="0,28.500005313328">
@@ -6710,7 +6710,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="334.792640743607,605.630707999681">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,24.6428456148333"
               Start="0,0"
               End="0,17.1428456148333">

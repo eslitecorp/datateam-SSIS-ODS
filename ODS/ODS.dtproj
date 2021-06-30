@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">1505003NB02</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfWSSLnF2OUWNziFwBDqaGQAAAAACAAAAAAADZgAAwAAAABAAAADB9i0sO9OGSUaR05bZrxwJAAAAAASAAACgAAAAEAAAAMqRw1o3b2twZbFNRVfaZGyIAAAAUQDc44da4AjTVComztC6jo1/JttDldfayu1B4oy8B3okTk1DFablLfkMnXY7M4XfRVpNc7i0UiyGZoTMX3vUsEBw6kLcJyRy/TD1rSXwEHYiWlof7cQd8wQvVQVCdWvw04C31OGnAZcHsv6WDLlzHsXMq+Kh+HcIUHnS7hTn8j5CDXIdcbrVLBQAAAC5wz8m8fKpul0H1e5yPB546dPM6w==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKJvy5j2ekkq1BQfZP7wprgAAAAACAAAAAAADZgAAwAAAABAAAAChIrL3lVMaNX7at4hn4YwaAAAAAASAAACgAAAAEAAAAJYfKalrMPeXxLAtdUU0cQOIAAAAzLpUYsOn+Qzv4vbS7Nf/wN3cbaUPf8duUw0HjEwjRMaGLKBOcPqHM5f5Qm/JjHTycsU84VWJ0FvrynBpHEFB/NhGjzuIRhs8AtUL0/VtfIJSDl4Sj1gKTkUs+SVw9tMAVz1JHTGswAV3fJplgPG6v1ic0MYma4u8OkGfzIxNOxfY4v4BkFI7pRQAAABcOdnJh4vovAOi0CZWtz18B7p9mQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -138,8 +138,8 @@
           <SSIS:Package SSIS:Name="MF_EC_DISCOUNT_ECS2.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="WEBTRACK_LOGIN_ECS2.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="WEBTRACK_SHOPCART_CART_ITEMS_ECS2.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="WEBTRACK_SHOPCART_PRODUCT_NOTIFICATIONS_ECS2.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="WEBTRACK_SHOPCART_WISH_LISTS_ECS2.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="WEBTRACK_SHOPCART_NOTIFICATIONS_ECS2.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="ODSDB.conmgr" />
@@ -663,7 +663,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">150</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">140</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -5802,8 +5802,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -5831,8 +5829,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -5846,85 +5842,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-              </SSIS:Parameters>
-            </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="WEBTRACK_SHOPCART_PRODUCT_NOTIFICATIONS_ECS2.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{C35E5B13-76D5-4092-94B6-82C0779176DE}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">WEBTRACK_SHOPCART_PRODUCT_NOTIFICATIONS_ECS2</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">394</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{2E7850C6-12FA-49EE-9122-070268767C11}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="DG">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{86063C1D-5986-471D-93A3-0CED0988B8D3}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="fullTableName">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{902C406A-C61C-4693-A9C3-5EF102328FB9}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">dbo.WEBTRACK_SHOPCART_ECS2</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="GID">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{AA11B56A-E401-495C-A913-580A046594E2}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="queryBaseDate">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{6BF18E4D-AE54-4F03-9785-F85D1435955A}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -5956,8 +5873,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -5985,6 +5900,79 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="queryBaseDate">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{C55FC675-B39D-4022-8B98-0EC4DAED1BDB}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="WEBTRACK_SHOPCART_NOTIFICATIONS_ECS2.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{48381F38-91D7-44E7-BBF8-4E483B8E9677}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">WEBTRACK_SHOPCART_NOTIFICATIONS_ECS2</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">396</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{2A37C615-EC13-42C3-9FDD-3A91B33F5704}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="DG">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{6EF659F6-05CD-4958-ABE2-B32E0E9E0A19}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="fullTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{90CE41CB-974C-4B95-B1D6-13916B11657C}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">dbo.WEBTRACK_SHOPCART_ECS2</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="GID">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{2108A8FF-6036-4B0A-B9BA-6ECC5CAAE7E2}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
@@ -5992,7 +5980,7 @@
                 </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="queryBaseDate">
                   <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{C55FC675-B39D-4022-8B98-0EC4DAED1BDB}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="ID">{70E2DFEF-55EA-4242-AF7B-BADD3594EF21}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">
