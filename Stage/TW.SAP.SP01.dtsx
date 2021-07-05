@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="12/10/2018 2:31:13 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1701003NB01"
   DTS:CreatorName="IEAD\1701003"
-  DTS:DTSID="{0ED5BE04-47B4-4DA8-8EE5-59F9134DCAAB}"
+  DTS:DTSID="{ACE1967A-A9D6-48F1-99BB-49AE615C76C8}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="TW SAP_EADB SP01"
   DTS:PackageType="5"
-  DTS:VersionBuild="230"
-  DTS:VersionGUID="{AA338170-F67F-430B-B126-B7539F434CD0}">
+  DTS:VersionBuild="232"
+  DTS:VersionGUID="{976E6168-2967-450A-9E21-F05CCFE40C40}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[一般檔案連接管理員]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{F56D4684-C48E-490E-A122-52BC019E8A04}"
+      DTS:DTSID="{A98592F8-9FDF-469D-B3F8-E1002D9F7579}"
       DTS:ObjectName="一般檔案連接管理員">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -37,7 +37,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="PKEY"
-              DTS:DTSID="{AF99E39A-EB14-4C0C-BDA8-698C28272CC0}"
+              DTS:DTSID="{B8D6D8C1-2A9C-48DE-8C2E-B36897431858}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -46,7 +46,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FILE_NAME"
-              DTS:DTSID="{DD407A18-90AF-4645-8795-A975180918C7}"
+              DTS:DTSID="{950FD52B-64D1-4290-B76E-F960FEE3DADF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -55,7 +55,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="WERKS 的副本"
-              DTS:DTSID="{9A24D939-EF45-4439-B4CB-7A626938C93E}"
+              DTS:DTSID="{96BECF65-5A61-405C-BF7B-B30A6FAC7123}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -64,7 +64,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MATNR 的副本"
-              DTS:DTSID="{CA361015-8B43-42EC-884F-FDC7FE2FDEB4}"
+              DTS:DTSID="{C2CED4AB-8591-49C7-9D29-7BF07B494CF5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -73,7 +73,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="MAKTX 的副本"
-              DTS:DTSID="{03DBD7CB-993D-4341-8D9E-B5AB43559F6A}"
+              DTS:DTSID="{D343B731-278B-4C54-A25A-A9FC787383F8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -82,7 +82,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MATKL 的副本"
-              DTS:DTSID="{53F8F19E-12E3-4D77-B158-F98AD33C0E4B}"
+              DTS:DTSID="{368142E9-F498-45CD-93A5-DF5AF43A63B1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -91,7 +91,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MSTAV 的副本"
-              DTS:DTSID="{9013BEC2-EB01-455D-88D8-E1574F55EB94}"
+              DTS:DTSID="{58EF3B26-B093-4BD8-BE5A-A2AA9BAA0F4C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -100,7 +100,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MTART 的副本"
-              DTS:DTSID="{F6866546-A402-4B69-A0F1-9D28CCC6AAFB}"
+              DTS:DTSID="{931A76D2-009F-43E4-AD4F-F6D641223DBC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -109,7 +109,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="LIFNR 的副本"
-              DTS:DTSID="{46A524D0-7957-46D2-8DBF-00DD6A1AF615}"
+              DTS:DTSID="{AFAC5AEA-418B-4434-AF0A-C6CC33F0A0E8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -118,7 +118,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="RBZUL 的副本"
-              DTS:DTSID="{15E03601-6755-41E1-BBD4-0291873BFF37}"
+              DTS:DTSID="{BD1B26EB-50AB-4073-AA04-6B186374E5E7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -127,7 +127,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="KWDHT 的副本"
-              DTS:DTSID="{30E2C038-D7E2-422F-AFBA-AC7A3F888D11}"
+              DTS:DTSID="{1944BF60-E045-4DA0-8FEC-04D1332B593B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -136,7 +136,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TAKLV 的副本"
-              DTS:DTSID="{CFC9B48B-ABFF-4714-AA41-23F94C1C8A1D}"
+              DTS:DTSID="{D723F5D2-5377-49B7-AF8F-11AE25E069B1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -145,7 +145,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZSUBT 的副本"
-              DTS:DTSID="{06615B98-1951-4611-92BB-0AAFDEDECCD4}"
+              DTS:DTSID="{6AC52FD3-97E9-45C0-BF24-36308C2AF308}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -154,7 +154,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZCT1 的副本"
-              DTS:DTSID="{51868C86-DF42-4FA5-A7ED-2910960D010F}"
+              DTS:DTSID="{6E99870E-4795-4D15-B317-FE318CB63522}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -163,7 +163,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZCT2 的副本"
-              DTS:DTSID="{779D5BDB-B70C-4AB5-A975-D94F6C222B2F}"
+              DTS:DTSID="{646D5C76-8B8F-4206-B2F1-6499337A502D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -172,7 +172,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MEINS 的副本"
-              DTS:DTSID="{0E40DB75-2A6F-4E6D-AA0F-4B4295E490EB}"
+              DTS:DTSID="{E351C07B-5045-4107-AD07-ACB07891DB57}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -181,7 +181,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ERSDA 的副本"
-              DTS:DTSID="{E0965C63-D5E6-4FF5-B504-DC909BD23A2D}"
+              DTS:DTSID="{9790185D-9557-49F9-A895-5A00AD2C4494}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -190,7 +190,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MSTDV 的副本"
-              DTS:DTSID="{B1C044EC-C10F-4382-84A2-5E442BC032DB}"
+              DTS:DTSID="{867A8FBC-ADBB-431E-B3B5-53E8BBB11039}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -199,7 +199,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MSTAE 的副本"
-              DTS:DTSID="{321EDF3B-2ED7-43D4-8A7B-F04A1218EC20}"
+              DTS:DTSID="{325A5CC4-19CF-4F42-B6D8-424FC790F6B8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -208,7 +208,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MSTDE 的副本"
-              DTS:DTSID="{24B6CE7A-681F-4E35-B8D3-12A3D84848B0}"
+              DTS:DTSID="{921D30C4-ACBF-46FC-ACFF-97459652870B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -217,7 +217,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZAUTH 的副本"
-              DTS:DTSID="{003AB4E9-C3CA-4A60-81ED-124C48E05B9F}"
+              DTS:DTSID="{A784C73F-9BD6-438C-BC0D-2F3F149DD839}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -226,7 +226,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZEAUTH 的副本"
-              DTS:DTSID="{533A20FC-F96C-4677-8EE9-55BEED572718}"
+              DTS:DTSID="{4E9CB6C5-E223-4671-92F4-B2C8657B1D3F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -235,7 +235,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZNORMT 的副本"
-              DTS:DTSID="{EBCE0D02-593B-42FB-82AE-564D9979C68C}"
+              DTS:DTSID="{62B9A130-AF38-44B0-8270-FAAE87F00B3D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -244,7 +244,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZPDATE 的副本"
-              DTS:DTSID="{0718D7AD-13FD-4689-BFC8-0617D3056E9C}"
+              DTS:DTSID="{233EF477-FE1E-4CBF-A60D-6B63AF98D719}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -253,7 +253,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZTHNUM 的副本"
-              DTS:DTSID="{A0752DA6-5324-46EA-BB5C-144DF6A81C72}"
+              DTS:DTSID="{1F4EE9BF-B441-4864-BDEB-80254C3AF42B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -262,7 +262,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZTHEM 的副本"
-              DTS:DTSID="{0A154B46-5F81-4532-92B6-02D6CB55B4F8}"
+              DTS:DTSID="{72622EE5-1BD2-4336-9DAC-0F9097F2C6C3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -271,7 +271,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZCTYP 的副本"
-              DTS:DTSID="{2C9C8AEC-5871-4091-BBC6-8D8D4977449C}"
+              DTS:DTSID="{F1E23954-2847-48FC-9324-286DC6915C6B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -280,7 +280,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZTRAN 的副本"
-              DTS:DTSID="{947B58E4-590F-4B97-B732-DB00C0A73CFC}"
+              DTS:DTSID="{6747F5B6-DA49-4C12-8EBF-9733D8113D90}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -289,7 +289,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZVERS2 的副本"
-              DTS:DTSID="{25970D1D-F42C-4976-BEE6-9A694D3ED5E2}"
+              DTS:DTSID="{BFDCFEA7-7E06-42AC-ABC6-49018265F916}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -298,7 +298,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZPAGE 的副本"
-              DTS:DTSID="{0E664E2C-0676-49DD-BBCF-F7FFDFD5BBE3}"
+              DTS:DTSID="{1274DAE1-2AF0-48D7-967A-3E40AF8CA20C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -307,7 +307,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZLANG 的副本"
-              DTS:DTSID="{8D1C2903-4605-48D2-B4A5-692FF905C93E}"
+              DTS:DTSID="{662EA4FD-4573-4565-8273-F18BC4B3C7CA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -316,7 +316,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZFPDAT 的副本"
-              DTS:DTSID="{E4F27F27-DE13-484D-8530-B9E8AA64F9F3}"
+              DTS:DTSID="{C5F24E3A-219F-401A-ACFC-1AC0841C603E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -325,7 +325,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZMATU 的副本"
-              DTS:DTSID="{B2EFEE96-A876-4ACE-9465-A5536246AB02}"
+              DTS:DTSID="{87D56023-BC8C-4B35-9460-061CD18AD681}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -334,7 +334,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZRAT 的副本"
-              DTS:DTSID="{43EFC8DD-3CA2-4580-BEB5-705A43BD322B}"
+              DTS:DTSID="{C13C595A-CDE3-4218-B537-575D3E40F089}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -343,7 +343,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZTHEC 的副本"
-              DTS:DTSID="{A96F5630-95E1-4692-923C-4B75F95A6F32}"
+              DTS:DTSID="{C5A4BFD3-CB80-47CF-B08A-924B13E26729}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -352,7 +352,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZPS 的副本"
-              DTS:DTSID="{2E8489D1-23F9-46D7-A72B-6ACFD0D6CC5D}"
+              DTS:DTSID="{D8080E9F-2ECE-431D-8433-900C4BAF082C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -361,7 +361,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="VTEXT 的副本"
-              DTS:DTSID="{7549775A-F0E2-481F-9496-F04462F58788}"
+              DTS:DTSID="{8EA9866F-E59F-49E2-A232-8F2917DB3B2F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -370,7 +370,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="LFRHY 的副本"
-              DTS:DTSID="{A9A35F80-F5D6-4AA9-9CDA-777B10426392}"
+              DTS:DTSID="{97C7775B-3475-4615-94C8-E305AC6929C0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -379,7 +379,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MMSTA 的副本"
-              DTS:DTSID="{85660AF2-ABDB-45F9-A9D9-CBC14D456686}"
+              DTS:DTSID="{F2A03765-8773-41B5-AFA3-5540B0B8F4D8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -388,7 +388,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MMSTD 的副本"
-              DTS:DTSID="{FBEF1977-CCD7-4389-950D-DD43A5AB75F2}"
+              DTS:DTSID="{9201C908-BA73-45C0-B189-FDD31946B6A8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -397,7 +397,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZRTV 的副本"
-              DTS:DTSID="{6C0631A8-EA7A-487F-8449-B1A6BFC3CD7E}"
+              DTS:DTSID="{417D95EC-7BE8-46D0-B358-FD3519C8016C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -406,7 +406,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZRTVD 的副本"
-              DTS:DTSID="{6EDE6600-4D15-4999-ADEA-73D2F848AC4B}"
+              DTS:DTSID="{16A40841-8A54-43C0-979B-9577353F24AA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -415,7 +415,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZINTYP 的副本"
-              DTS:DTSID="{0F6E1387-63D6-4A97-A249-8DA48C74EA97}"
+              DTS:DTSID="{03368168-282F-4885-82A4-E10975BEA676}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -424,7 +424,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZINVST 的副本"
-              DTS:DTSID="{15944783-1647-441B-97DF-2F386212A47D}"
+              DTS:DTSID="{E1D9D296-D892-4041-80C9-85F40ACEA42F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -433,7 +433,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZVPURO 的副本"
-              DTS:DTSID="{67375F34-FC88-4337-BD9C-CF63CC1D5B84}"
+              DTS:DTSID="{E3BD689B-5941-453D-A3B4-20B0BDC5F4EF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -442,7 +442,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZCONSI 的副本"
-              DTS:DTSID="{FCCF29EF-FC23-4065-ABCB-6895FADF0A6A}"
+              DTS:DTSID="{527ABCDA-48F2-4AAC-A00C-204569F4B001}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -451,7 +451,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZIMCHK 的副本"
-              DTS:DTSID="{780C3E67-42D4-46BE-B2BB-6E4AA6E52AC0}"
+              DTS:DTSID="{ABAE5122-510C-4CBA-90EA-F931875E1E28}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -460,7 +460,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="BWSCL 的副本"
-              DTS:DTSID="{07C489C5-8588-4725-95FE-3D331D148B6B}"
+              DTS:DTSID="{715E6171-61C9-42E7-8A6A-741E9A2AA465}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -469,7 +469,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="IDNLF 的副本"
-              DTS:DTSID="{91580C84-C820-496F-98B5-5B60EA6A7A64}"
+              DTS:DTSID="{A17AACA6-BE25-4EAD-8F78-08B94D358A61}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -478,7 +478,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="KOLIF 的副本"
-              DTS:DTSID="{1D3EF509-1CC2-46FC-AAA1-76EF6F98F3C2}"
+              DTS:DTSID="{617DA9EB-67BB-41F5-A23C-5728FAD32AFB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -487,7 +487,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="EKORG 的副本"
-              DTS:DTSID="{63F40A25-DF9B-4737-AA18-719C2A7A5188}"
+              DTS:DTSID="{69C59EA9-1554-4E67-AE3F-4851A4277DA0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -496,7 +496,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MINBM 的副本"
-              DTS:DTSID="{78466FBD-22F4-4AB1-90AB-4F6D974A304B}"
+              DTS:DTSID="{52485419-01E0-4997-880C-EB3275468CF7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -505,7 +505,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="EKGRP 的副本"
-              DTS:DTSID="{DB37DC55-62BB-42D5-B4EB-1FD785B4A883}"
+              DTS:DTSID="{C702995E-E536-4556-BE96-65952182BD6F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -514,7 +514,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="APLFZ 的副本"
-              DTS:DTSID="{A893BC94-E891-4C2F-B7E1-72E5949F1791}"
+              DTS:DTSID="{70FC89D7-2896-4AC0-8D73-F798D75E2DE4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -523,7 +523,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="NETPR 的副本"
-              DTS:DTSID="{959805E2-0282-4221-8139-F92DEAD395D7}"
+              DTS:DTSID="{B0E5B39D-E404-408A-B0CB-1F9DB91479E1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -532,7 +532,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="WAERS 的副本"
-              DTS:DTSID="{551CF907-C169-4A75-BF01-5056362BE284}"
+              DTS:DTSID="{F83915D4-F7BD-4760-AD59-1398ADCB8B00}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -541,7 +541,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="VKORG 的副本"
-              DTS:DTSID="{E6B036BE-A21E-48CB-9ACC-E592CCC6AC48}"
+              DTS:DTSID="{BDDE3981-30F1-4298-8689-A13F002580DC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -550,7 +550,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="VTWEG 的副本"
-              DTS:DTSID="{5E904D91-CC3B-4519-8310-E03CB5CCC66F}"
+              DTS:DTSID="{5E316377-CEC4-4022-8CEE-0874A1E0251F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -559,7 +559,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZSE 的副本"
-              DTS:DTSID="{4F60F7FB-7F67-40D6-A973-A159EF011E68}"
+              DTS:DTSID="{B7BDF09C-FFF2-4BB8-9F18-A149EDB5FBDF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -568,7 +568,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZPR 的副本"
-              DTS:DTSID="{B839E34A-AF53-43BE-878E-C474D063D9CA}"
+              DTS:DTSID="{A523575E-17EA-4805-A30C-B5C6D6BEAC52}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -577,7 +577,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZCT 的副本"
-              DTS:DTSID="{56D89719-F018-4FC6-A271-A5663BDD329F}"
+              DTS:DTSID="{6BB048DA-51F3-464C-83CF-F5B071E53C9E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -586,7 +586,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="ZZKEY 的副本"
-              DTS:DTSID="{53EF2D41-FB9C-4BA6-8037-5B7E3F208555}"
+              DTS:DTSID="{3785D3F4-9641-4227-AF81-9EFC41CF0A46}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -595,7 +595,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="INCO1 的副本"
-              DTS:DTSID="{9AB3BD4D-51B8-46EB-9B0F-DDD029E9BA53}"
+              DTS:DTSID="{83920FEB-F8EB-465D-B585-DB2A2825CB9B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -604,7 +604,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZFWEIGHT 的副本"
-              DTS:DTSID="{96BC06B4-FC57-4A51-B5E8-16E7971A6ECD}"
+              DTS:DTSID="{F356533F-FA04-4F06-8B52-E3174C4B645E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -613,7 +613,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZFVOLUME 的副本"
-              DTS:DTSID="{7986783C-C8C1-4B58-B72D-E4DD809B5A69}"
+              DTS:DTSID="{D32843F7-1538-43E6-98D3-AD4B5C9C7599}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -622,7 +622,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZFPRODUCT_P 的副本"
-              DTS:DTSID="{58A8A451-7F7D-4EF9-BBFC-827F4E626A98}"
+              DTS:DTSID="{C7D96C63-203C-4BCF-8121-16D15A528AFC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -631,7 +631,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZFPRESERVE_C 的副本"
-              DTS:DTSID="{BB62F820-5704-44A3-80E3-27C4F9C29AA5}"
+              DTS:DTSID="{FCF15E0C-8DA5-4426-86EB-B87072C0D3F9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -640,7 +640,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZFPRESERVE_D 的副本"
-              DTS:DTSID="{B5A8AD7F-7E81-4280-87BE-84BF2343ACB3}"
+              DTS:DTSID="{439F50E8-6F16-4EE2-8B57-C5E8CB6C08F4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -649,7 +649,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZFELEMENT 的副本"
-              DTS:DTSID="{4ECA6548-0990-4C0D-A3A2-F70360E0EE6F}"
+              DTS:DTSID="{716EA019-C2F5-4682-8D5C-0155354BCB51}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -658,7 +658,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ZEAN11 的副本"
-              DTS:DTSID="{519A95A0-18C7-4F42-A592-905D21395167}"
+              DTS:DTSID="{F0445B52-9898-4CB7-9FEB-8794F49603A0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -667,7 +667,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TAXCODE 的副本"
-              DTS:DTSID="{0DBBC3E4-89A5-4704-AD3D-D91A5C001BC6}"
+              DTS:DTSID="{3B32814A-F4F5-4E96-8B8B-FBD55D3DC36F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -676,7 +676,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TAXTEXT 的副本"
-              DTS:DTSID="{2E9317C7-8C16-479C-A80D-AB507B2C7F3C}"
+              DTS:DTSID="{EB6890BF-B502-44C7-85E7-86A618FC4ED4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -685,7 +685,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TAX 的副本"
-              DTS:DTSID="{B7E48C76-B6FB-4751-9D8A-59931C0D48D3}"
+              DTS:DTSID="{C6A55078-8B5C-478C-8999-15ABCDE5CEB6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -694,7 +694,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="DISMM 的副本"
-              DTS:DTSID="{BAACF42E-824C-4B42-B17F-31BA2FE5E140}"
+              DTS:DTSID="{4E58C802-F5D9-4C50-85F0-C709767C7B03}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -703,7 +703,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="VALUE1 的副本"
-              DTS:DTSID="{8F91AA8F-D4D0-4B5F-A41A-8CF8FACB565F}"
+              DTS:DTSID="{4AC2BBB3-A709-49E1-BC61-75CCB89423E4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -712,7 +712,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="VALUE2 的副本"
-              DTS:DTSID="{1272C15C-2DC7-436B-8F75-2C501CAE1B78}"
+              DTS:DTSID="{0E3B7FFD-21F1-4838-B88D-DC2574C7C8E1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -721,7 +721,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="VALUE3 的副本"
-              DTS:DTSID="{686BAF63-D43F-4DBD-9FB3-F16DB55AE19E}"
+              DTS:DTSID="{2D56011B-8A92-4A45-9298-8120E4A048A2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -730,7 +730,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="VALUE4 的副本"
-              DTS:DTSID="{F07655EE-B361-4DEE-826B-6F754C77693D}"
+              DTS:DTSID="{CCDCA993-A022-44C1-ADDA-8A5F5FEBB55A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -739,7 +739,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="VALUE5 的副本"
-              DTS:DTSID="{047B095A-79CA-4CAF-AB1B-8D8A7E9F3311}"
+              DTS:DTSID="{EF6F0E9E-5B04-4989-9ACE-FA523B2F9A9F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -748,7 +748,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="VALUE6 的副本"
-              DTS:DTSID="{5C5C7A39-6402-4E72-AA4E-4401A67E72BB}"
+              DTS:DTSID="{C3B8A0CD-2B65-4205-95D1-7583953322E1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -757,7 +757,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="VALUE7 的副本"
-              DTS:DTSID="{7920CCF1-08C0-4645-B5B5-359942F9F172}"
+              DTS:DTSID="{90A81D36-6CF8-4376-BFA1-D4250B701DB8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -766,7 +766,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="VALUE8 的副本"
-              DTS:DTSID="{D7CF2D16-49B0-447A-8E18-5008992A99BB}"
+              DTS:DTSID="{61DAABAF-3A52-4A7E-8230-758C06A8224A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -774,7 +774,7 @@
               DTS:DataType="135"
               DTS:TextQualified="True"
               DTS:ObjectName="ETL_DATE"
-              DTS:DTSID="{588296DA-0B50-4133-BE40-D4B96757DB87}"
+              DTS:DTSID="{CA241553-32CB-45B3-8B78-7AC23DC9A420}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -782,7 +782,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="DELETE_MARK"
-              DTS:DTSID="{7870089E-5694-45E1-B823-25B7DE35A0AD}"
+              DTS:DTSID="{D08A5879-A0E6-48AE-8B13-FEAB7E14C376}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -790,7 +790,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="ErrorCode"
-              DTS:DTSID="{11CC33F2-2EFD-4F02-9E90-A51C2210A8C0}"
+              DTS:DTSID="{5055FC45-812D-47EB-97BE-251B3110C08D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -798,7 +798,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="ErrorColumn"
-              DTS:DTSID="{E52859D5-CA30-493A-805B-38A358F9031C}"
+              DTS:DTSID="{89EB5DE6-67EC-4521-A9FE-29EAE3697CA6}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -810,7 +810,7 @@
       DTS:ConfigString="StagingDB_TW"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="將事件的記錄項目寫入 SQL Server 資料庫"
-      DTS:DTSID="{ACF1C5EF-79AD-4A10-924B-BF29DDB7BA8A}"
+      DTS:DTSID="{260A7663-1E4F-4DBA-A6D1-2D7BAF8964ED}"
       DTS:ObjectName="SQL Server 的 SSIS 記錄提供者">
       <DTS:ObjectData>
         <InnerObject />
@@ -821,7 +821,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{A1C167F1-ACCC-4371-8A5D-C24F80886FEC}"
+      DTS:DTSID="{A3918D1B-544D-4FD2-B595-2EF78C6B08E1}"
       DTS:ObjectName="dbPrestageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -830,7 +830,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{3BC9C2FB-2E02-480B-A43C-F1D7D4BBDF30}"
+      DTS:DTSID="{1A933AE5-DF20-4A03-A6D0-84E001578D1D}"
       DTS:ObjectName="dbSchemaName">
       <DTS:Property
         DTS:DataType="8"
@@ -839,7 +839,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{388B3FA3-B6AF-4084-80EB-2FEAC5939249}"
+      DTS:DTSID="{BB7E95D0-1EA3-4CE1-8B1E-9DE24E3F4F44}"
       DTS:ObjectName="dbStageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -848,7 +848,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{38DC679B-2990-4148-AF56-62A503B6CB1D}"
+      DTS:DTSID="{FC4CE7BA-D125-4BC4-9B49-177763EA4CC7}"
       DTS:ObjectName="dbTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -857,7 +857,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{13D2D431-7145-4A55-B102-D8518EDA4E36}"
+      DTS:DTSID="{EFFA5EDF-D198-4E50-9F99-FB88319A6669}"
       DTS:ObjectName="srcRawDataFileName">
       <DTS:Property
         DTS:DataType="8"
@@ -866,7 +866,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{3DD1D3F2-17B3-44DD-B5F2-63D3685E408A}"
+      DTS:DTSID="{B6A1F2F1-1A88-4437-B162-0C6B0DD21F87}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -875,7 +875,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{AA274349-3038-49B7-A188-ED45D75DF8AA}"
+      DTS:DTSID="{8807C4F1-0C3D-40BD-8C6D-F57796EEB5C5}"
       DTS:ObjectName="writeInEvent">
       <DTS:Property
         DTS:DataType="8"
@@ -885,7 +885,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{BE0F9022-2FCE-4543-82D2-32F8192FD4F2}"
+      DTS:DTSID="{52EF6697-05E7-4103-AE90-FFEEC9115B9E}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;SELECT *  FROM &quot; + @[$Package::dbPrestageTableName] + &quot; WHERE FILE_NAME =  '&quot; + @[$Package::srcRawDataFileName]  +&quot;' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = '&quot;+ @[$Package::srcRawDataFileName] +&quot;' and l.executionid = &quot;+ (DT_WSTR,100) @[System::ServerExecutionID] +&quot;)&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -900,7 +900,7 @@
     DTS:LoggingMode="1">
     <DTS:SelectedLogProviders>
       <DTS:SelectedLogProvider
-        DTS:InstanceID="{ACF1C5EF-79AD-4A10-924B-BF29DDB7BA8A}" />
+        DTS:InstanceID="{260A7663-1E4F-4DBA-A6D1-2D7BAF8964ED}" />
     </DTS:SelectedLogProviders>
   </DTS:LoggingOptions>
   <DTS:Executables>
@@ -908,7 +908,7 @@
       DTS:refId="Package\I／IU資料流程"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{6A21F624-C924-41CC-9803-E3551199074C}"
+      DTS:DTSID="{24D0921D-080F-4286-9352-3871A2F6F72A}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="I／IU資料流程"
@@ -1507,7 +1507,7 @@
                       refId="Package\I／IU資料流程\intsert into stage資料表.Inputs[OLE DB 目的地輸入].Columns[ZFELEMENT 的副本]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="200"
+                      cachedLength="255"
                       cachedName="ZFELEMENT 的副本"
                       externalMetadataColumnId="Package\I／IU資料流程\intsert into stage資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[ZFELEMENT]"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ZFELEMENT 的副本]" />
@@ -1637,6 +1637,14 @@
                       cachedName="XCHPF 的副本"
                       externalMetadataColumnId="Package\I／IU資料流程\intsert into stage資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[XCHPF]"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[XCHPF 的副本]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage資料表.Inputs[OLE DB 目的地輸入].Columns[ZMODE 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="ZMODE 的副本"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[ZMODE]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ZMODE 的副本]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2023,7 +2031,7 @@
                       refId="Package\I／IU資料流程\intsert into stage資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[ZFELEMENT]"
                       codePage="950"
                       dataType="str"
-                      length="200"
+                      length="255"
                       name="ZFELEMENT" />
                     <externalMetadataColumn
                       refId="Package\I／IU資料流程\intsert into stage資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[ZEAN11]"
@@ -2123,6 +2131,12 @@
                       dataType="str"
                       length="1"
                       name="XCHPF" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage資料表.Inputs[OLE DB 目的地輸入].ExternalColumns[ZMODE]"
+                      codePage="950"
+                      dataType="str"
+                      length="20"
+                      name="ZMODE" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2649,6 +2663,12 @@
                       cachedLength="300"
                       cachedName="XCHPF"
                       lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[XCHPF]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[ZMODE]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ZMODE"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ZMODE]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -4101,7 +4121,7 @@
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="IgnoreFailure"
-                      length="200"
+                      length="255"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ZFELEMENT 的副本]"
                       name="ZFELEMENT 的副本"
                       truncationRowDisposition="IgnoreFailure">
@@ -4419,6 +4439,28 @@
                           dataType="System.Int32"
                           description="指定作為轉換之資料來源的輸入資料行。"
                           name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[XCHPF]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ZMODE 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ZMODE 的副本]"
+                      name="ZMODE 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ZMODE]}</property>
                         <property
                           dataType="System.Boolean"
                           description="指出資料行是否使用更快、地區設定中立的剖析常式。"
@@ -5365,6 +5407,16 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
                       lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[XCHPF]"
                       name="XCHPF"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ZMODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[ZMODE]"
+                      length="100"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ZMODE]"
+                      name="ZMODE"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5791,6 +5843,11 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
                       dataType="wstr"
                       length="300"
                       name="XCHPF" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[ZMODE]"
+                      dataType="wstr"
+                      length="100"
+                      name="ZMODE" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -6307,6 +6364,12 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
                       lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[XCHPF]"
                       name="XCHPF" />
                     <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ZMODE]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ZMODE]"
+                      name="ZMODE" />
+                    <outputColumn
                       refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
                       dataType="i4"
                       lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
@@ -6566,7 +6629,7 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
       DTS:refId="Package\紀錄目前檔案執行封裝至dbo sysssislog"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="指令碼工作"
-      DTS:DTSID="{5E93F472-47B9-42A1-AFA6-565EE272C14C}"
+      DTS:DTSID="{272E4EDF-535F-4A86-8005-F94ECC32CAAB}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄目前檔案執行封裝至dbo sysssislog"
@@ -6604,15 +6667,6 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
           VSTAMinorVersion="0"
           Language="CSharp"
           ReadOnlyVariables="$Package::srcRawDataFileName">
-          <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -6732,6 +6786,35 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Settings.get_Default():ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Sett" +
+    "ings")]
+
+namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -6867,38 +6950,6 @@ namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Settings.get_Default():ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Sett" +
-    "ings")]
-
-namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
-          <ProjectItem
-            Name="ST_4279782243b54b089e84c37cb3903c9e.csproj"
-            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?><Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"><PropertyGroup><ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids><Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration><Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform><ProductVersion>8.0.30703</ProductVersion><SchemaVersion>2.0</SchemaVersion><ProjectGuid>{a04cefb7-a3c2-4d76-8e8a-32b1e518d64f}</ProjectGuid><OutputType>Library</OutputType><AppDesignerFolder>Properties</AppDesignerFolder><RootNamespace>ST_8b98b3e4edfb4eb5b79b43c89c378d70</RootNamespace><AssemblyName>ST_4279782243b54b089e84c37cb3903c9e</AssemblyName><TargetFrameworkVersion>v4.5</TargetFrameworkVersion><FileAlignment>512</FileAlignment><ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch><TargetFrameworkProfile></TargetFrameworkProfile></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Debug' "><DebugSymbols>true</DebugSymbols><DebugType>full</DebugType><Optimize>false</Optimize><OutputPath>.\bin\Debug\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>DEBUG;TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Release' "><DebugSymbols>false</DebugSymbols><Optimize>true</Optimize><OutputPath>.\bin\Release\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><ItemGroup><Reference Include="System" /><Reference Include="System.Data" /><Reference Include="System.Windows.Forms" /><Reference Include="System.Xml" /><Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /><Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /></ItemGroup><ItemGroup><AppDesigner Include="Properties\" /><Compile Include="Properties\AssemblyInfo.cs"><SubType>Code</SubType></Compile><EmbeddedResource Include="Properties\Resources.resx"><Generator>ResXFileCodeGenerator</Generator><LastGenOutput>Resources.Designer.cs</LastGenOutput></EmbeddedResource><Compile Include="Properties\Resources.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Resources.resx</DependentUpon></Compile><None Include="Properties\Settings.settings"><Generator>SettingsSingleFileGenerator</Generator><LastGenOutput>Settings.Designer.cs</LastGenOutput></None><Compile Include="Properties\Settings.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Settings.settings</DependentUpon></Compile><Compile Include="ScriptMain.cs"><SubType>Code</SubType></Compile></ItemGroup><!-- Include the build rules for a C# project.--><Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" /><ProjectExtensions><VisualStudio><FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}"><ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" /><Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host><ProjectClient><HostIdentifier>SSIS_ST140</HostIdentifier></ProjectClient></FlavorProperties></VisualStudio></ProjectExtensions></Project>]]></ProjectItem>
-          <ProjectItem
             Name="Properties\AssemblyInfo.cs"
             Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -6928,6 +6979,18 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="ST_4279782243b54b089e84c37cb3903c9e.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?><Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"><PropertyGroup><ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids><Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration><Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform><ProductVersion>8.0.30703</ProductVersion><SchemaVersion>2.0</SchemaVersion><ProjectGuid>{a04cefb7-a3c2-4d76-8e8a-32b1e518d64f}</ProjectGuid><OutputType>Library</OutputType><AppDesignerFolder>Properties</AppDesignerFolder><RootNamespace>ST_8b98b3e4edfb4eb5b79b43c89c378d70</RootNamespace><AssemblyName>ST_4279782243b54b089e84c37cb3903c9e</AssemblyName><TargetFrameworkVersion>v4.5</TargetFrameworkVersion><FileAlignment>512</FileAlignment><ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch><TargetFrameworkProfile></TargetFrameworkProfile></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Debug' "><DebugSymbols>true</DebugSymbols><DebugType>full</DebugType><Optimize>false</Optimize><OutputPath>.\bin\Debug\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>DEBUG;TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Release' "><DebugSymbols>false</DebugSymbols><Optimize>true</Optimize><OutputPath>.\bin\Release\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><ItemGroup><Reference Include="System" /><Reference Include="System.Data" /><Reference Include="System.Windows.Forms" /><Reference Include="System.Xml" /><Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /><Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /></ItemGroup><ItemGroup><AppDesigner Include="Properties\" /><Compile Include="Properties\AssemblyInfo.cs"><SubType>Code</SubType></Compile><EmbeddedResource Include="Properties\Resources.resx"><Generator>ResXFileCodeGenerator</Generator><LastGenOutput>Resources.Designer.cs</LastGenOutput></EmbeddedResource><Compile Include="Properties\Resources.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Resources.resx</DependentUpon></Compile><None Include="Properties\Settings.settings"><Generator>SettingsSingleFileGenerator</Generator><LastGenOutput>Settings.Designer.cs</LastGenOutput></None><Compile Include="Properties\Settings.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Settings.settings</DependentUpon></Compile><Compile Include="ScriptMain.cs"><SubType>Code</SubType></Compile></ItemGroup><!-- Include the build rules for a C# project.--><Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" /><ProjectExtensions><VisualStudio><FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}"><ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" /><Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host><ProjectClient><HostIdentifier>SSIS_ST140</HostIdentifier></ProjectClient></FlavorProperties></VisualStudio></ProjectExtensions></Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -7122,11 +7185,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="154,42"
+          Size="153.6,41.6"
           Id="Package\I／IU資料流程"
           TopLeft="324.907396880933,104.428591859583" />
         <NodeLayout
-          Size="289,42"
+          Size="288.8,41.6"
           Id="Package\紀錄目前檔案執行封裝至dbo sysssislog"
           TopLeft="4.6296294456647,102.619044192794" />
       </GraphLayout>
@@ -7138,47 +7201,25 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="294,42"
-          Id="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出"
-          TopLeft="376.952371377795,129.85713479227" />
-        <NodeLayout
-          Size="215,42"
+          Size="215.2,41.6"
           Id="Package\I／IU資料流程\衍生的資料行 ETL_DATE"
           TopLeft="415.761915500201,358.489800797954" />
         <NodeLayout
-          Size="278,42"
-          Id="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換"
-          TopLeft="387.499988575777,277.7142762262" />
+          Size="294.4,41.6"
+          Id="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出"
+          TopLeft="376.952371377795,129.85713479227" />
         <NodeLayout
-          Size="274,42"
+          Size="273.6,41.6"
           Id="Package\I／IU資料流程\轉換ODS ETL Empty String為空字串"
           TopLeft="387.500002682209,208.010198205797" />
         <NodeLayout
-          Size="203,42"
+          Size="203.2,41.6"
           Id="Package\I／IU資料流程\intsert into stage資料表"
           TopLeft="423.380963611224,433.306128819551" />
-        <EdgeLayout
-          Id="Package\I／IU資料流程.Paths[OLE DB 來源輸出]"
-          TopLeft="524.226187030002,171.85713479227">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.153063413527"
-              Start="0,0"
-              End="0,28.653063413527">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.653063413527" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="278.4,41.6"
+          Id="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換"
+          TopLeft="387.499988575777,277.7142762262" />
         <EdgeLayout
           Id="Package\I／IU資料流程.Paths[資料轉換輸出]"
           TopLeft="524.880952037989,319.7142762262">
@@ -7237,6 +7278,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,25.3163280215971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\I／IU資料流程.Paths[OLE DB 來源輸出]"
+          TopLeft="524.226187030002,171.85713479227">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.153063413527"
+              Start="0,0"
+              End="0,28.653063413527">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.653063413527" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
