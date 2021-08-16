@@ -5,22 +5,22 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1701003NB01"
   DTS:CreatorName="IEAD\1701003"
-  DTS:DTSID="{14E95E64-EBBF-4FC1-B522-756FF71E9558}"
+  DTS:DTSID="{F0C13703-2A6D-4EBF-933F-83A662DDFDAA}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:MaxConcurrentExecutables="2"
   DTS:ObjectName="Main_TW ECS2_Container"
   DTS:PackageType="5"
-  DTS:VersionBuild="442"
-  DTS:VersionGUID="{F5A8AF29-DE37-4B9F-8599-52274AEF57D1}">
+  DTS:VersionBuild="446"
+  DTS:VersionGUID="{149150A1-0A6E-4BFC-A4AE-FBCBF1EFBEAA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{4E24EDF5-1681-4960-8FBE-123B476705CD}"
+      DTS:DTSID="{4262FDA9-EA8D-4C09-86FA-12750AE84095}"
       DTS:ObjectName="concurrentFiles">
       <DTS:Property
         DTS:DataType="8"
@@ -30,7 +30,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{8CCC376A-43A8-4EE1-B5D1-47B2EDA8AC76}"
+      DTS:DTSID="{36AFB137-6C06-4742-9367-EB3919B1FE69}"
       DTS:ObjectName="mailFrom">
       <DTS:Property
         DTS:DataType="8"
@@ -40,7 +40,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{DEA5D128-1414-486C-A9AD-798BE31BD194}"
+      DTS:DTSID="{A7946D88-FDBC-46F0-84D6-88EBE1A3A3F5}"
       DTS:ObjectName="param_mailTo">
       <DTS:Property
         DTS:DataType="8"
@@ -50,7 +50,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="3"
-      DTS:DTSID="{4FCE794D-B6CC-43ED-BBCA-632D9D7F929A}"
+      DTS:DTSID="{B1AD29AB-ADCD-460D-9A6F-8885F3453060}"
       DTS:ObjectName="param_maxConcurrent">
       <DTS:Property
         DTS:DataType="3"
@@ -59,7 +59,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{A02EDA00-06AB-4C40-9FCE-630F5725E8E2}"
+      DTS:DTSID="{BFE62C0E-AFA3-45F7-9C82-61DB61F10710}"
       DTS:ObjectName="srcEkorg">
       <DTS:Property
         DTS:DataType="8"
@@ -69,7 +69,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{9CD00F2C-5F7C-4F65-B989-41D56DC12519}"
+      DTS:DTSID="{38C402CD-C3F3-42E5-B615-2FAE85EA4DB1}"
       DTS:ObjectName="srcFileFolder">
       <DTS:Property
         DTS:DataType="8"
@@ -79,7 +79,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{8132D3DD-C4F3-4171-AC6F-389228084308}"
+      DTS:DTSID="{FDD34483-BC7C-4C2B-91E4-DB3751A84326}"
       DTS:ObjectName="srcNatName">
       <DTS:Property
         DTS:DataType="8"
@@ -88,7 +88,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{36A560E8-7A7D-4993-AA25-FBF111E2CBF1}"
+      DTS:DTSID="{382A831D-DE46-40ED-9A30-F9F24D6AAFAE}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -98,7 +98,16 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7B20C0E5-F8EB-46C6-9B2E-309B00C41BEB}"
+      DTS:DTSID="{42971CCF-8DBF-4B1B-9E0C-D5F9D587ECAD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tableName_Adjustments">
+      <DTS:VariableValue
+        DTS:DataType="8">Adjustments</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{836D683B-52F0-421E-B249-CBD32A4C09EC}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_Cart_Items">
@@ -107,7 +116,16 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D875F061-1A00-414D-B3F8-9627A1ED5B56}"
+      DTS:DTSID="{45F6F23B-CCFF-4175-B59F-FCEBEDBAC752}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tableName_Credit_Card">
+      <DTS:VariableValue
+        DTS:DataType="8">Credit_Card</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{16102DD6-AF3E-4E33-891A-FF81C68C7A6E}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_Ecoupon_Accounts">
@@ -116,7 +134,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{13507AA9-4AFC-43B4-87A6-649AB54370EB}"
+      DTS:DTSID="{F7DD62B1-4154-4134-AB07-7BB51AE313B6}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_Login">
@@ -125,7 +143,16 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{771F481E-E848-478F-A1C3-DAB7CFCE99D7}"
+      DTS:DTSID="{A0E98BFB-DBE8-4054-B00C-FA8AC40AFD7C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tableName_Main_Orders">
+      <DTS:VariableValue
+        DTS:DataType="8">Main_Orders</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7B8E577F-362F-4293-AC4D-278B8673B92F}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_Product_Notifications">
@@ -134,7 +161,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{45D3A6DC-AD1A-4B58-8719-FDF4FADEDC52}"
+      DTS:DTSID="{F39EE43C-E8DB-477D-BDB4-E2FD6B66BABC}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_Promotion_Bases">
@@ -143,7 +170,34 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{8984B63D-14DF-4AC0-B6C4-F7CEC3F943F2}"
+      DTS:DTSID="{7107E61F-F715-4EC7-AA72-0B0FE9F4CB76}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tableName_Return_Sub_Order_Items">
+      <DTS:VariableValue
+        DTS:DataType="8">Return_Sub_Order_Items</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A6B68F84-D018-499E-9EE5-27B4ECA62533}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tableName_Sub_Orders">
+      <DTS:VariableValue
+        DTS:DataType="8">Sub_Orders</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E8672BE3-5C0A-495C-AAC5-5308B1AC6C8C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tableName_Sub_Order_Items">
+      <DTS:VariableValue
+        DTS:DataType="8">Sub_Order_Items</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{769A1466-C565-4E87-9F7D-F22B79E6F3BE}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_Wish_Lists">
@@ -155,10 +209,59 @@
     DTS:Name="MaxConcurrentExecutables">@[$Package::param_maxConcurrent]</DTS:PropertyExpression>
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\執行Adjustments檔案處理流程"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{879351EA-5AA2-4108-BD2A-BC26557481B1}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行Adjustments檔案處理流程"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Main_Container_Process.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>concurrentFiles</ParameterName>
+            <BindedVariableOrParameterName>$Package::concurrentFiles</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcNatName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcSysName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcEkorg</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcEkorg</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>tableName</ParameterName>
+            <BindedVariableOrParameterName>User::tableName_Adjustments</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>mailFrom</ParameterName>
+            <BindedVariableOrParameterName>$Package::mailFrom</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_mailTo</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_mailTo</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcFileFolder</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcFileFolder</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\執行Cart_Items檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{4B283F45-98A1-4A17-8328-E9D8F14A230E}"
+      DTS:DTSID="{C7A1A835-73DE-42FA-8AB6-BEDBCBDBFFEA}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行Cart_Items檔案處理流程"
@@ -204,10 +307,59 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\執行Credit_Card檔案處理流程"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{9D2436F5-7AD2-4477-A573-12CF33D77D06}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行Credit_Card檔案處理流程"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Main_Container_Process.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>concurrentFiles</ParameterName>
+            <BindedVariableOrParameterName>$Package::concurrentFiles</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcNatName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcSysName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcEkorg</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcEkorg</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>tableName</ParameterName>
+            <BindedVariableOrParameterName>User::tableName_Credit_Card</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>mailFrom</ParameterName>
+            <BindedVariableOrParameterName>$Package::mailFrom</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_mailTo</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_mailTo</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcFileFolder</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcFileFolder</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\執行Ecoupon_Accounts檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{DC078311-6291-49B8-AC18-1CE7150812E5}"
+      DTS:DTSID="{B80C960D-305F-4FFE-A22C-5CC836D4A730}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行Ecoupon_Accounts檔案處理流程"
@@ -256,7 +408,7 @@
       DTS:refId="Package\執行Login檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{42A215BD-5C3B-4659-89E2-E9BB99270D0A}"
+      DTS:DTSID="{694E7903-7E43-4126-8E0C-9E7F1654280D}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行Login檔案處理流程"
@@ -302,10 +454,59 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\執行Main_Orders檔案處理流程"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{DA93FAA7-2034-4BC1-B860-966FB04A00B6}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行Main_Orders檔案處理流程"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Main_Container_Process.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>concurrentFiles</ParameterName>
+            <BindedVariableOrParameterName>$Package::concurrentFiles</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcNatName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcSysName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcEkorg</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcEkorg</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>tableName</ParameterName>
+            <BindedVariableOrParameterName>User::tableName_Main_Orders</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>mailFrom</ParameterName>
+            <BindedVariableOrParameterName>$Package::mailFrom</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_mailTo</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_mailTo</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcFileFolder</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcFileFolder</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\執行Product_Notifications檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{763691D5-B75B-4304-BCF6-B5ECB2D2E101}"
+      DTS:DTSID="{3FCF98BF-A2A3-4216-89CD-4A7C6AF49699}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行Product_Notifications檔案處理流程"
@@ -354,7 +555,7 @@
       DTS:refId="Package\執行Promotion_Bases檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{B6C942CF-3329-479B-A5C5-900208EB1B0D}"
+      DTS:DTSID="{A2341428-7813-45BF-8DC0-C8917BA70179}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行Promotion_Bases檔案處理流程"
@@ -400,10 +601,157 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\執行Return_Sub_Order_Items檔案處理流程"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{CC124314-86BA-4813-89BA-47F62EFD68AD}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行Return_Sub_Order_Items檔案處理流程"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Main_Container_Process.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>concurrentFiles</ParameterName>
+            <BindedVariableOrParameterName>$Package::concurrentFiles</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcNatName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcSysName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcEkorg</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcEkorg</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>tableName</ParameterName>
+            <BindedVariableOrParameterName>User::tableName_Return_Sub_Order_Items</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>mailFrom</ParameterName>
+            <BindedVariableOrParameterName>$Package::mailFrom</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_mailTo</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_mailTo</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcFileFolder</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcFileFolder</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行Sub_Orders檔案處理流程"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{0D227153-613D-41C2-A291-0C0F01863223}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行Sub_Orders檔案處理流程"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Main_Container_Process.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>concurrentFiles</ParameterName>
+            <BindedVariableOrParameterName>$Package::concurrentFiles</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcNatName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcSysName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcEkorg</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcEkorg</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>tableName</ParameterName>
+            <BindedVariableOrParameterName>User::tableName_Sub_Orders</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>mailFrom</ParameterName>
+            <BindedVariableOrParameterName>$Package::mailFrom</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_mailTo</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_mailTo</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcFileFolder</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcFileFolder</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行Sub_Order_Items檔案處理流程"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{789D0B1D-5E5A-48B8-B868-4A7E72C48BBA}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行Sub_Order_Items檔案處理流程"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Main_Container_Process.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>concurrentFiles</ParameterName>
+            <BindedVariableOrParameterName>$Package::concurrentFiles</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcNatName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcSysName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcEkorg</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcEkorg</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>tableName</ParameterName>
+            <BindedVariableOrParameterName>User::tableName_Sub_Order_Items</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>mailFrom</ParameterName>
+            <BindedVariableOrParameterName>$Package::mailFrom</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_mailTo</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_mailTo</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcFileFolder</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcFileFolder</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\執行Wish_Lists檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{A54D677D-48F0-4C80-9878-1A361BEF7E63}"
+      DTS:DTSID="{4A2E7FA9-1C13-4B50-9ECB-7BC3464F334B}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行Wish_Lists檔案處理流程"
@@ -460,7 +808,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
         <NodeLayout
           Size="249.6,41.6"
           Id="Package\執行Promotion_Bases檔案處理流程"
@@ -561,6 +909,108 @@
           TopLeft="804.745248552072,291.69309004452">
           <GroupLayout.ChildrenIds>
             <s:String>Package\執行Cart_Items檔案處理流程</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="249.6,41.6"
+          Id="Package\執行Adjustments檔案處理流程"
+          TopLeft="5.5,5.5" />
+        <GroupLayout
+          Text="Adjustments"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="260.8,103.2"
+          Size="260.8,146.4"
+          Id="3703bf0b-54ba-479a-afae-beaafd55720c"
+          TopLeft="170.345248552072,497.613091681025">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\執行Adjustments檔案處理流程</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="249.6,41.6"
+          Id="Package\執行Credit_Card檔案處理流程"
+          TopLeft="5.5,5.5" />
+        <GroupLayout
+          Text="Credit_Card"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="260.8,103.2"
+          Size="260.8,146.4"
+          Id="d856e38e-115e-4477-b0b0-dc5589aa65a5"
+          TopLeft="479.145248552072,496.706423366833">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\執行Credit_Card檔案處理流程</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="249.6,41.6"
+          Id="Package\執行Main_Orders檔案處理流程"
+          TopLeft="5.5,5.5" />
+        <GroupLayout
+          Text="Main_Orders"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="260.8,103.2"
+          Size="260.8,146.4"
+          Id="67bb1046-bd90-4d05-8f1a-f3613ff59e38"
+          TopLeft="771.145248552072,497.399756705677">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\執行Main_Orders檔案處理流程</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="249.6,41.6"
+          Id="Package\執行Return_Sub_Order_Items檔案處理流程"
+          TopLeft="5.5,5.5" />
+        <GroupLayout
+          Text="Return_Sub_Order_Items"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="260.8,103.2"
+          Size="260.8,146.4"
+          Id="d1a40dc1-a2a8-46cd-9dd2-c7090dd04447"
+          TopLeft="172.8,692.906666082594">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\執行Return_Sub_Order_Items檔案處理流程</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="249.6,41.6"
+          Id="Package\執行Sub_Order_Items檔案處理流程"
+          TopLeft="5.5,5.5" />
+        <GroupLayout
+          Text="Sub_Order_Items"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="260.8,103.2"
+          Size="260.8,146.4"
+          Id="ac55adc4-8203-4e9f-bcd8-6c58491971a0"
+          TopLeft="479.945248552072,691.253331140306">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\執行Sub_Order_Items檔案處理流程</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="249.6,41.6"
+          Id="Package\執行Sub_Orders檔案處理流程"
+          TopLeft="5.5,5.5" />
+        <GroupLayout
+          Text="Sub_Orders"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="260.8,103.2"
+          Size="260.8,146.4"
+          Id="cbd3097b-0ada-4d47-8018-3518ef2cf697"
+          TopLeft="770.345248552072,688.959996148427">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\執行Sub_Orders檔案處理流程</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
       </GraphLayout>
