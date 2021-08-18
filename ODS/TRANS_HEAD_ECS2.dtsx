@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{016D5E28-179F-49C9-B919-880068DEAFA6}"
+  DTS:DTSID="{DB4D9F8D-43F5-4BC5-9D03-47AFE9B51C50}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="TRANS_HEAD_ECS2"
   DTS:PackageType="5"
-  DTS:VersionBuild="434"
-  DTS:VersionGUID="{B5136CAE-1965-460A-A191-9A43CF28B446}">
+  DTS:VersionBuild="435"
+  DTS:VersionGUID="{4BD3E76D-2C20-41C9-836A-F1DBAA19760D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{A3EE616D-421B-42FB-B326-721C4F6269CA}"
+      DTS:DTSID="{C33D71F0-363F-4218-80EB-B3575782B550}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{299A70B1-0A75-49E0-ABC7-172D44E64BD7}"
+      DTS:DTSID="{FAD974FA-3F1B-4198-9C45-F5AD7161FD4E}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -37,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{26F13531-CBB3-40AE-8DBA-3A8611B04116}"
+      DTS:DTSID="{5DC97231-F5F0-48FB-8CBD-777659A4F2CA}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -48,7 +48,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CBE10940-2334-4C95-A8C8-6C3CF22DA72F}"
+      DTS:DTSID="{B1A5C0EA-A698-4E15-A6FF-8B6C6A5CED31}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -57,7 +57,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{04D6FB4B-E06C-4589-B43D-8E3F928ABBD3}"
+      DTS:DTSID="{01B98C3B-8675-4336-9F25-C6CE1F03D089}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ? ,?,?);&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -69,7 +69,7 @@ values(?,?,?,(select count(*) from dbo.TRANS_HEAD_ECS2_),?,GETDATE(), ? ,?,?);</
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CAF58F15-05E2-4AAA-8DEC-54974A8F97A2}"
+      DTS:DTSID="{3D2361E7-5B6B-496D-911C-5AD17F64A8B1}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -80,7 +80,7 @@ values(?,?,?,(select count(*) from dbo.TRANS_HEAD_ECS2_),?,GETDATE(), ? ,?,?);</
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C4DD6FBF-24A4-4A0F-B940-B367A99204F7}"
+      DTS:DTSID="{B64C6747-C721-4911-ACCA-109D5DABADCF}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -90,9 +90,9 @@ values(?,?,?,(select count(*) from dbo.TRANS_HEAD_ECS2_),?,GETDATE(), ? ,?,?);</
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{86559E5D-1154-41C6-8D52-8C0F27C7DBE2}"
+      DTS:DTSID="{35287F57-2931-428D-9F67-AB782E46ED41}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT CONCAT('P',SUB.ID) AS SL_KEY&#xA;     , SUB.ORDER_NUMBER AS TRANS_SEQNO&#xA;&#x9; , '1' AS TRANS_TYPE&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS TRANS_DATE&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS INVOICE_DATE&#xA;&#x9; , MAIN.CREATED_AT AS ORDER_DATE&#xA;&#x9; , MAIN.INVOICE_TYPE AS INV_TYPE&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER AS INVOICE_NO&#xA;&#x9; , ITEM.ITEMS_AMT AS INVOICE_AMT&#xA;&#x9; , ITEM.ITEMS_AMT AS SALES_AMT&#xA;&#x9; , ITEM.ITEMS_AMT_NOTAX AS SALES_AMT_NOTAX &#xA;&#x9; , ITEM.ITEMS_DISC_AMT AS TOT_DISC_AMT&#xA;&#x9; , ITEM.ITEMS_AMT AS SL_EC_AMT&#xA;&#x9; , CARD.CARDCODE AS CARD_ID&#xA;&#x9; , CARD.CARDNUMBER AS MEMBER_ID&#xA;&#x9; , SUB.SP19_CARD_LEVEL AS MEMBER_EN&#xA;&#x9; , SUB.SP19_PROMOTION_CARD_LEVEL AS MEMBER_EN_PARENT&#xA;&#x9; , MAIN.SHIPPING_TYPE AS SHIP_TYPE&#xA;&#x9; , NULL AS RTN_DATE&#xA;&#x9; , NULL AS RTN_BILLING_DATE&#xA;&#x9; , ACC.ACCOUNT AS EC_CUST&#xA;&#x9; , '' AS SL_KEY_O&#xA;&#x9; , 1 AS FLAG&#xA;&#x9; , ITEM.ITEMS_TAX_AMT AS TAX&#xA;&#x9; , MAIN.TAXID AS BUYER_ID&#xA;&#x9; , MAIN.ORDER_NUMBER AS ORDER_NUMBER&#xA;&#x9; , CASE SUB.IS_B2B_ORDER WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_B2B_ORDER&#xA;&#x9; , MAIN.RECIPIENT_STORE_ID&#xA;&#x9; , MAIN.RECIPIENT_STORE_NAME&#xA;&#x9; , MAIN.RECIPIENT_STORE_TYPE&#xA;&#x9; , MAIN.RECIPIENT_COUNTRY&#xA;&#x9; , MAIN.RECIPIENT_ZIP&#xA;&#x9; , MAIN.RECIPIENT_DISTRICT&#xA;&#x9; , MAIN.RECIPIENT_ADDRESS&#xA;&#x9; , '' AS RETURN_TYPE&#xA;&#x9; , SUB.ETL_DATE &#x9;&#x9;&#xA;&#x9; , NULL AS FOR_GROUP&#xA;&#x9; , MAIN.RECIPIENT_CITY&#xA;FROM ECS2.SUB_ORDERS SUB&#xA;&#xA;LEFT JOIN ECS2.MAIN_ORDERS MAIN&#xA;  ON SUB.MAIN_ORDER_ID = MAIN.ID&#xA;  &#xA;LEFT JOIN (SELECT MAIN_ORDER_ID , SUB_ORDER_ID , MAX(ETL_DATE) AS ETL_DATE , SUM(ACTUALLY_PRICE) AS ITEMS_AMT, SUM(ISNULL(UNTAXAMOUNT,0)) AS ITEMS_AMT_NOTAX ,&#xA;             SUM(DISCOUNT_AMOUNT_PRICE) AS ITEMS_DISC_AMT , SUM(ISNULL(TAX,0)) AS ITEMS_TAX_AMT&#xA;&#x9;&#x9;FROM ECS2.SUB_ORDER_ITEMS&#xA;       GROUP BY MAIN_ORDER_ID , SUB_ORDER_ID  ) ITEM&#xA;  ON ITEM.SUB_ORDER_ID = SUB.ID&#xA; &#xA;LEFT JOIN EC.MEMBER_ESLITECARDINF CARD&#xA;  ON MAIN.MEMBER_UUID = CARD.USERID&#xA;  &#xA;LEFT JOIN EC.ACCOUNT_DATA ACC&#xA;  ON MAIN.MEMBER_UUID = ACC.ACCOUNT_SEQNO&#xA;  &#xA;WHERE SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= concat(cast((YEAR(GETDATE()) - 5 + &quot; + (DT_STR, 10,950) @[User::testYearDiff]  + &quot;) as varchar),'0101')&#xA;  AND ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1&#xA;  AND ( SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;  OR MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;  OR ITEM.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;  OR CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime) )&#xA;  &#xA;union&#xA;&#xA;SELECT CONCAT('N',R_SUB.MIN_ID) AS SL_KEY&#xA;     , SUB.ORDER_NUMBER AS TRANS_SEQNO&#xA;&#x9; , '-1' AS TRANS_TYPE&#xA;&#x9; , R_SUB.CREATED_AT AS TRANS_DATE&#xA;&#x9; , R_SUB.ESP_INVOICE_NUMBER_REVOKED_DATE AS INVOICE_DATE&#xA;&#x9; , MAIN.CREATED_AT AS ORDER_DATE&#xA;&#x9; , MAIN.INVOICE_TYPE AS INV_TYPE&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER AS INVOICE_NO&#xA;&#x9; , R_SUB.R_SALES_AMT AS INVOICE_AMT&#xA;&#x9; , R_SUB.R_SALES_AMT AS SALES_AMT&#xA;&#x9; , R_SUB.R_NOTAX_AMT AS SALES_AMT_NOTAX &#xA;&#x9; , R_SUB.R_DISC_AMT AS TOT_DISC_AMT&#xA;&#x9; , R_SUB.R_SALES_AMT AS SL_EC_AMT&#xA;&#x9; , CARD.CARDCODE AS CARD_ID&#xA;&#x9; , CARD.CARDNUMBER AS MEMBER_ID&#xA;&#x9; , SUB.SP19_CARD_LEVEL AS MEMBER_EN&#xA;&#x9; , SUB.SP19_PROMOTION_CARD_LEVEL AS MEMBER_EN_PARENT&#xA;&#x9; , '' AS SHIP_TYPE&#xA;&#x9; , R_SUB.CREATED_AT AS RTN_DATE&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS RTN_BILLING_DATE&#xA;&#x9; , ACC.ACCOUNT AS EC_CUST&#xA;&#x9; , CONCAT('P',R_SUB.SUB_ORDER_ID) AS SL_KEY_O&#xA;&#x9; , '-1' AS FLAG&#xA;&#x9; , R_SUB.R_TAX_AMT AS TAX&#xA;&#x9; , MAIN.TAXID AS BUYER_ID&#xA;&#x9; , MAIN.ORDER_NUMBER AS ORDER_NUMBER&#xA;&#x9; , CASE SUB.IS_B2B_ORDER WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_B2B_ORDER&#xA;&#x9; , '' AS RECIPIENT_STORE_ID&#xA;&#x9; , '' AS RECIPIENT_STORE_NAME&#xA;&#x9; , '' AS RECIPIENT_STORE_TYPE&#xA;&#x9; , '' AS RECIPIENT_COUNTRY&#xA;&#x9; , '' AS RECIPIENT_ZIP&#xA;&#x9; , '' AS RECIPIENT_DISTRICT&#xA;&#x9; , '' AS RECIPIENT_ADDRESS&#xA;&#x9; , R_SUB.RETURN_TYPE AS RETURN_TYPE&#xA;&#x9; , R_SUB.ETL_DATE&#xA;&#x9; , R_SUB.FOR_GROUP&#xA;&#x9; , '' AS RECIPIENT_CITY&#xA;FROM (SELECT R_SUB.MAIN_ORDER_ID , R_SUB.SUB_ORDER_ID , CONVERT(VARCHAR(10) , R_SUB.CREATED_AT ,111) AS FOR_GROUP , MAX(R_SUB.CREATED_AT) AS CREATED_AT, R_SUB.RETURN_TYPE , MAX(R_SUB.ETL_DATE) AS ETL_DATE , MIN(R_SUB.ID) AS MIN_ID , SUM(R_SUB.PRICE) AS R_SALES_AMT , SUM(ISNULL(R_SUB.TAX,0)) AS R_TAX_AMT ,&#xA;             SUM(ISNULL(R_SUB.UNTAXAMOUNT,0)) AS R_NOTAX_AMT , SUM(ISNULL(SUB.DISCOUNT_AMOUNT_PRICE,0)) AS R_DISC_AMT , MIN(ESP_INVOICE_NUMBER_REVOKED_DATE) AS ESP_INVOICE_NUMBER_REVOKED_DATE&#xA;&#x9;&#x9;&#x9; &#xA;&#x9;&#x9;FROM ECS2.RETURN_SUB_ORDER_ITEMS R_SUB&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;LEFT JOIN ECS2.SUB_ORDER_ITEMS SUB&#xA;&#x9;&#x9;  ON R_SUB.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID&#xA;&#x9;&#x9; AND R_SUB.SUB_ORDER_ID = SUB.SUB_ORDER_ID&#xA;&#x9;&#x9; AND R_SUB.SUB_ORDER_ITEM_ID = SUB.ID&#xA;&#x9;&#x9; &#xA;&#x9;   GROUP BY R_SUB.MAIN_ORDER_ID , R_SUB.SUB_ORDER_ID , CONVERT(VARCHAR(10) , R_SUB.CREATED_AT ,111) , R_SUB.RETURN_TYPE ) R_SUB&#xA;&#x9;   &#xA;JOIN ECS2.SUB_ORDERS SUB&#xA;  ON R_SUB.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID&#xA; AND R_SUB.SUB_ORDER_ID = SUB.ID&#xA; &#xA;JOIN ECS2.MAIN_ORDERS MAIN&#xA;  ON R_SUB.MAIN_ORDER_ID = MAIN.ID&#xA;  &#xA;LEFT JOIN EC.MEMBER_ESLITECARDINF CARD&#xA;  ON MAIN.MEMBER_UUID = CARD.USERID&#xA;  &#xA;LEFT JOIN EC.ACCOUNT_DATA ACC&#xA;  ON MAIN.MEMBER_UUID = ACC.ACCOUNT_SEQNO&#xA;  &#xA;WHERE R_SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&quot;"
+      DTS:Expression="&quot;SELECT CONCAT('P',SUB.ID) AS SL_KEY&#xA;     , SUB.ORDER_NUMBER AS TRANS_SEQNO&#xA;&#x9; , '1' AS TRANS_TYPE&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS TRANS_DATE&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS INVOICE_DATE&#xA;&#x9; , MAIN.CREATED_AT AS ORDER_DATE&#xA;&#x9; , MAIN.INVOICE_TYPE AS INV_TYPE&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER AS INVOICE_NO&#xA;&#x9; , ITEM.ITEMS_AMT AS INVOICE_AMT&#xA;&#x9; , ITEM.ITEMS_AMT AS SALES_AMT&#xA;&#x9; , ITEM.ITEMS_AMT_NOTAX AS SALES_AMT_NOTAX &#xA;&#x9; , ITEM.ITEMS_DISC_AMT AS TOT_DISC_AMT&#xA;&#x9; , ITEM.ITEMS_AMT AS SL_EC_AMT&#xA;&#x9; , CARD.CARDCODE AS CARD_ID&#xA;&#x9; , CARD.CARDNUMBER AS MEMBER_ID&#xA;&#x9; , SUB.SP19_CARD_LEVEL AS MEMBER_EN&#xA;&#x9; , SUB.SP19_PROMOTION_CARD_LEVEL AS MEMBER_EN_PARENT&#xA;&#x9; , MAIN.SHIPPING_TYPE AS SHIP_TYPE&#xA;&#x9; , NULL AS RTN_DATE&#xA;&#x9; , NULL AS RTN_BILLING_DATE&#xA;&#x9; , ACC.ACCOUNT AS EC_CUST&#xA;&#x9; , '' AS SL_KEY_O&#xA;&#x9; , 1 AS FLAG&#xA;&#x9; , ITEM.ITEMS_TAX_AMT AS TAX&#xA;&#x9; , MAIN.TAXID AS BUYER_ID&#xA;&#x9; , MAIN.ORDER_NUMBER AS ORDER_NUMBER&#xA;&#x9; , CASE SUB.IS_B2B_ORDER WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_B2B_ORDER&#xA;&#x9; , MAIN.RECIPIENT_STORE_ID&#xA;&#x9; , MAIN.RECIPIENT_STORE_NAME&#xA;&#x9; , MAIN.RECIPIENT_STORE_TYPE&#xA;&#x9; , MAIN.RECIPIENT_COUNTRY&#xA;&#x9; , MAIN.RECIPIENT_ZIP&#xA;&#x9; , MAIN.RECIPIENT_DISTRICT&#xA;&#x9; , MAIN.RECIPIENT_ADDRESS&#xA;&#x9; , '' AS RETURN_TYPE&#xA;&#x9; , SUB.ETL_DATE &#x9;&#x9;&#xA;&#x9; , NULL AS FOR_GROUP&#xA;&#x9; , MAIN.RECIPIENT_CITY&#xA;FROM ECS2.SUB_ORDERS SUB&#xA;&#xA;LEFT JOIN ECS2.MAIN_ORDERS MAIN&#xA;  ON SUB.MAIN_ORDER_ID = MAIN.ID&#xA;  &#xA;LEFT JOIN (SELECT MAIN_ORDER_ID , SUB_ORDER_ID , MAX(ETL_DATE) AS ETL_DATE , SUM(ACTUALLY_PRICE) AS ITEMS_AMT, SUM(ISNULL(UNTAXAMOUNT,0)) AS ITEMS_AMT_NOTAX ,&#xA;             SUM(DISCOUNT_AMOUNT_PRICE) AS ITEMS_DISC_AMT , SUM(ISNULL(TAX,0)) AS ITEMS_TAX_AMT&#xA;&#x9;&#x9;FROM ECS2.SUB_ORDER_ITEMS&#xA;       GROUP BY MAIN_ORDER_ID , SUB_ORDER_ID  ) ITEM&#xA;  ON ITEM.SUB_ORDER_ID = SUB.ID&#xA; &#xA;OUTER APPLY (SELECT TOP 1 * FROM EC.MEMBER_ESLITECARDINF CARD&#xA;&#x9;&#x9;&#x9;  WHERE MAIN.MEMBER_UUID = CARD.USERID &#xA;&#x9;&#x9;&#x9;    AND CARD.DELETE_MARK IS NULL&#xA;&#x9;&#x9;&#x9;  ORDER BY LASTMODIFYDATE DESC ) CARD&#xA;  &#xA;LEFT JOIN EC.ACCOUNT_DATA ACC&#xA;  ON MAIN.MEMBER_UUID = ACC.ACCOUNT_SEQNO&#xA;  &#xA;WHERE SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= concat(cast((YEAR(GETDATE()) - 5 + &quot; + (DT_STR, 10,950) @[User::testYearDiff]  + &quot;) as varchar),'0101')&#xA;  AND ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1&#xA;  AND ( SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;  OR MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;  OR ITEM.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;  OR CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime) )&#xA;  &#xA;union&#xA;&#xA;SELECT CONCAT('N',R_SUB.MIN_ID) AS SL_KEY&#xA;     , SUB.ORDER_NUMBER AS TRANS_SEQNO&#xA;&#x9; , '-1' AS TRANS_TYPE&#xA;&#x9; , R_SUB.CREATED_AT AS TRANS_DATE&#xA;&#x9; , R_SUB.ESP_INVOICE_NUMBER_REVOKED_DATE AS INVOICE_DATE&#xA;&#x9; , MAIN.CREATED_AT AS ORDER_DATE&#xA;&#x9; , MAIN.INVOICE_TYPE AS INV_TYPE&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER AS INVOICE_NO&#xA;&#x9; , R_SUB.R_SALES_AMT AS INVOICE_AMT&#xA;&#x9; , R_SUB.R_SALES_AMT AS SALES_AMT&#xA;&#x9; , R_SUB.R_NOTAX_AMT AS SALES_AMT_NOTAX &#xA;&#x9; , R_SUB.R_DISC_AMT AS TOT_DISC_AMT&#xA;&#x9; , R_SUB.R_SALES_AMT AS SL_EC_AMT&#xA;&#x9; , CARD.CARDCODE AS CARD_ID&#xA;&#x9; , CARD.CARDNUMBER AS MEMBER_ID&#xA;&#x9; , SUB.SP19_CARD_LEVEL AS MEMBER_EN&#xA;&#x9; , SUB.SP19_PROMOTION_CARD_LEVEL AS MEMBER_EN_PARENT&#xA;&#x9; , '' AS SHIP_TYPE&#xA;&#x9; , R_SUB.CREATED_AT AS RTN_DATE&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS RTN_BILLING_DATE&#xA;&#x9; , ACC.ACCOUNT AS EC_CUST&#xA;&#x9; , CONCAT('P',R_SUB.SUB_ORDER_ID) AS SL_KEY_O&#xA;&#x9; , '-1' AS FLAG&#xA;&#x9; , R_SUB.R_TAX_AMT AS TAX&#xA;&#x9; , MAIN.TAXID AS BUYER_ID&#xA;&#x9; , MAIN.ORDER_NUMBER AS ORDER_NUMBER&#xA;&#x9; , CASE SUB.IS_B2B_ORDER WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_B2B_ORDER&#xA;&#x9; , '' AS RECIPIENT_STORE_ID&#xA;&#x9; , '' AS RECIPIENT_STORE_NAME&#xA;&#x9; , '' AS RECIPIENT_STORE_TYPE&#xA;&#x9; , '' AS RECIPIENT_COUNTRY&#xA;&#x9; , '' AS RECIPIENT_ZIP&#xA;&#x9; , '' AS RECIPIENT_DISTRICT&#xA;&#x9; , '' AS RECIPIENT_ADDRESS&#xA;&#x9; , R_SUB.RETURN_TYPE AS RETURN_TYPE&#xA;&#x9; , R_SUB.ETL_DATE&#xA;&#x9; , R_SUB.FOR_GROUP&#xA;&#x9; , '' AS RECIPIENT_CITY&#xA;FROM (SELECT R_SUB.MAIN_ORDER_ID , R_SUB.SUB_ORDER_ID , CONVERT(VARCHAR(10) , R_SUB.CREATED_AT ,111) AS FOR_GROUP , MAX(R_SUB.CREATED_AT) AS CREATED_AT, R_SUB.RETURN_TYPE , MAX(R_SUB.ETL_DATE) AS ETL_DATE , MIN(R_SUB.ID) AS MIN_ID , SUM(R_SUB.PRICE) AS R_SALES_AMT , SUM(ISNULL(R_SUB.TAX,0)) AS R_TAX_AMT ,&#xA;             SUM(ISNULL(R_SUB.UNTAXAMOUNT,0)) AS R_NOTAX_AMT , SUM(ISNULL(SUB.DISCOUNT_AMOUNT_PRICE,0)) AS R_DISC_AMT , MIN(ESP_INVOICE_NUMBER_REVOKED_DATE) AS ESP_INVOICE_NUMBER_REVOKED_DATE&#xA;&#x9;&#x9;&#x9; &#xA;&#x9;&#x9;FROM ECS2.RETURN_SUB_ORDER_ITEMS R_SUB&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;LEFT JOIN ECS2.SUB_ORDER_ITEMS SUB&#xA;&#x9;&#x9;  ON R_SUB.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID&#xA;&#x9;&#x9; AND R_SUB.SUB_ORDER_ID = SUB.SUB_ORDER_ID&#xA;&#x9;&#x9; AND R_SUB.SUB_ORDER_ITEM_ID = SUB.ID&#xA;&#x9;&#x9; &#xA;&#x9;   GROUP BY R_SUB.MAIN_ORDER_ID , R_SUB.SUB_ORDER_ID , CONVERT(VARCHAR(10) , R_SUB.CREATED_AT ,111) , R_SUB.RETURN_TYPE ) R_SUB&#xA;&#x9;   &#xA;JOIN ECS2.SUB_ORDERS SUB&#xA;  ON R_SUB.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID&#xA; AND R_SUB.SUB_ORDER_ID = SUB.ID&#xA; &#xA;JOIN ECS2.MAIN_ORDERS MAIN&#xA;  ON R_SUB.MAIN_ORDER_ID = MAIN.ID&#xA;  &#xA;OUTER APPLY (SELECT TOP 1 * FROM EC.MEMBER_ESLITECARDINF CARD&#xA;&#x9;&#x9;&#x9;  WHERE MAIN.MEMBER_UUID = CARD.USERID &#xA;&#x9;&#x9;&#x9;    AND CARD.DELETE_MARK IS NULL&#xA;&#x9;&#x9;&#x9;  ORDER BY LASTMODIFYDATE DESC ) CARD&#xA;  &#xA;LEFT JOIN EC.ACCOUNT_DATA ACC&#xA;  ON MAIN.MEMBER_UUID = ACC.ACCOUNT_SEQNO&#xA;  &#xA;WHERE R_SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="queryFromStage">
@@ -148,18 +148,20 @@ LEFT JOIN (SELECT MAIN_ORDER_ID , SUB_ORDER_ID , MAX(ETL_DATE) AS ETL_DATE , SUM
        GROUP BY MAIN_ORDER_ID , SUB_ORDER_ID  ) ITEM
   ON ITEM.SUB_ORDER_ID = SUB.ID
  
-LEFT JOIN EC.MEMBER_ESLITECARDINF CARD
-  ON MAIN.MEMBER_UUID = CARD.USERID
+OUTER APPLY (SELECT TOP 1 * FROM EC.MEMBER_ESLITECARDINF CARD
+			  WHERE MAIN.MEMBER_UUID = CARD.USERID 
+			    AND CARD.DELETE_MARK IS NULL
+			  ORDER BY LASTMODIFYDATE DESC ) CARD
   
 LEFT JOIN EC.ACCOUNT_DATA ACC
   ON MAIN.MEMBER_UUID = ACC.ACCOUNT_SEQNO
   
 WHERE SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= concat(cast((YEAR(GETDATE()) - 5 + 0) as varchar),'0101')
   AND ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1
-  AND ( SUB.ETL_DATE &gt;= cast(cast('2021-08-05 13:58:45.877000000' as date) as datetime)
-  OR MAIN.ETL_DATE &gt;= cast(cast('2021-08-05 13:58:45.877000000' as date) as datetime)
-  OR ITEM.ETL_DATE &gt;= cast(cast('2021-08-05 13:58:45.877000000' as date) as datetime)
-  OR CARD.ETL_DATE &gt;= cast(cast('2021-08-05 13:58:45.877000000' as date) as datetime) )
+  AND ( SUB.ETL_DATE &gt;= cast(cast('2021-08-18 11:55:22.129000000' as date) as datetime)
+  OR MAIN.ETL_DATE &gt;= cast(cast('2021-08-18 11:55:22.129000000' as date) as datetime)
+  OR ITEM.ETL_DATE &gt;= cast(cast('2021-08-18 11:55:22.129000000' as date) as datetime)
+  OR CARD.ETL_DATE &gt;= cast(cast('2021-08-18 11:55:22.129000000' as date) as datetime) )
   
 union
 
@@ -222,20 +224,22 @@ JOIN ECS2.SUB_ORDERS SUB
 JOIN ECS2.MAIN_ORDERS MAIN
   ON R_SUB.MAIN_ORDER_ID = MAIN.ID
   
-LEFT JOIN EC.MEMBER_ESLITECARDINF CARD
-  ON MAIN.MEMBER_UUID = CARD.USERID
+OUTER APPLY (SELECT TOP 1 * FROM EC.MEMBER_ESLITECARDINF CARD
+			  WHERE MAIN.MEMBER_UUID = CARD.USERID 
+			    AND CARD.DELETE_MARK IS NULL
+			  ORDER BY LASTMODIFYDATE DESC ) CARD
   
 LEFT JOIN EC.ACCOUNT_DATA ACC
   ON MAIN.MEMBER_UUID = ACC.ACCOUNT_SEQNO
   
-WHERE R_SUB.ETL_DATE &gt;= cast(cast('2021-08-05 13:58:45.877000000' as date) as datetime)
-   OR SUB.ETL_DATE &gt;= cast(cast('2021-08-05 13:58:45.877000000' as date) as datetime)
-   OR MAIN.ETL_DATE &gt;= cast(cast('2021-08-05 13:58:45.877000000' as date) as datetime)
-   OR CARD.ETL_DATE &gt;= cast(cast('2021-08-05 13:58:45.877000000' as date) as datetime)</DTS:VariableValue>
+WHERE R_SUB.ETL_DATE &gt;= cast(cast('2021-08-18 11:55:22.129000000' as date) as datetime)
+   OR SUB.ETL_DATE &gt;= cast(cast('2021-08-18 11:55:22.129000000' as date) as datetime)
+   OR MAIN.ETL_DATE &gt;= cast(cast('2021-08-18 11:55:22.129000000' as date) as datetime)
+   OR CARD.ETL_DATE &gt;= cast(cast('2021-08-18 11:55:22.129000000' as date) as datetime)</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CC571944-56B0-42A9-9D5F-D5556F08F68C}"
+      DTS:DTSID="{8BBE835F-2533-4926-AD52-AC5686A2CFF0}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="testYearDiff">
@@ -244,7 +248,7 @@ WHERE R_SUB.ETL_DATE &gt;= cast(cast('2021-08-05 13:58:45.877000000' as date) as
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CE03E8BF-1CFC-4D4D-94BF-A8C23F18CA18}"
+      DTS:DTSID="{73871F27-0E74-4E04-B351-8AE9583A2417}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -253,7 +257,7 @@ WHERE R_SUB.ETL_DATE &gt;= cast(cast('2021-08-05 13:58:45.877000000' as date) as
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7AE8CEB4-6F58-4241-93F6-462DA3272015}"
+      DTS:DTSID="{CDCD4F97-6609-441D-A915-63817EEBDF2C}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -262,7 +266,7 @@ WHERE R_SUB.ETL_DATE &gt;= cast(cast('2021-08-05 13:58:45.877000000' as date) as
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{234C9DE6-7D21-40E5-AA89-2F9591385582}"
+      DTS:DTSID="{D9F89DF7-FC3C-4193-A6C1-F307F7458767}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -277,7 +281,7 @@ WHERE R_SUB.ETL_DATE &gt;= cast(cast('2021-08-05 13:58:45.877000000' as date) as
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{A16A8785-F6D7-41D5-B46A-CD7655462F2B}"
+      DTS:DTSID="{20D82469-9551-47C3-A068-2BD98CA2B58E}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -4335,7 +4339,7 @@ left join EC.Account_Data acc on orders.UserID = acc.Account_SeqNo</property>
                 <property
                   dataType="System.String"
                   description="SQL 命令中的參數和變數之間的對應。"
-                  name="ParameterMapping">"參數0:Input",{CC571944-56B0-42A9-9D5F-D5556F08F68C};"參數1:Input",{CC571944-56B0-42A9-9D5F-D5556F08F68C};</property>
+                  name="ParameterMapping">"參數0:Input",{8BBE835F-2533-4926-AD52-AC5686A2CFF0};"參數1:Input",{8BBE835F-2533-4926-AD52-AC5686A2CFF0};</property>
               </properties>
               <connections>
                 <connection
@@ -8969,7 +8973,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{2E80F7DD-F6AD-44A6-A264-B1B7A9DCA46A}"
+      DTS:DTSID="{3DC1C04A-AC63-4BA7-9F98-FE318959933E}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -8994,7 +8998,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{39BD6769-95B6-49E9-B79E-918172B34DA4}"
+      DTS:DTSID="{BC903B6E-E556-4CA7-BDAB-D527C601653D}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -9015,7 +9019,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{E0B6CD89-4B65-45C1-963B-4E5F37CE88AD}"
+      DTS:DTSID="{6AA04864-887F-4663-BB94-4A2E946FC4C9}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -9026,7 +9030,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\Delete WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{7B3FF595-A69C-48D9-AE50-B2D97649C8A4}"
+          DTS:DTSID="{82A5A291-1D93-42DA-A7FD-C28D8280AA25}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete WorkDateTable"
@@ -9067,7 +9071,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{79F23F8F-6994-463C-A45B-3054CC3AA4E4}"
+          DTS:DTSID="{9F8AA253-82A6-4003-8F2F-53E65459497E}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -9103,7 +9107,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{D4D3515A-6F67-463C-8162-0B5B7793E63A}"
+          DTS:DTSID="{BC98D2D8-B0A1-40D6-81AB-5E6A59B15EF5}"
           DTS:From="Package\時序容器\Delete WorkDateTable"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -9114,7 +9118,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{9F218A9B-AE7A-47FA-B73B-65814C5C87CB}"
+      DTS:DTSID="{34BCECED-DE8F-4FF1-AA65-C2B6691E9795}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -9177,7 +9181,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{94C86818-8C7D-49C8-88DA-4B859F75E2F6}"
+      DTS:DTSID="{E053906B-321D-4ED4-B0FE-8A419A8ED483}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -9185,7 +9189,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{FBE5C2DC-C0F6-4358-A25E-3EA22517B04E}"
+      DTS:DTSID="{5FF4D423-31CB-45A3-AE14-9C542CC1E300}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -9193,7 +9197,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{2D4BA913-79CB-4529-8AA2-728509C603F9}"
+      DTS:DTSID="{4C6FB149-AAEE-48AA-AFEA-4139BC943D23}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -9201,7 +9205,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{079D956E-54A5-431E-9EFA-9DE983FFAB78}"
+      DTS:DTSID="{ACF28C1F-FFD7-4860-880F-1C63F6F3F674}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
