@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{FCE7018F-E34C-4D91-AA0C-D93BB7497D82}"
+  DTS:DTSID="{CD38930F-7B18-423C-A670-22BCB49669E4}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="TRANS_DETAIL_PAYMENT_ECS2"
   DTS:PackageType="5"
-  DTS:VersionBuild="375"
-  DTS:VersionGUID="{FAFB96AD-49C9-4DF8-BD20-9B0B71443ACA}">
+  DTS:VersionBuild="377"
+  DTS:VersionGUID="{00213EB6-96E7-4E2A-AEE5-F35878EDCA87}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{AFDCABA1-7785-44C8-931A-D2228D35884F}"
+      DTS:DTSID="{ACE4DB76-271A-4BB5-B696-A3F0415FFC6C}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{74A504DB-0813-4D2E-81BB-23C6D90F62AA}"
+      DTS:DTSID="{1ED5B5D8-B20E-412B-8778-E69EC0B1B22A}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -37,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{D0432A43-D34D-4D29-8FFF-019B92F0D299}"
+      DTS:DTSID="{063E98F0-E543-4D03-8A05-659A3BB2FC7B}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -48,7 +48,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{5DAD03C2-E12F-446A-88F6-2F667B99921B}"
+      DTS:DTSID="{D0566A9B-BA04-4B8E-A6DF-63E77694A92C}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -57,7 +57,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{6ED9F62D-2798-43DA-B24D-563902797DA3}"
+      DTS:DTSID="{9B4565A0-653A-405B-AE20-634674E597C9}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ? ,?,?);&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -69,7 +69,7 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_PAYMENT_ECS2_),?,GETDATE(), 
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{A40370C8-F10A-4323-A223-6DCB909D2FF8}"
+      DTS:DTSID="{08CB1AF4-6F7F-485E-BCCB-28F693C396DC}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -80,7 +80,7 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_PAYMENT_ECS2_),?,GETDATE(), 
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{91A4C32F-538C-44E5-BA4A-F97095F74E44}"
+      DTS:DTSID="{2DF4F6DC-FC71-4937-B0FF-BDDFFBC01D43}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -90,9 +90,9 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_PAYMENT_ECS2_),?,GETDATE(), 
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{405A18DF-D594-4D8F-A9C9-90866426B333}"
+      DTS:DTSID="{1AC4CEAB-01D3-4FA0-906B-8D1A38B95CFC}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT CONCAT( 'P' , SUB.ID ) AS SL_KEY&#xA;     , 'C002' AS WERKS&#x9;      &#xA;&#x9; , SUB.ORDER_NUMBER AS TRANS_SEQNO &#xA;&#x9; , MAIN.PAYMENT_TYPE AS PMT_ID &#xA;&#x9; , ISNULL(ITEMS.PMT_AMT,0) AS PMT_AMT&#xA;&#x9; , CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2')&#xA;&#x9;&#x9;&#x9;THEN (SELECT TOP 1 BANKNO FROM POSNEC.CREDITCARDNO WHERE LEFT(CARD.CARDNUMBER,6) = LEFT(CARDNO,6) ORDER BY CREATEDATE)&#xA;&#x9;&#x9;&#x9;ELSE NULL END AS BANK_NO      &#xA;&#x9; , CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2') &#xA;&#x9;&#x9;&#x9;THEN (SELECT TOP 1 BANKNM FROM POSNEC.CREDITCARDNO WHERE LEFT(CARD.CARDNUMBER,6) = LEFT(CARDNO,6) ORDER BY CREATEDATE)&#xA;&#x9;&#x9;&#x9;ELSE NULL END AS BANK_NAME&#xA;&#x9; , 'EC' AS SRC_SYS&#xA;&#x9; , '001' AS ITEM_SEQ_NO&#xA;&#x9; , '1' AS FLAG&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS TRANS_DATE&#xA;&#x9; , LEFT(CARD.CARDNUMBER,8) AS CC_BIN_NO&#xA;&#x9; , NULL AS FOR_GROUP&#xA; FROM ECS2.SUB_ORDERS SUB&#xA; &#xA; LEFT JOIN ECS2.MAIN_ORDERS MAIN&#xA;   ON SUB.MAIN_ORDER_ID = MAIN.ID&#xA;&#xA; LEFT JOIN ( SELECT MAIN_ORDER_ID , SUB_ORDER_ID , DELETE_MARK , SUM(ACTUALLY_PRICE) PMT_AMT , MAX(ETL_DATE) AS ETL_DATE&#xA;&#x9;      FROM ECS2.SUB_ORDER_ITEMS&#xA;         GROUP BY MAIN_ORDER_ID , SUB_ORDER_ID , DELETE_MARK) ITEMS&#xA;   ON SUB.MAIN_ORDER_ID = ITEMS.MAIN_ORDER_ID&#xA;  AND SUB.ID = ITEMS.SUB_ORDER_ID&#xA;  &#xA; LEFT JOIN ECS2.CREDIT_CARD CARD&#xA;   ON SUB.MAIN_ORDER_ID = CARD.MAIN_ORDER_ID&#xA;  AND MAIN.ORDER_NUMBER = CARD.ORDER_NUMBER&#xA;&#xA;WHERE SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= CONCAT(CAST((YEAR(GETDATE()) - 5 + 0) AS VARCHAR),'0101')&#xA;  AND (SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  ITEMS.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime))&#xA;  AND ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1&#xA;  &#xA;UNION ALL&#xA;&#xA;SELECT CONCAT( 'N' , R_SUB.MIN_ID ) AS SL_KEY&#xA;     , 'C002' AS WERKS&#x9;      &#xA;&#x9; , SUB.ORDER_NUMBER AS TRANS_SEQNO &#xA;&#x9; , MAIN.PAYMENT_TYPE AS PMT_ID &#xA;&#x9; , ISNULL(R_SUB.PMT_AMT,0) AS PMT_AMT&#xA;&#x9; , CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2')&#xA;&#x9;&#x9;&#x9;THEN (SELECT TOP 1 BANKNO FROM POSNEC.CREDITCARDNO WHERE LEFT(CARD.CARDNUMBER,6) = LEFT(CARDNO,6) ORDER BY CREATEDATE)&#xA;&#x9;&#x9;&#x9;ELSE NULL END AS BANK_NO      &#xA;&#x9; , CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2') &#xA;&#x9;&#x9;&#x9;THEN (SELECT TOP 1 BANKNM FROM POSNEC.CREDITCARDNO WHERE LEFT(CARD.CARDNUMBER,6) = LEFT(CARDNO,6) ORDER BY CREATEDATE)&#xA;&#x9;&#x9;&#x9;ELSE NULL END AS BANK_NAME&#xA;&#x9; , 'EC' AS SRC_SYS&#xA;&#x9; , '001' AS ITEM_SEQ_NO&#xA;&#x9; , '-1' AS FLAG&#xA;&#x9; , R_SUB.CREATED_AT AS TRANS_DATE&#xA;&#x9; , LEFT(CARD.CARDNUMBER,8) AS CC_BIN_NO&#xA;&#x9; , R_SUB.FOR_GROUP &#xA; FROM (SELECT SUB_ORDER_ID , MAIN_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) AS FOR_GROUP , MAX(CREATED_AT) AS CREATED_AT , DELETE_MARK , MIN(ID) AS MIN_ID , SUM(PRICE) AS PMT_AMT , MAX(ETL_DATE) AS ETL_DATE&#xA;         FROM ECS2.RETURN_SUB_ORDER_ITEMS&#xA;&#x9;&#x9;GROUP BY SUB_ORDER_ID , MAIN_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) , DELETE_MARK) R_SUB&#xA;&#x9;&#x9;&#xA; JOIN ECS2.SUB_ORDERS SUB&#xA;   ON R_SUB.SUB_ORDER_ID = SUB.ID&#xA;  AND R_SUB.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID&#xA; &#xA; JOIN ECS2.MAIN_ORDERS MAIN&#xA;   ON SUB.MAIN_ORDER_ID = MAIN.ID&#xA;  &#xA; LEFT JOIN ECS2.CREDIT_CARD CARD&#xA;   ON SUB.MAIN_ORDER_ID = CARD.MAIN_ORDER_ID&#xA;  AND MAIN.ORDER_NUMBER = CARD.ORDER_NUMBER&#xA;&#xA;WHERE (R_SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime))&#xA;  AND ISNULL(R_SUB.DELETE_MARK,0) &lt;&gt; 1&quot;"
+      DTS:Expression="&quot;SELECT CONCAT( 'P' , SUB.ID ) AS SL_KEY&#xA;     , 'C002' AS WERKS&#x9;      &#xA;&#x9; , SUB.ORDER_NUMBER AS TRANS_SEQNO &#xA;&#x9; , MAIN.PAYMENT_TYPE AS PMT_ID &#xA;&#x9; , ISNULL(ITEMS.PMT_AMT,0) AS PMT_AMT&#xA;&#x9; , CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2')&#xA;&#x9;&#x9;&#x9;THEN (SELECT TOP 1 BANKNO FROM POSNEC.CREDITCARDNO WHERE LEFT(CARD.CARDNUMBER,6) = LEFT(CARDNO,6) ORDER BY CREATEDATE)&#xA;&#x9;&#x9;&#x9;ELSE NULL END AS BANK_NO      &#xA;&#x9; , CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2') &#xA;&#x9;&#x9;&#x9;THEN (SELECT TOP 1 BANKNM FROM POSNEC.CREDITCARDNO WHERE LEFT(CARD.CARDNUMBER,6) = LEFT(CARDNO,6) ORDER BY CREATEDATE)&#xA;&#x9;&#x9;&#x9;ELSE NULL END AS BANK_NAME&#xA;&#x9; , 'EC' AS SRC_SYS&#xA;&#x9; , '001' AS ITEM_SEQ_NO&#xA;&#x9; , '1' AS FLAG&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS TRANS_DATE&#xA;&#x9; , LEFT(CARD.CARDNUMBER,8) AS CC_BIN_NO&#xA;&#x9; , NULL AS FOR_GROUP&#xA; FROM ECS2.SUB_ORDERS SUB&#xA; &#xA; LEFT JOIN ECS2.MAIN_ORDERS MAIN&#xA;   ON SUB.MAIN_ORDER_ID = MAIN.ID&#xA;&#xA; LEFT JOIN ( SELECT MAIN_ORDER_ID , SUB_ORDER_ID , DELETE_MARK , SUM(ACTUALLY_PRICE) PMT_AMT , MAX(ETL_DATE) AS ETL_DATE&#xA;&#x9;      FROM ECS2.SUB_ORDER_ITEMS&#xA;         GROUP BY MAIN_ORDER_ID , SUB_ORDER_ID , DELETE_MARK) ITEMS&#xA;   ON SUB.MAIN_ORDER_ID = ITEMS.MAIN_ORDER_ID&#xA;  AND SUB.ID = ITEMS.SUB_ORDER_ID&#xA;  &#xA; LEFT JOIN ECS2.CREDIT_CARD CARD&#xA;   ON SUB.MAIN_ORDER_ID = CARD.MAIN_ORDER_ID&#xA;  AND MAIN.ORDER_NUMBER = CARD.ORDER_NUMBER&#xA;&#xA;WHERE SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= CONCAT(CAST((YEAR(GETDATE()) - 5 + &quot; + (DT_STR, 10,950) @[User::testYearDiff]  + &quot;) AS VARCHAR),'0101')&#xA;  AND (SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  ITEMS.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime))&#xA;  AND ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1&#xA;  &#xA;UNION ALL&#xA;&#xA;SELECT CONCAT( 'N' , R_SUB.MIN_ID ) AS SL_KEY&#xA;     , 'C002' AS WERKS&#x9;      &#xA;&#x9; , SUB.ORDER_NUMBER AS TRANS_SEQNO &#xA;&#x9; , MAIN.PAYMENT_TYPE AS PMT_ID &#xA;&#x9; , ISNULL(R_SUB.PMT_AMT,0) AS PMT_AMT&#xA;&#x9; , CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2')&#xA;&#x9;&#x9;&#x9;THEN (SELECT TOP 1 BANKNO FROM POSNEC.CREDITCARDNO WHERE LEFT(CARD.CARDNUMBER,6) = LEFT(CARDNO,6) ORDER BY CREATEDATE)&#xA;&#x9;&#x9;&#x9;ELSE NULL END AS BANK_NO      &#xA;&#x9; , CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2') &#xA;&#x9;&#x9;&#x9;THEN (SELECT TOP 1 BANKNM FROM POSNEC.CREDITCARDNO WHERE LEFT(CARD.CARDNUMBER,6) = LEFT(CARDNO,6) ORDER BY CREATEDATE)&#xA;&#x9;&#x9;&#x9;ELSE NULL END AS BANK_NAME&#xA;&#x9; , 'EC' AS SRC_SYS&#xA;&#x9; , '001' AS ITEM_SEQ_NO&#xA;&#x9; , '-1' AS FLAG&#xA;&#x9; , R_SUB.CREATED_AT AS TRANS_DATE&#xA;&#x9; , LEFT(CARD.CARDNUMBER,8) AS CC_BIN_NO&#xA;&#x9; , R_SUB.FOR_GROUP &#xA; FROM (SELECT SUB_ORDER_ID , MAIN_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) AS FOR_GROUP , MAX(CREATED_AT) AS CREATED_AT , DELETE_MARK , MIN(ID) AS MIN_ID , SUM(PRICE) AS PMT_AMT , MAX(ETL_DATE) AS ETL_DATE , RETURN_TYPE&#xA;         FROM ECS2.RETURN_SUB_ORDER_ITEMS&#xA;&#x9;&#x9;GROUP BY SUB_ORDER_ID , MAIN_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) , DELETE_MARK , RETURN_TYPE) R_SUB&#xA;&#x9;&#x9;&#xA; JOIN ECS2.SUB_ORDERS SUB&#xA;   ON R_SUB.SUB_ORDER_ID = SUB.ID&#xA;  AND R_SUB.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID&#xA; &#xA; JOIN ECS2.MAIN_ORDERS MAIN&#xA;   ON SUB.MAIN_ORDER_ID = MAIN.ID&#xA;  &#xA; LEFT JOIN ECS2.CREDIT_CARD CARD&#xA;   ON SUB.MAIN_ORDER_ID = CARD.MAIN_ORDER_ID&#xA;  AND MAIN.ORDER_NUMBER = CARD.ORDER_NUMBER&#xA;&#xA;WHERE (R_SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime))&#xA;  AND ISNULL(R_SUB.DELETE_MARK,0) &lt;&gt; 1&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="queryFromStage">
@@ -130,10 +130,10 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_PAYMENT_ECS2_),?,GETDATE(), 
   AND MAIN.ORDER_NUMBER = CARD.ORDER_NUMBER
 
 WHERE SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= CONCAT(CAST((YEAR(GETDATE()) - 5 + 0) AS VARCHAR),'0101')
-  AND (SUB.ETL_DATE &gt;= cast(cast('2021-07-22 11:15:00.752000000' as date) as datetime)
-   OR  ITEMS.ETL_DATE &gt;= cast(cast('2021-07-22 11:15:00.752000000' as date) as datetime)
-   OR  MAIN.ETL_DATE &gt;= cast(cast('2021-07-22 11:15:00.752000000' as date) as datetime)
-   OR  CARD.ETL_DATE &gt;= cast(cast('2021-07-22 11:15:00.752000000' as date) as datetime))
+  AND (SUB.ETL_DATE &gt;= cast(cast('2021-08-25 17:20:40.985000000' as date) as datetime)
+   OR  ITEMS.ETL_DATE &gt;= cast(cast('2021-08-25 17:20:40.985000000' as date) as datetime)
+   OR  MAIN.ETL_DATE &gt;= cast(cast('2021-08-25 17:20:40.985000000' as date) as datetime)
+   OR  CARD.ETL_DATE &gt;= cast(cast('2021-08-25 17:20:40.985000000' as date) as datetime))
   AND ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1
   
 UNION ALL
@@ -155,9 +155,9 @@ SELECT CONCAT( 'N' , R_SUB.MIN_ID ) AS SL_KEY
 	 , R_SUB.CREATED_AT AS TRANS_DATE
 	 , LEFT(CARD.CARDNUMBER,8) AS CC_BIN_NO
 	 , R_SUB.FOR_GROUP 
- FROM (SELECT SUB_ORDER_ID , MAIN_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) AS FOR_GROUP , MAX(CREATED_AT) AS CREATED_AT , DELETE_MARK , MIN(ID) AS MIN_ID , SUM(PRICE) AS PMT_AMT , MAX(ETL_DATE) AS ETL_DATE
+ FROM (SELECT SUB_ORDER_ID , MAIN_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) AS FOR_GROUP , MAX(CREATED_AT) AS CREATED_AT , DELETE_MARK , MIN(ID) AS MIN_ID , SUM(PRICE) AS PMT_AMT , MAX(ETL_DATE) AS ETL_DATE , RETURN_TYPE
          FROM ECS2.RETURN_SUB_ORDER_ITEMS
-		GROUP BY SUB_ORDER_ID , MAIN_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) , DELETE_MARK) R_SUB
+		GROUP BY SUB_ORDER_ID , MAIN_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) , DELETE_MARK , RETURN_TYPE) R_SUB
 		
  JOIN ECS2.SUB_ORDERS SUB
    ON R_SUB.SUB_ORDER_ID = SUB.ID
@@ -170,15 +170,15 @@ SELECT CONCAT( 'N' , R_SUB.MIN_ID ) AS SL_KEY
    ON SUB.MAIN_ORDER_ID = CARD.MAIN_ORDER_ID
   AND MAIN.ORDER_NUMBER = CARD.ORDER_NUMBER
 
-WHERE (R_SUB.ETL_DATE &gt;= cast(cast('2021-07-22 11:15:00.753000000' as date) as datetime)
-   OR  SUB.ETL_DATE &gt;= cast(cast('2021-07-22 11:15:00.753000000' as date) as datetime)
-   OR MAIN.ETL_DATE &gt;= cast(cast('2021-07-22 11:15:00.753000000' as date) as datetime)
-   OR CARD.ETL_DATE &gt;= cast(cast('2021-07-22 11:15:00.753000000' as date) as datetime))
+WHERE (R_SUB.ETL_DATE &gt;= cast(cast('2021-08-25 17:20:40.985000000' as date) as datetime)
+   OR  SUB.ETL_DATE &gt;= cast(cast('2021-08-25 17:20:40.985000000' as date) as datetime)
+   OR MAIN.ETL_DATE &gt;= cast(cast('2021-08-25 17:20:40.985000000' as date) as datetime)
+   OR CARD.ETL_DATE &gt;= cast(cast('2021-08-25 17:20:40.985000000' as date) as datetime))
   AND ISNULL(R_SUB.DELETE_MARK,0) &lt;&gt; 1</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3B8E304B-3B8E-4CFD-A1C1-4EBB60552500}"
+      DTS:DTSID="{17B4097D-52E3-43DD-BA6E-48E40FEB9BD7}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="testYearDiff">
@@ -187,7 +187,7 @@ WHERE (R_SUB.ETL_DATE &gt;= cast(cast('2021-07-22 11:15:00.753000000' as date) a
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{6693494D-DA7D-4B57-BE5E-F818D34D66A6}"
+      DTS:DTSID="{A33E1D4B-94B2-46A3-9E16-F9177138D114}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -196,7 +196,7 @@ WHERE (R_SUB.ETL_DATE &gt;= cast(cast('2021-07-22 11:15:00.753000000' as date) a
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{DCE0E24F-ECEF-4778-98AE-F8069A4076AA}"
+      DTS:DTSID="{7533D1E5-486A-43C2-9928-42C3E354F88A}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -205,7 +205,7 @@ WHERE (R_SUB.ETL_DATE &gt;= cast(cast('2021-07-22 11:15:00.753000000' as date) a
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9372E0AC-9E21-4827-8664-56690951116A}"
+      DTS:DTSID="{E797CDA0-F9EC-4616-913F-3480BAFA06C0}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -220,7 +220,7 @@ WHERE (R_SUB.ETL_DATE &gt;= cast(cast('2021-07-22 11:15:00.753000000' as date) a
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{FE6E0B94-A0BA-42FF-A329-68F62D7D12F9}"
+      DTS:DTSID="{C25766AB-33BB-416C-A90C-AFE98C530FF0}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -4227,7 +4227,7 @@ outer apply(
                 <property
                   dataType="System.String"
                   description="SQL 命令中的參數和變數之間的對應。"
-                  name="ParameterMapping">"參數0:Input",{3B8E304B-3B8E-4CFD-A1C1-4EBB60552500};</property>
+                  name="ParameterMapping">"參數0:Input",{17B4097D-52E3-43DD-BA6E-48E40FEB9BD7};</property>
               </properties>
               <connections>
                 <connection
@@ -6794,7 +6794,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{B5D0E12C-FA0D-4C64-B674-0E825C346624}"
+      DTS:DTSID="{E0040C18-EA94-45EC-A3E2-F1556B991E67}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -6819,7 +6819,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{4E8A7BA6-2BC9-4335-8934-3F24E19EDC24}"
+      DTS:DTSID="{F191F4D4-F2B9-486E-AA08-C509D44A9898}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -6840,7 +6840,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{B8A3EA6A-C178-4842-BB41-CB87D6B68B16}"
+      DTS:DTSID="{A720C590-D3B7-479F-9028-DCDD9695A8EC}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -6851,7 +6851,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\Delete WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{352F811F-6E41-4A39-937D-3D1193E16DD9}"
+          DTS:DTSID="{46B8E958-FCCF-4F48-943E-93C1017819D1}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete WorkDateTable"
@@ -6892,7 +6892,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{3E114832-F88C-4D09-A7F6-052825ADE315}"
+          DTS:DTSID="{6CEE1C7D-2C7B-415D-8F6A-C3938952DF9A}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -6928,7 +6928,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{C786F48E-407A-4EFB-A418-07E638254AF2}"
+          DTS:DTSID="{4C410542-F324-4EB1-8AB6-C88735C9FBA2}"
           DTS:From="Package\時序容器\Delete WorkDateTable"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -6939,7 +6939,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{D15428D9-D5FF-4A13-94C9-C566018D44F2}"
+      DTS:DTSID="{7E7D701B-AD83-41FC-BBD3-CE77D67C66BC}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -7002,7 +7002,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{2F62ADEF-B108-41B5-A86A-8462414A6C1B}"
+      DTS:DTSID="{0F5F8CE9-96B1-4596-A899-ED5B39D43D4C}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -7010,7 +7010,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{C6FA763E-35DB-4E9D-9E52-9BACD4053C71}"
+      DTS:DTSID="{FDCB096A-F7C8-4110-88B9-1A0B759AC794}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -7018,7 +7018,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{D7ACB004-8BF2-4576-849E-7A220D8580F8}"
+      DTS:DTSID="{7FD17289-0442-4CC6-9BB9-ED2FF3F553E4}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -7026,7 +7026,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{992AD0D4-FBD9-47BF-9567-A258392BC3F2}"
+      DTS:DTSID="{0A60E7F5-CC9A-4629-AA34-ED65C5936A61}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
