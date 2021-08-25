@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{A67C1415-705C-45EF-B72F-0E0F28AA812A}"
+  DTS:DTSID="{26053D11-C878-411E-9765-28459BFF73B9}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="TRANS_DETAIL_ITEM_ECS2"
   DTS:PackageType="5"
-  DTS:VersionBuild="414"
-  DTS:VersionGUID="{37DA5D02-2750-4B66-ADF1-ECB5858310A0}">
+  DTS:VersionBuild="415"
+  DTS:VersionGUID="{2D77605B-96D6-48AB-906F-E99D2AC65C2C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{628BD404-F144-4BC6-A6A2-30C144D7BCA3}"
+      DTS:DTSID="{04CF0908-3C31-45F8-ADC3-9D1B6ED8D3EC}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{4E9E1E53-027B-40CE-BF86-CBD4CF365717}"
+      DTS:DTSID="{78B786D8-0C8C-430C-9D76-231B03AD0C44}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -37,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{3C91D7FB-214A-4378-8C58-CBA2F8AC4893}"
+      DTS:DTSID="{8FA5C715-B114-4A27-A53A-78F19F798A99}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -48,7 +48,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9CD977BD-AE0A-4338-B784-6B1BBFF6580F}"
+      DTS:DTSID="{D964203A-3F0D-44C7-BB4F-B9EFA7382468}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -57,7 +57,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{BB43E8B8-09D4-4EAF-88FC-E5B75EC43884}"
+      DTS:DTSID="{9FB3FE99-B4A9-4F7D-8B19-EC2DB169EFD8}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ? ,?,?);&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -69,7 +69,7 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_ITEM_ECS2_),?,GETDATE(), ? ,
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{32C7BD0D-4763-48BE-8F8D-606470FA4AA7}"
+      DTS:DTSID="{64881146-C279-48EA-B7E0-628C267DE7FF}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -80,7 +80,7 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_ITEM_ECS2_),?,GETDATE(), ? ,
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{36DDF65F-A363-4B52-8555-883745E73BED}"
+      DTS:DTSID="{D580AC2D-5D62-4020-994D-E8E4014F5F00}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -90,9 +90,9 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_ITEM_ECS2_),?,GETDATE(), ? ,
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{0EE825C8-E280-431E-B7A4-E949E350E1B3}"
+      DTS:DTSID="{B5F22CF0-0807-46E0-B583-7C409A4CFE24}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;select CONCAT('P',SUB.ID) AS SL_KEY&#xA;&#x9; , 'C002' AS WERKS&#xA;     , SUB.ORDER_NUMBER AS TRANS_SEQNO&#xA;&#x9; , RIGHT(REPLICATE('0', 3) + CAST(ITEMS.ITEM_SEQ_NO as VARCHAR), 3) AS ITEM_SEQ_NO&#xA;&#x9; , ITEMS.ESLITE_SN AS MATNR&#xA;&#x9; , ITEMS.PRODUCT_NAME AS PROD_LNAME&#xA;&#x9; , ITEMS.QUANTITY&#xA;&#x9; , ITEMS.FINAL_PRICE AS UNIT_PRICE&#xA;&#x9; , ITEMS.RETAIL_PRICE AS SALE_PRICE&#xA;&#x9; , '0' AS PRICE_FREE_DISC_AMT&#xA;&#x9; , ITEMS.DISCOUNT_AMOUNT_PRICE AS TOT_DISC_AMT&#xA;&#x9; , ITEMS.ACTUALLY_PRICE AS SALES_AMT&#xA;&#x9; , 'EC' AS SRC_SYS&#xA;&#x9; , '1' AS FLAG&#xA;&#x9; , ITEMS.UNTAXAMOUNT AS SALES_AMT_NOTAX&#xA;&#x9; , ITEMS.TAX&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS TRANS_DATE&#xA;&#x9; , CASE ITEMS.IS_PREORDER WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_PREORDER&#xA;&#x9; , CASE ITEMS.IS_GIFT WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_GIFT&#xA;  from ECS2.SUB_ORDERS SUB&#xA;  LEFT JOIN (SELECT MAIN_ORDER_ID , SUB_ORDER_ID , ESLITE_SN , PRODUCT_NAME , QUANTITY , FINAL_PRICE , RETAIL_PRICE , DISCOUNT_AMOUNT_PRICE , ACTUALLY_PRICE , ISNULL(TAX,0) AS TAX , &#xA;               ISNULL(UNTAXAMOUNT,0) AS UNTAXAMOUNT , RANK() OVER (PARTITION BY MAIN_ORDER_ID , SUB_ORDER_ID ORDER BY ID) AS ITEM_SEQ_NO , IS_PREORDER , IS_GIFT , ETL_DATE&#xA;&#x9;&#x9;  FROM ECS2.SUB_ORDER_ITEMS&#xA;&#x9;&#x9; WHERE ISNULL(DELETE_MARK,0) &lt;&gt; 1) ITEMS&#xA;    ON SUB.ID = ITEMS.SUB_ORDER_ID&#xA;   AND SUB.MAIN_ORDER_ID = ITEMS.MAIN_ORDER_ID&#xA; where SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= concat(cast((YEAR(GETDATE()) - 5 + 0) as varchar),'0101')&#xA;and ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1&#xA;   and (SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;&#x9; or ITEMS.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime))&#xA; union &#xA;select CONCAT('N',R_HEAD.MIN_ID) AS SL_KEY&#xA;&#x9; , 'C002' AS WERKS&#xA;     , SUB.ORDER_NUMBER AS TRANS_SEQNO&#xA;&#x9; , RIGHT(REPLICATE('0', 3) + CAST(R_DETAIL.ITEM_SEQ_NO as VARCHAR), 3) AS ITEM_SEQ_NO&#xA;&#x9; , ITEMS.ESLITE_SN AS MATNR&#xA;&#x9; , ITEMS.PRODUCT_NAME AS PROD_LNAME&#xA;&#x9; , R_DETAIL.QTY AS QUANTITY&#xA;&#x9; , ITEMS.FINAL_PRICE AS UNIT_PRICE&#xA;&#x9; , ITEMS.RETAIL_PRICE AS SALE_PRICE&#xA;&#x9; , '0' AS PRICE_FREE_DISC_AMT&#xA;&#x9; , ITEMS.DISCOUNT_AMOUNT_PRICE AS TOT_DISC_AMT&#xA;&#x9; , R_DETAIL.PRICE AS SALES_AMT&#xA;&#x9; , 'EC' AS SRC_SYS&#xA;&#x9; , '-1' AS FLAG&#xA;&#x9; , R_DETAIL.UNTAXAMOUNT AS SALES_AMT_NOTAX&#xA;&#x9; , R_DETAIL.TAX&#xA;&#x9; , R_DETAIL.CREATED_AT AS TRANS_DATE&#xA;&#x9; , CASE ITEMS.IS_PREORDER WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_PREORDER&#xA;&#x9; , CASE ITEMS.IS_GIFT WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_GIFT&#xA;  from (SELECT MAIN_ORDER_ID , SUB_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) AS CREATED_AT , MIN(ID) AS MIN_ID , MAX(ETL_DATE) AS ETL_DATE&#xA;&#x9;&#x9;  FROM ECS2.RETURN_SUB_ORDER_ITEMS&#xA;         WHERE ETL_DATE &gt;= cast(cast('20210101' as date) as datetime)&#xA;         GROUP BY MAIN_ORDER_ID , SUB_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) ) R_HEAD&#xA;&#x9;&#x9; &#xA;  JOIN (SELECT MAIN_ORDER_ID , SUB_ORDER_ID , CREATED_AT , SUB_ORDER_ITEM_ID , RANK() OVER (PARTITION BY MAIN_ORDER_ID , SUB_ORDER_ID ORDER BY ID ) AS &#x9;&#x9;ITEM_SEQ_NO , QTY  ,&#xA;&#x9;           ISNULL(UNTAXAMOUNT,0) AS UNTAXAMOUNT , ISNULL(TAX,0) AS TAX , DELETE_MARK , PRICE&#xA;&#x9;&#x9;  FROM ECS2.RETURN_SUB_ORDER_ITEMS ) R_DETAIL&#xA;    ON R_HEAD.MAIN_ORDER_ID = R_DETAIL.MAIN_ORDER_ID&#xA;   AND R_HEAD.SUB_ORDER_ID = R_DETAIL.SUB_ORDER_ID&#xA;   AND R_HEAD. CREATED_AT = CONVERT(VARCHAR(10),R_DETAIL.CREATED_AT,111)&#xA;   &#xA;  JOIN ECS2.SUB_ORDERS SUB&#xA;    ON R_HEAD.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID&#xA;   AND R_HEAD.SUB_ORDER_ID = SUB.ID&#xA;   &#xA;  JOIN ECS2.SUB_ORDER_ITEMS ITEMS&#xA;    ON R_HEAD.MAIN_ORDER_ID = ITEMS.MAIN_ORDER_ID&#xA;   AND R_HEAD.SUB_ORDER_ID = ITEMS.SUB_ORDER_ID&#xA;   AND R_DETAIL.SUB_ORDER_ITEM_ID = ITEMS.ID   &#xA;  &#xA; where R_HEAD.CREATED_AT &gt;= concat(cast((YEAR(GETDATE()) - 5 + 0) as varchar),'0101')&#xA;and ISNULL(R_DETAIL.DELETE_MARK,0) &lt;&gt; 1&#xA;   and (R_HEAD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;     OR SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;&#x9; OR ITEMS.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime))&quot;"
+      DTS:Expression="&quot;select CONCAT('P',SUB.ID) AS SL_KEY&#xA;&#x9; , 'C002' AS WERKS&#xA;     , SUB.ORDER_NUMBER AS TRANS_SEQNO&#xA;&#x9; , RIGHT(REPLICATE('0', 3) + CAST(ITEMS.ITEM_SEQ_NO as VARCHAR), 3) AS ITEM_SEQ_NO&#xA;&#x9; , ITEMS.ESLITE_SN AS MATNR&#xA;&#x9; , ITEMS.PRODUCT_NAME AS PROD_LNAME&#xA;&#x9; , ITEMS.QUANTITY&#xA;&#x9; , ITEMS.FINAL_PRICE AS UNIT_PRICE&#xA;&#x9; , ITEMS.RETAIL_PRICE AS SALE_PRICE&#xA;&#x9; , '0' AS PRICE_FREE_DISC_AMT&#xA;&#x9; , ITEMS.DISCOUNT_AMOUNT_PRICE AS TOT_DISC_AMT&#xA;&#x9; , ITEMS.ACTUALLY_PRICE AS SALES_AMT&#xA;&#x9; , 'EC' AS SRC_SYS&#xA;&#x9; , '1' AS FLAG&#xA;&#x9; , ITEMS.UNTAXAMOUNT AS SALES_AMT_NOTAX&#xA;&#x9; , ITEMS.TAX&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS TRANS_DATE&#xA;&#x9; , CASE ITEMS.IS_PREORDER WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_PREORDER&#xA;&#x9; , CASE ITEMS.IS_GIFT WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_GIFT&#xA;  from ECS2.SUB_ORDERS SUB&#xA;  LEFT JOIN (SELECT MAIN_ORDER_ID , SUB_ORDER_ID , ESLITE_SN , PRODUCT_NAME , QUANTITY , FINAL_PRICE , RETAIL_PRICE , DISCOUNT_AMOUNT_PRICE , ACTUALLY_PRICE , ISNULL(TAX,0) AS TAX , &#xA;               ISNULL(UNTAXAMOUNT,0) AS UNTAXAMOUNT , RANK() OVER (PARTITION BY MAIN_ORDER_ID , SUB_ORDER_ID ORDER BY ID) AS ITEM_SEQ_NO , IS_PREORDER , IS_GIFT , ETL_DATE&#xA;&#x9;&#x9;  FROM ECS2.SUB_ORDER_ITEMS&#xA;&#x9;&#x9; WHERE ISNULL(DELETE_MARK,0) &lt;&gt; 1) ITEMS&#xA;    ON SUB.ID = ITEMS.SUB_ORDER_ID&#xA;   AND SUB.MAIN_ORDER_ID = ITEMS.MAIN_ORDER_ID&#xA; where SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= concat(cast((YEAR(GETDATE()) - 5 + &quot; + (DT_STR, 10,950) @[User::testYearDiff]  + &quot;) as varchar),'0101')&#xA;and ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1&#xA;   and (SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;&#x9; or ITEMS.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime))&#xA; union &#xA;select CONCAT('N',R_HEAD.MIN_ID) AS SL_KEY&#xA;&#x9; , 'C002' AS WERKS&#xA;     , SUB.ORDER_NUMBER AS TRANS_SEQNO&#xA;&#x9; , RIGHT(REPLICATE('0', 3) + CAST(R_DETAIL.ITEM_SEQ_NO as VARCHAR), 3) AS ITEM_SEQ_NO&#xA;&#x9; , ITEMS.ESLITE_SN AS MATNR&#xA;&#x9; , ITEMS.PRODUCT_NAME AS PROD_LNAME&#xA;&#x9; , R_DETAIL.QTY AS QUANTITY&#xA;&#x9; , ITEMS.FINAL_PRICE AS UNIT_PRICE&#xA;&#x9; , ITEMS.RETAIL_PRICE AS SALE_PRICE&#xA;&#x9; , '0' AS PRICE_FREE_DISC_AMT&#xA;&#x9; , ITEMS.DISCOUNT_AMOUNT_PRICE AS TOT_DISC_AMT&#xA;&#x9; , R_DETAIL.PRICE AS SALES_AMT&#xA;&#x9; , 'EC' AS SRC_SYS&#xA;&#x9; , '-1' AS FLAG&#xA;&#x9; , R_DETAIL.UNTAXAMOUNT AS SALES_AMT_NOTAX&#xA;&#x9; , R_DETAIL.TAX&#xA;&#x9; , R_DETAIL.CREATED_AT AS TRANS_DATE&#xA;&#x9; , CASE ITEMS.IS_PREORDER WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;      WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_PREORDER&#xA;&#x9; , CASE ITEMS.IS_GIFT WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_GIFT&#xA;  from (SELECT MAIN_ORDER_ID , SUB_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) AS CREATED_AT , MIN(ID) AS MIN_ID , MAX(ETL_DATE) AS ETL_DATE , RETURN_TYPE&#xA;&#x9;&#x9;  FROM ECS2.RETURN_SUB_ORDER_ITEMS&#xA;         WHERE ETL_DATE &gt;= cast(cast('20210101' as date) as datetime)&#xA;         GROUP BY MAIN_ORDER_ID , SUB_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) ,RETURN_TYPE) R_HEAD&#xA;&#x9;&#x9; &#xA;  JOIN (SELECT MAIN_ORDER_ID , SUB_ORDER_ID , CREATED_AT , SUB_ORDER_ITEM_ID , RANK() OVER (PARTITION BY MAIN_ORDER_ID , SUB_ORDER_ID ORDER BY ID ) AS &#x9;&#x9;ITEM_SEQ_NO , QTY  ,&#xA;&#x9;           ISNULL(UNTAXAMOUNT,0) AS UNTAXAMOUNT , ISNULL(TAX,0) AS TAX , DELETE_MARK , PRICE , RETURN_TYPE&#xA;&#x9;&#x9;  FROM ECS2.RETURN_SUB_ORDER_ITEMS ) R_DETAIL&#xA;    ON R_HEAD.MAIN_ORDER_ID = R_DETAIL.MAIN_ORDER_ID&#xA;   AND R_HEAD.SUB_ORDER_ID = R_DETAIL.SUB_ORDER_ID&#xA;   AND R_HEAD.CREATED_AT = CONVERT(VARCHAR(10),R_DETAIL.CREATED_AT,111)&#xA;   AND R_HEAD.RETURN_TYPE = R_DETAIL.RETURN_TYPE&#xA;   &#xA;  JOIN ECS2.SUB_ORDERS SUB&#xA;    ON R_HEAD.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID&#xA;   AND R_HEAD.SUB_ORDER_ID = SUB.ID&#xA;   &#xA;  JOIN ECS2.SUB_ORDER_ITEMS ITEMS&#xA;    ON R_HEAD.MAIN_ORDER_ID = ITEMS.MAIN_ORDER_ID&#xA;   AND R_HEAD.SUB_ORDER_ID = ITEMS.SUB_ORDER_ID&#xA;   AND R_DETAIL.SUB_ORDER_ITEM_ID = ITEMS.ID   &#xA;  &#xA; where R_HEAD.CREATED_AT &gt;= concat(cast((YEAR(GETDATE()) - 5 + &quot; + (DT_STR, 10,950) @[User::testYearDiff]  + &quot;) as varchar),'0101')&#xA;and ISNULL(R_DETAIL.DELETE_MARK,0) &lt;&gt; 1&#xA;   and (R_HEAD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;     OR SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;&#x9; OR ITEMS.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime))&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="queryFromStage">
@@ -129,8 +129,8 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_ITEM_ECS2_),?,GETDATE(), ? ,
    AND SUB.MAIN_ORDER_ID = ITEMS.MAIN_ORDER_ID
  where SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= concat(cast((YEAR(GETDATE()) - 5 + 0) as varchar),'0101')
 and ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1
-   and (SUB.ETL_DATE &gt;= cast(cast('2021-08-10 15:55:15.852000000' as date) as datetime)
-	 or ITEMS.ETL_DATE &gt;= cast(cast('2021-08-10 15:55:15.852000000' as date) as datetime))
+   and (SUB.ETL_DATE &gt;= cast(cast('2021-08-25 16:14:15.429000000' as date) as datetime)
+	 or ITEMS.ETL_DATE &gt;= cast(cast('2021-08-25 16:14:15.429000000' as date) as datetime))
  union 
 select CONCAT('N',R_HEAD.MIN_ID) AS SL_KEY
 	 , 'C002' AS WERKS
@@ -155,17 +155,18 @@ select CONCAT('N',R_HEAD.MIN_ID) AS SL_KEY
 	 , CASE ITEMS.IS_GIFT WHEN 1 THEN 'Y'
 						  WHEN 0 THEN 'N'
 						  ELSE '' END AS IS_GIFT
-  from (SELECT MAIN_ORDER_ID , SUB_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) AS CREATED_AT , MIN(ID) AS MIN_ID , MAX(ETL_DATE) AS ETL_DATE
+  from (SELECT MAIN_ORDER_ID , SUB_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) AS CREATED_AT , MIN(ID) AS MIN_ID , MAX(ETL_DATE) AS ETL_DATE , RETURN_TYPE
 		  FROM ECS2.RETURN_SUB_ORDER_ITEMS
          WHERE ETL_DATE &gt;= cast(cast('20210101' as date) as datetime)
-         GROUP BY MAIN_ORDER_ID , SUB_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) ) R_HEAD
+         GROUP BY MAIN_ORDER_ID , SUB_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) ,RETURN_TYPE) R_HEAD
 		 
   JOIN (SELECT MAIN_ORDER_ID , SUB_ORDER_ID , CREATED_AT , SUB_ORDER_ITEM_ID , RANK() OVER (PARTITION BY MAIN_ORDER_ID , SUB_ORDER_ID ORDER BY ID ) AS 		ITEM_SEQ_NO , QTY  ,
-	           ISNULL(UNTAXAMOUNT,0) AS UNTAXAMOUNT , ISNULL(TAX,0) AS TAX , DELETE_MARK , PRICE
+	           ISNULL(UNTAXAMOUNT,0) AS UNTAXAMOUNT , ISNULL(TAX,0) AS TAX , DELETE_MARK , PRICE , RETURN_TYPE
 		  FROM ECS2.RETURN_SUB_ORDER_ITEMS ) R_DETAIL
     ON R_HEAD.MAIN_ORDER_ID = R_DETAIL.MAIN_ORDER_ID
    AND R_HEAD.SUB_ORDER_ID = R_DETAIL.SUB_ORDER_ID
-   AND R_HEAD. CREATED_AT = CONVERT(VARCHAR(10),R_DETAIL.CREATED_AT,111)
+   AND R_HEAD.CREATED_AT = CONVERT(VARCHAR(10),R_DETAIL.CREATED_AT,111)
+   AND R_HEAD.RETURN_TYPE = R_DETAIL.RETURN_TYPE
    
   JOIN ECS2.SUB_ORDERS SUB
     ON R_HEAD.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID
@@ -178,13 +179,13 @@ select CONCAT('N',R_HEAD.MIN_ID) AS SL_KEY
   
  where R_HEAD.CREATED_AT &gt;= concat(cast((YEAR(GETDATE()) - 5 + 0) as varchar),'0101')
 and ISNULL(R_DETAIL.DELETE_MARK,0) &lt;&gt; 1
-   and (R_HEAD.ETL_DATE &gt;= cast(cast('2021-08-10 15:55:15.852000000' as date) as datetime)
-     OR SUB.ETL_DATE &gt;= cast(cast('2021-08-10 15:55:15.852000000' as date) as datetime)
-	 OR ITEMS.ETL_DATE &gt;= cast(cast('2021-08-10 15:55:15.852000000' as date) as datetime))</DTS:VariableValue>
+   and (R_HEAD.ETL_DATE &gt;= cast(cast('2021-08-25 16:14:15.429000000' as date) as datetime)
+     OR SUB.ETL_DATE &gt;= cast(cast('2021-08-25 16:14:15.429000000' as date) as datetime)
+	 OR ITEMS.ETL_DATE &gt;= cast(cast('2021-08-25 16:14:15.429000000' as date) as datetime))</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{40D6E59C-BE0D-4CF7-8410-BD623904E1EA}"
+      DTS:DTSID="{C9E2FBC4-05C3-4C79-A7B4-FCAE39620574}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="testYearDiff">
@@ -193,7 +194,7 @@ and ISNULL(R_DETAIL.DELETE_MARK,0) &lt;&gt; 1
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{F632DD40-A61D-44AD-8408-8C9523CD84F6}"
+      DTS:DTSID="{C8755A83-8AF5-4F52-B20A-2F909CFDE418}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -202,7 +203,7 @@ and ISNULL(R_DETAIL.DELETE_MARK,0) &lt;&gt; 1
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{5A9E4811-6D52-4963-A04C-5474B1BA8F17}"
+      DTS:DTSID="{F0C54D61-7324-47CF-8EA8-BCBBEE7858C2}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -211,7 +212,7 @@ and ISNULL(R_DETAIL.DELETE_MARK,0) &lt;&gt; 1
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{AEABE4E9-DEE0-468B-AE02-D45B8A1FE9D7}"
+      DTS:DTSID="{BFC88D08-B1FF-414B-893F-0E6EADDF979D}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -226,7 +227,7 @@ and ISNULL(R_DETAIL.DELETE_MARK,0) &lt;&gt; 1
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{E8ACE469-E690-4D39-8387-BB4EB2BD0233}"
+      DTS:DTSID="{BAB29A61-846B-442E-A2C7-FA9D5115D25F}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -4288,7 +4289,7 @@ select head.SUB_ORDER_NUMBER
                 <property
                   dataType="System.String"
                   description="SQL 命令中的參數和變數之間的對應。"
-                  name="ParameterMapping">"參數0:Input",{40D6E59C-BE0D-4CF7-8410-BD623904E1EA};"參數1:Input",{40D6E59C-BE0D-4CF7-8410-BD623904E1EA};</property>
+                  name="ParameterMapping">"參數0:Input",{C9E2FBC4-05C3-4C79-A7B4-FCAE39620574};"參數1:Input",{C9E2FBC4-05C3-4C79-A7B4-FCAE39620574};</property>
               </properties>
               <connections>
                 <connection
@@ -7317,7 +7318,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{6C831CE2-5BEB-4713-A40F-BB106F8B3C07}"
+      DTS:DTSID="{43796AE0-F1CE-45E0-B5C0-9A0AC07736EF}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -7342,7 +7343,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{45FB3682-5B3F-48FF-9E41-D81D0F0F02F0}"
+      DTS:DTSID="{3DAC6EF8-182A-41D6-8F7B-315152D55618}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -7363,7 +7364,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{50EF1AD4-2F92-4F73-8774-78DFCB36F965}"
+      DTS:DTSID="{805EDD08-7A3F-4906-8B43-95983505CA05}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -7374,7 +7375,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\Delete WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{271C3C6D-CF24-4D4B-8EF9-3F148852FCAA}"
+          DTS:DTSID="{70EFBCC7-8D73-4F32-BBB8-047887468B52}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete WorkDateTable"
@@ -7415,7 +7416,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{94BE017F-2A00-47FA-9CBA-E249074BE8A6}"
+          DTS:DTSID="{72C8A6FF-31FB-4EE9-B592-068C39CC0D69}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -7451,7 +7452,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{8DC1D7BA-7D04-4ECF-95F5-2865197B98A8}"
+          DTS:DTSID="{FAC83EE8-1E3A-4177-9549-B540FDD15A2C}"
           DTS:From="Package\時序容器\Delete WorkDateTable"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -7462,7 +7463,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{171DE4B7-3463-44FA-A5DC-88B39B635655}"
+      DTS:DTSID="{3D61F7D9-857B-42E1-9FAB-830F1680E3BA}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -7525,7 +7526,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{BFF781D9-B4B3-4A48-A00F-B9B69CF75F96}"
+      DTS:DTSID="{A3100DF3-CFA6-414F-B335-DB023CCBC649}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -7533,7 +7534,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{B5D3E4D0-44A6-4C0E-970D-8C6C0B023B0D}"
+      DTS:DTSID="{D4F8B3E5-0485-4339-B4AB-5C563958B41F}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -7541,7 +7542,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{ADC4FB46-2E2D-4515-8B8A-8F5816447445}"
+      DTS:DTSID="{1ABA1260-B2DA-429F-A09E-166728D62A01}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -7549,7 +7550,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{F5BD53B1-A44E-46FD-97B8-A918E2745B3E}"
+      DTS:DTSID="{2892CD7B-6384-4BB0-A2A2-DE862F62EBF4}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
