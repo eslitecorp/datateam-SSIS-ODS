@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">1505003NB02</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKJvy5j2ekkq1BQfZP7wprgAAAAACAAAAAAADZgAAwAAAABAAAAAetGk2cOknLnXYilfu+HcfAAAAAASAAACgAAAAEAAAAMkZC0lzJNpAq1mDITh+21yIAAAA5hPcJbfLzfjSO8VYxZgDTB6M5YMhGW2y0lptZA/hvBN1GZPZjashoTJ53gHBGsOefpBCVbtv7pwKLMB0EDeUWjfLDYcV2IzT6Yo2kDRNGdWYeIfSq9/Jg4jTPRhnmuJxnWzNo5X44nI33IEiQEeq0ggQ9eyAswUj29z2BXrvvvtZeiMljg7KShQAAACaqVfAHJp/jMJ3fy/DXGP5AVV8Bg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZM/6ybfjNkuDd4XQe3GqIAAAAAACAAAAAAADZgAAwAAAABAAAAA0mHElaT8V4SIx72YFCneSAAAAAASAAACgAAAAEAAAAHvqb+m71WNi89s3swi7II2IAAAAMumUOZNvyJZhessjCigtEya0S0pnM87XykdqaVUobyqloj9pdcLyiNlpV5yfR/jcXaEuThIuvykAA5zJQxJsEvdTmobRbvhCpE/+7vY8///WeqOnurc4m3yHP14NYe0tmzFVYnqMV5Na2WV5Ll5OCGEfCwktuenjf6GtbbQOhF7Leum3dNJuIxQAAABrQEjvKNsrUPhHygeZBAFfg62edw==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -150,6 +150,7 @@
           <SSIS:Package SSIS:Name="TRANS_DETAIL_UTM_ECS2.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="TRANS_HEAD_ECS2.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="WEBTRACK_SHOPCART_SHOPORDERS_ECS2.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="TRANS_DETAIL_PACKAGE_NEC.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="ODSDB.conmgr" />
@@ -2511,14 +2512,14 @@
             </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="MF_POS_DISCOUNT_NEC.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{FBC0DDFC-5B2B-43E9-B9B8-B42C1FF505C1}</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{6371D53D-F31C-4607-B4CC-118C6D8BDF6E}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">MF_POS_DISCOUNT_NEC</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">322</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">327</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{C63615D7-B4E0-4A2F-9C87-945B44705540}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{090FBFA7-70E2-4AC4-8FD7-34D37E4DED23}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -2527,7 +2528,7 @@
               <SSIS:Parameters>
                 <SSIS:Parameter SSIS:Name="dataSRCSYS">
                   <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{63780613-5FC5-4C19-8738-CE1906213494}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="ID">{815C6B77-C2C6-4264-B939-9E966BB06ED2}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">
@@ -2541,7 +2542,7 @@
                 </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="fullTableName">
                   <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{CD1581A0-44DF-4C7D-A7E5-9571A034FB8E}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="ID">{D262E18E-16FC-4C32-B4CC-28DDA8212391}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">
@@ -6556,8 +6557,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -6585,14 +6584,71 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="queryBaseDate">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">{1B0D214C-ACD2-41A2-9C87-384F8A63632B}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="TRANS_DETAIL_PACKAGE_NEC.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{0B8D37E9-F153-4561-A7B5-4E86F8019973}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">TRANS_DETAIL_PACKAGE_NEC</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">341</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{596077FD-9618-416D-9ED6-DE4DBB00992B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="DG">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{84F99F77-F01A-42DD-B830-87913D1A2DB0}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">TRANS_NEC</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="fullTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{3829076D-3D77-4A59-8FF6-0E10DE6D72E8}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">dbo.TRANS_DETAIL_PACKAGE_NEC</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="queryBaseDate">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{D7D0CF00-77F1-4337-86A4-387AD97F69C1}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">
