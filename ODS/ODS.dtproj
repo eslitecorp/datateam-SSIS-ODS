@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">1505003NB02</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZM/6ybfjNkuDd4XQe3GqIAAAAAACAAAAAAADZgAAwAAAABAAAAA0mHElaT8V4SIx72YFCneSAAAAAASAAACgAAAAEAAAAHvqb+m71WNi89s3swi7II2IAAAAMumUOZNvyJZhessjCigtEya0S0pnM87XykdqaVUobyqloj9pdcLyiNlpV5yfR/jcXaEuThIuvykAA5zJQxJsEvdTmobRbvhCpE/+7vY8///WeqOnurc4m3yHP14NYe0tmzFVYnqMV5Na2WV5Ll5OCGEfCwktuenjf6GtbbQOhF7Leum3dNJuIxQAAABrQEjvKNsrUPhHygeZBAFfg62edw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZM/6ybfjNkuDd4XQe3GqIAAAAAACAAAAAAADZgAAwAAAABAAAADe8cCgd7vITR3DLL63kH/3AAAAAASAAACgAAAAEAAAAFMkQ/G+GHaTyEYga0NYpxuIAAAA1wYVQQPBlw+DcquHEAp4s5jZRsRDcUX283hO6Ghkir4NKsGdiozfF+iGPknYhIK9qqj1SvpMNIzABKC7NUhCzPznblG/fTrO53H+g3Odc+DNMOArYqU4tt5VRCNwy1mtKJhAJVYwF8Uf4SXZ9AsMUk0Vr2E+XFIVJK97cU8uhFJ0Hh8aI1rhKxQAAAD9DKYYtb9LzEJmD9mv44m9OS5rDw==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -151,6 +151,7 @@
           <SSIS:Package SSIS:Name="TRANS_HEAD_ECS2.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="WEBTRACK_SHOPCART_SHOPORDERS_ECS2.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="TRANS_DETAIL_PACKAGE_NEC.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="MF_PRODUCT_TYPE_LOG_ECS2.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="ODSDB.conmgr" />
@@ -6649,6 +6650,51 @@
                 <SSIS:Parameter SSIS:Name="queryBaseDate">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">{D7D0CF00-77F1-4337-86A4-387AD97F69C1}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="MF_PRODUCT_TYPE_LOG_ECS2.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{D7BAFDB3-F630-4EAA-A0D9-72E99172FCC0}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">MF_PRODUCT_TYPE_LOG_ECS2</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">212</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{86B566CF-5900-4464-9029-45AD6FE0D815}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="fullTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{75182D71-0730-4532-A514-DA2A2B8131FD}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">dbo.MF_PRODUCT_TYPE_LOG_ECS2</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="queryBaseDate">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{FAE0B477-96A7-4FEF-B473-3088736D6503}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">
