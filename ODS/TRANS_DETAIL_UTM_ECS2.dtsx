@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{625DF1C3-D11C-4169-9FBC-122C9DDB0AB1}"
+  DTS:DTSID="{EAD6A681-6370-4C61-922E-CE269CDE2747}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="TRANS_DETAIL_UTM_ECS2"
   DTS:PackageType="5"
-  DTS:VersionBuild="420"
-  DTS:VersionGUID="{9CB6F076-7FCE-4972-AD9B-BA2357F0AD45}">
+  DTS:VersionBuild="423"
+  DTS:VersionGUID="{BA0C5D85-2CDB-4A40-A8FA-8584559EAAA6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{A6FAA78E-8F45-45BD-ABC3-0484F05A306D}"
+      DTS:DTSID="{02F513B1-19F7-44D6-8A99-ECEB65D4984F}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{6528BFFD-DB2A-46C5-B12D-622F8CD0B9A9}"
+      DTS:DTSID="{45B936A3-2953-4F48-8C76-B4F8EF5B9FD3}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -37,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{7830BEB3-613D-4FF2-A6CE-54DF3D21EBFC}"
+      DTS:DTSID="{0217D7C3-7336-4D0E-B987-ED015DACAEA8}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -48,7 +48,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7824F0AA-5930-4F2B-B879-E67AC08FE52F}"
+      DTS:DTSID="{C72F1679-455C-4C54-8055-1EB1438D6B2F}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -57,7 +57,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E9D17A4C-8A19-4A52-9D42-7C60C0E4AAE8}"
+      DTS:DTSID="{D10A36BE-5CC4-4606-85FF-7B2709AC3A67}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ? ,?,?);&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -69,7 +69,7 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_UTM_ECS2_),?,GETDATE(), ? ,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{6715022D-F4A2-4B2E-8538-C34F2074B76C}"
+      DTS:DTSID="{9A741D36-1C2A-4E48-B510-B89017DB7727}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -80,7 +80,7 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_UTM_ECS2_),?,GETDATE(), ? ,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C4722D04-ECF3-4A78-97C5-A02A02944376}"
+      DTS:DTSID="{34384475-1ADB-488B-A7FB-AD91CE1FE043}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -90,7 +90,7 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_UTM_ECS2_),?,GETDATE(), ? ,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{DF531107-08E0-4479-9B13-11026979C0B2}"
+      DTS:DTSID="{C5FC1F0E-81C0-4E3F-8E63-9012CD98BC50}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;SELECT TMP.* , CARD.CARDNUMBER , CARD.CARDLEVEL&#xA;, CASE WHEN CHARINDEX('UTM_SOURCE=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('UTM_SOURCE=',UTM_URL)+LEN('UTM_SOURCE='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('UTM_SOURCE',UTM_URL))-CHARINDEX('UTM_SOURCE=',UTM_URL)-LEN('UTM_SOURCE=')) &#xA;  ELSE NULL END AS UTM_SOURCE&#xA;  &#xA;, CASE WHEN CHARINDEX('UTM_MEDIUM=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('UTM_MEDIUM=',UTM_URL)+LEN('UTM_MEDIUM='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('UTM_MEDIUM',UTM_URL))-CHARINDEX('UTM_MEDIUM=',UTM_URL)-LEN('UTM_MEDIUM=')) &#xA;  ELSE NULL END AS UTM_MEDIUM&#xA;  &#xA;, CASE WHEN CHARINDEX('UTM_NAME=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('UTM_NAME=',UTM_URL)+LEN('UTM_NAME='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('UTM_NAME',UTM_URL))-CHARINDEX('UTM_NAME=',UTM_URL)-LEN('UTM_NAME=')) &#xA;  ELSE NULL END AS UTM_NAME&#xA;  &#xA;, CASE WHEN CHARINDEX('UTM_TERM=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('UTM_TERM=',UTM_URL)+LEN('UTM_TERM='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('UTM_TERM',UTM_URL))-CHARINDEX('UTM_TERM=',UTM_URL)-LEN('UTM_TERM=')) &#xA;  ELSE NULL END AS UTM_TERM&#xA;  &#xA;, CASE WHEN CHARINDEX('UTM_CONTENT=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('UTM_CONTENT=',UTM_URL)+LEN('UTM_CONTENT='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('UTM_CONTENT',UTM_URL))-CHARINDEX('UTM_CONTENT=',UTM_URL)-LEN('UTM_CONTENT=')) &#xA;  ELSE NULL END AS UTM_CONTENT&#xA;  &#xA;, CASE WHEN CHARINDEX('SID=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('SID=',UTM_URL)+LEN('SID='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('SID',UTM_URL))-CHARINDEX('SID=',UTM_URL)-LEN('SID=')) &#xA;  ELSE NULL END AS SID&#xA;  &#xA;, CASE WHEN CHARINDEX('CID=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('CID=',UTM_URL)+LEN('CID='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('CID',UTM_URL))-CHARINDEX('CID=',UTM_URL)-LEN('CID=')) &#xA;  ELSE NULL END AS CID&#xA;  &#xA;, CASE WHEN CHARINDEX('MID=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('MID=',UTM_URL)+LEN('MID='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('MID',UTM_URL))-CHARINDEX('MID=',UTM_URL)-LEN('MID=')) &#xA;  ELSE NULL END AS MID&#xA;  &#xA;, CASE WHEN CHARINDEX('COID=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('COID=',UTM_URL)+LEN('COID='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('COID',UTM_URL))-CHARINDEX('COID=',UTM_URL)-LEN('COID=')) &#xA;  ELSE NULL END AS COID&#xA;  &#xA;, CASE WHEN CHARINDEX('OID=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('OID=',UTM_URL)+LEN('OID='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('OID',UTM_URL))-CHARINDEX('OID=',UTM_URL)-LEN('OID=')) &#xA;  ELSE NULL END AS OID&#xA;  &#xA;, CASE WHEN CHARINDEX('TIME=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('TIME=',UTM_URL)+LEN('TIME='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('TIME',UTM_URL))-CHARINDEX('TIME=',UTM_URL)-LEN('TIME=')) &#xA;  ELSE NULL END AS TIME&#xA;  &#xA;, CASE WHEN CHARINDEX('PGID=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('PGID=',UTM_URL)+LEN('PGID='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('PGID',UTM_URL))-CHARINDEX('PGID=',UTM_URL)-LEN('PGID=')) &#xA;  ELSE NULL END AS PGID&#xA;  &#xA;, CASE WHEN CHARINDEX('CLICK_ID=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('CLICK_ID=',UTM_URL)+LEN('CLICK_ID='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('CLICK_ID',UTM_URL))-CHARINDEX('CLICK_ID=',UTM_URL)-LEN('CLICK_ID=')) &#xA;  ELSE NULL END AS CLICK_ID&#xA;  &#xA;, CASE WHEN CHARINDEX('RID=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('RID=',UTM_URL)+LEN('RID='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('RID',UTM_URL))-CHARINDEX('RID=',UTM_URL)-LEN('RID=')) &#xA;  ELSE NULL END AS RID&#xA;  &#xA;, CASE WHEN CHARINDEX('FBCLID=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('FBCLID=',UTM_URL)+LEN('FBCLID='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('FBCLID',UTM_URL))-CHARINDEX('FBCLID=',UTM_URL)-LEN('FBCLID=')) &#xA;  ELSE NULL END AS FBCLID&#xA;  &#xA;, CASE WHEN CHARINDEX('NAME=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('NAME=',UTM_URL)+LEN('NAME='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('NAME',UTM_URL))-CHARINDEX('NAME=',UTM_URL)-LEN('NAME=')) &#xA;  ELSE NULL END AS NAME&#xA;  &#xA;, CASE WHEN CHARINDEX('CO_NAME=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('CO_NAME=',UTM_URL)+LEN('CO_NAME='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('CO_NAME',UTM_URL))-CHARINDEX('CO_NAME=',UTM_URL)-LEN('CO_NAME=')) &#xA;  ELSE NULL END AS CO_NAME&#xA;  &#xA;, CASE WHEN CHARINDEX('SHOPBACKID=',UTM_URL) != 0 &#xA;  THEN SUBSTRING(UTM_URL,CHARINDEX('SHOPBACKID=',UTM_URL)+LEN('SHOPBACKID='),CHARINDEX('&amp;',UTM_URL,CHARINDEX('SHOPBACKID',UTM_URL))-CHARINDEX('SHOPBACKID=',UTM_URL)-LEN('SHOPBACKID=')) &#xA;  ELSE NULL END AS SHOPBACKID&#xA;&#xA;FROM (SELECT ID , ORDER_NUMBER , MEMBER_UUID , CART_ID , CONCAT('?',SUBSTRING(UTM_URL , CHARINDEX('?',UTM_URL,1) +1 , LEN(UTM_URL)),'&amp;') AS UTM_URL , UTM_URL AS ORIGIN_UTM_URL, ETL_DATE&#xA;        FROM [STAGINGDB_TW].[ECS2].[MAIN_ORDERS] &#xA;&#x9;   WHERE UTM_URL != '') TMP&#xA;&#x9;   &#xA;OUTER APPLY (SELECT TOP 1 * FROM EC.MEMBER_ESLITECARDINF CARD&#xA;&#x9;&#x9;&#x9;  WHERE TMP.MEMBER_UUID = CARD.USERID &#xA;&#x9;&#x9;&#x9;    AND CARD.DELETE_MARK IS NULL&#xA;&#x9;&#x9;&#x9;  ORDER BY LASTMODIFYDATE DESC ) CARD&#xA;  &#xA;WHERE (TMP.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime))&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -179,12 +179,12 @@ OUTER APPLY (SELECT TOP 1 * FROM EC.MEMBER_ESLITECARDINF CARD
 			    AND CARD.DELETE_MARK IS NULL
 			  ORDER BY LASTMODIFYDATE DESC ) CARD
   
-WHERE (TMP.ETL_DATE &gt;= cast(cast('2021-08-18 11:55:29.541000000' as date) as datetime)
-   OR CARD.ETL_DATE &gt;= cast(cast('2021-08-18 11:55:29.542000000' as date) as datetime))</DTS:VariableValue>
+WHERE (TMP.ETL_DATE &gt;= cast(cast('2021-11-02 16:10:03.035000000' as date) as datetime)
+   OR CARD.ETL_DATE &gt;= cast(cast('2021-11-02 16:10:03.035000000' as date) as datetime))</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{05AB1F9C-1837-4037-AE0F-B4AAB7EA6208}"
+      DTS:DTSID="{061E9F56-7197-41D3-BF31-5E9DED03D8AA}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="testYearDiff">
@@ -193,7 +193,7 @@ WHERE (TMP.ETL_DATE &gt;= cast(cast('2021-08-18 11:55:29.541000000' as date) as 
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{63342DA7-804E-4A5F-9448-F8D2C4A6C864}"
+      DTS:DTSID="{DB9D4EB3-3F9A-49BF-8529-518A0856E886}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -202,7 +202,7 @@ WHERE (TMP.ETL_DATE &gt;= cast(cast('2021-08-18 11:55:29.541000000' as date) as 
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{077AEBCA-760C-4DE8-B72E-803CF5AB5E07}"
+      DTS:DTSID="{572AC18F-35CA-43E3-B3C6-45F15BCC474C}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -211,7 +211,7 @@ WHERE (TMP.ETL_DATE &gt;= cast(cast('2021-08-18 11:55:29.541000000' as date) as 
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D4B1FE9A-79B4-4B4E-B171-07AE70A3F640}"
+      DTS:DTSID="{FD16FEDE-4CCD-49B1-8CD7-3902A26D74A2}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -226,7 +226,7 @@ WHERE (TMP.ETL_DATE &gt;= cast(cast('2021-08-18 11:55:29.541000000' as date) as 
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{DCD1E7C6-8643-4CD6-A566-6D4938F2615D}"
+      DTS:DTSID="{9E7A5A6C-7262-4775-A341-22F65CAAD8C1}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -4288,7 +4288,7 @@ select head.SUB_ORDER_NUMBER
                 <property
                   dataType="System.String"
                   description="SQL 命令中的參數和變數之間的對應。"
-                  name="ParameterMapping">"參數0:Input",{05AB1F9C-1837-4037-AE0F-B4AAB7EA6208};"參數1:Input",{05AB1F9C-1837-4037-AE0F-B4AAB7EA6208};</property>
+                  name="ParameterMapping">"參數0:Input",{061E9F56-7197-41D3-BF31-5E9DED03D8AA};"參數1:Input",{061E9F56-7197-41D3-BF31-5E9DED03D8AA};</property>
               </properties>
               <connections>
                 <connection
@@ -6319,7 +6319,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[UTM_SOURCE (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="UTM_SOURCE (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[UTM_SOURCE]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[UTM_SOURCE (ready)]" />
@@ -6327,7 +6327,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[UTM_MEDIUM (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="UTM_MEDIUM (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[UTM_MEDIUM]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[UTM_MEDIUM (ready)]" />
@@ -6335,7 +6335,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[UTM_NAME (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="UTM_NAME (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[UTM_NAME]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[UTM_NAME (ready)]" />
@@ -6343,7 +6343,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[UTM_TERM (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="UTM_TERM (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[UTM_TERM]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[UTM_TERM (ready)]" />
@@ -6351,7 +6351,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[SHOPBACKID (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="SHOPBACKID (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[SHOPBACKID]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[SHOPBACKID (ready)]" />
@@ -6359,7 +6359,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[CO_NAME (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="CO_NAME (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[CO_NAME]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[CO_NAME (ready)]" />
@@ -6367,7 +6367,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[NAME (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="NAME (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[NAME]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[NAME (ready)]" />
@@ -6375,7 +6375,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[FBCLID (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="FBCLID (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[FBCLID]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[FBCLID (ready)]" />
@@ -6383,7 +6383,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[CLICK_ID (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="CLICK_ID (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[CLICK_ID]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[CLICK_ID (ready)]" />
@@ -6391,7 +6391,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[OID (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="OID (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[OID]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[OID (ready)]" />
@@ -6399,7 +6399,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[COID (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="COID (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[COID]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COID (ready)]" />
@@ -6407,7 +6407,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[MID (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="MID (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[MID]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[MID (ready)]" />
@@ -6415,7 +6415,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[CID (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="CID (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[CID]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[CID (ready)]" />
@@ -6423,7 +6423,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[SID (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="SID (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[SID]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[SID (ready)]" />
@@ -6431,7 +6431,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[UTM_CONTENT (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="UTM_CONTENT (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[UTM_CONTENT]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[UTM_CONTENT (ready)]" />
@@ -6439,7 +6439,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TIME (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="TIME (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TIME]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TIME (ready)]" />
@@ -6447,7 +6447,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[PGID (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="PGID (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[PGID]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[PGID (ready)]" />
@@ -6455,7 +6455,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[RID (ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="300"
+                      cachedLength="700"
                       cachedName="RID (ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[RID]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[RID (ready)]" />
@@ -6513,109 +6513,109 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[UTM_SOURCE]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="UTM_SOURCE" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[UTM_MEDIUM]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="UTM_MEDIUM" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[UTM_NAME]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="UTM_NAME" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[UTM_TERM]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="UTM_TERM" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[UTM_CONTENT]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="UTM_CONTENT" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[SID]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="SID" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[CID]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="CID" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[MID]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="MID" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[COID]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="COID" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[OID]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="OID" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TIME]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="TIME" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[PGID]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="PGID" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[CLICK_ID]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="CLICK_ID" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[RID]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="RID" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[FBCLID]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="FBCLID" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[NAME]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="NAME" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[CO_NAME]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="CO_NAME" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[SHOPBACKID]"
                       codePage="950"
                       dataType="str"
-                      length="300"
+                      length="700"
                       name="SHOPBACKID" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[UTM_URL]"
@@ -7392,7 +7392,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[UTM_SOURCE (ready)]"
                       name="UTM_SOURCE (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7414,7 +7414,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[UTM_MEDIUM (ready)]"
                       name="UTM_MEDIUM (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7436,7 +7436,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[UTM_NAME (ready)]"
                       name="UTM_NAME (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7458,7 +7458,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[UTM_TERM (ready)]"
                       name="UTM_TERM (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7480,7 +7480,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[SHOPBACKID (ready)]"
                       name="SHOPBACKID (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7502,7 +7502,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[CO_NAME (ready)]"
                       name="CO_NAME (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7524,7 +7524,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[NAME (ready)]"
                       name="NAME (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7546,7 +7546,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[FBCLID (ready)]"
                       name="FBCLID (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7568,7 +7568,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[RID (ready)]"
                       name="RID (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7590,7 +7590,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[CLICK_ID (ready)]"
                       name="CLICK_ID (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7612,7 +7612,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[OID (ready)]"
                       name="OID (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7634,7 +7634,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COID (ready)]"
                       name="COID (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7656,7 +7656,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[MID (ready)]"
                       name="MID (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7678,7 +7678,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[CID (ready)]"
                       name="CID (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7700,7 +7700,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[SID (ready)]"
                       name="SID (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7722,7 +7722,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[UTM_CONTENT (ready)]"
                       name="UTM_CONTENT (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7744,7 +7744,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TIME (ready)]"
                       name="TIME (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7766,7 +7766,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="300"
+                      length="700"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[PGID (ready)]"
                       name="PGID (ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7932,7 +7932,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{F8B1C65E-0604-47A9-8CDE-84A5A83C69E0}"
+      DTS:DTSID="{CDDDCBF0-BE6D-47BF-9236-34367A7015E0}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -7957,7 +7957,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{043FB093-528E-46DC-B77C-FBD7E029AC93}"
+      DTS:DTSID="{41AF676A-5B0D-4919-9D85-5F6159087E4C}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -7978,7 +7978,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{16C3C55D-30E0-43B6-9656-38F72C6C7EBC}"
+      DTS:DTSID="{D067940D-3E39-4D63-A750-DE1A6160FA49}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -7989,7 +7989,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\Delete WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{BFB394C4-F164-42F1-AB6B-904EFE4F9330}"
+          DTS:DTSID="{97B6C1E8-B7B4-4C28-BDCE-8911862CB703}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete WorkDateTable"
@@ -8030,7 +8030,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{826CD71B-3191-4857-BE73-0A3A67D92C2A}"
+          DTS:DTSID="{8910AD75-43B8-4167-8171-DBA58BEE0132}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -8066,7 +8066,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{CEDF53F3-1780-4447-AF1E-7F61B950B5A8}"
+          DTS:DTSID="{13191040-D91E-4CE0-B14A-DAF5C85338C7}"
           DTS:From="Package\時序容器\Delete WorkDateTable"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -8077,7 +8077,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{7862AFB6-DB19-4E6B-A4A0-DA2A95FC865F}"
+      DTS:DTSID="{AACCB3DB-29B9-46BD-9583-E0BD90E6153D}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -8140,7 +8140,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{0FC35928-622C-4A13-BFEF-4ED67EABC39B}"
+      DTS:DTSID="{6B1376D6-5512-4641-97E4-D872BFA9D06F}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -8148,7 +8148,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{4B2CC546-928E-4327-9C35-EE4730BBD5D6}"
+      DTS:DTSID="{5460D39C-E87A-4CB9-B0C9-48266D4F4829}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -8156,7 +8156,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{B6F270DA-DC8E-4F27-B136-9180F2B5FB17}"
+      DTS:DTSID="{679711CF-76C2-49BA-A7E0-DD21C471614C}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -8164,7 +8164,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{B5B10030-7B5E-4331-B634-3C169AC72864}"
+      DTS:DTSID="{55C20248-914C-4AFA-803F-49DE4B02DBB0}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -8366,7 +8366,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <NodeLayout
           Size="164,42"
           Id="Package\Stage To ODS\資料型態轉換"
-          TopLeft="323.055542718481,436.55713122004" />
+          TopLeft="308.055542718481,435.690464546486" />
         <NodeLayout
           Size="269,42"
           Id="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位"
@@ -8481,54 +8481,42 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[資料轉換錯誤輸出]"
-          TopLeft="487.055542718481,459.691056310528">
+          TopLeft="472.055542718481,459.25772297375">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="167.879617276387,0"
+              EndConnector="182.879617276387,0"
               Start="0,0"
-              End="160.379617276387,0">
+              End="175.379617276387,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="160.379617276387,0" />
+                    End="175.379617276387,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="40.1053359819435,5,80.1689453125,10.9208984375"
+              BoundingBox="47.6053359819435,5,80.1689453125,10.9208984375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[資料轉換輸出]"
-          TopLeft="405.055542718481,478.55713122004">
+          TopLeft="391.277765647129,477.690464546486">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-12.555554142704,56.595244615662"
+              EndConnector="0,57.4619112892162"
               Start="0,0"
-              End="-12.555554142704,49.095244615662">
+              End="0,49.9619112892162">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.297622307831" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.297622307831"
-                    Point2="0,28.297622307831"
-                    Point3="-4,28.297622307831" />
-                  <mssgle:LineSegment
-                    End="-8.55555414270395,28.297622307831" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-8.55555414270395,28.297622307831"
-                    Point2="-12.555554142704,28.297622307831"
-                    Point3="-12.555554142704,32.297622307831" />
-                  <mssgle:LineSegment
-                    End="-12.555554142704,49.095244615662" />
+                    End="0,49.9619112892162" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8583,30 +8571,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[衍生的資料行輸出2]"
-          TopLeft="393.94443413505,380.811097723984">
+          TopLeft="391.999988426766,380.811097723984">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11.111108583431,55.746033496056"
+              EndConnector="0,54.8793668225017"
               Start="0,0"
-              End="11.111108583431,48.246033496056">
+              End="0,47.3793668225017">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.873016748028" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.873016748028"
-                    Point2="0,27.873016748028"
-                    Point3="4,27.873016748028" />
-                  <mssgle:LineSegment
-                    End="7.11110858343096,27.873016748028" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.11110858343096,27.873016748028"
-                    Point2="11.111108583431,27.873016748028"
-                    Point3="11.111108583431,31.873016748028" />
-                  <mssgle:LineSegment
-                    End="11.111108583431,48.246033496056" />
+                    End="0,47.3793668225017" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
