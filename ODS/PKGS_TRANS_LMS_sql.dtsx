@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="10/15/2019 12:45:21 PM"
@@ -12,11 +12,21 @@
   DTS:MaxConcurrentExecutables="1"
   DTS:ObjectName="PKGS_TRANS_LMS_sql"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{EBA36D75-23C5-4556-86ED-C915B0B70809}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{CEF01270-60F9-42B0-A9BE-FED3ABF8087A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MSDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F341D3DB-FA38-46F8-9BD1-49077D11CFE3}"
+      DTS:ObjectName="MSDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=msdb;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[TPODS402]"
       DTS:CreationName="OLEDB"
@@ -75,7 +85,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{31163796-D5FD-4285-965B-A44D50D24DCF}"
+          SQLTask:Connection="{F341D3DB-FA38-46F8-9BD1-49077D11CFE3}"
           SQLTask:SqlStatementSource="USE MSDB&#xA;GO&#xA;EXEC SP_START_JOB N'PKGS_TRANS_LMS'&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
