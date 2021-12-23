@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{C07BE78E-CFAD-47DD-8FF7-03558F86E1C6}"
+  DTS:DTSID="{6544246F-5FE0-4235-81BC-C4C46B59DD92}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="Util_Mail_LogFile"
   DTS:PackageType="5"
-  DTS:VersionBuild="621"
-  DTS:VersionGUID="{8DEA12BD-F37F-42DD-885E-BCB307874451}">
+  DTS:VersionBuild="630"
+  DTS:VersionGUID="{763224F1-5F21-4B68-B91D-55DE26971A0D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="20"
-      DTS:DTSID="{FE247FFD-3BD2-4321-89AD-6D98E8DB79FC}"
+      DTS:DTSID="{895637F5-745F-4406-945D-96393963BCA8}"
       DTS:ObjectName="executionID">
       <DTS:Property
         DTS:DataType="20"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{84F7A7DB-F440-40F5-BC4F-53D6D0D32872}"
+      DTS:DTSID="{969F9433-04A0-4E2C-AA0A-B4095D298091}"
       DTS:ObjectName="mail_From">
       <DTS:Property
         DTS:DataType="8"
@@ -37,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{8C905E22-B9A2-44B2-B2EB-F5F29CCC9402}"
+      DTS:DTSID="{F560C93D-FF79-4C8F-B16C-C315E2D17552}"
       DTS:ObjectName="mail_To">
       <DTS:Property
         DTS:DataType="8"
@@ -46,7 +46,17 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{ABD2A0D9-3A1E-43A9-812B-54A389812DF8}"
+      DTS:DTSID="{A340ECDD-1D6E-4793-B49A-251A0CA13742}"
+      DTS:ObjectName="mail_ToAdmin">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{41A2E8FC-CEA0-452E-BAB1-4BE21EA3D7E8}"
       DTS:ObjectName="srcEkorg">
       <DTS:Property
         DTS:DataType="8"
@@ -56,7 +66,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{582479C2-4891-497E-863A-30DC2C3E833E}"
+      DTS:DTSID="{FEB7A3A6-0FE8-45FA-AF1C-DD49F98D6D23}"
       DTS:ObjectName="sysName">
       <DTS:Property
         DTS:DataType="8"
@@ -65,7 +75,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{D2154089-8E48-4381-AA04-456DF4E114C5}"
+      DTS:DTSID="{E9C695EA-9832-484D-9DC8-224401ECE820}"
       DTS:ObjectName="workDate">
       <DTS:Property
         DTS:DataType="8"
@@ -75,7 +85,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7C3D4139-2594-434B-9910-3872D88D2D3F}"
+      DTS:DTSID="{EE181EE1-8437-46B6-9699-FB3DF075BE9E}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="baseDetailFileName">
@@ -84,7 +94,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{96E5A74F-7EDD-47D2-B6D0-EB9AE76F9C9B}"
+      DTS:DTSID="{3A2F77BD-408D-49EA-BCAF-FC57D6CA0EEB}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="baseFlowFileName">
@@ -93,7 +103,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{33D7C1C9-6C4B-4119-B800-B2AAC1DBACD2}"
+      DTS:DTSID="{38B1D7C4-DC51-4736-8654-86828665E456}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="detailReportFile">
@@ -102,7 +112,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7F36EF21-9808-4B4D-B930-A6142E3C54CE}"
+      DTS:DTSID="{90656457-B43C-4924-99A2-B8D503346149}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;ETL作業執行日期(WORK_DATE)：&quot;+ @[$Package::workDate]"
       DTS:IncludeInDebugDump="2345"
@@ -113,7 +123,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{67DA9FC3-ADC3-4517-AB56-C920EA3322BE}"
+      DTS:DTSID="{F93B0F4E-B16D-4330-9CDB-6DB3B70383D8}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="failrecords">
@@ -122,7 +132,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{50C65D41-0033-41A3-885C-597B66B4E915}"
+      DTS:DTSID="{17703865-8B32-41E6-8D9F-4C1EA7E4985E}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="flowReportFile">
@@ -131,7 +141,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1BA49B74-3598-4675-BDAF-A11EF1236040}"
+      DTS:DTSID="{164B5466-7447-4AD7-86E8-CAFB5B97700F}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::sysName] +(len(@[$Package::srcEkorg]) &gt; 0 ?&quot; &quot;:&quot;&quot;)+ @[$Package::srcEkorg] +&quot;  資料處理&quot; + ( @[User::resultStatErrAmt] &gt; 0 ? &quot;異常，錯誤 &quot;+ (DT_STR,10, 950) @[User::resultStatErrAmt] +&quot; 個資料表&quot;:&quot;完畢&quot; )"
       DTS:IncludeInDebugDump="2345"
@@ -142,18 +152,18 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{00650787-3B08-4FFF-92B3-1CB657BBEB1F}"
+      DTS:DTSID="{BB75DA67-1026-48DF-B2D6-5A245171FA8E}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[$Project::EmailTilte]  + @[$Package::sysName] +(len(@[$Package::srcEkorg]) &gt; 0 ?&quot; &quot;:&quot;&quot;)+ @[$Package::srcEkorg] +&quot; 資料處理&quot;+( @[User::resultStatErrAmt] &gt; 0 ? &quot;異常&quot;:&quot;完畢&quot; )+&quot;_&quot; + (DT_STR, 4, 1252) DATEPART(&quot;yyyy&quot; , GETDATE())&#xA;+ RIGHT(&quot;0&quot; + (DT_STR, 2, 1252) DATEPART(&quot;mm&quot; , GETDATE()), 2)&#xA;+ RIGHT(&quot;0&quot; + (DT_STR, 2, 1252) DATEPART(&quot;dd&quot; , GETDATE()), 2)"
+      DTS:Expression="&quot;「ODS」&quot;  + @[$Package::sysName] +(len(@[$Package::srcEkorg]) &gt; 0 ?&quot; &quot;:&quot;&quot;)+ @[$Package::srcEkorg] +&quot; 資料處理&quot;+( @[User::resultStatErrAmt] &gt; 0 ? &quot;異常&quot;:&quot;完畢&quot; )+&quot;_&quot; + (DT_STR, 4, 1252) DATEPART(&quot;yyyy&quot; , GETDATE())&#xA;+ RIGHT(&quot;0&quot; + (DT_STR, 2, 1252) DATEPART(&quot;mm&quot; , GETDATE()), 2)&#xA;+ RIGHT(&quot;0&quot; + (DT_STR, 2, 1252) DATEPART(&quot;dd&quot; , GETDATE()), 2)"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="mail_subject">
       <DTS:VariableValue
-        DTS:DataType="8">「ODS」LMS 資料處理完畢_20191223</DTS:VariableValue>
+        DTS:DataType="8">「ODS」LMS 資料處理完畢_20211223</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{EAB38EA1-8A73-44E2-8E0E-140FD0899F8F}"
+      DTS:DTSID="{A16233DC-1517-44AD-880B-205A50B9F0FA}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="resultSet_detail">
@@ -171,7 +181,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{674B9EEC-996C-48CC-8F30-605633E333B6}"
+      DTS:DTSID="{676EACED-C02A-4624-AEF2-4D61FBD4EADC}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="resultSet_flow1">
@@ -189,7 +199,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{022CB317-4E19-48D5-A0E4-CDF74F1843AB}"
+      DTS:DTSID="{2170341D-17EB-47AA-B281-FE630F574F87}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="resultSet_flow2">
@@ -207,7 +217,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{116C9425-4944-4805-9946-09CA594AD445}"
+      DTS:DTSID="{2805A5A7-09E7-49FB-BA69-4694E6999560}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="resultSet_stat">
@@ -225,7 +235,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C9C5A736-644E-4C27-9A9B-DA2D84BA7AFD}"
+      DTS:DTSID="{95FEE447-2FE7-4B78-8E02-EE72A2AB8BEC}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="resultStatErrAmt">
@@ -234,7 +244,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{EB008700-0A0C-4076-BEAD-B5912E46D51A}"
+      DTS:DTSID="{1109E87C-87F3-4491-A07C-C31565B12BB3}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;select top 5000 main.SYS_NAME + CASE WHEN main.EKORG &lt;&gt; '' THEN '('+ main.EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統&#xA;    , main.EXECUTIONID&#xA;    , main.FILE_NAME&#xA;&#x9;, (select [DESC] from  StageETLDB.dbo.PROJECT_PARAMS where PARAM_VALUE = VPI.VERI_PROC_PKEY and TYPE = 1) AS VERI_DESC&#xA;&#x9;, VPI.COLUMN_NAME&#xA;&#x9;, SUBSTRING(VPLFD.RAW_DATA_PK,1,255) AS RAW_DATA_PK&#xA;&#x9;, SUBSTRING(VPLFD.RAW_DATA,1,255) AS RAW_DATA&#xA;&#x9;, VPL.START_VERI_DATE&#xA;&#x9;, VPL.END_VERI_DATE&#xA;from V_FILE_LIST main with(nolock) &#xA;join dbo.VERI_PRESTAGE_LOG VPL on main.FILE_NAME = VPL.FILE_NAME and main.EXECUTIONID = VPL.EXECUTIONID&#xA;join dbo.VERI_PRESTAGE_ITEM VPI on VPL.ITEM_PKEY = VPI.PKEY&#xA;join dbo.VERI_PRESTAGE_LOG_FAIL_DETAIL VPLFD on VPL.PKEY = VPLFD.LOG_PKEY&#xA;where main.SYS_NAME = '&quot;+ @[$Package::sysName] +&quot;' and main.EKORG = '&quot;+ @[$Package::srcEkorg] +&quot;' and main.WORK_DATE = '&quot;+ @[$Package::workDate]   + ( @[$Package::executionID] &gt; 0 ?  &quot;' and main.EXECUTIONID =   &quot;  + (DT_STR, 100, 950) @[$Package::executionID]   :  &quot;'&quot;  )   +&quot;   &#xA;order by ROW_NUMBER() OVER(order by main.EXECUTIONID desc, WORK_DATE desc, main.FILE_NAME, VPI.VERI_PROC_PKEY, VPLFD.PKEY)&#xA;&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -260,7 +270,7 @@ order by ROW_NUMBER() OVER(order by main.EXECUTIONID desc, WORK_DATE desc, main.
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{99856273-3461-4ADC-BB16-1CFF1556B210}"
+      DTS:DTSID="{63F49B9C-63DE-4C0B-9949-A7ED2D0007B4}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;select main.SYS_NAME + CASE WHEN main.EKORG &lt;&gt; '' THEN '('+ main.EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統&#xA;&#x9;, main.TABLE_NAME      -- 資料表名稱&#x9;&#xA;&#x9;, main.EXECUTIONID&#xA;&#x9;, CASE WHEN main.FILE_TYPE = 1 THEN 'CHECKFILE' ELSE '資料檔' END AS FILE_TYPE       -- 檔案類型：0=資料檔案,1=checkfile&#xA;&#x9;, COUNT(1) AS FILE_AMT -- 檔案數量&#xA;&#x9; /* ----- 重複下檔統計 ----- */&#xA;&#x9; , SUM(CASE WHEN exeEndInfo.FILE_STATUS = 11 THEN 1 ELSE 0 END) AS RELOAD_AMT&#xA;&#x9; /* ----- 第一列欄位名稱異常統計 ----- */&#xA;&#x9; , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (12) THEN 1 ELSE 0 END) AS COL_ERR_AMT&#xA;&#x9; /* ----- 異常統計 ----- */&#xA;&#x9; , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (51,61,71) THEN 1 ELSE 0 END) AS ERROR_AMT&#xA;&#x9; /* ----- 寫入結果統計 ----- */&#xA;&#x9; , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (81,82,83,84) AND ISNULL(veriFailCount.FAIL_AMT,0) = 0 THEN 1 ELSE 0 END) AS SUCCESS_AMT&#xA;&#x9; /* ----- 部分資料驗證錯誤無法寫入Stage結果統計 ----- */&#xA;&#x9; , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (81,82,83,84) AND ISNULL(veriFailCount.FAIL_AMT,0) &gt; 0 THEN 1 ELSE 0 END) AS VERI_PRESTAGE_FAIL_AMT&#xA;&#x9; /* ----- CHECKFILE 驗證結果統計 ----- */&#xA;&#x9; , SUM(CASE WHEN FILE_TYPE = 1 THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE IS NULL THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = -4 THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = 4 THEN 1&#xA;&#x9;&#x9;&#x9;&#x9;ELSE 0 END) AS CHECKFILE_VERI_SUCCESS&#xA;&#x9; , SUM(CASE WHEN FILE_TYPE = 1 THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE IS NULL THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = -4 THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = 4 THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;ELSE 1 END) AS CHECKFILE_VERI_FAIL&#xA;&#x9; /* ----- 執行中檔案數量統計 ----- */&#xA;&#x9; , SUM(CASE WHEN exeEndInfo.FILE_STATUS &lt; 10 THEN 1 ELSE 0 END) AS EXE_ING_AMT&#xA;&#x9; /* ----- 未處理檔案數量統計 ----- */&#xA;&#x9; , SUM(CASE WHEN exeEndInfo.FILE_STATUS &gt; 90 THEN 1 ELSE 0 END) AS QUEUE_AMT&#xA;&#x9; /* ----- 檔名不符合Pattern數量統計 ----- */&#xA;&#x9; , 0 AS PATTERN_ERR_AMT&#xA;  from V_FILE_LIST main with(nolock)&#xA;  left join V_FILE_HIS_EXE_END exeEndInfo with(nolock)&#xA;         on main.FILE_NAME = exeEndInfo.FILE_NAME&#xA;&#x9;    and main.CHECK_FILE_NAME = exeEndInfo.CHECK_FILE_NAME&#xA;&#x9;&#x9;and main.EXECUTIONID = exeEndInfo.EXECUTIONID&#xA;  left join V_FILE_VERI_FAIL_COUNT veriFailCount with(nolock)&#xA;         on main.FILE_NAME = veriFailCount.FILE_NAME&#xA;&#x9;&#x9;and main.EXECUTIONID = veriFailCount.EXECUTIONID&#xA;  left join V_FILE_VERI_CHECKFILE veriCheckfile with(nolock)&#xA;&#x9;     on main.FILE_NAME = veriCheckfile.FILE_NAME&#xA;&#x9;    and main.CHECK_FILE_NAME = veriCheckfile.CHECK_FILE_NAME&#xA;&#x9;&#x9;and main.EXECUTIONID = veriCheckfile.EXECUTIONID&#xA; where main.WORK_DATE = '&quot;+ @[$Package::workDate] +&quot;'  and main.SYS_NAME = '&quot;+ @[$Package::sysName] +&quot;' and main.EKORG = '&quot;+ @[$Package::srcEkorg] +&quot;'  and (FILE_TYPE = 1 or (FILE_TYPE = 0 and TABLE_NAME &lt;&gt; '')) &quot;  + ( @[$Package::executionID] &gt; 0 ?  &quot; and main.EXECUTIONID =   &quot;  + (DT_STR, 100, 950) @[$Package::executionID]   :  &quot;&quot;  )  +  &quot;&#xA; group by main.SYS_NAME, main.EKORG, main.TABLE_NAME, main.FILE_TYPE, main.EXECUTIONID&#xA; union&#xA; select SYS_NAME + CASE WHEN EKORG &lt;&gt; '' THEN '('+ EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統&#xA;&#x9;, '' AS TABLE_NAME      -- 資料表名稱&#x9;&#xA;&#x9;, EXECUTIONID&#xA;&#x9;, '不符合ODS檔名規則' AS FILE_TYPE       -- 檔案類型&#xA;&#x9;, ISNULL(COUNT(1),0) AS FILE_AMT -- 檔案數量&#xA;&#x9; /* ----- 重複下檔統計 ----- */&#xA;&#x9; , 0 AS RELOAD_AMT&#xA;&#x9; /* ----- 第一列欄位名稱異常統計 ----- */&#xA;&#x9; , 0 AS COL_ERR_AMT&#xA;&#x9; /* ----- 異常統計 ----- */&#xA;&#x9; , 0 AS ERROR_AMT&#xA;&#x9; /* ----- 寫入結果統計 ----- */&#xA;&#x9; , 0 AS SUCCESS_AMT&#xA;&#x9; /* ----- 部分資料驗證錯誤無法寫入Stage結果統計 ----- */&#xA;&#x9; , 0 AS VERI_PRESTAGE_FAIL_AMT&#xA;&#x9; /* ----- CHECKFILE 驗證結果統計 ----- */&#xA;&#x9; , 0 AS CHECKFILE_VERI_SUCCESS&#xA;&#x9; , 0 AS CHECKFILE_VERI_FAIL&#xA;&#x9; /* ----- 執行中檔案數量統計 ----- */&#xA;&#x9; , 0 AS EXE_ING_AMT&#xA;&#x9; /* ----- 未處理檔案數量統計 ----- */&#xA;&#x9; , 0 AS QUEUE_AMT&#xA;&#x9; /* ----- 檔名不符合Pattern數量統計 ----- */&#xA;&#x9; , ISNULL(COUNT(1),0) AS PATTERN_ERR_AMT&#xA;   from FILE_REC&#xA;  where WORK_DATE = '&quot;+ @[$Package::workDate] +&quot;'  and SYS_NAME = '&quot;+ @[$Package::sysName] +&quot;' and EKORG = '&quot;+ @[$Package::srcEkorg] +&quot;'  and FILE_STATUS in (13) &quot;  + ( @[$Package::executionID] &gt; 0 ?  &quot; and EXECUTIONID =   &quot;  + (DT_STR, 100, 950) @[$Package::executionID]   :  &quot;&quot;  )  +  &quot;&#xA;  group by WORK_DATE, SYS_NAME, EKORG, EXECUTIONID&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -344,7 +354,7 @@ order by ROW_NUMBER() OVER(order by main.EXECUTIONID desc, WORK_DATE desc, main.
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4AF9A977-56E3-4749-9221-2F1E782B56AA}"
+      DTS:DTSID="{B22AD5C0-8095-44EA-ABCE-CC066DE76C06}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[User::sqlFlow1Base] +&quot; order by SYS_NAME, EXECUTIONID desc,  FILE_TYPE , TABLE_NAME &quot;"
       DTS:IncludeInDebugDump="2345"
@@ -428,7 +438,7 @@ order by ROW_NUMBER() OVER(order by main.EXECUTIONID desc, WORK_DATE desc, main.
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{499CD842-A9B2-4928-B948-1B83BC9518A2}"
+      DTS:DTSID="{42EAF486-3298-4976-BC89-8C1BB07D00BE}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;select ISNULL(SUM(RELOAD_AMT) + SUM(COL_ERR_AMT) + SUM(ERROR_AMT) + SUM(CHECKFILE_VERI_FAIL) + SUM(VERI_PRESTAGE_FAIL_AMT),0) AS ERR_AMT&#xA;     , ISNULL(SUM(SUCCESS_AMT),0) AS SUCCESS_AMT&#xA;&#x9; , ISNULL(SUM(EXE_ING_AMT) + SUM(QUEUE_AMT) + SUM(PATTERN_ERR_AMT),0) AS OTHER_AMT&#xA;  from (&quot; + @[User::sqlFlow1Base]   + &quot;)tmp&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -515,7 +525,7 @@ order by ROW_NUMBER() OVER(order by main.EXECUTIONID desc, WORK_DATE desc, main.
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4A70A473-EE74-4684-A247-07BB8F22015B}"
+      DTS:DTSID="{0336674E-68C9-43C4-B906-4F0B0690E56B}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;select main.SYS_NAME + CASE WHEN main.EKORG &lt;&gt; '' THEN '('+ main.EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統&#xA;&#x9; , main.TABLE_NAME      -- 資料表名稱&#xA;&#x9; , CASE WHEN main.FILE_TYPE = 1 THEN '' WHEN ISNULL(tabs.STATUS,0) = '0' THEN '停用' ELSE '' END AS STATUS&#xA;&#x9; , main.EXECUTIONID     -- 排程執行序號&#xA;&#x9; , main.FILE_NAME       -- 資料檔名&#xA;&#x9; , CASE WHEN main.FILE_TYPE = 1 THEN 'CHECKFILE' ELSE '資料檔' END AS FILE_TYPE       -- 檔案類型：0=資料檔案,1=checkfile&#xA;&#x9; , exeEndInfo.FILE_OP             -- 事件別&#xA;&#x9; , exeEndInfo.FILE_ETL_START_TIME -- 檔案開始ETL作業時間&#xA;&#x9; , round(CAST(DATEDIFF(millisecond,FILE_ETL_START_TIME,FILE_ETL_END_TIME) as float) /1000,2) AS FILE_ETL_DURATION -- 檔案執行ETL作業持續時間(秒)&#xA;&#x9; , (select [DESC] from [StageETLDB].[dbo].[PROJECT_PARAMS] where TYPE = 2 and PARAM_VALUE = exeEndInfo.FILE_STATUS) AS FILE_STATUS -- 檔案最終執行狀態&#xA;&#x9; , CASE WHEN FILE_TYPE = 1 THEN '-'&#xA;&#x9;        WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE IS NULL THEN '-'&#xA;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = -4 THEN '設定不須執行CHECKFILE驗證'&#xA;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = 4 THEN '通過'&#xA;&#x9;&#x9;&#x9;ELSE '失敗' END AS VERI_CHECKFILE -- chekfile驗證結果&#xA;&#x9; , exeEndInfo.ROW_COUNT_REAL      -- 資料筆數&#xA;&#x9; , CASE WHEN main.FILE_TYPE = 1 THEN 0 ELSE ISNULL(veriFailCount.FAIL_AMT,0) END AS FAIL_AMT                                -- 資料驗證失敗筆數&#xA;&#x9; , CASE WHEN main.FILE_TYPE = 1 THEN 0 WHEN exeEndInfo.FILE_STATUS between 10 and 80 then 0 ELSE exeEndInfo.ROW_COUNT_REAL - ISNULL(veriFailCount.FAIL_AMT,0) END AS SUCCESS_AMT -- 資料驗證成功筆數&#xA;&#x9; , main.CHECK_FILE_NAME -- checkfile檔名&#xA;&#x9; , (select top 1 package_name from [ssisdb].[catalog].executables where execution_id = main.EXECUTIONID and '{' + convert(nvarchar(100),package.sourceid) + '}' = executable_guid) AS PACKAGE_NAME&#xA;&#x9; , main.WORK_DATE       -- 批號&#xA;&#x9; , exeEndInfo.CHECK_SUM_REAL      -- checksum&#xA;&#x9; , exeEndInfo.FILE_ETL_END_TIME   -- 檔案結束ETL作業時間&#x9; &#xA;  from (select * from STAGE_TAB_ACT union select * from STAGE_TAB_HIS) tabs&#xA;  full outer join V_FILE_LIST main with(nolock) &#xA;    on tabs.SYS_NAME = main.SYS_NAME &#xA;   and tabs.EKORG = main.EKORG&#xA;   and tabs.TABLE_NAME = main.TABLE_NAME&#xA;   and tabs.WORK_DATE = main.WORK_DATE&#xA;  left join V_FILE_HIS_EXE_END exeEndInfo &#xA;         on main.FILE_NAME = exeEndInfo.FILE_NAME&#xA;&#x9;    and main.CHECK_FILE_NAME = exeEndInfo.CHECK_FILE_NAME&#xA;&#x9;&#x9;and main.EXECUTIONID = exeEndInfo.EXECUTIONID&#xA;  left join V_FILE_VERI_FAIL_COUNT veriFailCount&#xA;         on main.FILE_NAME = veriFailCount.FILE_NAME&#xA;&#x9;&#x9;and main.EXECUTIONID = veriFailCount.EXECUTIONID&#xA;  left join V_FILE_VERI_CHECKFILE veriCheckfile &#xA;&#x9;     on main.FILE_NAME = veriCheckfile.FILE_NAME&#xA;&#x9;    and main.CHECK_FILE_NAME = veriCheckfile.CHECK_FILE_NAME&#xA;&#x9;&#x9;and main.EXECUTIONID = veriCheckfile.EXECUTIONID&#xA;  left join V_FILE_EXE_PACKAGE package on main.FILE_NAME = package.FILE_NAME&#xA; where main.SYS_NAME = '&quot;+ @[$Package::sysName] +&quot;' and main.EKORG = '&quot;+ @[$Package::srcEkorg] +&quot;' and main.WORK_DATE = '&quot;+ @[$Package::workDate] +&quot;'  and (FILE_TYPE = 1 or (FILE_TYPE = 0 and main.TABLE_NAME &lt;&gt; '')) &quot;  + ( @[$Package::executionID] &gt; 0 ?  &quot; and main.EXECUTIONID =   &quot;  + (DT_STR, 100, 950) @[$Package::executionID]   :  &quot;&quot;  )  +  &quot;&#xA; union&#xA; select SYS_NAME + CASE WHEN EKORG &lt;&gt; '' THEN '('+ EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統&#xA;&#x9; , '' AS TABLE_NAME      -- 資料表名稱&#xA;&#x9; , '' AS STATUS&#xA;&#x9; , EXECUTIONID     -- 排程執行序號&#xA;&#x9; , FILE_NAME       -- 資料檔名&#xA;&#x9; , '不符合ODS檔名規則' AS FILE_TYPE       -- 檔案類型：0=資料檔案,1=checkfile&#xA;&#x9; , '' AS FILE_OP             -- 事件別&#xA;&#x9; , ETL_INSERT_DATE AS FILE_ETL_START_TIME -- 檔案開始ETL作業時間&#xA;&#x9; , round(0,2) AS FILE_ETL_DURATION -- 檔案執行ETL作業持續時間(秒)&#xA;&#x9; , (select [DESC] from [StageETLDB].[dbo].[PROJECT_PARAMS] where TYPE = 2 and PARAM_VALUE = FILE_STATUS) AS FILE_STATUS -- 檔案最終執行狀態&#xA;&#x9; , '-' AS VERI_CHECKFILE -- chekfile驗證結果&#xA;&#x9; , 0 AS ROW_COUNT_REAL      -- 資料筆數&#xA;&#x9; , 0 AS FAIL_AMT                                -- 資料驗證失敗筆數&#xA;&#x9; , 0 AS SUCCESS_AMT -- 資料驗證成功筆數&#xA;&#x9; , ISNULL(CHECK_FILE_NAME,'') AS CHECK_FILE_NAME -- checkfile檔名&#xA;&#x9; , (select top 1 package_name from [ssisdb].[catalog].executables where execution_id = EXECUTIONID and '{' + convert(nvarchar(100),sourceid) + '}' = executable_guid) AS PACKAGE_NAME&#xA;&#x9; , WORK_DATE       -- 批號&#xA;&#x9; , '' AS CHECK_SUM_REAL      -- checksum&#xA;&#x9; , '' AS FILE_ETL_END_TIME   -- 檔案結束ETL作業時間&#xA; from FILE_REC&#xA; where SYS_NAME = '&quot;+ @[$Package::sysName] +&quot;' and EKORG = '&quot;+ @[$Package::srcEkorg] +&quot;' and WORK_DATE = '&quot;+ @[$Package::workDate] +&quot;'  and FILE_STATUS in (13) &quot;  + ( @[$Package::executionID] &gt; 0 ?  &quot; and EXECUTIONID =   &quot;  + (DT_STR, 100, 950) @[$Package::executionID]   :  &quot;&quot;  )  +  &quot;&#xA;order by STATUS ,EXECUTIONID desc, WORK_DATE desc, FILE_NAME&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -590,7 +600,7 @@ order by STATUS ,EXECUTIONID desc, WORK_DATE desc, FILE_NAME</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3D41368E-584D-4527-B105-2188334F366D}"
+      DTS:DTSID="{3ECE6FC5-A744-44B1-A6D6-8B1D5786A8A5}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tmpDetailFileName">
@@ -599,7 +609,7 @@ order by STATUS ,EXECUTIONID desc, WORK_DATE desc, FILE_NAME</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B3274E75-45C5-400D-871A-95D1CE732C83}"
+      DTS:DTSID="{116401F9-FA92-4B8F-98D0-9781CFF6700F}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tmpExtFileName">
@@ -608,7 +618,7 @@ order by STATUS ,EXECUTIONID desc, WORK_DATE desc, FILE_NAME</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{83A608C2-5FF8-45B1-83E4-99DC008A92F3}"
+      DTS:DTSID="{3AB7AA3A-FD2F-41AD-A5E1-D35EB70B8E93}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tmpFilePath">
@@ -617,7 +627,7 @@ order by STATUS ,EXECUTIONID desc, WORK_DATE desc, FILE_NAME</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C2FF9AF4-27DF-4321-B401-2B57333F3A17}"
+      DTS:DTSID="{7A8830A3-7BE0-4954-BA8A-EA1DA1FED103}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tmpFlowFileName">
@@ -630,7 +640,7 @@ order by STATUS ,EXECUTIONID desc, WORK_DATE desc, FILE_NAME</DTS:VariableValue>
       DTS:refId="Package\修正excel格式"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="指令碼工作"
-      DTS:DTSID="{F8662A7F-6351-4FEC-99F3-857D3E5A5A78}"
+      DTS:DTSID="{6D2C1B48-3A52-44C0-81A8-8A3A28872D19}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="修正excel格式"
@@ -644,36 +654,6 @@ order by STATUS ,EXECUTIONID desc, WORK_DATE desc, FILE_NAME</DTS:VariableValue>
           Language="CSharp"
           ReadOnlyVariables="User::detailReportFile,User::excelDateTimeString,User::flowReportFile,User::resultSet_detail,User::resultSet_flow1,User::resultSet_flow2,User::resultSet_stat"
           ReadWriteVariables="User::resultStatErrAmt">
-          <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_f28b723f02644bbb883ef06efd8422d7")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_f28b723f02644bbb883ef06efd8422d7")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -793,6 +773,35 @@ using System.Runtime.CompilerServices;
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_f28b723f02644bbb883ef06efd8422d7.Properties.Settings.get_Default():ST_f28b723f02644bbb883ef06efd8422d7.Properties.Sett" +
+    "ings")]
+
+namespace ST_f28b723f02644bbb883ef06efd8422d7.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
           <ProjectItem
             Name="Settings.cs"
             Encoding="UTF8"><![CDATA[namespace ST_f28b723f02644bbb883ef06efd8422d7.Properties {
@@ -1288,34 +1297,35 @@ namespace ST_f28b723f02644bbb883ef06efd8422d7
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
 //
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_f28b723f02644bbb883ef06efd8422d7")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_f28b723f02644bbb883ef06efd8422d7")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
 
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_f28b723f02644bbb883ef06efd8422d7.Properties.Settings.get_Default():ST_f28b723f02644bbb883ef06efd8422d7.Properties.Sett" +
-    "ings")]
-
-namespace ST_f28b723f02644bbb883ef06efd8422d7.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Settings.settings"
             Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
@@ -1582,12 +1592,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       DTS:CreationName="Microsoft.SendMailTask"
       DTS:DelayValidation="True"
       DTS:Description="傳送郵件工作"
-      DTS:DTSID="{AA4F0F0D-0B09-4B05-8B78-208355CD16F5}"
+      DTS:DTSID="{38338BE0-38B9-4F16-AB8B-C6F2AD961D12}"
       DTS:ExecutableType="Microsoft.SendMailTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="傳送郵件工作"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="CCLine">@[$Package::mail_ToAdmin]</DTS:PropertyExpression>
       <DTS:PropertyExpression
         DTS:Name="FileAttachments">@[User::flowReportFile] + "|" +  @[User::detailReportFile]</DTS:PropertyExpression>
       <DTS:PropertyExpression
@@ -1603,7 +1615,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           SendMailTask:SMTPServer="{AAA07245-3276-4E20-A98C-093FFC81D00F}"
           SendMailTask:From="Eslite ODS Test"
           SendMailTask:To="1505003@iisigroup.com"
-          SendMailTask:Subject="「ODS」LMS 資料處理完畢_20191223"
+          SendMailTask:Subject="「ODS」LMS 資料處理完畢_20211223"
           SendMailTask:MessageSource="LMS  資料處理完畢" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask">
           <SendMailTask:Attachments
             SendMailTask:FileName="C:\\SSIS_DATA\\template\\stage_flow_template.xlsx|C:\\SSIS_DATA\\template\\stage_detail_template.xlsx" />
@@ -1614,7 +1626,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       DTS:refId="Package\從參數檔USER_PARAMS取得EXCEL檔案範本路徑"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{E88C823B-E8FD-405A-A1A1-D787261F030E}"
+      DTS:DTSID="{2C4C00E4-1C0A-4543-8DBD-EAFF090FCC74}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="從參數檔USER_PARAMS取得EXCEL檔案範本路徑"
@@ -1635,7 +1647,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{6E7B8F11-B7A3-4762-898E-B9E3FFFB0ABE}"
+      DTS:DTSID="{C3E0A951-8A5A-4174-9ABF-1D4BF9F258AB}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器">
@@ -1645,11 +1657,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           DTS:refId="Package\時序容器\產生流程報表resultSet(Sheet1)"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{1A06B47A-882E-4AD8-AE79-400C801AAD3C}"
+          DTS:DTSID="{465582E6-0B0C-4186-89A4-4B703FBAD970}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="產生流程報表resultSet(Sheet1)"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1667,11 +1679,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           DTS:refId="Package\時序容器\產生流程報表resultSet(Sheet2)"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{773e7d73-6bef-41b6-afc4-dd2ce5d9a6de}"
+          DTS:DTSID="{D5C613E3-931B-4ADB-8869-334F29E23447}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="產生流程報表resultSet(Sheet2)"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1689,11 +1701,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           DTS:refId="Package\時序容器\產生流程報表Stat resultSet(Sheet1)"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{77447bd3-261b-4d4d-836d-f5704a657adc}"
+          DTS:DTSID="{AA200865-B66E-45AD-B060-7DF3FD6D8DC4}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="產生流程報表Stat resultSet(Sheet1)"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1711,11 +1723,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           DTS:refId="Package\時序容器\產生資料驗證錯誤明細報表ResultSet"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{f9b52b40-05c7-45d4-804b-6efab8d8bd93}"
+          DTS:DTSID="{5ABCAA35-B3AE-4379-A7E4-6BA48F565DBA}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="產生資料驗證錯誤明細報表ResultSet"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1735,7 +1747,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
       DTS:refId="Package\用檔案範本 generate 空的EXCEL檔案"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="準備templateLogFile"
-      DTS:DTSID="{FBBA0E60-5D8C-449A-9495-D66E63431F1C}"
+      DTS:DTSID="{E7599CF7-D6A1-4141-A38C-A7331691E5FB}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="用檔案範本 generate 空的EXCEL檔案"
@@ -1955,35 +1967,34 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
   </resheader>
 </root>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
 
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_325531be07a84c3f9b40f7a02a314619")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_325531be07a84c3f9b40f7a02a314619")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_325531be07a84c3f9b40f7a02a314619.Properties.Settings.get_Default():ST_325531be07a84c3f9b40f7a02a314619.Properties.Sett" +
+    "ings")]
 
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+namespace ST_325531be07a84c3f9b40f7a02a314619.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -2146,34 +2157,35 @@ namespace ST_325531be07a84c3f9b40f7a02a314619
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
 //
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_325531be07a84c3f9b40f7a02a314619")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_325531be07a84c3f9b40f7a02a314619")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
 
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_325531be07a84c3f9b40f7a02a314619.Properties.Settings.get_Default():ST_325531be07a84c3f9b40f7a02a314619.Properties.Sett" +
-    "ings")]
-
-namespace ST_325531be07a84c3f9b40f7a02a314619.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Settings.settings"
             Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
@@ -2395,7 +2407,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{34C3FFA0-471E-4EBB-9691-48E32346E0D1}"
+      DTS:DTSID="{2F94975C-09DC-4D80-BEA3-86F2CAEB6842}"
       DTS:From="Package\用檔案範本 generate 空的EXCEL檔案"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -2403,7 +2415,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{76176B79-8BF4-4EB9-AB62-AB23A70F6B4A}"
+      DTS:DTSID="{C194C3FF-90D7-439A-B548-5E26F63792A6}"
       DTS:From="Package\修正excel格式"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -2411,7 +2423,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{03B978C5-E67F-4450-93F1-D8FB72FB472F}"
+      DTS:DTSID="{166F1E10-A321-4677-912C-B713B293348D}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -2419,7 +2431,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{112B04C3-49EE-43A5-BB6E-FD6BDF51DDD3}"
+      DTS:DTSID="{F3FFCCCB-A2A7-4FB1-87FD-A4CDCDF4D196}"
       DTS:From="Package\從參數檔USER_PARAMS取得EXCEL檔案範本路徑"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
