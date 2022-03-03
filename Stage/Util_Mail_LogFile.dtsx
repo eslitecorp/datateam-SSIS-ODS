@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="1/11/2019 9:46:36 AM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1028"
   DTS:ObjectName="Util_Mail_LogFile"
   DTS:PackageType="5"
-  DTS:VersionBuild="656"
-  DTS:VersionGUID="{7CBE3E9E-8A9B-45AD-B078-902F7F13F879}">
+  DTS:VersionBuild="657"
+  DTS:VersionGUID="{A18C6254-4A05-4B5E-8781-5BD9C0338FD3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -188,7 +188,7 @@ SELECT TABLE_NAME
       DTS:Namespace="User"
       DTS:ObjectName="mail_subject">
       <DTS:VariableValue
-        DTS:DataType="8">「ODS」ECS2 資料處理完畢(含未下檔清單)_20220218</DTS:VariableValue>
+        DTS:DataType="8">「ODS」ECS2 資料處理完畢(含未下檔清單)_20220303</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -649,21 +649,26 @@ order by STATUS ,EXECUTIONID desc, WORK_DATE desc, FILE_NAME</DTS:VariableValue>
       DTS:CreationName=""
       DTS:DTSID="{3E1ABBAA-35E3-4DF1-9801-24EC7A823883}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT TABLE_NAME &#xA;  FROM [StagingDB_TW].[dbo].[FILE_REC]&#xA;  where sys_name = '&quot;+@[$Package::sysName]+&quot;'&#xA;    and work_date = '&quot;+@[$Package::workDate]+&quot;'&#xA;    and ekorg = '&quot;+@[$Package::srcEkorg]+&quot;'&#xA;&#x9;and file_type != 1&#xA;  group by table_name&#xA;  having sum(case when file_type = 2 then -1&#xA;&#x9;&#x9;&#x9;&#x9;  when file_status = 99 and file_op is null then -1 &#xA;&#x9;&#x9;&#x9;      else 1 end) &lt; 0&quot;"
+      DTS:Expression="&quot;SELECT F.TABLE_NAME &#xA;  FROM STAGINGDB_TW.DBO.FILE_REC F &#xA;  JOIN STAGINGDB_TW.DBO.STAGE_TAB_CTL C&#xA;    ON F.SYS_NAME = C.SYS_NAME&#xA;   AND F.EKORG = C.EKORG&#xA;   AND F.TABLE_NAME = C.TABLE_NAME&#xA;   AND C.MAIL_TO_SYSADMIN = 1&#xA;  WHERE F.SYS_NAME = '&quot;+@[$Package::sysName]+&quot;'&#xA;    AND F.WORK_DATE = '&quot;+@[$Package::workDate]+&quot;'&#xA;    AND F.EKORG = '&quot;+@[$Package::srcEkorg]+&quot;'&#xA;&#x9;AND F.FILE_TYPE != 1&#xA;  GROUP BY F.TABLE_NAME&#xA;  HAVING SUM(CASE WHEN FILE_TYPE = 2 THEN -1&#xA;&#x9;&#x9;&#x9;&#x9;  WHEN FILE_STATUS = 99 AND FILE_OP IS NULL THEN -1 &#xA;&#x9;&#x9;&#x9;      ELSE 1 END) &lt; 0&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="sqlNoDataTable">
       <DTS:VariableValue
-        DTS:DataType="8">SELECT TABLE_NAME 
-  FROM [StagingDB_TW].[dbo].[FILE_REC]
-  where sys_name = 'ECS2'
-    and work_date = '2022-01-17'
-    and ekorg = ''
-	and file_type != 1
-  group by table_name
-  having sum(case when file_type = 2 then -1
-				  when file_status = 99 and file_op is null then -1 
-			      else 1 end) &lt; 0</DTS:VariableValue>
+        DTS:DataType="8">SELECT F.TABLE_NAME 
+  FROM STAGINGDB_TW.DBO.FILE_REC F 
+  JOIN STAGINGDB_TW.DBO.STAGE_TAB_CTL C
+    ON F.SYS_NAME = C.SYS_NAME
+   AND F.EKORG = C.EKORG
+   AND F.TABLE_NAME = C.TABLE_NAME
+   AND C.MAIL_TO_SYSADMIN = 1
+  WHERE F.SYS_NAME = 'ECS2'
+    AND F.WORK_DATE = '2022-01-17'
+    AND F.EKORG = ''
+	AND F.FILE_TYPE != 1
+  GROUP BY F.TABLE_NAME
+  HAVING SUM(CASE WHEN FILE_TYPE = 2 THEN -1
+				  WHEN FILE_STATUS = 99 AND FILE_OP IS NULL THEN -1 
+			      ELSE 1 END) &lt; 0</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -721,36 +726,6 @@ order by STATUS ,EXECUTIONID desc, WORK_DATE desc, FILE_NAME</DTS:VariableValue>
           Language="CSharp"
           ReadOnlyVariables="User::detailReportFile,User::excelDateTimeString,User::flowReportFile,User::resultNoDataTable,User::resultSet_detail,User::resultSet_flow1,User::resultSet_flow2,User::resultSet_stat"
           ReadWriteVariables="User::mail_msgNoDataTable,User::resultStatErrAmt">
-          <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_f28b723f02644bbb883ef06efd8422d7")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_f28b723f02644bbb883ef06efd8422d7")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -870,6 +845,35 @@ using System.Runtime.CompilerServices;
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_f28b723f02644bbb883ef06efd8422d7.Properties.Settings.get_Default():ST_f28b723f02644bbb883ef06efd8422d7.Properties.Sett" +
+    "ings")]
+
+namespace ST_f28b723f02644bbb883ef06efd8422d7.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
           <ProjectItem
             Name="Settings.cs"
             Encoding="UTF8"><![CDATA[namespace ST_f28b723f02644bbb883ef06efd8422d7.Properties {
@@ -1373,34 +1377,35 @@ namespace ST_f28b723f02644bbb883ef06efd8422d7
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
 //
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_f28b723f02644bbb883ef06efd8422d7")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_f28b723f02644bbb883ef06efd8422d7")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
 
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_f28b723f02644bbb883ef06efd8422d7.Properties.Settings.get_Default():ST_f28b723f02644bbb883ef06efd8422d7.Properties.Sett" +
-    "ings")]
-
-namespace ST_f28b723f02644bbb883ef06efd8422d7.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Settings.settings"
             Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
@@ -1690,7 +1695,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           SendMailTask:SMTPServer="{AAA07245-3276-4E20-A98C-093FFC81D00F}"
           SendMailTask:From="Eslite ODS Test"
           SendMailTask:To="1505003@iisigroup.com"
-          SendMailTask:Subject="「ODS」ECS2 資料處理完畢(含未下檔清單)_20220218"
+          SendMailTask:Subject="「ODS」ECS2 資料處理完畢(含未下檔清單)_20220303"
           SendMailTask:MessageSource="ECS2  資料處理完畢&#xA;&#xA;未下檔清單:&#xA;---------------------------&#xA;SELECT TABLE_NAME &#xA;  FROM [StagingDB_TW].[dbo].[FILE_REC]&#xA;  where sys_name = 'ecs2'&#xA;    and work_date = '2022-01-17'&#xA;    and ekorg = ''&#xA;&#x9;and file_type != 1&#xA;  group by table_name&#xA;  having sum(case file_type when 2 then -1&#xA;&#x9;&#x9;&#x9;          else 1 end) &lt; 0 ---------------------------" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask">
           <SendMailTask:Attachments
             SendMailTask:FileName="C:\\SSIS_DATA\\template\\stage_flow_template.xlsx|C:\\SSIS_DATA\\template\\stage_detail_template.xlsx" />
@@ -1736,7 +1741,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="產生流程報表resultSet(Sheet1)"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1758,7 +1763,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="產生流程報表resultSet(Sheet2)"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1780,7 +1785,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="產生流程報表Stat resultSet(Sheet1)"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1802,7 +1807,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="產生無資料TABLE清單"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -1824,7 +1829,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="產生資料驗證錯誤明細報表ResultSet"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2064,14 +2069,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
   </resheader>
 </root>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_325531be07a84c3f9b40f7a02a314619")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_325531be07a84c3f9b40f7a02a314619")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -2263,35 +2289,14 @@ namespace ST_325531be07a84c3f9b40f7a02a314619.Properties {
     }
 }]]></ProjectItem>
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_325531be07a84c3f9b40f7a02a314619")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_325531be07a84c3f9b40f7a02a314619")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
