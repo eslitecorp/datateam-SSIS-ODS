@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="6/12/2019 9:15:17 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{10602FAD-CCDA-45E1-8CFB-DA5D2B221B85}"
+  DTS:DTSID="{DD08E6B3-452D-444D-89AE-BB7A065F2DC0}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="FREEBIE_COUPON_APP"
   DTS:PackageType="5"
-  DTS:VersionBuild="385"
-  DTS:VersionGUID="{2ED2B376-4895-47F1-A300-ACF556FE1EDB}">
+  DTS:VersionBuild="386"
+  DTS:VersionGUID="{2C507515-6E84-4D05-8BC3-28F7E01EC1C8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{918DBDCB-A729-4DB2-9709-EE2B2BC61F89}"
+      DTS:DTSID="{9F709176-32F1-4C77-8F69-2AF67D19332C}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{3E784115-B475-4218-A64A-8730DFA7E58F}"
+      DTS:DTSID="{513F247D-54B7-4343-B96B-3D8A00E1E1B6}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -37,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{CB9A6325-CC1A-4168-91AA-71FB029DA439}"
+      DTS:DTSID="{479070FE-420C-4922-B708-7120CFEA4563}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -48,7 +48,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B6461491-6797-4E2B-8C13-17B66191EC10}"
+      DTS:DTSID="{25C67551-F0AF-4DF3-9AFA-7BCE170C495F}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -57,7 +57,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{36DA4E29-2862-4106-8CD3-18F4CFD5AEC4}"
+      DTS:DTSID="{23606ECA-FFB3-4729-AEE5-69CFFACBD76B}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ?,?,? );&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -69,7 +69,7 @@ values(?,?,?,(select count(*) from dbo.FREEBIE_COUPON_APP_),?,GETDATE(), ?,?,? )
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{6AFF593D-1531-49CB-81B6-66E6F821AC9C}"
+      DTS:DTSID="{1E97B553-F433-4EF5-AEBD-4640BBF9E3B2}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -80,7 +80,7 @@ values(?,?,?,(select count(*) from dbo.FREEBIE_COUPON_APP_),?,GETDATE(), ?,?,? )
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{394568CA-998D-48AA-85D4-52E7600FDE24}"
+      DTS:DTSID="{395F047D-3999-4538-B1AC-D686761BB882}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -90,7 +90,7 @@ values(?,?,?,(select count(*) from dbo.FREEBIE_COUPON_APP_),?,GETDATE(), ?,?,? )
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{2563AE7A-3B46-4AD6-8E6F-A57C28E702A8}"
+      DTS:DTSID="{2E8D6C78-CDDF-43E1-99A7-B451A245A84B}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;select COUPON_ID&#xA;&#x9; , COUPON_NO&#xA;&#x9; , MEMBER_ID&#xA;&#x9; , EVENT_ID&#xA;&#x9; , OFFER_ID&#xA;&#x9; , COUPON_NAME&#xA;&#x9; , COUPON_STS&#xA;&#x9; , COUPON_DATE_RECV&#xA;&#x9; , COUPON_DATE_USE&#xA;&#x9; , COUPON_DATE_STSUPD&#xA;&#x9; , COUNTER_ID_RE&#xA;&#x9; , WERKS_RE&#xA;from APP.Coupon&#xA;where ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) +&quot;' as date) as datetime)&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -110,11 +110,11 @@ values(?,?,?,(select count(*) from dbo.FREEBIE_COUPON_APP_),?,GETDATE(), ?,?,? )
 	 , COUNTER_ID_RE
 	 , WERKS_RE
 from APP.Coupon
-where ETL_DATE &gt;= cast(cast('2020-11-17 11:57:32.071000000' as date) as datetime)</DTS:VariableValue>
+where ETL_DATE &gt;= cast(cast('2022-04-11 15:00:51.630000000' as date) as datetime)</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{01D4A021-ACEE-4423-B762-BB1C44D27495}"
+      DTS:DTSID="{59E08D6C-0B7C-4A1B-BBBE-F627DBCBD9F9}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -123,7 +123,7 @@ where ETL_DATE &gt;= cast(cast('2020-11-17 11:57:32.071000000' as date) as datet
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C92553DA-58F2-40D6-AE8A-5B88AAA78E2A}"
+      DTS:DTSID="{4E0A5842-DD83-4BF9-BE74-89C14FA548F4}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -132,7 +132,7 @@ where ETL_DATE &gt;= cast(cast('2020-11-17 11:57:32.071000000' as date) as datet
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C005EDCB-D3AB-42B1-BDD5-258667D0D53E}"
+      DTS:DTSID="{CCEBD4B2-10C4-4537-89C6-EE862FA65BDE}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -147,7 +147,7 @@ where ETL_DATE &gt;= cast(cast('2020-11-17 11:57:32.071000000' as date) as datet
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{A0DBD3B5-48AB-4AC8-B191-2696014F644C}"
+      DTS:DTSID="{BF22BEE7-02F9-487C-AB99-E466F94B8CE5}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -5685,7 +5685,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[Offer_ID 的副本]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="10"
+                      cachedLength="15"
                       cachedName="Offer_ID 的副本"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[Offer_ID]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Offer_ID 的副本]" />
@@ -5793,7 +5793,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[Offer_ID]"
                       codePage="950"
                       dataType="str"
-                      length="10"
+                      length="15"
                       name="Offer_ID" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[Coupon_NAME]"
@@ -6954,7 +6954,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="10"
+                      length="15"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Offer_ID 的副本]"
                       name="Offer_ID 的副本"
                       truncationRowDisposition="RedirectRow">
@@ -7229,7 +7229,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{e6bad1d4-8f35-46f5-a428-7d03f37b27d1}"
+      DTS:DTSID="{983D1B8F-C89F-4B40-96F5-3A07858307E2}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -7254,7 +7254,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{beee9c76-3040-46e3-b884-c7d694578e15}"
+      DTS:DTSID="{BD316B66-D0F0-4EB1-8660-3074455DB2DF}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -7275,7 +7275,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{074e44c4-b878-464c-abdc-be7990ef0ded}"
+      DTS:DTSID="{502EEACC-CFCC-443F-90A9-C5317D609F58}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -7286,7 +7286,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:refId="Package\時序容器\Delete ODS Table by PK"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{7f754b2d-026c-4192-9f2a-1bdd2e9990f7}"
+          DTS:DTSID="{31B242D4-0A3C-4AEE-B08E-C3D96188957B}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete ODS Table by PK"
@@ -7327,7 +7327,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{933baa88-29d9-45e8-9512-30e95148bbe0}"
+          DTS:DTSID="{5EAB6452-F96B-42DC-9BA4-6E82EF562F74}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -7363,7 +7363,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{bfae5c5c-c384-4684-bf97-59041e62dc81}"
+          DTS:DTSID="{503F0BC1-A832-431E-BC3A-BDF0DCA01999}"
           DTS:From="Package\時序容器\Delete ODS Table by PK"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -7374,7 +7374,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{bfbc4ae1-de79-4e64-b84a-1f366fc6b8c6}"
+      DTS:DTSID="{F0F40607-BC6B-42F8-8DBF-2ED7074EAB4A}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -7437,7 +7437,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{29F49962-53E3-49C0-9F11-57D375852CDB}"
+      DTS:DTSID="{42236102-BF66-4834-B171-A94A92086F35}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -7445,7 +7445,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{E710545D-94C0-4431-87BB-138B43EA7464}"
+      DTS:DTSID="{A8568E6D-C9CC-485A-B6D6-7D8CCC254651}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -7453,7 +7453,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{30AA5E8E-660F-49BA-9948-E3737B7FFEBB}"
+      DTS:DTSID="{E7FFA5C9-D932-431D-AC89-0E9B06A8EF76}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -7461,7 +7461,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{F2271368-3B2C-4278-8159-9F2ED6152BDC}"
+      DTS:DTSID="{AA8C39EB-2F07-4FE1-A5A0-3420B6D4CA31}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -7478,7 +7478,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="157,42"
           Id="Package\Stage To ODS"
@@ -7508,7 +7508,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="198.444435376813,60.3095151595511">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,24.8333254740369"
               Start="0,0"
               End="0,17.3333254740369">
@@ -7537,7 +7537,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="304.964276101719,179.963867420646">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,33.4285703848818"
               Start="0,0"
               End="0,25.9285703848818">
@@ -7559,7 +7559,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="302.464276052049,255.392437805528">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,34.7856995317412"
               Start="0,0"
               End="0,27.2856995317412">
@@ -7581,7 +7581,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="301.714278386564,332.178137337269">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,64.642856905655"
               Start="0,0"
               End="0,57.142856905655">
@@ -7603,7 +7603,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="302.232796665929,621.820994242925">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,41.6666542688999"
               Start="0,0"
               End="0,34.1666542688999">
@@ -7644,10 +7644,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
-          Size="269,42"
-          Id="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位"
-          TopLeft="259.613089633604,232.311221446828" />
-        <NodeLayout
           Size="151,42"
           Id="Package\Stage To ODS\衍生的資料行"
           TopLeft="319.499987383684,308.234678283205" />
@@ -7656,17 +7652,21 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           Id="Package\Stage To ODS\衍生的資料行 (固定字串)"
           TopLeft="280.644834829623,589.335012389804" />
         <NodeLayout
-          Size="150,42"
-          Id="Package\Stage To ODS\資料型態轉換"
-          TopLeft="316.071416011879,488.570447750832" />
-        <NodeLayout
           Size="219,42"
           Id="Package\Stage To ODS\TRIM 所有字串型態的欄位"
           TopLeft="282.708322099515,159.364787763696" />
         <NodeLayout
+          Size="269,42"
+          Id="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位"
+          TopLeft="259.613089633604,232.311221446828" />
+        <NodeLayout
           Size="139,42"
           Id="Package\Stage To ODS\資料列計數"
           TopLeft="323.680547405253,88.0807863831979" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Stage To ODS\資料型態轉換"
+          TopLeft="316.071416011879,488.570447750832" />
         <NodeLayout
           Size="209,42"
           Id="Package\Stage To ODS\GetErrorDetail (Convert)"
@@ -7688,10 +7688,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           Id="Package\Stage To ODS\寫入 ODSDB"
           TopLeft="313.822738852556,688.423437575556" />
         <NodeLayout
-          Size="230,42"
-          Id="Package\Stage To ODS\Insert Into Error Log (Select)"
-          TopLeft="650.446406443207,180.066323040349" />
-        <NodeLayout
           Size="161,42"
           Id="Package\Stage To ODS\衍生的資料行 1"
           TopLeft="310.333321081268,399.306106902074" />
@@ -7707,6 +7703,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           Size="200,42"
           Id="Package\Stage To ODS\GetErrorDetail  (Insert)"
           TopLeft="651.220230638747,683.134318519237" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Stage To ODS\Insert Into Error Log (Select)"
+          TopLeft="650.446406443207,180.066323040349" />
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[輸出 03]"
           TopLeft="751.761897512374,725.134318519237">
