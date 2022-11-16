@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="6/12/2019 9:15:17 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{12B4BAD9-FFD3-4EE6-BB75-E8F305355ADC}"
+  DTS:DTSID="{799FEF21-526B-4A7A-8855-4CE09785A195}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="MF_PRODUCT_MASTER_SAP"
   DTS:PackageType="5"
-  DTS:VersionBuild="391"
-  DTS:VersionGUID="{36C05880-A920-4781-BBF8-574C4E07DBC0}">
+  DTS:VersionBuild="400"
+  DTS:VersionGUID="{8DAC14A6-CAC5-439D-8487-1F553640A10B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{2F124427-0440-47F0-BD4A-70F88953BBE8}"
+      DTS:DTSID="{BC8E1222-2619-4E3C-8ECF-6FE2818CBD42}"
       DTS:ObjectName="ekorg">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{68494BBB-6E2B-47DE-A0CD-AA8FF158720C}"
+      DTS:DTSID="{EE58C556-DB69-4EBB-B1C9-DFA977F63BA6}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -37,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{64D64C22-D370-4BBF-BED6-50773F00E01B}"
+      DTS:DTSID="{81F5D52F-AD04-482F-B118-0F5941786E4A}"
       DTS:ObjectName="prefixDG">
       <DTS:Property
         DTS:DataType="8"
@@ -46,7 +46,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{3DBEEE51-EF10-44DA-A641-0A88469DCC7C}"
+      DTS:DTSID="{727B74FE-BD55-4046-BF0C-70342975E550}"
       DTS:ObjectName="prefixGID">
       <DTS:Property
         DTS:DataType="8"
@@ -56,7 +56,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{BEDACD8D-83D5-4ED5-9FAF-74D3E5B45A98}"
+      DTS:DTSID="{C209188B-83DF-4FA0-959B-2EB7B4F7FB80}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -65,7 +65,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{5D8086B3-F5CB-491A-B821-FDECDDF58964}"
+      DTS:DTSID="{410D5841-D8FA-4A20-972F-6F13FEB9072D}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::prefixDG]+ @[$Package::ekorg]"
       DTS:IncludeInDebugDump="2345"
@@ -76,7 +76,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B7BF169E-684D-4505-8746-57C07277E3E2}"
+      DTS:DTSID="{8B98364B-B5D2-484C-B303-E5D6D0F00F60}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ? , ? , ? );&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -88,7 +88,7 @@ values(?,?,?,(select count(*) from dbo.MF_PRODUCT_MASTER_SAP_EADB_),?,GETDATE(),
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{57971A5B-AD8B-447F-AA5A-6BCFE1B4388A}"
+      DTS:DTSID="{56E122ED-0FAE-48AC-8292-48837271A1BE}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::prefixGID]+ @[$Package::ekorg] + @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -99,7 +99,7 @@ values(?,?,?,(select count(*) from dbo.MF_PRODUCT_MASTER_SAP_EADB_),?,GETDATE(),
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E663F34C-EEC3-4EFA-B89C-6EBEFD3C477A}"
+      DTS:DTSID="{28CA0BE8-E791-4F9F-9321-258C0CA1FA33}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -109,9 +109,9 @@ values(?,?,?,(select count(*) from dbo.MF_PRODUCT_MASTER_SAP_EADB_),?,GETDATE(),
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1876CF00-6959-4D81-B18A-A00A42FDCD31}"
+      DTS:DTSID="{23B78A21-2BB9-420C-B600-D7B5BCE4A905}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT '&quot; + @[$Package::ekorg] + &quot;' AS PROCURE_ID&#xA;&#x9;  &#xA;              ,SP01.WERKS&#x9;-- 門市&#xA;      &#xA;              ,SP01.MATNR &#xA;      &#xA;              ,MAKTX as PROD_SNAME&#xA;     &#xA;              ,ZZCT as PROD_LNAME&#xA;      &#xA;              ,ZZSUBT as PROD_BRAND &#xA;&#x9;  &#xA;              ,ZZSUBT as PROD_BRAND_SUB &#xA;&#x9;  &#xA;              ,SP01.MATKL &#xA;&#x9;  &#xA;              ,CASE WHEN ISNULL(SP01.MATKL,'') &lt;&gt; '' THEN SUBSTRING(SP01.MATKL,1,3) ELSE '' END AS MC3&#xA;&#xA;&#x9;&#x9;&#x9;  &#xA;              ,CASE WHEN ISNULL(SP01.MATKL,'') &lt;&gt; '' THEN SUBSTRING(SP01.MATKL,1,4) ELSE '' END AS MC4&#xA;&#xA;&#x9;&#x9;&#x9;  &#xA;              ,CASE WHEN ISNULL(SP01.MATKL,'') &lt;&gt; '' THEN SUBSTRING(SP01.MATKL,1,6) ELSE '' END AS MC6&#xA;              ,SP31.EKSGB&#xA;&#x9;  &#xA;              ,SP31.EKSTX&#xA;      &#xA;              ,MTART &#xA;&#x9;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.EKGRP) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.EKGRP,1,CHARINDEX(':',SP01.EKGRP)-1)&#xA;&#x9;&#x9;ELSE SP01.EKGRP END) AS EKGRP&#xA;&#x9;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.EKGRP) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.EKGRP,CHARINDEX(':',SP01.EKGRP)+1,LEN(SP01.EKGRP)-CHARINDEX(':',SP01.EKGRP))&#xA;&#x9;&#x9;ELSE SP01.EKGRP END) AS EKGRP_NAME&#xA;&#x9;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.BWSCL) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.BWSCL,1,CHARINDEX(':',SP01.BWSCL)-1)&#xA;&#x9;&#x9;ELSE SP01.BWSCL END) AS BWSCL&#xA;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.BWSCL) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.BWSCL,CHARINDEX(':',SP01.BWSCL)+1,LEN(SP01.BWSCL)-CHARINDEX(':',SP01.BWSCL))&#xA;&#x9;&#x9;ELSE SP01.BWSCL END) AS BWSCL_NAME&#xA;&#x9;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.ZZVPURO) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZVPURO,1,CHARINDEX(':',SP01.ZZVPURO)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZVPURO END) AS ZZVPURO&#xA;&#x9;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.ZZVPURO) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZVPURO,CHARINDEX(':',SP01.ZZVPURO)+1,LEN(SP01.ZZVPURO)-CHARINDEX(':',SP01.ZZVPURO))&#xA;&#x9;&#x9;ELSE SP01.ZZVPURO END) AS ZZVPURO_NAME&#xA;&#x9;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.ZZCONSI) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZCONSI,1,CHARINDEX(':',SP01.ZZCONSI)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZCONSI END) AS ZZCONSI&#xA;&#x9;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.ZZCONSI) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZCONSI,CHARINDEX(':',SP01.ZZCONSI)+1,LEN(SP01.ZZCONSI)-CHARINDEX(':',SP01.ZZCONSI))&#xA;&#x9;&#x9;ELSE SP01.ZZCONSI END) AS ZZCONSI_NAME&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZTHEC) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZTHEC,1,CHARINDEX(':',SP01.ZZTHEC)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZTHEC END) AS ZZTHEC&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZTHEC) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZTHEC,CHARINDEX(':',SP01.ZZTHEC)+1,LEN(SP01.ZZTHEC)-CHARINDEX(':',SP01.ZZTHEC))&#xA;&#x9;&#x9;ELSE SP01.ZZTHEC END) AS ZZTHEC_NAME&#xA;&#x9;  , ZZPDATE&#xA;      ,KOLIF &#xA;&#x9;  , SP09_K.NAME1 as KOLIF_NAME&#xA;&#x9;  , CASE WHEN substring(SP01.EKGRP,1,1) IN ('A', 'B', 'D', 'E', 'F') THEN substring(SP01.EKGRP,1,1) &#xA;&#x9;&#x9;ELSE NULL END AS EKGRP1&#xA;&#x9;  , CASE WHEN substring(SP01.EKGRP,1,1) IN ('A', 'B', 'D', 'E', 'F') THEN '出版品'&#xA;&#x9;&#x9;ELSE '非出版品' END AS EKGRP1_NAME&#x9;  &#xA;      ,RBZUL &#xA;      ,KWDHT &#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZINTYP) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZINTYP,1,CHARINDEX(':',SP01.ZZINTYP)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZINTYP END) AS ZZINTYP&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZINTYP) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZINTYP,CHARINDEX(':',SP01.ZZINTYP)+1,LEN(SP01.ZZINTYP)-CHARINDEX(':',SP01.ZZINTYP))&#xA;&#x9;&#x9;ELSE SP01.ZZINTYP END) AS ZZINTYP_NAME&#xA;      ,ZZAUTH &#xA;      ,ZZTHEM &#xA;      ,SP01.LIFNR &#xA;&#x9;  ,SP09.NAME1 AS LIFNR_NAME&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZVERS2) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZVERS2,1,CHARINDEX(':',SP01.ZZVERS2)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZVERS2 END) AS ZZVERS2&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZVERS2) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZVERS2,CHARINDEX(':',SP01.ZZVERS2)+1,LEN(SP01.ZZVERS2)-CHARINDEX(':',SP01.ZZVERS2))&#xA;&#x9;&#x9;ELSE SP01.ZZVERS2 END) AS ZZVERS2_NAME&#xA;      ,ERSDA &#xA;      ,ZZFPDAT&#xA;&#x9;  ,CASE WHEN SUBSTRING(SP01.EKGRP,1,1) IN ('A','B','D','F') THEN substring(SP01.EKGRP,1,1)  ELSE null END AS EKGRP2&#xA;&#x9;  ,CASE WHEN SUBSTRING(SP01.EKGRP,1,1) IN ('A','B','D','F') THEN '書' ELSE '非書' END AS EKGRP2_NAME&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZRAT) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZRAT,1,CHARINDEX(':',SP01.ZZRAT)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZRAT END) AS ZZRAT&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZRAT) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZRAT,CHARINDEX(':',SP01.ZZRAT)+1,LEN(SP01.ZZRAT)-CHARINDEX(':',SP01.ZZRAT))&#xA;&#x9;&#x9;ELSE SP01.ZZRAT END) AS ZZRAT_NAME    &#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZLANG) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZLANG,1,CHARINDEX(':',SP01.ZZLANG)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZLANG END) AS ZZLANG&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZLANG) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZLANG,CHARINDEX(':',SP01.ZZLANG)+1,LEN(SP01.ZZLANG)-CHARINDEX(':',SP01.ZZLANG))&#xA;&#x9;&#x9;ELSE SP01.ZZLANG END) AS ZZLANG_NAME&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.LFRHY) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.LFRHY,1,CHARINDEX(':',SP01.LFRHY)-1)&#xA;&#x9;&#x9;ELSE SP01.LFRHY END) AS LFRHY&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.LFRHY) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.LFRHY,CHARINDEX(':',SP01.LFRHY)+1,LEN(SP01.LFRHY)-CHARINDEX(':',SP01.LFRHY))&#xA;&#x9;&#x9;ELSE SP01.LFRHY END) AS LFRHY_NAME&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZPR) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZPR,1,CHARINDEX(':',SP01.ZZPR)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZPR END) AS ZZPR&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZPR) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZPR,CHARINDEX(':',SP01.ZZPR)+1,LEN(SP01.ZZPR)-CHARINDEX(':',SP01.ZZPR))&#xA;&#x9;&#x9;ELSE SP01.ZZPR END) AS ZZPR_NAME&#xA;      ,NETPR &#xA;      ,SP01.MEINS &#xA;      ,MINBM &#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZIMCHK) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZIMCHK,1,CHARINDEX(':',SP01.ZZIMCHK)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZIMCHK END) AS ZZIMCHK&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZIMCHK) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZIMCHK,CHARINDEX(':',SP01.ZZIMCHK)+1,LEN(SP01.ZZIMCHK)-CHARINDEX(':',SP01.ZZIMCHK))&#xA;&#x9;&#x9;ELSE SP01.ZZIMCHK END) AS ZZIMCHK_NAME&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZCTYP) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZCTYP,1,CHARINDEX(':',SP01.ZZCTYP)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZCTYP END) AS ZZCTYP&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZCTYP) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZCTYP,CHARINDEX(':',SP01.ZZCTYP)+1,LEN(SP01.ZZCTYP)-CHARINDEX(':',SP01.ZZCTYP))&#xA;&#x9;&#x9;ELSE SP01.ZZCTYP END) AS ZZCTYP_NAME&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.VTEXT) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.VTEXT,1,CHARINDEX(':',SP01.VTEXT)-1)&#xA;&#x9;&#x9;ELSE SP01.VTEXT END) AS VTEXT&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.VTEXT) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.VTEXT,CHARINDEX(':',SP01.VTEXT)+1,LEN(SP01.VTEXT)-CHARINDEX(':',SP01.VTEXT))&#xA;&#x9;&#x9;ELSE SP01.VTEXT END) AS VTEXT_NAME&#xA;      ,ZZTHNUM &#xA;      ,IDNLF &#xA;&#x9;  , SP24_PB.KBETR as KBETR_PB&#xA;&#x9;  , SP24_RA.KBETR as KBETR_RA&#xA;&#x9;  , SP24_ZCOV.KBETR as KBETR_ZCOV&#xA;&#x9;  , SP26.KBETR as KBETR_26&#x9;&#x9;&#xA;&#x9;  ,ZZKEY AS KEYWORD&#xA;&#x9;  ,CASE '&quot; + @[$Package::ekorg] + &quot;'&#xA;&#x9;&#x9;WHEN 'EADB' THEN 'CB'&#xA;&#x9;&#x9;WHEN 'EARD' THEN 'SD'&#xA;&#x9;&#x9;WHEN 'EGSC' THEN 'SD'&#x9;&#xA;&#x9;&#x9;ELSE null END as SRC_SYS&#xA;&#xA;&#xA;&#xA;, SP02.EAN11 AS EAN&#xA;FROM [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP01] SP01&#xA;&#xA;LEFT JOIN [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP09] SP09 ON SP01.LIFNR = SP09.LIFNR&#xA;&#xA;LEFT JOIN [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP09] SP09_K ON SP01.KOLIF = SP09_K.LIFNR&#xA;&#xA;LEFT JOIN (SELECT *&#xA;&#x9;&#x9;FROM [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP24] SP24&#xA;&#x9;&#x9;WHERE KSCHL = 'PB00' AND DATAB = (&#xA;&#x9;&#x9;select MAX(DATAB)&#xA;&#x9;&#x9;from [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP24] SP24_MD&#xA;&#x9;&#x9;WHERE SP24.MATNR = SP24_MD.MATNR AND SP24.WERKS = SP24_MD.WERKS AND SP24.KSCHL = SP24_MD.KSCHL AND SP24.LIFNR = SP24_MD.LIFNR)) SP24_PB ON SP01.MATNR = SP24_PB.MATNR AND SP01.LIFNR = SP24_PB.LIFNR&#xA;LEFT JOIN (SELECT *&#xA;&#x9;&#x9;FROM [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP24] SP24&#xA;&#x9;&#x9;WHERE KSCHL = 'RA00' AND DATAB = (&#xA;&#x9;&#x9;select MAX(DATAB)&#xA;&#x9;&#x9;from [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP24] SP24_MD&#xA;&#x9;&#x9;WHERE SP24.MATNR = SP24_MD.MATNR AND SP24.WERKS = SP24_MD.WERKS AND SP24.KSCHL = SP24_MD.KSCHL AND SP24.LIFNR = SP24_MD.LIFNR)) SP24_RA ON SP01.MATNR = SP24_RA.MATNR AND SP01.LIFNR = SP24_RA.LIFNR&#xA;LEFT JOIN (SELECT *&#xA;&#x9;&#x9;FROM [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP24] SP24&#xA;&#x9;&#x9;WHERE KSCHL = 'ZCOV' AND DATAB = (&#xA;&#x9;&#x9;select MAX(DATAB)&#xA;&#x9;&#x9;from [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP24] SP24_MD&#xA;&#x9;&#x9;WHERE SP24.MATNR = SP24_MD.MATNR AND SP24.WERKS = SP24_MD.WERKS AND SP24.KSCHL = SP24_MD.KSCHL AND SP24.LIFNR = SP24_MD.LIFNR)) SP24_ZCOV ON SP01.MATNR = SP24_ZCOV.MATNR AND SP01.LIFNR = SP24_ZCOV.LIFNR&#xA;&#xA;LEFT JOIN (SELECT *&#xA;&#x9;&#x9;&#x9;FROM [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP26] SP26&#xA;&#x9;&#x9;&#x9;WHERE DATAB = (&#xA;&#x9;&#x9;&#x9;select MAX(DATAB)&#xA;&#x9;&#x9;&#x9;from [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP26] SP26_MD&#xA;&#x9;&#x9;&#x9;WHERE SP26.MATNR = SP26_MD.MATNR AND SP26.WERKS = SP26_MD.WERKS)) SP26 ON SP01.MATNR = SP26.MATNR AND SP01.WERKS = SP26.WERKS&#xA;&#xA;&#xA;LEFT JOIN ( SELECT SP01.WERKS, SP01.MATNR, SP31.EKSGB, SP31.EKSTX&#xA;&#x9;&#x9;  FROM [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP01]&#xA;&#x9;&#x9;&#x9;  LEFT JOIN [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP29] ON SUBSTRING(SP01.EKGRP,1,3) = SP29.EKGRP  and SP29.EKORG = '&quot;+ @[$Package::ekorg] +&quot;'&#xA;&#x9;&#x9;&#x9;  LEFT JOIN [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP31] ON SP29.EKSGB = SP31.EKSGB&#xA;&#x9; ) SP31 ON SP01.WERKS = SP31.WERKS AND SP01.MATNR = SP31.MATNR&#xA;OUTER APPLY(select top 1 EAN11&#xA;&#x9; , CASE EANTP WHEN 'HE' THEN 1&#xA;&#x9;              WHEN 'ZI' THEN 2&#xA;&#x9;&#x9;&#x9;&#x9;  WHEN 'Z4' THEN 3&#xA;&#x9;&#x9;&#x9;&#x9;  WHEN 'Z5' THEN 4&#xA;&#x9;&#x9;&#x9;&#x9;  WHEN 'Z6' THEN 5&#xA;&#x9;&#x9;&#x9;&#x9;  WHEN 'Z7' THEN 6&#xA;&#x9;&#x9;&#x9;&#x9;  WHEN 'Z8' THEN 7&#xA;&#x9;&#x9;&#x9;&#x9;  ELSE 99 END AS TY_ORDER&#xA;from SAP_&quot;+ @[$Package::ekorg] +&quot;.SP02 &#xA;where ISNULL(EAN11,'') &lt;&gt; '' and MATNR = SP01.MATNR&#xA;order by TY_ORDER, ETL_DATE desc) SP02&quot;"
+      DTS:Expression="&quot;SELECT '&quot; + @[$Package::ekorg] + &quot;' AS PROCURE_ID&#xA;&#x9;  &#xA;              ,SP01.WERKS&#x9;-- 門市&#xA;      &#xA;              ,SP01.MATNR &#xA;      &#xA;              ,MAKTX as PROD_SNAME&#xA;     &#xA;              ,ZZCT as PROD_LNAME&#xA;      &#xA;              ,ZZSUBT as PROD_BRAND &#xA;&#x9;  &#xA;              ,ZZSUBT as PROD_BRAND_SUB &#xA;&#x9;  &#xA;              ,SP01.MATKL &#xA;&#x9;  &#xA;              ,CASE WHEN ISNULL(SP01.MATKL,'') &lt;&gt; '' THEN SUBSTRING(SP01.MATKL,1,3) ELSE '' END AS MC3&#xA;&#xA;&#x9;&#x9;&#x9;  &#xA;              ,CASE WHEN ISNULL(SP01.MATKL,'') &lt;&gt; '' THEN SUBSTRING(SP01.MATKL,1,4) ELSE '' END AS MC4&#xA;&#xA;&#x9;&#x9;&#x9;  &#xA;              ,CASE WHEN ISNULL(SP01.MATKL,'') &lt;&gt; '' THEN SUBSTRING(SP01.MATKL,1,6) ELSE '' END AS MC6&#xA;              ,SP31.EKSGB&#xA;&#x9;  &#xA;              ,SP31.EKSTX&#xA;      &#xA;              ,MTART &#xA;&#x9;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.EKGRP) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.EKGRP,1,CHARINDEX(':',SP01.EKGRP)-1)&#xA;&#x9;&#x9;ELSE SP01.EKGRP END) AS EKGRP&#xA;&#x9;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.EKGRP) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.EKGRP,CHARINDEX(':',SP01.EKGRP)+1,LEN(SP01.EKGRP)-CHARINDEX(':',SP01.EKGRP))&#xA;&#x9;&#x9;ELSE SP01.EKGRP END) AS EKGRP_NAME&#xA;&#x9;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.BWSCL) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.BWSCL,1,CHARINDEX(':',SP01.BWSCL)-1)&#xA;&#x9;&#x9;ELSE SP01.BWSCL END) AS BWSCL&#xA;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.BWSCL) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.BWSCL,CHARINDEX(':',SP01.BWSCL)+1,LEN(SP01.BWSCL)-CHARINDEX(':',SP01.BWSCL))&#xA;&#x9;&#x9;ELSE SP01.BWSCL END) AS BWSCL_NAME&#xA;&#x9;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.ZZVPURO) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZVPURO,1,CHARINDEX(':',SP01.ZZVPURO)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZVPURO END) AS ZZVPURO&#xA;&#x9;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.ZZVPURO) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZVPURO,CHARINDEX(':',SP01.ZZVPURO)+1,LEN(SP01.ZZVPURO)-CHARINDEX(':',SP01.ZZVPURO))&#xA;&#x9;&#x9;ELSE SP01.ZZVPURO END) AS ZZVPURO_NAME&#xA;&#x9;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.ZZCONSI) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZCONSI,1,CHARINDEX(':',SP01.ZZCONSI)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZCONSI END) AS ZZCONSI&#xA;&#x9;&#xA;              ,(CASE WHEN CHARINDEX(':',SP01.ZZCONSI) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZCONSI,CHARINDEX(':',SP01.ZZCONSI)+1,LEN(SP01.ZZCONSI)-CHARINDEX(':',SP01.ZZCONSI))&#xA;&#x9;&#x9;ELSE SP01.ZZCONSI END) AS ZZCONSI_NAME&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZTHEC) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZTHEC,1,CHARINDEX(':',SP01.ZZTHEC)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZTHEC END) AS ZZTHEC&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZTHEC) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZTHEC,CHARINDEX(':',SP01.ZZTHEC)+1,LEN(SP01.ZZTHEC)-CHARINDEX(':',SP01.ZZTHEC))&#xA;&#x9;&#x9;ELSE SP01.ZZTHEC END) AS ZZTHEC_NAME&#xA;&#x9;  , ZZPDATE&#xA;      ,KOLIF &#xA;&#x9;  , SP09_K.NAME1 as KOLIF_NAME&#xA;&#x9;  , CASE WHEN substring(SP01.EKGRP,1,1) IN ('A', 'B', 'D', 'E', 'F') THEN substring(SP01.EKGRP,1,1) &#xA;&#x9;&#x9;ELSE NULL END AS EKGRP1&#xA;&#x9;  , CASE WHEN substring(SP01.EKGRP,1,1) IN ('A', 'B', 'D', 'E', 'F') THEN '出版品'&#xA;&#x9;&#x9;ELSE '非出版品' END AS EKGRP1_NAME&#x9;  &#xA;      ,RBZUL &#xA;      ,KWDHT &#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZINTYP) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZINTYP,1,CHARINDEX(':',SP01.ZZINTYP)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZINTYP END) AS ZZINTYP&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZINTYP) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZINTYP,CHARINDEX(':',SP01.ZZINTYP)+1,LEN(SP01.ZZINTYP)-CHARINDEX(':',SP01.ZZINTYP))&#xA;&#x9;&#x9;ELSE SP01.ZZINTYP END) AS ZZINTYP_NAME&#xA;      ,ZZAUTH &#xA;      ,ZZTHEM &#xA;      ,SP01.LIFNR &#xA;&#x9;  ,SP09.NAME1 AS LIFNR_NAME&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZVERS2) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZVERS2,1,CHARINDEX(':',SP01.ZZVERS2)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZVERS2 END) AS ZZVERS2&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZVERS2) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZVERS2,CHARINDEX(':',SP01.ZZVERS2)+1,LEN(SP01.ZZVERS2)-CHARINDEX(':',SP01.ZZVERS2))&#xA;&#x9;&#x9;ELSE SP01.ZZVERS2 END) AS ZZVERS2_NAME&#xA;      ,ERSDA &#xA;      ,ZZFPDAT&#xA;&#x9;  ,CASE WHEN SUBSTRING(SP01.EKGRP,1,1) IN ('A','B','D','F') THEN substring(SP01.EKGRP,1,1)  ELSE null END AS EKGRP2&#xA;&#x9;  ,CASE WHEN SUBSTRING(SP01.EKGRP,1,1) IN ('A','B','D','F') THEN '書' ELSE '非書' END AS EKGRP2_NAME&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZRAT) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZRAT,1,CHARINDEX(':',SP01.ZZRAT)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZRAT END) AS ZZRAT&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZRAT) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZRAT,CHARINDEX(':',SP01.ZZRAT)+1,LEN(SP01.ZZRAT)-CHARINDEX(':',SP01.ZZRAT))&#xA;&#x9;&#x9;ELSE SP01.ZZRAT END) AS ZZRAT_NAME    &#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZLANG) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZLANG,1,CHARINDEX(':',SP01.ZZLANG)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZLANG END) AS ZZLANG&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZLANG) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZLANG,CHARINDEX(':',SP01.ZZLANG)+1,LEN(SP01.ZZLANG)-CHARINDEX(':',SP01.ZZLANG))&#xA;&#x9;&#x9;ELSE SP01.ZZLANG END) AS ZZLANG_NAME&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.LFRHY) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.LFRHY,1,CHARINDEX(':',SP01.LFRHY)-1)&#xA;&#x9;&#x9;ELSE SP01.LFRHY END) AS LFRHY&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.LFRHY) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.LFRHY,CHARINDEX(':',SP01.LFRHY)+1,LEN(SP01.LFRHY)-CHARINDEX(':',SP01.LFRHY))&#xA;&#x9;&#x9;ELSE SP01.LFRHY END) AS LFRHY_NAME&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZPR) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZPR,1,CHARINDEX(':',SP01.ZZPR)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZPR END) AS ZZPR&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZPR) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZPR,CHARINDEX(':',SP01.ZZPR)+1,LEN(SP01.ZZPR)-CHARINDEX(':',SP01.ZZPR))&#xA;&#x9;&#x9;ELSE SP01.ZZPR END) AS ZZPR_NAME&#xA;      ,NETPR &#xA;      ,SP01.MEINS &#xA;      ,MINBM &#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZIMCHK) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZIMCHK,1,CHARINDEX(':',SP01.ZZIMCHK)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZIMCHK END) AS ZZIMCHK&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZIMCHK) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZIMCHK,CHARINDEX(':',SP01.ZZIMCHK)+1,LEN(SP01.ZZIMCHK)-CHARINDEX(':',SP01.ZZIMCHK))&#xA;&#x9;&#x9;ELSE SP01.ZZIMCHK END) AS ZZIMCHK_NAME&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZCTYP) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZCTYP,1,CHARINDEX(':',SP01.ZZCTYP)-1)&#xA;&#x9;&#x9;ELSE SP01.ZZCTYP END) AS ZZCTYP&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.ZZCTYP) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.ZZCTYP,CHARINDEX(':',SP01.ZZCTYP)+1,LEN(SP01.ZZCTYP)-CHARINDEX(':',SP01.ZZCTYP))&#xA;&#x9;&#x9;ELSE SP01.ZZCTYP END) AS ZZCTYP_NAME&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.VTEXT) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.VTEXT,1,CHARINDEX(':',SP01.VTEXT)-1)&#xA;&#x9;&#x9;ELSE SP01.VTEXT END) AS VTEXT&#xA;&#x9;,(CASE WHEN CHARINDEX(':',SP01.VTEXT) &gt; 0&#xA;&#x9;&#x9;THEN SUBSTRING(SP01.VTEXT,CHARINDEX(':',SP01.VTEXT)+1,LEN(SP01.VTEXT)-CHARINDEX(':',SP01.VTEXT))&#xA;&#x9;&#x9;ELSE SP01.VTEXT END) AS VTEXT_NAME&#xA;      ,ZZTHNUM &#xA;      ,IDNLF &#xA;&#x9;  , SP24_PB.KBETR as KBETR_PB&#xA;&#x9;  , SP24_RA.KBETR as KBETR_RA&#xA;&#x9;  , SP24_ZCOV.KBETR as KBETR_ZCOV&#xA;&#x9;  , SP26.KBETR as KBETR_26&#x9;&#x9;&#xA;&#x9;  ,ZZKEY AS KEYWORD&#xA;&#x9;  ,CASE '&quot; + @[$Package::ekorg] + &quot;'&#xA;&#x9;&#x9;WHEN 'EADB' THEN 'CB'&#xA;&#x9;&#x9;WHEN 'EARD' THEN 'SD'&#xA;&#x9;&#x9;WHEN 'EGSC' THEN 'SD'&#x9;&#xA;&#x9;&#x9;ELSE null END as SRC_SYS&#xA;&#xA;&#xA;&#xA;, SP02.EAN11 AS EAN&#xA;, SP24_PB.KONWA AS KONWA&#xA;,(CASE WHEN CHARINDEX(':',SP01.ZZRTV) &gt; 0&#xA;       THEN SUBSTRING(SP01.ZZRTV,1,CHARINDEX(':',SP01.ZZRTV)-1)&#xA;       ELSE SP01.ZZRTV END) AS ZZRTV&#xA;FROM [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP01] SP01&#xA;&#xA;LEFT JOIN [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP09] SP09 ON SP01.LIFNR = SP09.LIFNR&#xA;&#xA;LEFT JOIN [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP09] SP09_K ON SP01.KOLIF = SP09_K.LIFNR&#xA;&#xA;LEFT JOIN (SELECT *&#xA;&#x9;&#x9;FROM [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP24] SP24&#xA;&#x9;&#x9;WHERE KSCHL = 'PB00' AND DATAB = (&#xA;&#x9;&#x9;select MAX(DATAB)&#xA;&#x9;&#x9;from [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP24] SP24_MD&#xA;&#x9;&#x9;WHERE SP24.MATNR = SP24_MD.MATNR AND SP24.WERKS = SP24_MD.WERKS AND SP24.KSCHL = SP24_MD.KSCHL AND SP24.LIFNR = SP24_MD.LIFNR)) SP24_PB ON SP01.MATNR = SP24_PB.MATNR AND SP01.LIFNR = SP24_PB.LIFNR&#xA;LEFT JOIN (SELECT *&#xA;&#x9;&#x9;FROM [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP24] SP24&#xA;&#x9;&#x9;WHERE KSCHL = 'RA00' AND DATAB = (&#xA;&#x9;&#x9;select MAX(DATAB)&#xA;&#x9;&#x9;from [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP24] SP24_MD&#xA;&#x9;&#x9;WHERE SP24.MATNR = SP24_MD.MATNR AND SP24.WERKS = SP24_MD.WERKS AND SP24.KSCHL = SP24_MD.KSCHL AND SP24.LIFNR = SP24_MD.LIFNR)) SP24_RA ON SP01.MATNR = SP24_RA.MATNR AND SP01.LIFNR = SP24_RA.LIFNR&#xA;LEFT JOIN (SELECT *&#xA;&#x9;&#x9;FROM [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP24] SP24&#xA;&#x9;&#x9;WHERE KSCHL = 'ZCOV' AND DATAB = (&#xA;&#x9;&#x9;select MAX(DATAB)&#xA;&#x9;&#x9;from [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP24] SP24_MD&#xA;&#x9;&#x9;WHERE SP24.MATNR = SP24_MD.MATNR AND SP24.WERKS = SP24_MD.WERKS AND SP24.KSCHL = SP24_MD.KSCHL AND SP24.LIFNR = SP24_MD.LIFNR)) SP24_ZCOV ON SP01.MATNR = SP24_ZCOV.MATNR AND SP01.LIFNR = SP24_ZCOV.LIFNR&#xA;&#xA;LEFT JOIN (SELECT *&#xA;&#x9;&#x9;&#x9;FROM [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP26] SP26&#xA;&#x9;&#x9;&#x9;WHERE DATAB = (&#xA;&#x9;&#x9;&#x9;select MAX(DATAB)&#xA;&#x9;&#x9;&#x9;from [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP26] SP26_MD&#xA;&#x9;&#x9;&#x9;WHERE SP26.MATNR = SP26_MD.MATNR AND SP26.WERKS = SP26_MD.WERKS)) SP26 ON SP01.MATNR = SP26.MATNR AND SP01.WERKS = SP26.WERKS&#xA;&#xA;&#xA;LEFT JOIN ( SELECT SP01.WERKS, SP01.MATNR, SP31.EKSGB, SP31.EKSTX&#xA;&#x9;&#x9;  FROM [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP01]&#xA;&#x9;&#x9;&#x9;  LEFT JOIN [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP29] ON SUBSTRING(SP01.EKGRP,1,3) = SP29.EKGRP  and SP29.EKORG = '&quot;+ @[$Package::ekorg] +&quot;'&#xA;&#x9;&#x9;&#x9;  LEFT JOIN [StagingDB_TW].[SAP_&quot;+ @[$Package::ekorg] +&quot;].[SP31] ON SP29.EKSGB = SP31.EKSGB&#xA;&#x9; ) SP31 ON SP01.WERKS = SP31.WERKS AND SP01.MATNR = SP31.MATNR&#xA;OUTER APPLY(select top 1 EAN11&#xA;&#x9; , CASE EANTP WHEN 'HE' THEN 1&#xA;&#x9;              WHEN 'ZI' THEN 2&#xA;&#x9;&#x9;&#x9;&#x9;  WHEN 'Z4' THEN 3&#xA;&#x9;&#x9;&#x9;&#x9;  WHEN 'Z5' THEN 4&#xA;&#x9;&#x9;&#x9;&#x9;  WHEN 'Z6' THEN 5&#xA;&#x9;&#x9;&#x9;&#x9;  WHEN 'Z7' THEN 6&#xA;&#x9;&#x9;&#x9;&#x9;  WHEN 'Z8' THEN 7&#xA;&#x9;&#x9;&#x9;&#x9;  ELSE 99 END AS TY_ORDER&#xA;from SAP_&quot;+ @[$Package::ekorg] +&quot;.SP02 &#xA;where ISNULL(EAN11,'') &lt;&gt; '' and MATNR = SP01.MATNR&#xA;order by TY_ORDER, ETL_DATE desc) SP02&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="stageSql">
@@ -272,6 +272,10 @@ values(?,?,?,(select count(*) from dbo.MF_PRODUCT_MASTER_SAP_EADB_),?,GETDATE(),
 
 
 , SP02.EAN11 AS EAN
+, SP24_PB.KONWA AS KONWA
+,(CASE WHEN CHARINDEX(':',SP01.ZZRTV) &gt; 0
+       THEN SUBSTRING(SP01.ZZRTV,1,CHARINDEX(':',SP01.ZZRTV)-1)
+       ELSE SP01.ZZRTV END) AS ZZRTV
 FROM [StagingDB_TW].[SAP_EADB].[SP01] SP01
 
 LEFT JOIN [StagingDB_TW].[SAP_EADB].[SP09] SP09 ON SP01.LIFNR = SP09.LIFNR
@@ -325,7 +329,7 @@ order by TY_ORDER, ETL_DATE desc) SP02</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{FB9004E7-5E72-482E-8295-B6C622C6039B}"
+      DTS:DTSID="{987AEF1A-EFB5-4DEE-BFB6-885366D33040}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -334,7 +338,7 @@ order by TY_ORDER, ETL_DATE desc) SP02</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C4D8562F-201E-4BD0-8DD2-CC894AD340C4}"
+      DTS:DTSID="{41A97C03-055F-49B0-B28C-085ED8B4F65A}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -343,7 +347,7 @@ order by TY_ORDER, ETL_DATE desc) SP02</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{14A30324-5A7A-4A3C-AD23-1FEFF44AF084}"
+      DTS:DTSID="{401FC250-497A-4BA1-82B0-FC9EB2B0A684}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName] +&quot;_&quot; + @[$Package::ekorg] +&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -358,7 +362,7 @@ order by TY_ORDER, ETL_DATE desc) SP02</DTS:VariableValue>
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{91980594-E56B-4193-A03D-89E8D3E8D2AD}"
+      DTS:DTSID="{299A18BC-0978-434F-9514-E598B0FCF08B}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -5258,6 +5262,28 @@ LEFT JOIN ( SELECT SP01.WERKS, SP01.MATNR, SP31.EKSGB, SP31.EKSTX
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[EAN]"
                       name="EAN"
                       truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[KONWA]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[KONWA]"
+                      length="5"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[KONWA]"
+                      name="KONWA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[ZZRTV]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[ZZRTV]"
+                      length="20"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[ZZRTV]"
+                      name="ZZRTV"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5661,6 +5687,18 @@ LEFT JOIN ( SELECT SP01.WERKS, SP01.MATNR, SP31.EKSGB, SP31.EKSTX
                       dataType="str"
                       length="18"
                       name="EAN" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[KONWA]"
+                      codePage="950"
+                      dataType="str"
+                      length="5"
+                      name="KONWA" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[ZZRTV]"
+                      codePage="950"
+                      dataType="str"
+                      length="20"
+                      name="ZZRTV" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -6137,6 +6175,20 @@ LEFT JOIN ( SELECT SP01.WERKS, SP01.MATNR, SP31.EKSGB, SP31.EKSTX
                       length="18"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[EAN]"
                       name="EAN" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[KONWA]"
+                      codePage="950"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[KONWA]"
+                      name="KONWA" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[ZZRTV]"
+                      codePage="950"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[ZZRTV]"
+                      name="ZZRTV" />
                     <outputColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
                       dataType="i4"
@@ -10422,6 +10474,22 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
                       cachedName="EAN(ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[EAN]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[EAN(ready)]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[KONWA(ready)]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="KONWA(ready)"
+                      externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[KONWA]"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[KONWA(ready)]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[ZZRTV(ready)]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="ZZRTV(ready)"
+                      externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[ZZRTV]"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[ZZRTV(ready)]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -10816,6 +10884,18 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[ETL_WORK_DATE]"
                       dataType="dbDate"
                       name="ETL_WORK_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[KONWA]"
+                      codePage="950"
+                      dataType="str"
+                      length="5"
+                      name="KONWA" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[ZZRTV]"
+                      codePage="950"
+                      dataType="str"
+                      length="2"
+                      name="ZZRTV" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -11877,6 +11957,20 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
                       cachedLength="18"
                       cachedName="EAN"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[EAN]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[KONWA]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="KONWA"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[KONWA]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[ZZRTV]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="ZZRTV"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[ZZRTV]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -13364,6 +13458,50 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
                           name="FastParse">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[KONWA(ready)]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="5"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[KONWA(ready)]"
+                      name="KONWA(ready)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[KONWA]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[ZZRTV(ready)]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[ZZRTV(ready)]"
+                      name="ZZRTV(ready)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[ZZRTV]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -13471,7 +13609,7 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{83f66802-300e-4663-9ffe-5fc5185d67ad}"
+      DTS:DTSID="{E0477735-AD3F-44CF-B1D3-0270CA8E14D3}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -13496,7 +13634,7 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{9bb733f7-156c-4020-b57b-06f9dc1f9352}"
+      DTS:DTSID="{F0BFA398-81A0-45AA-832F-9C2BA70588B1}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -13517,7 +13655,7 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{126981d4-79e7-449b-a27a-ad84b5be92dc}"
+      DTS:DTSID="{7ED99180-713D-4687-A10B-AD2FF89A2818}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -13528,7 +13666,7 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\Delete ODS table by EKORG"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{df9ce208-0c0f-422a-b19c-21e0b396335a}"
+          DTS:DTSID="{C8443CEC-DE6E-42D5-91C1-EE1512842243}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete ODS table by EKORG"
@@ -13555,7 +13693,7 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{000c08d2-9637-459e-a9f0-5121902c6f6a}"
+          DTS:DTSID="{ECD2B140-F3A3-409B-A911-6085BFDA836B}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -13591,7 +13729,7 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{2433db83-f6a6-4627-8209-97e636c48837}"
+          DTS:DTSID="{317B9332-D79E-497E-8FA7-2D740DCE3E00}"
           DTS:From="Package\時序容器\Delete ODS table by EKORG"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -13602,7 +13740,7 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{6af6a9bd-c8e7-413c-bd0d-65140462045d}"
+      DTS:DTSID="{76C40392-98DA-4C0A-8298-3CE6287C291E}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -13665,7 +13803,7 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{63C19B07-56DC-40F8-9AAA-BA473168B7A0}"
+      DTS:DTSID="{4C45071B-CCC2-4DF3-9973-AC658D21DE84}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -13673,7 +13811,7 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{31ACEFF8-E658-4778-8FC1-761B3A10CE77}"
+      DTS:DTSID="{E501CB45-6F7B-4080-934F-DA81E7E70578}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -13681,7 +13819,7 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{7C07ED46-5A08-4639-8C3E-6B440FC0E64E}"
+      DTS:DTSID="{08AB7A84-E704-4DAF-B799-BB43855B6F01}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -13689,7 +13827,7 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{CD3E48E3-17B4-4FA2-B099-DB840328C6A0}"
+      DTS:DTSID="{C4772653-E711-4EE3-B48F-247C1E98799A}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -13708,27 +13846,27 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
-          Size="156.8,41.6"
+          Size="157,42"
           Id="Package\Stage To ODS"
           TopLeft="357.833330161043,404.761756652659" />
         <NodeLayout
-          Size="139.2,41.6"
+          Size="139,42"
           Id="Package\初始化作業"
           TopLeft="364.000005205474,319.083192411312" />
         <NodeLayout
-          Size="156,41.6"
+          Size="156,42"
           Id="Package\取得WorkDate"
           TopLeft="356.059529012633,234.36890821512" />
         <NodeLayout
-          Size="151.2,41.6"
+          Size="151,42"
           Id="Package\紀錄執行筆數"
           TopLeft="355.880957591156,750.654601437284" />
         <NodeLayout
-          Size="235.2,41.6"
+          Size="235,42"
           Id="Package\時序容器\Delete ODS table by EKORG"
           TopLeft="85.4999968210857,23.0714100222209" />
         <NodeLayout
-          Size="303.2,41.6"
+          Size="303,42"
           Id="Package\時序容器\insert into ODS table from WorkDateTable"
           TopLeft="47.9999983112019,91.642840301505" />
         <EdgeLayout
@@ -13756,8 +13894,8 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="403.2,188.8"
-          Size="403.2,232"
+          PanelSize="403,189"
+          Size="403,232"
           Id="Package\時序容器"
           TopLeft="233.166677070989,480.58318543757" />
         <EdgeLayout
@@ -13849,9 +13987,9 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="// ###############################&#xA;// DataMart Def.：SRC023 商品主檔&#xA;// ODS DB Table Name：dbo.MF_PRODUCT_MASTER_SAP&#xA;// ODS DB View Name：dbo.VW_MF_PRODUCT_MASTER&#xA;// Brief Desc.：&#xA;//        設計依不同的採購組織產製對應的商品主檔，&#xA;//        此封裝作為SAP商品主檔共用流程，&#xA;//        由父封裝傳入採購組織作為參數，&#xA;//        判斷要取得的資料表來源，&#xA;//        產製對應的商品主檔；&#xD;&#xA;//        例如：MF_PRODUCT_MASTER_EADB封裝，傳入的採購組織為EADB，&#xD;&#xA;//        此共用流程封裝將自動取StagingDB_TW.SAP_EADB的相關資料表組成商品主檔&#xA;// ###############################"
+          Text="// ###############################&#xA;// DataMart Def.：SRC023 商品主檔&#xA;// ODS DB Table Name：dbo.MF_PRODUCT_MASTER_SAP&#xA;// ODS DB View Name：dbo.VW_MF_PRODUCT_MASTER&#xA;// Brief Desc.：&#xA;//        設計依不同的採購組織產製對應的商品主檔，&#xA;//        此封裝作為SAP商品主檔共用流程，&#xA;//        由父封裝傳入採購組織作為參數，&#xA;//        判斷要取得的資料表來源，&#xA;//        產製對應的商品主檔；&#xA;//        例如：MF_PRODUCT_MASTER_EADB封裝，傳入的採購組織為EADB，&#xA;//        此共用流程封裝將自動取StagingDB_TW.SAP_EADB的相關資料表組成商品主檔&#xA;// ###############################"
           ParentId="Package"
-          Size="445.6,196.8"
+          Size="446,197"
           Id="e3d60442-152c-410b-930d-8cd62f34b6e6"
           TopLeft="61.7381027230058,26.3722369134199">
           <AnnotationLayout.FontInfo>
@@ -13872,63 +14010,63 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
-          Size="151.2,41.6"
+          Size="151,42"
           Id="Package\Stage To ODS\衍生的資料行"
           TopLeft="336.666653288736,333.714277111755" />
         <NodeLayout
-          Size="151.2,41.6"
+          Size="151,42"
           Id="Package\Stage To ODS\資料型態轉換"
           TopLeft="334.999986688296,424.761885121567" />
         <NodeLayout
-          Size="268.8,41.6"
+          Size="269,42"
           Id="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位"
           TopLeft="278.333322273361,159.80102196805" />
         <NodeLayout
-          Size="139.2,41.6"
+          Size="139,42"
           Id="Package\Stage To ODS\資料列計數"
           TopLeft="340.537684443848,82.3095293284273" />
         <NodeLayout
-          Size="208.8,41.6"
-          Id="Package\Stage To ODS\GetErrorDetail (Convert)"
-          TopLeft="646.52776559746,428.125831684753" />
-        <NodeLayout
-          Size="235.2,41.6"
-          Id="Package\Stage To ODS\Insert Into Error Log(Convert)"
-          TopLeft="627.819432570427,502.41154217523" />
-        <NodeLayout
-          Size="223.2,41.6"
-          Id="Package\Stage To ODS\Insert Into Error Log(Insert)"
-          TopLeft="626.777765945153,682.55439177506" />
-        <NodeLayout
-          Size="172,41.6"
-          Id="Package\Stage To ODS\select from Stage"
-          TopLeft="325.833320385881,5.88095208049637" />
-        <NodeLayout
-          Size="220,41.6"
-          Id="Package\Stage To ODS\TRIM 所有字串型態的欄位"
-          TopLeft="300.555543612552,244.07141688527" />
-        <NodeLayout
-          Size="209.6,41.6"
-          Id="Package\Stage To ODS\衍生的資料行 (固定字串)"
-          TopLeft="305.83332118061,506.714271134261" />
-        <NodeLayout
-          Size="230.4,41.6"
-          Id="Package\Stage To ODS\Insert Into Error Log (Select)"
-          TopLeft="648.892843000947,175.523797695329" />
-        <NodeLayout
-          Size="284.8,41.6"
-          Id="Package\Stage To ODS\衍生資料行 - 記錄錯誤資訊欄位(select)"
-          TopLeft="618.059511886231,5.88095208049637" />
-        <NodeLayout
-          Size="148.8,41.6"
+          Size="149,42"
           Id="Package\Stage To ODS\寫入 ODSDB"
           TopLeft="336.944431055476,594.714259843439" />
         <NodeLayout
-          Size="200,41.6"
+          Size="220,42"
+          Id="Package\Stage To ODS\TRIM 所有字串型態的欄位"
+          TopLeft="300.555543612552,244.07141688527" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Stage To ODS\GetErrorDetail (Convert)"
+          TopLeft="646.52776559746,428.125831684753" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Stage To ODS\Insert Into Error Log(Convert)"
+          TopLeft="627.819432570427,502.41154217523" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\Stage To ODS\Insert Into Error Log(Insert)"
+          TopLeft="626.777765945153,682.55439177506" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Stage To ODS\select from Stage"
+          TopLeft="325.833320385881,5.88095208049637" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Stage To ODS\衍生的資料行 (固定字串)"
+          TopLeft="305.83332118061,506.714271134261" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Stage To ODS\Insert Into Error Log (Select)"
+          TopLeft="648.892843000947,175.523797695329" />
+        <NodeLayout
+          Size="285,42"
+          Id="Package\Stage To ODS\衍生資料行 - 記錄錯誤資訊欄位(select)"
+          TopLeft="618.059511886231,5.88095208049637" />
+        <NodeLayout
+          Size="200,42"
           Id="Package\Stage To ODS\GetErrorDetail (Select)"
           TopLeft="661.392842504241,91.0238020124084" />
         <NodeLayout
-          Size="200,41.6"
+          Size="200,42"
           Id="Package\Stage To ODS\GetErrorDetail  (Insert)"
           TopLeft="640.319432073722,591.786539269506" />
         <EdgeLayout
@@ -14248,7 +14386,7 @@ AAAAAAAAAAAAAAAA]]></arrayElement>
         <AnnotationLayout
           Text="k"
           ParentId="Package\Stage To ODS"
-          Size="34.4,60"
+          Size="34,37"
           Id="16c6e7e3-2e9e-4f20-ad0f-a1c08a6ade2f"
           TopLeft="796.000013555799,252.658827072856">
           <AnnotationLayout.FontInfo>
