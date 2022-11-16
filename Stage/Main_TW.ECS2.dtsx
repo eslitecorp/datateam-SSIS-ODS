@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1701003NB01"
   DTS:CreatorName="IEAD\1701003"
-  DTS:DTSID="{FEFFBF48-54BE-434A-B60B-28413C93CEA6}"
+  DTS:DTSID="{378F17BE-9832-41BC-BCB6-94029A3869AF}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="Main_TW ECS2"
   DTS:PackageType="5"
-  DTS:VersionBuild="64"
-  DTS:VersionGUID="{D047ADE9-7998-4CB2-9585-F774F3CC195F}">
+  DTS:VersionBuild="66"
+  DTS:VersionGUID="{8A373465-E920-421E-B6C4-81A3A9F38BA8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{D9C55269-4B28-40D4-A52D-0DED901B69CE}"
+      DTS:DTSID="{5C7113F2-3000-40B1-BBD9-07A01912DB41}"
       DTS:ObjectName="dealTableList">
       <DTS:Property
         DTS:DataType="8"
@@ -29,7 +29,17 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{62E78709-C4AD-48A7-979A-639BD20CF24C}"
+      DTS:DTSID="{12BA1E18-3FD7-4BA5-84A7-08A897A40DB3}"
+      DTS:ObjectName="srcEkorg">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{9589A951-1E6E-4918-9D87-EDE6993B616D}"
       DTS:ObjectName="srcNatName">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +48,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{36306039-9499-4932-B9D9-3E060937AA50}"
+      DTS:DTSID="{7114353A-6DE4-40F2-BE46-046522A3C194}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -51,7 +61,7 @@
       DTS:refId="Package\啟動EC資料清洗ETL作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{40CE4C61-30C1-41A1-A41D-5E0B182CE727}"
+      DTS:DTSID="{252BD0C4-7EFF-4F2F-A208-1CFA493C8BB7}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="啟動EC資料清洗ETL作業"
@@ -70,6 +80,10 @@
           <ParameterAssignment>
             <ParameterName>srcNatName</ParameterName>
             <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcEkorg</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcEkorg</BindedVariableOrParameterName>
           </ParameterAssignment>
         </ExecutePackageTask>
       </DTS:ObjectData>
