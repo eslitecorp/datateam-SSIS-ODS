@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">1701003NB01</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAvKkzgek89E++bjdVNIPx6QAAAAACAAAAAAADZgAAwAAAABAAAACqWkXLCxdAeVwPeBXYVVs0AAAAAASAAACgAAAAEAAAAC6jR4QPpn8zqNop4GqG8L2IAAAAB5LXdpu/XqldYUlK+30l4BqQfSJDgCu5geTQwEaOGw/hLBY+fcm0sT6OwmrIpg7BXy6tEMxAhvYiqXRoXn2xxEEd5x4vjWNvnrsXhV9qocK3kUV6GI/dKPiWq7dKlX2pgR5aUuuwU0TXSIpxRiw2hZuNP/4aLuhqOGVd8SpLRwYYxMCuVUArXBQAAAAxQs4Ojtsnt22QRh1Ii7S64W8uaA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAvKkzgek89E++bjdVNIPx6QAAAAACAAAAAAADZgAAwAAAABAAAADWYK5AaXJh1RhXXSK4KuEuAAAAAASAAACgAAAAEAAAAFd1ULgHSu/0z2JDMj47VVeIAAAA9YJ9sMMGLWAM4rVd2VHC3okeks05k6vt8aZInoG7hW8quvYemBFH9hQkU0fuTHMssgfOQ4EKxq/XOiMa8Y13a5Scn2o5mhm2q27h16NbiHcvOmeuLkFYzBmi0qNA5VUAOj4LB1vUPuuZ900W3AZGC6MbLgJKkVbscmldfDFkNHCMJXrnGzIsXBQAAACcCRok9wJcSzwECtlKjbOdtabo6w==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -231,6 +231,7 @@
           <SSIS:Package SSIS:Name="TW.POSNEC.ProStair.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="TW.POSNEC.ProStairDetail.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="TW.ECS2.Product.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="TW.ECS2.MCH_Category.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="StagingDB_TW.conmgr" />
@@ -22957,8 +22958,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -22986,8 +22985,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -23001,8 +22998,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -23016,14 +23011,129 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
                 <SSIS:Parameter SSIS:Name="writeInEvent">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">{E4767520-CCC6-46A8-8E69-8223540DA6A9}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="TW.ECS2.MCH_Category.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{07A294F2-06C9-42CB-AF50-3E3A59C04C88}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">TW ECS2 MCH_Category</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">149</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{AC494E63-B9D8-4985-B447-FDED77DA0330}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="dbPrestageTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{BF2533B0-DABD-4866-8FA5-C2322CE0D3F0}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">prestage_ECS2.MCH_Category</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="dbSchemaName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{BC30D8FC-EC11-4022-A09A-2E774561397F}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="dbStageTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{FA4036CD-87B7-46E0-861D-78A485F27284}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">ECS2.MCH_Category</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="dbTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{BFFBC690-6E10-4C65-8DC3-B9D00F469C5D}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="srcRawDataFileName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{EB8C9C33-0224-4099-9916-DD8FAAF9936E}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">ODSEC-ES_SAP_SUBORDERS-20181114-01.csv</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="srcSysName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{B4702AE7-60C5-4E3A-89A1-009273D548B8}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">ECS2</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="writeInEvent">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{B5E5F8E3-3643-402E-BEAA-57CB6568079D}</SSIS:Property>
                     <SSIS:Property SSIS:Name="CreationName">
                     </SSIS:Property>
                     <SSIS:Property SSIS:Name="Description">
