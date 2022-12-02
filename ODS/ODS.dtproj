@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">1505003NB02</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAvKkzgek89E++bjdVNIPx6QAAAAACAAAAAAADZgAAwAAAABAAAABRFC3xGuuBTwP3xHzaQ7doAAAAAASAAACgAAAAEAAAADn2XinyNfb0ZNa78XdNW6aIAAAAhhT5kWasFERgthFAB1yb0cIkQ7IXdEq4ZBNMvd3sNecGDoEaQOgCoeph4LXF28/lGqef64iUcO224vm16Gfz0Z87vF/DpQ7yqPUYl30pKbMQ6ZVlcCM4uJ2+KvmmfWeTGxthGHrk7IT6qG4y4TyOCoQ6CZ/HW/lqtVUTAEcqG6yvlTADR/3N5xQAAACn0WpWW/y5nKvshA83a3RKYjUM4A==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAvKkzgek89E++bjdVNIPx6QAAAAACAAAAAAADZgAAwAAAABAAAADDhY15yI2x7jNtGRFqgBtLAAAAAASAAACgAAAAEAAAANv7jFuWlW2RrFwrxP+FkrqIAAAAZ8EK0Y4oZ3k5oT//BvMuN3Jkjae+RqLrlxo0wlAah5ZoeFOSRxqlrViBE+71VDyt/Zge41s09xscO5qzdV/FAqtPd/RFDyrqxEbyMcvjMnsFed1lsUeauOU/2C0Bi0WT01kk+5TIic6AYLgH8EpDWJKKeL/07aTXAnnNh54HOy1Hs2ggGFlYLRQAAABf74V1v3d7vrv0/+xi11PbSXsv4A==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -155,6 +155,7 @@
           <SSIS:Package SSIS:Name="PKGS_TRANS_LMS_sql.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="TRANS_FREEBIE_PNTEX_INVOICE.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="MF_PRODUCT_MASTER_EC.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="MF_PRODUCT_TYPE_ECMCH.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="StageETLDB.conmgr" />
@@ -7114,8 +7115,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -7130,6 +7129,53 @@
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">dbo.MF_PRODUCT_MASTER_EC</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="MF_PRODUCT_TYPE_ECMCH.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{2BAFF8C6-E278-4130-BA18-07966EE94CAF}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">MF_PRODUCT_TYPE_ECMCH</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">352</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D3F24DF4-D3DB-40FA-9417-EDE1B650B5A6}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="fullTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{F5A99AC7-718F-4C00-A947-33C3D5F24AA8}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">dbo.MF_PRODUCT_TYPE_ECMCH</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="queryBaseDate">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{C3216523-254C-4717-83D7-0435F83C773B}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">
+                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
