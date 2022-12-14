@@ -1,0 +1,652 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/7/2019 11:50:57 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1701003NB01"
+  DTS:CreatorName="IEAD\1701003"
+  DTS:DTSID="{44D79483-4C34-4551-AA22-95A49D2F59F1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="1028"
+  DTS:MaxConcurrentExecutables="2"
+  DTS:ObjectName="Main_TW SAP_EADB_Container"
+  DTS:PackageType="5"
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{ACB0BE4B-ADE4-433C-92C6-6303C8E774F8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{02532141-144D-4B0C-87F9-941E78830A05}"
+      DTS:ObjectName="concurrentFiles">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{E11E32B5-7608-438F-AD77-91455A1680FF}"
+      DTS:ObjectName="param_fileNamePattern">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{538FE9D9-A916-46FF-9B34-957F68FF15CA}"
+      DTS:ObjectName="param_mailTo">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{E1825CE0-EC37-4C06-A539-6CA4EE385F15}"
+      DTS:ObjectName="param_maxConcurrent">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">2</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{CD2E1642-761E-4FC7-B5D2-DA431B0BE702}"
+      DTS:ObjectName="param_zipFileNamePattern">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{5E2C0D9C-3730-42E9-B653-1F9AF06DB4A7}"
+      DTS:ObjectName="srcFileFolder">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{FC56432E-38BF-4C05-B981-84F2FA15D121}"
+      DTS:ObjectName="srcNatName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">TW</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A3F78CB2-27D1-4B0C-87CB-C23D97809DC7}"
+      DTS:ObjectName="srcSysName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SAP</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CC00213F-8E90-4500-A8CA-6802297A8656}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="do_SP01">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5CFED20E-C8D3-49D0-9248-34406BAFDC5D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="do_SP02">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{08580200-8869-4DEB-B384-7408F26A9E7A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="SP01">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{63EA0C9E-7C6F-49A4-83A4-9C9DE2EC83A9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SP01_fileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E4E504C2-4A51-4C19-A9C9-421F68D79531}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="SP02">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6040CEBD-D820-42D9-9D5A-57F9C5FB51E4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SP02_fileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AACE4B9D-4FDE-4B88-AE6A-F8033FDAE91D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tableName_SP01">
+      <DTS:VariableValue
+        DTS:DataType="8">SP01</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C33F9A87-3774-4947-B486-B55BCA9724C7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tableName_SP02">
+      <DTS:VariableValue
+        DTS:DataType="8">SP02</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:PropertyExpression
+    DTS:Name="MaxConcurrentExecutables">@[$Package::param_maxConcurrent]</DTS:PropertyExpression>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SP01的資料檔清單"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{a908c3a2-0333-4d7e-b3d7-c6956844ead8}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SP01的資料檔清單"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Util_TableObj_List.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>concurrentFiles</ParameterName>
+            <BindedVariableOrParameterName>$Package::concurrentFiles</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_fileNamePattern</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_fileNamePattern</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcSysName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>tableName</ParameterName>
+            <BindedVariableOrParameterName>User::tableName_SP01</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SP02資料檔清單"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{4f821607-eeb1-4ff7-89a0-2cdeb21e73be}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SP02資料檔清單"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Util_TableObj_List.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>concurrentFiles</ParameterName>
+            <BindedVariableOrParameterName>$Package::concurrentFiles</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_fileNamePattern</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_fileNamePattern</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcSysName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>tableName</ParameterName>
+            <BindedVariableOrParameterName>User::tableName_SP02</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\包含SP01對應的資料檔?"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="運算式工作"
+      DTS:DTSID="{A1FC6A37-2872-4744-B705-6A676CADF10E}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="包含SP01對應的資料檔?"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[User::do_SP01] = FINDSTRING( @[$Package::concurrentFiles], &quot;SP01&quot;, 1 )" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\包含SP02對應的資料檔?"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="運算式工作"
+      DTS:DTSID="{C19166E3-7523-4FA5-8B79-8AB3FE4591B8}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="包含SP02對應的資料檔?"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[User::do_SP02] = FINDSTRING( @[$Package::concurrentFiles], &quot;SP02&quot;, 1 )" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\針對SP01的資料檔執行Foreach迴圈"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach 迴圈容器"
+      DTS:DTSID="{927BBBDF-280A-4410-8948-2AE02578DA4B}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:ForceExecutionResult="0"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="針對SP01的資料檔執行Foreach迴圈">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFromVarEnumerator"
+        DTS:DTSID="{CDD6A991-0BD4-440A-9AED-B211A079880F}"
+        DTS:ObjectName="{A1D6B08F-E92F-4602-BD2D-B6A630A9E02C}">
+        <DTS:ObjectData>
+          <FEEFVE
+            VariableName="User::SP01" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\針對SP01的資料檔執行Foreach迴圈\執行PreProcess_Main封裝，開始資料清洗ETL作業"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="執行封裝工作"
+          DTS:DTSID="{D70FA554-447D-4E5E-B2BF-E9BC0E6D7D53}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="執行PreProcess_Main封裝，開始資料清洗ETL作業"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>PreProcess_Main.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>srcFileFolder</ParameterName>
+                <BindedVariableOrParameterName>$Package::srcFileFolder</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>srcRawDataFileName</ParameterName>
+                <BindedVariableOrParameterName>User::SP01_fileName</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>srcSysName</ParameterName>
+                <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>param_mailTo</ParameterName>
+                <BindedVariableOrParameterName>$Package::param_mailTo</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>srcNatName</ParameterName>
+                <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>param_fileNamePattern</ParameterName>
+                <BindedVariableOrParameterName>$Package::param_fileNamePattern</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{CB1C6157-C80F-4B70-A32B-74C82C95FA07}"
+          DTS:ObjectName="{CB1C6157-C80F-4B70-A32B-74C82C95FA07}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::SP01_fileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\針對SP02的資料檔執行Foreach迴圈"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach 迴圈容器"
+      DTS:DTSID="{E07AE662-6BC7-4CBE-B108-7E8D0B6E7CF4}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:ForceExecutionResult="0"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="針對SP02的資料檔執行Foreach迴圈">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFromVarEnumerator"
+        DTS:DTSID="{5F9867E5-6EFC-4534-A018-5C6C456249F4}"
+        DTS:ObjectName="{A1D6B08F-E92F-4602-BD2D-B6A630A9E02C}">
+        <DTS:ObjectData>
+          <FEEFVE
+            VariableName="User::SP02" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\針對SP02的資料檔執行Foreach迴圈\執行PreProcess_Main封裝，開始資料清洗ETL作業"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="執行封裝工作"
+          DTS:DTSID="{0F86DF8A-A1BE-43A0-8CA7-E2ECF02EB627}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="執行PreProcess_Main封裝，開始資料清洗ETL作業"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>PreProcess_Main.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>srcFileFolder</ParameterName>
+                <BindedVariableOrParameterName>$Package::srcFileFolder</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>srcRawDataFileName</ParameterName>
+                <BindedVariableOrParameterName>User::SP02_fileName</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>srcSysName</ParameterName>
+                <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>param_mailTo</ParameterName>
+                <BindedVariableOrParameterName>$Package::param_mailTo</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>srcNatName</ParameterName>
+                <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>param_fileNamePattern</ParameterName>
+                <BindedVariableOrParameterName>$Package::param_fileNamePattern</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{CAEE3238-0121-41D4-9242-5393A0421E50}"
+          DTS:ObjectName="{CAEE3238-0121-41D4-9242-5393A0421E50}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::SP02_fileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束]"
+      DTS:CreationName=""
+      DTS:DTSID="{6C1A6060-FB31-4080-82FA-BB9E9756E642}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::do_SP01] &gt; 0"
+      DTS:From="Package\包含SP01對應的資料檔?"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束"
+      DTS:To="Package\SP01的資料檔清單" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{AF40E6F6-9C04-4360-9B6B-EE9BCC53D525}"
+      DTS:From="Package\SP01的資料檔清單"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 1"
+      DTS:To="Package\針對SP01的資料檔執行Foreach迴圈" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{0094CD40-7022-43D1-82EA-A5899187CAEC}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::do_SP02] &gt; 0"
+      DTS:From="Package\包含SP02對應的資料檔?"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 2"
+      DTS:To="Package\SP02資料檔清單" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{B93B631F-F95C-48A6-BD37-AAF8C6FBEB92}"
+      DTS:From="Package\SP02資料檔清單"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 3"
+      DTS:To="Package\針對SP02的資料檔執行Foreach迴圈" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        <NodeLayout
+          Size="243,42"
+          Id="Package\針對SP01的資料檔執行Foreach迴圈\執行PreProcess_Main封裝，開始資料清洗ETL作業"
+          TopLeft="34.3333284325071,23.3571298110248" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="300,71"
+          Size="300,114"
+          Id="Package\針對SP01的資料檔執行Foreach迴圈"
+          TopLeft="6.33333330021969,175.115633684531" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\包含SP01對應的資料檔?"
+          TopLeft="44.7989402373427,5.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\SP01的資料檔清單"
+          TopLeft="62.9999961256983,89.8922847117041" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束]"
+          TopLeft="151.649468181521,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.3922847117041"
+              Start="0,0"
+              End="0,34.8922847117041">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.8922847117041" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,9.44614235585203,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 1]"
+          TopLeft="154.666664712959,131.892284711704">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.2233489728269"
+              Start="0,0"
+              End="0,35.7233489728269">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.7233489728269" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <GroupLayout
+          Text="SP01"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="315,303"
+          Size="315,346"
+          Id="f4666b4f-ac4f-4e75-856a-b0a932bacea1"
+          TopLeft="89.4999986092251,154.999992362091">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\針對SP01的資料檔執行Foreach迴圈</s:String>
+            <s:String>Package\包含SP01對應的資料檔?</s:String>
+            <s:String>Package\SP01的資料檔清單</s:String>
+            <s:String>Package.PrecedenceConstraints[條件約束]</s:String>
+            <s:String>Package.PrecedenceConstraints[條件約束 1]</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="239,42"
+          Id="Package\針對SP02的資料檔執行Foreach迴圈\執行PreProcess_Main封裝，開始資料清洗ETL作業"
+          TopLeft="28.4999953309695,21.4999870487628" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="302,83"
+          Size="302,126"
+          Id="Package\針對SP02的資料檔執行Foreach迴圈"
+          TopLeft="5.5,165.131517632788" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\包含SP02對應的資料檔?"
+          TopLeft="50.1666711701297,5.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\SP02資料檔清單"
+          TopLeft="73.4999825159716,87.7494301306301" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 2]"
+          TopLeft="159.583326843051,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.2494301306301"
+              Start="0,0"
+              End="0,32.7494301306301">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.7494301306301" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,8.37471506531506,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 3]"
+          TopLeft="159.999991257986,129.74943013063">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.3820875021579"
+              Start="0,0"
+              End="0,27.8820875021579">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.8820875021579" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <GroupLayout
+          Text="SP02"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="312,304"
+          Size="312,347"
+          Id="a0aee9df-098c-4e54-94b1-21aaf14036e2"
+          TopLeft="420.928556868008,153.749412862314">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\針對SP02的資料檔執行Foreach迴圈</s:String>
+            <s:String>Package\包含SP02對應的資料檔?</s:String>
+            <s:String>Package\SP02資料檔清單</s:String>
+            <s:String>Package.PrecedenceConstraints[條件約束 2]</s:String>
+            <s:String>Package.PrecedenceConstraints[條件約束 3]</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
