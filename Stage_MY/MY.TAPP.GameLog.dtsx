@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="10/17/2022 10:33:40 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="TPODS402"
   DTS:CreatorName="ESLITE\skylar0312"
-  DTS:DTSID="{EDE9EE85-C2F7-4DF4-BF15-BBBB8D4AC631}"
+  DTS:DTSID="{FA6D8D40-115E-4E16-B56C-730C8C8E0186}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="MY TAPP GameLog"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{2683B376-00BA-4244-9F04-6BA0D96FE195}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{17A4E048-8480-4921-BDCE-F7CF1054DC4E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{9CAADFB7-7F60-43AB-9AEF-EAEAA07A5A05}"
+      DTS:DTSID="{607B6DFE-917C-482B-A608-B6623230942F}"
       DTS:ObjectName="dbPrestageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{1A62ED13-D845-4B5D-86D1-5563B7550B5A}"
+      DTS:DTSID="{727C6858-FF4F-486C-B7A7-895A45785ADB}"
       DTS:ObjectName="dbSchemaName">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +38,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{0CC3BA11-54B2-4F79-8B60-1E04F9EE8FEC}"
+      DTS:DTSID="{9C02F729-21ED-48F6-B1BA-847708CDB3E9}"
       DTS:ObjectName="dbStageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -47,7 +47,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{1EFBA97E-DB9D-4AE4-9CE0-2B0B2F8BDC1F}"
+      DTS:DTSID="{5F49DE67-8D89-485A-B1E8-E1F9E180F6B1}"
       DTS:ObjectName="dbTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -56,7 +56,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{F5319946-962D-4ED7-BD6E-2E69496B6AEC}"
+      DTS:DTSID="{0DAED32C-D596-400D-A18F-FBB2E3A9A024}"
       DTS:ObjectName="srcRawDataFileName">
       <DTS:Property
         DTS:DataType="8"
@@ -66,7 +66,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{88A49374-F508-4A12-A4D0-AF746A45C0C7}"
+      DTS:DTSID="{0583E207-CF71-4A6E-84F9-A381F2A208FC}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -75,7 +75,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{C8E49755-54A2-46DB-9642-15CDFE83E608}"
+      DTS:DTSID="{47663C9A-CC14-4F57-A3EC-7FF12D9815F4}"
       DTS:ObjectName="writeInEvent">
       <DTS:Property
         DTS:DataType="8"
@@ -86,14 +86,14 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{AC44EA74-05DC-4ACA-B12E-BC29F9EDBAF7}"
+      DTS:DTSID="{61F3BA10-C941-42D5-A6ED-5F3242546093}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT *  FROM &quot; + @[$Package::dbPrestageTableName] + &quot; WHERE FILE_NAME =  '&quot; + @[$Package::srcRawDataFileName]  +&quot;' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = '&quot;+ @[$Package::srcRawDataFileName] +&quot;' and l.executionid = &quot;+ (DT_WSTR,100) @[System::ServerExecutionID] +&quot;)&quot;"
+      DTS:Expression="&quot;SELECT DISTINCT [MEMBER_ID], [ACT_TYPE], [ACT_ID], [ACT_TIME], [FILE_NAME]  FROM &quot; + @[$Package::dbPrestageTableName] + &quot; WHERE FILE_NAME =  '&quot; + @[$Package::srcRawDataFileName]  +&quot;' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = '&quot;+ @[$Package::srcRawDataFileName] +&quot;' and l.executionid = &quot;+ (DT_WSTR,100) @[System::ServerExecutionID] +&quot;)&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="sqlQueryPrestage">
       <DTS:VariableValue
-        DTS:DataType="8">SELECT *  FROM prestage_TAPP.GameLog WHERE FILE_NAME =  '' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = '' and l.executionid = 0)</DTS:VariableValue>
+        DTS:DataType="8">SELECT DISTINCT [MEMBER_ID], [ACT_TYPE], [ACT_ID], [ACT_TIME], [FILE_NAME]  FROM prestage_TAPP.GameLog WHERE FILE_NAME =  '' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = '' and l.executionid = 0)</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -101,7 +101,7 @@
       DTS:refId="Package\I／IU資料流程"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{3cd38b84-7d76-4609-8416-d23a4bf0eb6d}"
+      DTS:DTSID="{D4BA070C-B617-43D9-8568-F7075C80022E}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="I／IU資料流程"
@@ -479,14 +479,12 @@
                 <property
                   dataType="System.String"
                   description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
-                  name="OpenRowsetVariable">$Package::insertTable</property>
+                  name="OpenRowsetVariable"></property>
                 <property
                   dataType="System.String"
                   description="要執行的 SQL 命令。"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT *
-  FROM prestage_LMS.CUSL_D
-WHERE FILE_NAME = ? and VER_VALUE = 0</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="包含要執行之 SQL 命令的變數。"
@@ -507,7 +505,7 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
                 <property
                   dataType="System.String"
                   description="SQL 命令中的參數和變數之間的對應。"
-                  name="ParameterMapping">"參數0:Input",{A78726CB-1D93-4208-B47A-79CCE54228EB};</property>
+                  name="ParameterMapping"></property>
               </properties>
               <connections>
                 <connection
@@ -520,48 +518,8 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
               <outputs>
                 <output
                   refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出]"
-                  isSorted="true"
                   name="OLE DB 來源輸出">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[VER_VALUE]"
-                      dataType="i4"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[VER_VALUE]"
-                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[VER_VALUE]"
-                      name="VER_VALUE"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[FILE_NAME]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[FILE_NAME]"
-                      length="100"
-                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[FILE_NAME]"
-                      name="FILE_NAME"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ETL_INSERT_DATE]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[ETL_INSERT_DATE]"
-                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ETL_INSERT_DATE]"
-                      name="ETL_INSERT_DATE"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[PKEY]"
-                      dataType="i4"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[PKEY]"
-                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[PKEY]"
-                      name="PKEY"
-                      sortKeyPosition="1"
-                      truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[MEMBER_ID]"
                       dataType="wstr"
@@ -602,27 +560,20 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
                       lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ACT_TIME]"
                       name="ACT_TIME"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[FILE_NAME]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[FILE_NAME]"
+                      length="100"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[FILE_NAME]"
+                      name="FILE_NAME"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[VER_VALUE]"
-                      dataType="i4"
-                      name="VER_VALUE" />
-                    <externalMetadataColumn
-                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[PKEY]"
-                      dataType="i4"
-                      name="PKEY" />
-                    <externalMetadataColumn
-                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[FILE_NAME]"
-                      codePage="950"
-                      dataType="str"
-                      length="100"
-                      name="FILE_NAME" />
-                    <externalMetadataColumn
-                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[ETL_INSERT_DATE]"
-                      dataType="dbTimeStamp"
-                      name="ETL_INSERT_DATE" />
                     <externalMetadataColumn
                       refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[MEMBER_ID]"
                       dataType="wstr"
@@ -643,6 +594,12 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
                       dataType="wstr"
                       length="300"
                       name="ACT_TIME" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[FILE_NAME]"
+                      codePage="950"
+                      dataType="str"
+                      length="100"
+                      name="FILE_NAME" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -650,12 +607,6 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
                   isErrorOut="true"
                   name="OLE DB 來源錯誤輸出">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
                     <outputColumn
                       refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[MEMBER_ID]"
                       dataType="wstr"
@@ -681,17 +632,6 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
                       lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ACT_TIME]"
                       name="ACT_TIME" />
                     <outputColumn
-                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                    <outputColumn
-                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[VER_VALUE]"
-                      dataType="i4"
-                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[VER_VALUE]"
-                      name="VER_VALUE" />
-                    <outputColumn
                       refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[FILE_NAME]"
                       codePage="950"
                       dataType="str"
@@ -699,15 +639,17 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
                       lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[FILE_NAME]"
                       name="FILE_NAME" />
                     <outputColumn
-                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ETL_INSERT_DATE]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ETL_INSERT_DATE]"
-                      name="ETL_INSERT_DATE" />
-                    <outputColumn
-                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[PKEY]"
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[PKEY]"
-                      name="PKEY" />
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -811,7 +753,7 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
       DTS:refId="Package\紀錄目前檔案執行封裝至dbo sysssislog"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="指令碼工作"
-      DTS:DTSID="{819bd5e7-c5ff-4d6d-823f-4a625bcf7389}"
+      DTS:DTSID="{00036EC5-D7DC-47FA-93F1-C9EAC762A3D2}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄目前檔案執行封裝至dbo sysssislog"
@@ -849,36 +791,6 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
           VSTAMinorVersion="0"
           Language="CSharp"
           ReadOnlyVariables="$Package::srcRawDataFileName">
-          <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -998,6 +910,35 @@ using System.Runtime.CompilerServices;
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Settings.get_Default():ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Sett" +
+    "ings")]
+
+namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -1136,34 +1077,35 @@ namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
 //
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
 
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Settings.get_Default():ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Sett" +
-    "ings")]
-
-namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Settings.settings"
             Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
@@ -1367,13 +1309,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
+          Size="155,42"
+          Id="Package\I／IU資料流程"
+          TopLeft="396,57.9999991734823" />
+        <NodeLayout
           Size="289,42"
           Id="Package\紀錄目前檔案執行封裝至dbo sysssislog"
           TopLeft="60,60" />
-        <NodeLayout
-          Size="154,42"
-          Id="Package\I／IU資料流程"
-          TopLeft="396,57.9999991734823" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1383,79 +1325,79 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="294,42"
-          Id="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出"
-          TopLeft="147.277774389144,54.0634893014049" />
-        <NodeLayout
-          Size="167,42"
-          Id="Package\I／IU資料流程\intsert into stage"
-          TopLeft="208.444466321556,306.706335226182" />
-        <NodeLayout
           Size="215,42"
           Id="Package\I／IU資料流程\衍生的資料行 ETL_DATE"
           TopLeft="183.063512247075,218.757373101007" />
-        <EdgeLayout
-          Id="Package\I／IU資料流程.Paths[衍生的資料行輸出]"
-          TopLeft="291.253989284315,260.757373101007">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45.9489621251744"
-              Start="0,0"
-              End="0,38.4489621251744">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.4489621251744" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="272,42"
           Id="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換"
           TopLeft="156,134.600000640551" />
-        <EdgeLayout
-          Id="Package\I／IU資料流程.Paths[OLE DB 來源輸出]"
-          TopLeft="293.138887194572,96.0634893014049">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.5365113391464"
-              Start="0,0"
-              End="0,31.0365113391464">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.0365113391464" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="167,42"
+          Id="Package\I／IU資料流程\intsert into stage"
+          TopLeft="208.444466321556,307.573001899736" />
         <EdgeLayout
           Id="Package\I／IU資料流程.Paths[資料轉換輸出]"
           TopLeft="291.281756123537,176.600000640551">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.1573724604557"
+              EndConnector="0,42.157372460456"
               Start="0,0"
-              End="0,34.6573724604557">
+              End="0,34.657372460456">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.6573724604557" />
+                    End="0,34.657372460456" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\I／IU資料流程.Paths[衍生的資料行輸出]"
+          TopLeft="291.253989284315,260.757373101007">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.8156287987293"
+              Start="0,0"
+              End="0,39.3156287987293">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.3156287987293" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="285,42"
+          Id="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出"
+          TopLeft="146,41.6000003306071" />
+        <EdgeLayout
+          Id="Package\I／IU資料流程.Paths[OLE DB 來源輸出]"
+          TopLeft="290.25,83.6000003306071">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.0000003099439"
+              Start="0,0"
+              End="0,43.5000003099439">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5000003099439" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1468,7 +1410,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出">
+    design-time-name="Package\I／IU資料流程\intsert into stage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1476,7 +1418,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\I／IU資料流程\intsert into stage">
+    design-time-name="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
