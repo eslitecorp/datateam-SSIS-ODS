@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{FEB833EF-F87E-4F6D-A204-1FE118C41250}"
+  DTS:DTSID="{D8A0B2CF-BD6B-4EA8-AC71-7B2414334797}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="MY_TRANS_DETAIL_ITEM_TPOS"
   DTS:PackageType="5"
-  DTS:VersionBuild="336"
-  DTS:VersionGUID="{CEE037C8-9B45-44B3-8804-8013EAD1B5FA}">
+  DTS:VersionBuild="339"
+  DTS:VersionGUID="{DF8DBACA-9419-401E-83B5-DA6F537E7A21}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{1211EC3A-3690-4E5B-8284-DA11FC37B857}"
+      DTS:DTSID="{89ACE17A-FF6E-4F21-80B9-FC4934282046}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -29,7 +29,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{132D530C-5513-4897-A042-CD592CA63E7A}"
+      DTS:DTSID="{8390E77E-4907-4FA9-AE2B-D349999703A0}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +38,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{336C371B-60D1-4101-AC76-D1D2ECD9794E}"
+      DTS:DTSID="{9370159C-57C5-4EB2-825A-3D253C91C418}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -49,7 +49,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{8BF06D4D-B573-43A5-A242-A8CF3322BAE5}"
+      DTS:DTSID="{20D0B80D-034D-4FF3-8484-54B9D89F5337}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -58,7 +58,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{F59E8081-DD77-4F43-82A3-240318C5A935}"
+      DTS:DTSID="{9434678A-E72A-4819-AEED-ACA60DBF6F71}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ? ,?,?);&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -70,7 +70,7 @@ values(?,?,?,(select count(*) from MY.TRANS_DETAIL_ITEM_TPOS_),?,GETDATE(), ? ,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{BFED0004-1C47-4FE7-8E28-4969E7232741}"
+      DTS:DTSID="{1805A964-B9F8-4424-A68C-D9A3613904FA}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -81,7 +81,7 @@ values(?,?,?,(select count(*) from MY.TRANS_DETAIL_ITEM_TPOS_),?,GETDATE(), ? ,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{858216C2-237B-44B2-8441-22DE5B7A8701}"
+      DTS:DTSID="{90EA2FE8-8E3F-4429-8D86-E7C3DC5342A0}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -91,9 +91,9 @@ values(?,?,?,(select count(*) from MY.TRANS_DETAIL_ITEM_TPOS_),?,GETDATE(), ? ,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7C7C2F0D-FBB5-4D1D-8285-7BFDAB7826D6}"
+      DTS:DTSID="{A0447488-15A5-4EB1-89F3-3CD6FDD29F3F}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT  CONCAT(HEAD.STOREID,REPLACE(HEAD.BUSINESSDATE,'/',''),HEAD.POSNO,HEAD.TRADESEQNO) AS SL_KEY &#xA;       , HEAD.STOREID       &#x9;&#x9;AS WERKS        &#xA;&#x9;   , HEAD.BUSINESSDATE  &#x9;&#x9;AS BUSINESSDATE &#xA;&#x9;   , HEAD.POSNO         &#x9;&#x9;AS POSNO        &#xA;&#x9;   , HEAD.TRADESEQNO    &#x9;&#x9;AS TRANS_SEQNO  &#xA;&#x9;   , HEAD.ITEMSEQNO   &#x9;&#x9;AS ITEM_SEQ_NO&#xA;&#x9;   , RIGHT('0000000' + DETAIL.ITEMCODE , 18) AS MATNR&#xA;&#x9;   , HEAD.TENANTNO &#x9;&#x9;&#x9;&#x9;AS LIFNR_COUNTER&#xA;&#x9;   , DETAIL.TENANTITEMCAT3 &#x9;&#x9;AS COUITEMCAT&#xA;&#x9;   , DETAIL.ITEMBARCODE&#x9;&#x9;&#x9;AS ITEM_BARCODE&#xA;&#x9;   , DETAIL.ITEMNAME&#x9;&#x9;&#x9;AS PROD_LNAME&#xA;&#x9;   , DETAIL.MEALNAME&#x9;&#x9;&#x9;AS MEAL_NAME&#xA;&#x9;   , DETAIL.MSMORDERFLAG&#x9;&#x9;AS MSM_FLAG&#xA;&#x9;   , DETAIL.MSMORDERTYPE&#x9;&#x9;AS MSM_TYPE&#xA;&#x9;   , DETAIL.QUANTITY&#x9;&#x9;&#x9;AS QUANTITY&#xA;&#x9;   , DETAIL.UNITPRICE&#x9;&#x9;&#x9;AS UNIT_PRICE&#xA;&#x9;   , DETAIL.SALEPRICE&#x9;&#x9;&#x9;AS SALE_PRICE&#xA;&#x9;   , DETAIL.USEACTDISCAMT&#x9;&#x9;AS USE_ACT_DISC_AMT&#xA;&#x9;   , DETAIL.PRICEFREEDISCAMT&#x9;AS PRICE_FREE_DISC_AMT&#xA;&#x9;   , DETAIL.TOTDISCAMT&#x9;&#x9;&#x9;AS TOT_DISC_AMT&#xA;&#x9;   , DETAIL.SALESAMT&#x9;&#x9;&#x9;AS SALES_AMT&#xA;&#x9;   &#xA;&#x9;   , 'TPOS'&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;AS SRC_SYS&#xA;&#x9;   , CASE WHEN HEAD.TRANAREA IN ('110','102','103') THEN '1' ELSE '-1' END AS FLAG&#xA;&#x9;   , DETAIL.SALESAMT - DETAIL.TAXAMT&#x9;AS SALES_AMT_NOTAX&#xA;&#x9;   , DETAIL.TAXAMT&#x9;&#x9;&#x9;&#x9;AS TAX&#x9;   &#xA;&#x9;   , HEAD.TRADETIME&#x9;&#x9;&#x9;&#x9;AS TRANS_DATE&#xA;&#xA;   FROM STAGINGDB_MY.TPOS.POSTRADEM HEAD&#xA;   JOIN STAGINGDB_MY.TPOS.POSTRADED DETAIL&#xA;     ON HEAD.STOREID = DETAIL.STOREID&#xA;    AND HEAD.BUSINESSDATE = DETAIL.BUSINESSDATE&#xA;    AND HEAD.POSNO = DETAIL.POSNO&#xA;    AND HEAD.TRADESEQNO = DETAIL.TRADESEQNO&#xA;  WHERE HEAD.TRANAREA NOT IN ('200','201')&#xA;    and (head.ETL_DATE &gt;= cast(cast('&quot; + ((@[User::ReloadWorkDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[User::ReloadWorkDate]) +&quot;' as date) as datetime)&#xA;&#x9; or detail.ETL_DATE &gt;= cast(cast('&quot; + ((@[User::ReloadWorkDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[User::ReloadWorkDate]) +&quot;' as date) as datetime) )&quot;"
+      DTS:Expression="&quot;SELECT  CONCAT(HEAD.STOREID,REPLACE(HEAD.BUSINESSDATE,'/',''),HEAD.POSNO,HEAD.TRADESEQNO) AS SL_KEY &#xA;       , HEAD.STOREID       &#x9;&#x9;AS WERKS        &#xA;&#x9;   , HEAD.BUSINESSDATE  &#x9;&#x9;AS BUSINESSDATE &#xA;&#x9;   , HEAD.POSNO         &#x9;&#x9;AS POSNO        &#xA;&#x9;   , HEAD.TRADESEQNO    &#x9;&#x9;AS TRANS_SEQNO  &#xA;&#x9;   , DETAIL.ITEMSEQNO   &#x9;&#x9;AS ITEM_SEQ_NO&#xA;&#x9;   , RIGHT('0000000' + DETAIL.ITEMCODE , 18) AS MATNR&#xA;&#x9;   , HEAD.TENANTNO &#x9;&#x9;&#x9;&#x9;AS LIFNR_COUNTER&#xA;&#x9;   , DETAIL.TENANTITEMCAT3 &#x9;&#x9;AS COUITEMCAT&#xA;&#x9;   , DETAIL.ITEMBARCODE&#x9;&#x9;&#x9;AS ITEM_BARCODE&#xA;&#x9;   , DETAIL.ITEMNAME&#x9;&#x9;&#x9;AS PROD_LNAME&#xA;&#x9;   , DETAIL.MEALNAME&#x9;&#x9;&#x9;AS MEAL_NAME&#xA;&#x9;   , DETAIL.MSMORDERFLAG&#x9;&#x9;AS MSM_FLAG&#xA;&#x9;   , DETAIL.MSMORDERTYPE&#x9;&#x9;AS MSM_TYPE&#xA;&#x9;   , DETAIL.QUANTITY&#x9;&#x9;&#x9;AS QUANTITY&#xA;&#x9;   , DETAIL.UNITPRICE&#x9;&#x9;&#x9;AS UNIT_PRICE&#xA;&#x9;   , DETAIL.SALEPRICE&#x9;&#x9;&#x9;AS SALE_PRICE&#xA;&#x9;   , DETAIL.USEACTDISCAMT&#x9;&#x9;AS USE_ACT_DISC_AMT&#xA;&#x9;   , DETAIL.PRICEFREEDISCAMT&#x9;AS PRICE_FREE_DISC_AMT&#xA;&#x9;   , DETAIL.TOTDISCAMT&#x9;&#x9;&#x9;AS TOT_DISC_AMT&#xA;&#x9;   , DETAIL.SALESAMT&#x9;&#x9;&#x9;AS SALES_AMT&#xA;&#x9;   &#xA;&#x9;   , 'TPOS'&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;AS SRC_SYS&#xA;&#x9;   , CASE WHEN HEAD.TRANAREA IN ('110','102','103') THEN '1' ELSE '-1' END AS FLAG&#xA;&#x9;   , DETAIL.SALESAMT - DETAIL.TAXAMT&#x9;AS SALES_AMT_NOTAX&#xA;&#x9;   , DETAIL.TAXAMT&#x9;&#x9;&#x9;&#x9;AS TAX&#x9;   &#xA;&#x9;   , HEAD.TRADETIME&#x9;&#x9;&#x9;&#x9;AS TRANS_DATE&#xA;&#xA;   FROM STAGINGDB_MY.TPOS.POSTRADEM HEAD&#xA;   JOIN STAGINGDB_MY.TPOS.POSTRADED DETAIL&#xA;     ON HEAD.STOREID = DETAIL.STOREID&#xA;    AND HEAD.BUSINESSDATE = DETAIL.BUSINESSDATE&#xA;    AND HEAD.POSNO = DETAIL.POSNO&#xA;    AND HEAD.TRADESEQNO = DETAIL.TRADESEQNO&#xA;  WHERE HEAD.TRANAREA NOT IN ('200','201')&#xA;    and (head.ETL_DATE &gt;= cast(cast('&quot; + ((@[User::ReloadWorkDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[User::ReloadWorkDate]) +&quot;' as date) as datetime)&#xA;&#x9; or detail.ETL_DATE &gt;= cast(cast('&quot; + ((@[User::ReloadWorkDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[User::ReloadWorkDate]) +&quot;' as date) as datetime) )&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="queryFromStage">
@@ -103,7 +103,7 @@ values(?,?,?,(select count(*) from MY.TRANS_DETAIL_ITEM_TPOS_),?,GETDATE(), ? ,?
 	   , HEAD.BUSINESSDATE  		AS BUSINESSDATE 
 	   , HEAD.POSNO         		AS POSNO        
 	   , HEAD.TRADESEQNO    		AS TRANS_SEQNO  
-	   , HEAD.ITEMSEQNO   		AS ITEM_SEQ_NO
+	   , DETAIL.ITEMSEQNO   		AS ITEM_SEQ_NO
 	   , RIGHT('0000000' + DETAIL.ITEMCODE , 18) AS MATNR
 	   , HEAD.TENANTNO 				AS LIFNR_COUNTER
 	   , DETAIL.TENANTITEMCAT3 		AS COUITEMCAT
@@ -133,12 +133,12 @@ values(?,?,?,(select count(*) from MY.TRANS_DETAIL_ITEM_TPOS_),?,GETDATE(), ? ,?
     AND HEAD.POSNO = DETAIL.POSNO
     AND HEAD.TRADESEQNO = DETAIL.TRADESEQNO
   WHERE HEAD.TRANAREA NOT IN ('200','201')
-    and (head.ETL_DATE &gt;= cast(cast('2022-12-26 14:21:18.863000000' as date) as datetime)
-	 or detail.ETL_DATE &gt;= cast(cast('2022-12-26 14:21:18.863000000' as date) as datetime) )</DTS:VariableValue>
+    and (head.ETL_DATE &gt;= cast(cast('2022-12-26 17:30:23.875000000' as date) as datetime)
+	 or detail.ETL_DATE &gt;= cast(cast('2022-12-26 17:30:23.875000000' as date) as datetime) )</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1FAAA930-495B-41E5-A61F-5F36118C7512}"
+      DTS:DTSID="{104D6369-4F1F-4EEC-A095-73793B2A2AAC}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ReloadWorkDate">
@@ -148,7 +148,7 @@ values(?,?,?,(select count(*) from MY.TRANS_DETAIL_ITEM_TPOS_),?,GETDATE(), ? ,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C1BD529E-1FC2-4269-B0EC-2AD53C590754}"
+      DTS:DTSID="{0004651E-EE9C-46A2-AFD4-C4C144D3C3D3}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -158,7 +158,7 @@ values(?,?,?,(select count(*) from MY.TRANS_DETAIL_ITEM_TPOS_),?,GETDATE(), ? ,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D1A51B49-20A6-4986-8279-DA38414607E2}"
+      DTS:DTSID="{2709FE12-BFB7-42B0-B64C-C67F97696DAB}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -167,7 +167,7 @@ values(?,?,?,(select count(*) from MY.TRANS_DETAIL_ITEM_TPOS_),?,GETDATE(), ? ,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1AB983B9-E219-4D2D-B4CA-FB95D1C1CF58}"
+      DTS:DTSID="{1D5475CD-3C69-42EB-9B16-6E762BAD64D3}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -182,7 +182,7 @@ values(?,?,?,(select count(*) from MY.TRANS_DETAIL_ITEM_TPOS_),?,GETDATE(), ? ,?
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{34BD7CB5-5453-44E9-B375-F1AFA24B7C9D}"
+      DTS:DTSID="{B5A8E5C4-CCB5-4813-B788-982B320A8C06}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -7893,7 +7893,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{3F6A7001-6410-42AE-8B47-75E844D962F3}"
+      DTS:DTSID="{60701BC4-EA70-4E09-B212-A91C6BF139AA}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -7918,7 +7918,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\取得ReloadWorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{9BD4C212-E9C3-4C36-8415-19FFFCEA4C0B}"
+      DTS:DTSID="{128FE162-3050-437D-9C11-4E72532AFA42}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得ReloadWorkDate"
@@ -7939,7 +7939,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{43BBD3EB-FEEB-4AF9-8018-6509761F3F2F}"
+      DTS:DTSID="{475CF37A-666C-426D-A338-DCC8225EC275}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -7960,7 +7960,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{E7D383D2-8973-479A-9BF3-505BE3ED072B}"
+      DTS:DTSID="{1D3E9B70-38D2-4F48-8D75-1073150E9710}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -7971,7 +7971,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:refId="Package\時序容器\Delete WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{D1635A44-2E4D-47EC-B0E0-43E9205E989B}"
+          DTS:DTSID="{75AC0327-A0F7-4F61-A846-30E2757B6CEC}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete WorkDateTable"
@@ -8012,7 +8012,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{1501CF89-DCCB-4BD9-87FA-C559C174BB52}"
+          DTS:DTSID="{1716834C-A0B4-4C30-BFBD-0ADF31639655}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -8048,7 +8048,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{9E30D128-E115-4291-A85C-B0148EC7F148}"
+          DTS:DTSID="{87F5EA30-2B25-47B4-AE62-242570B1304C}"
           DTS:From="Package\時序容器\Delete WorkDateTable"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -8059,7 +8059,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{1FB6A9BB-05C5-4BCD-996E-6C74D97BDF22}"
+      DTS:DTSID="{43F28BD4-4E3F-4F90-88D6-D4F73F7A7403}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -8122,7 +8122,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{B9875C72-BC7C-42EA-8948-FC3645C2721F}"
+      DTS:DTSID="{A74C0889-BDE8-45A6-B24D-2D53052FB542}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -8130,7 +8130,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{CA38E6A8-B693-4CB6-9E19-57B5BD3361AB}"
+      DTS:DTSID="{00C7A78A-4E38-47D7-8131-09275C38D2B0}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -8138,7 +8138,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{F08042CC-294E-4BF6-8B1F-BC34FFE357B1}"
+      DTS:DTSID="{F83E6F96-8FA0-4C91-8772-090B2EEDD574}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -8146,7 +8146,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{C62E0C5B-0AAF-4973-90D5-96BE2295E502}"
+      DTS:DTSID="{41AC2763-CF2B-4866-BB4E-7F7A57E3B58B}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -8154,7 +8154,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 4]"
       DTS:CreationName=""
-      DTS:DTSID="{BF5FEDB1-16C2-4849-9478-96C63FBAF125}"
+      DTS:DTSID="{05F70537-DE18-42A3-92A0-1A8588F64E31}"
       DTS:From="Package\取得ReloadWorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 4"
