@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{12CFE2BD-4686-412F-B29D-3E3BEF382A88}"
+  DTS:DTSID="{EBA24888-B55E-4D15-A752-D2572C7A748D}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="MY_MF_PRODUCT_TYPE_SAP"
   DTS:PackageType="5"
-  DTS:VersionBuild="370"
-  DTS:VersionGUID="{DDDA8FDB-7834-4FA4-B524-CD7777FFA667}">
+  DTS:VersionBuild="371"
+  DTS:VersionGUID="{714342C2-A3AF-436F-B640-AE053BB155FA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{78A16664-6B5E-4919-811A-E7C97FFD8735}"
+      DTS:DTSID="{94950435-9514-4170-A686-11C544B79AFB}"
       DTS:ObjectName="ekorg">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{98CC4989-70D5-4CC8-90E8-90F1E4FCA54C}"
+      DTS:DTSID="{B171B829-BD80-4377-B4BC-8BFB70537BE5}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -37,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{9BA84A48-763D-4744-9B1E-11C7122FB0A1}"
+      DTS:DTSID="{918526E7-F267-41C4-A346-8556A3342E26}"
       DTS:ObjectName="prefixDG">
       <DTS:Property
         DTS:DataType="8"
@@ -46,7 +46,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{07477C08-94A5-4F4C-9388-2CF621AA75D8}"
+      DTS:DTSID="{37F54849-8CEB-4451-9925-72016FD2E8DF}"
       DTS:ObjectName="prefixGID">
       <DTS:Property
         DTS:DataType="8"
@@ -56,7 +56,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{760E1006-9B97-499F-A055-6057A8687AA5}"
+      DTS:DTSID="{E536142A-C0C4-41EA-96B4-70720D246517}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -65,7 +65,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{6BA19EAD-5A61-4D51-8CED-D5B446D0D58E}"
+      DTS:DTSID="{496E75BB-A7D2-47AC-AF25-56E27F1C296C}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::prefixDG]+ @[$Package::ekorg]"
       DTS:IncludeInDebugDump="2345"
@@ -76,7 +76,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{FC5C501D-9BB0-48EB-80D5-C44ECF71266B}"
+      DTS:DTSID="{042BB404-8A17-4F2D-827E-113CB2A0B07C}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ?,?,? );&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -88,7 +88,7 @@ values(?,?,?,(select count(*) from MY.MF_PRODUCT_TYPE_EMDB_),?,GETDATE(), ?,?,? 
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4F2DCBFA-939D-42E0-8CFD-556196A8E9C2}"
+      DTS:DTSID="{9662C295-1F39-46E9-8FAA-058C5CB93807}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::prefixGID]+ @[$Package::ekorg] + @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -99,7 +99,7 @@ values(?,?,?,(select count(*) from MY.MF_PRODUCT_TYPE_EMDB_),?,GETDATE(), ?,?,? 
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{2DC17B6A-D9AD-4330-8EBA-BC42664341A1}"
+      DTS:DTSID="{A41CED36-6153-4002-80BD-D0C9B5A774B1}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -109,7 +109,7 @@ values(?,?,?,(select count(*) from MY.MF_PRODUCT_TYPE_EMDB_),?,GETDATE(), ?,?,? 
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7E1ED7C7-7492-44AF-8061-D5DF848929A5}"
+      DTS:DTSID="{481F7A6F-1721-4CA2-B00E-911627D4CA64}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;SELECT '&quot;+@[$Package::ekorg]+&quot;' AS PROCURE_ID&#xA;&#x9;  , D_ProductType_SMALL.MATKL&#xA;&#x9;  , D_ProductType_MC3.MC3 AS MC3&#xA;      , cast(D_ProductType_MC3.Descripton1 as nvarchar) AS MC3_Name&#xA;      , D_ProductType_MID.MC6&#xA;      , D_ProductType_MID.MC6_Name&#xA;      , D_ProductType_SMALL.WGBEZ&#xA;      , D_ProductType_MC4.MC4&#xA;&#x9;  , D_ProductType_MC4.MC4_Name&#xA;      ,&quot;+(@[$Package::ekorg]==&quot;EMDB&quot; ? &quot;SP44.ZHOBBY&quot; : &quot;D_ProductType_MID.MC6&quot;)+&quot; AS INT_ID&#xA;      ,&quot;+(@[$Package::ekorg]==&quot;EMDB&quot; ? &quot;SP44.ZHOBBY_NAME&quot; : &quot;cast(D_ProductType_MID.MC6_Name as nvarchar)&quot;)+&quot; AS INT_NAME&#xA;      ,&quot;+(@[$Package::ekorg]==&quot;EMDB&quot; ? &quot;SP44.ZMKT_MAJOR&quot; : &quot;null&quot;)+&quot; AS CB_MCH4&#xA;      ,&quot;+(@[$Package::ekorg]==&quot;EMDB&quot; ? &quot;SP44.ZMKT_MAJ_NAME&quot; : &quot;null&quot;)+&quot; AS CB_MCH4_NAME&#xA;      ,&quot;+(@[$Package::ekorg]==&quot;EMDB&quot; ? &quot;SP44.ZMKT_MEDIUM&quot; : &quot;null&quot;)+&quot; AS CB_MCH5&#xA;      ,&quot;+(@[$Package::ekorg]==&quot;EMDB&quot; ? &quot;SP44.ZMKT_MED_NAME&quot; : &quot;null&quot;)+&quot; AS CB_MCH5_NAME&#xA;      , CASE '&quot;+ @[$Package::ekorg] +&quot;'&#xA;&#x9;&#x9;     WHEN 'EMDB' THEN 'CB'&#xA;&#x9;&#x9;     WHEN 'EMRD' THEN 'SD'&#x9;&#xA;&#x9;&#x9;     ELSE null END as SRC_SYS&#xA;&#xA;FROM&#xA;(&#xA;&#x9;SELECT SUBSTRING(MATKL,1,3) AS MC3, SUBSTRING(MATKL,1,4) AS MC4, SUBSTRING(MATKL,1,6) AS MC6, MATKL, WGBEZ&#xA;&#x9;FROM STAGINGDB_MY.SAP_&quot;+@[$Package::ekorg]+&quot;.SP06 WHERE DELETE_MARK &lt;&gt; 1&#xA;) D_ProductType_SMALL &#xA;LEFT JOIN (&#xA;&#x9;SELECT MC3, Descripton1&#xA;&#x9;FROM STAGINGDB_MY.SAP_&quot;+@[$Package::ekorg]+&quot;.SPM08&#xA;&#x9;WHERE LEN(MC4) = 3&#xA;    GROUP BY MC3, Descripton1&#xA;) D_ProductType_MC3 ON D_ProductType_MC3.MC3 = D_ProductType_SMALL.MC3&#x9;-- 小類 tmp table&#xA;LEFT JOIN (&#xA;&#x9;SELECT MC3, TRIM(MC3) + TRIM(MC4) AS MC6, TRIM(Descripton1) + TRIM(Descripton2) AS MC6_Name, substring(TRIM(MC3) + TRIM(MC4), 1, 4) MC4&#xA;&#x9;FROM STAGINGDB_MY.SAP_&quot;+@[$Package::ekorg]+&quot;.SPM08&#xA;&#x9;WHERE LEN(MC4) = 3&#xA;) D_ProductType_MID ON D_ProductType_SMALL.MC3 = D_ProductType_MID.MC3&#x9;and D_ProductType_SMALL.MC6 = D_ProductType_MID.MC6 -- 中類 tmp table&#xA;LEFT JOIN (&#xA;&#x9;SELECT MC3, TRIM(MC3) + TRIM(MC4) AS MC4, TRIM(Descripton1) + TRIM(Descripton2) AS MC4_Name&#xA;&#x9;FROM STAGINGDB_MY.SAP_&quot;+@[$Package::ekorg]+&quot;.SPM08&#xA;&#x9;WHERE LEN(MC4) = 1&#xA;) D_ProductType_MC4 ON D_ProductType_SMALL.MC3 = D_ProductType_MC4.MC3 and D_ProductType_SMALL.MC4 = D_ProductType_MC4.MC4&quot;&#xA;+ (@[$Package::ekorg]==&quot;EMDB&quot; ? &quot; LEFT JOIN STAGINGDB_MY.SAP_&quot;+@[$Package::ekorg]+&quot;.SP44 ON D_ProductType_SMALL.MATKL = SP44.MATKL&quot; : &quot;&quot;)"
       DTS:IncludeInDebugDump="2345"
@@ -160,7 +160,7 @@ LEFT JOIN (
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{DABF5A52-A91E-438E-89DD-0C0FC4959637}"
+      DTS:DTSID="{18764763-93DB-4491-9935-8FFC2AE36607}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -169,7 +169,7 @@ LEFT JOIN (
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{FE05337D-C35B-40BB-B05C-9381C35AD8DD}"
+      DTS:DTSID="{137CC481-94F3-4251-A26A-DAC2FE3B9D0A}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -178,7 +178,7 @@ LEFT JOIN (
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{A584AC0A-72E9-4417-839D-598D89760DFD}"
+      DTS:DTSID="{79475503-D867-4A8B-AFFB-4BBC562E149D}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName] +&quot;_&quot; + @[$Package::ekorg] +&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -193,7 +193,7 @@ LEFT JOIN (
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{DFC9EEC4-08DA-43AE-8397-7830B718971D}"
+      DTS:DTSID="{0E27488A-C229-42C8-8DC6-B6809D11388A}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -6255,7 +6255,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                     <inputColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[WGBEZ(ready)]"
                       cachedDataType="wstr"
-                      cachedLength="50"
+                      cachedLength="250"
                       cachedName="WGBEZ(ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[WGBEZ]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[WGBEZ(ready)]" />
@@ -6375,7 +6375,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[WGBEZ]"
                       dataType="wstr"
-                      length="50"
+                      length="250"
                       name="WGBEZ" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[INT_ID]"
@@ -7303,7 +7303,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       dataType="wstr"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="50"
+                      length="250"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[WGBEZ(ready)]"
                       name="WGBEZ(ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7443,7 +7443,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{387EB990-3DD8-4411-B3D1-1B74B473EBE1}"
+      DTS:DTSID="{E1E055E5-5625-4001-98CA-7C2CB734ED4C}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -7468,7 +7468,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{F9CA33A2-8EEF-4127-BCD5-2D248A2BB322}"
+      DTS:DTSID="{A28BBADA-C7DF-4BD7-A59F-6607D2D95129}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -7489,7 +7489,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{1A7DC3E7-E804-4AFE-AC5D-E865F6E95435}"
+      DTS:DTSID="{268FCAAC-A4D2-477C-8F48-382300585ADD}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -7500,7 +7500,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\Delete ODS table by EKORG"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{824EBF8B-ED89-4FA4-8F96-0F0EC3133A61}"
+          DTS:DTSID="{13130A16-B977-479C-B928-125327133FD1}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete ODS table by EKORG"
@@ -7527,7 +7527,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{C5FE15F5-3CBF-4E32-A566-B860A8757C46}"
+          DTS:DTSID="{9A30702D-6135-4411-84D5-49BB60002A9A}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -7563,7 +7563,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{3B817D05-955B-4645-A598-D492322FBDA1}"
+          DTS:DTSID="{3080CD5F-B7AE-42A9-A870-97B01305A319}"
           DTS:From="Package\時序容器\Delete ODS table by EKORG"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -7574,7 +7574,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{7DDB3B75-58D5-41AF-B93A-DFE8FA2F476D}"
+      DTS:DTSID="{5D89323C-BD03-4888-A5AB-1ADB7C0237F8}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -7637,7 +7637,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{DF81264E-9F31-47FC-BE18-1B5CF6CEEB83}"
+      DTS:DTSID="{832CFE22-8EA4-476D-9C11-48ACE89C6225}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -7645,7 +7645,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{51443C9E-6111-467E-AE28-86AA3411E532}"
+      DTS:DTSID="{AC60B297-C8C9-4F21-88C6-4116D7C6AB0D}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -7653,7 +7653,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{ECAA1ABB-4315-4919-86DA-62CD7C433DDF}"
+      DTS:DTSID="{D8C8167C-3FD0-4F31-A8BE-ACEB5FEBDD29}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -7661,7 +7661,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{2D477ECC-6ADB-4AD2-A1ED-363470DA76CC}"
+      DTS:DTSID="{01D0F79D-CF02-461A-86C0-23C785D351BF}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
