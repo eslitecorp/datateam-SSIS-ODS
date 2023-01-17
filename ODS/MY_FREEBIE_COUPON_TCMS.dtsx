@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{4BDB82A6-09E9-45B3-9839-38400CAF1802}"
+  DTS:DTSID="{AA3DDEE1-A721-4A55-BE82-F3DF0E052FB9}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="MY_FREEBIE_COUPON_TCMS"
   DTS:PackageType="5"
-  DTS:VersionBuild="409"
-  DTS:VersionGUID="{5E9DCC24-CDF7-495C-9B14-FF8161C96FF8}">
+  DTS:VersionBuild="411"
+  DTS:VersionGUID="{5FE2EBC9-F8AC-41F3-9741-7102618096A9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{EF927FDF-304D-41D5-9AF4-F783D3E8E8CA}"
+      DTS:DTSID="{F2D88279-BE3C-4224-B298-2DBC027348FB}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -29,7 +29,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{FA871BFF-4493-4D8B-A099-86D801D84618}"
+      DTS:DTSID="{4C371B13-842B-4F50-88E0-0C96E020F4FC}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +38,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{6959E1A2-5A64-475C-BF24-EB34938C4260}"
+      DTS:DTSID="{33D2C0EC-E373-426E-9D44-13AC078013EE}"
       DTS:ObjectName="GID">
       <DTS:Property
         DTS:DataType="8"
@@ -48,7 +48,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{0AF35BBF-35E2-478B-9ED5-CC3F4D295F61}"
+      DTS:DTSID="{A1183191-3F97-4974-9A0C-9E0D7E8B9B6C}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -59,7 +59,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{933D2D60-8A0D-4A39-BFD3-DC16BB8286E4}"
+      DTS:DTSID="{CB0C9A50-D7F6-4A7D-83DD-2406946CD871}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -68,7 +68,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{0AFB7FB9-5F7D-462B-A8D3-29C49EDFFB6D}"
+      DTS:DTSID="{1CD2125C-6082-4735-9E88-EECB903099E7}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ? ,?,?);&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -80,7 +80,7 @@ values(?,?,?,(select count(*) from MY.FREEBIE_COUPON_TCMS_),?,GETDATE(), ? ,?,?)
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{6C75DE0B-9821-4811-93BB-7F583123C71C}"
+      DTS:DTSID="{4DC84497-8CBF-40A1-885B-4E88CAD905FB}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -90,7 +90,7 @@ values(?,?,?,(select count(*) from MY.FREEBIE_COUPON_TCMS_),?,GETDATE(), ? ,?,?)
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{FFCC677C-704B-4AAF-AAED-3B50F5309544}"
+      DTS:DTSID="{C9EBE99B-191F-4D3D-BA36-5686B4404AE4}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;SELECT COUPON.GIFT_NO &#x9;&#x9;&#x9;&#x9;AS COUPON_ID &#xA;&#x9;  , COUPON.C_NO    &#x9;&#x9;&#x9;&#x9;AS MEMBER_ID&#xA;&#x9;  , ISNULL(COUPON.PE_NO,'')&#x9;&#x9;AS EVENT_ID&#xA;&#x9;  , CASE WHEN LEFT(COUPON.PE_NO,3) = 'CMS' THEN SUBSTRING(COUPON.PE_NO,3,LEN(COUPON.PE_NO))&#xA;&#x9;&#x9;&#x9; ELSE COUPON.PE_NO END &#x9;AS OFFER_ID&#x9;&#x9;&#x9; &#xA;&#x9;  , COUPON.CP_STATUS     &#x9;&#x9;AS COUPON_STS&#xA;&#x9;  , COUPON.EX_DATE       &#x9;&#x9;AS COUPON_DATE_RECV&#xA;  &#x9;  , COUPON.RE_DATE       &#x9;&#x9;AS COUPON_DATE_USE&#xA;&#x9;  , COUPON.CP_START_DATE &#x9;&#x9;AS COUPON_DATE_START&#xA;&#x9;  , COUPON.CP_END_DATE   &#x9;&#x9;AS COUPON_DATE_END&#xA;&#x9;  , COUPON.EX_SH_ID&#x9;&#x9;&#x9;&#x9;AS COUNTER_ID_ISS     &#xA;&#x9;  , COUPON.EX_S_NO       &#x9;&#x9;AS WERKS_ISS&#xA;&#x9;  , COUPON.RE_SH_ID       &#x9;&#x9;AS COUNTER_ID_RE&#xA;&#x9;  , COUPON.RE_S_NO &#x9;&#x9;&#x9;&#x9;AS WERKS_RE&#xA;&#x9;  , 'TCMS'&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;AS COUPON_SRC&#xA;      , COUPON.CP_NO   &#x9;&#x9;&#x9;&#x9;AS COUPON_NO&#xA;&#x9;  , CAST(COUPON.CRE_USER as varchar)&#x9;&#x9;&#x9;AS CREATE_USER&#xA;&#x9;  , COUPON.EX_ID_NO      &#x9;&#x9;AS EX_POSNO          &#xA;&#x9;  , COUPON.EX_SL_NO      &#x9;&#x9;AS EX_SEQNO            &#xA;&#x9;  , COUPON.RE_ID_NO      &#x9;&#x9;AS RE_POSNO          &#xA;&#x9;  , COUPON.RE_SL_NO      &#x9;&#x9;AS RE_SEQNO&#xA;&#x9;  , COUPON.RE_FLAG&#x9;&#x9;&#x9;&#x9;AS RE_FLAG&#xA;  FROM STAGINGDB_MY.TCMS.COUPON COUPON&#xA;where coupon.ETL_DATE &gt;= cast(cast('&quot; + ((@[User::ReloadWorkDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[User::ReloadWorkDate]) +&quot;' as date) as datetime)&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -120,11 +120,11 @@ values(?,?,?,(select count(*) from MY.FREEBIE_COUPON_TCMS_),?,GETDATE(), ? ,?,?)
 	  , COUPON.RE_SL_NO      		AS RE_SEQNO
 	  , COUPON.RE_FLAG				AS RE_FLAG
   FROM STAGINGDB_MY.TCMS.COUPON COUPON
-where coupon.ETL_DATE &gt;= cast(cast('2023-01-16 15:55:00.108000000' as date) as datetime)</DTS:VariableValue>
+where coupon.ETL_DATE &gt;= cast(cast('2023-01-17 11:58:15.661000000' as date) as datetime)</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B52F43C1-F5F5-4DE0-9EE3-D776686CF1DC}"
+      DTS:DTSID="{8E1B1F90-89F4-4AAD-8F5C-B9B53F2356CC}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ReloadWorkDate">
@@ -134,7 +134,7 @@ where coupon.ETL_DATE &gt;= cast(cast('2023-01-16 15:55:00.108000000' as date) a
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{5943C3D3-D0F8-4D51-86EA-AA3B5F7237F5}"
+      DTS:DTSID="{90AC4540-0419-47D2-AC10-F96E62C14907}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -143,7 +143,7 @@ where coupon.ETL_DATE &gt;= cast(cast('2023-01-16 15:55:00.108000000' as date) a
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7B419A6F-AF35-4561-BE47-951843162C2F}"
+      DTS:DTSID="{E4436AB4-7AA8-45B6-98D7-0877CFA4282F}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -152,7 +152,7 @@ where coupon.ETL_DATE &gt;= cast(cast('2023-01-16 15:55:00.108000000' as date) a
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4EADE317-040C-4E81-AFC1-D710F30244AB}"
+      DTS:DTSID="{5169AADE-9FC4-4B8A-B833-9C5688A2F43C}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -167,7 +167,7 @@ where coupon.ETL_DATE &gt;= cast(cast('2023-01-16 15:55:00.108000000' as date) a
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{C38B7535-8B5E-4EAD-AB2A-3EDBED1140CB}"
+      DTS:DTSID="{9940A835-CF22-4C13-8A59-3F4683F7624C}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -4264,7 +4264,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
                       externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[EX_POSNO]"
-                      length="3"
+                      length="6"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[EX_POSNO]"
                       name="EX_POSNO"
                       truncationRowDisposition="RedirectRow" />
@@ -4286,7 +4286,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
                       externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[RE_POSNO]"
-                      length="3"
+                      length="6"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[RE_POSNO]"
                       name="RE_POSNO"
                       truncationRowDisposition="RedirectRow" />
@@ -4460,7 +4460,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[EX_POSNO]"
                       codePage="950"
                       dataType="str"
-                      length="3"
+                      length="6"
                       name="EX_POSNO" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[EX_SEQNO]"
@@ -4472,7 +4472,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[RE_POSNO]"
                       codePage="950"
                       dataType="str"
-                      length="3"
+                      length="6"
                       name="RE_POSNO" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[RE_SEQNO]"
@@ -4635,7 +4635,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[EX_POSNO]"
                       codePage="950"
                       dataType="str"
-                      length="3"
+                      length="6"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[EX_POSNO]"
                       name="EX_POSNO" />
                     <outputColumn
@@ -4677,7 +4677,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[RE_POSNO]"
                       codePage="950"
                       dataType="str"
-                      length="3"
+                      length="6"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[RE_POSNO]"
                       name="RE_POSNO" />
                     <outputColumn
@@ -6058,7 +6058,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[EX_POSNO(ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="3"
+                      cachedLength="6"
                       cachedName="EX_POSNO(ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[EX_POSNO]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[EX_POSNO(ready)]" />
@@ -6074,7 +6074,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[RE_POSNO(ready)]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="3"
+                      cachedLength="6"
                       cachedName="RE_POSNO(ready)"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[RE_POSNO]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[RE_POSNO(ready)]" />
@@ -7046,7 +7046,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[EX_POSNO]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="3"
+                      cachedLength="6"
                       cachedName="EX_POSNO"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[EX_POSNO]" />
                     <inputColumn
@@ -7060,7 +7060,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[RE_POSNO]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="3"
+                      cachedLength="6"
                       cachedName="RE_POSNO"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[RE_POSNO]" />
                     <inputColumn
@@ -7102,6 +7102,50 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   name="資料轉換輸出"
                   synchronousInputId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入]">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUNTER_ID_ISS(ready)]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="RedirectRow"
+                      length="12"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUNTER_ID_ISS(ready)]"
+                      name="COUNTER_ID_ISS(ready)"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[COUNTER_ID_ISS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUNTER_ID_RE(ready)]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="RedirectRow"
+                      length="12"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUNTER_ID_RE(ready)]"
+                      name="COUNTER_ID_RE(ready)"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[COUNTER_ID_RE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
                       refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Coupon_ID(ready)]"
                       codePage="950"
@@ -7147,65 +7191,21 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[MEMBER_ID(ready)]"
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUPON_SRC(ready)]"
                       codePage="950"
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
                       length="10"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[MEMBER_ID(ready)]"
-                      name="MEMBER_ID(ready)"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUPON_SRC(ready)]"
+                      name="COUPON_SRC(ready)"
                       truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[MEMBER_ID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Event_ID(ready)]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="RedirectRow"
-                      length="15"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Event_ID(ready)]"
-                      name="Event_ID(ready)"
-                      truncationRowDisposition="RedirectRow">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[EVENT_ID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Offer_ID(ready)]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="RedirectRow"
-                      length="15"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Offer_ID(ready)]"
-                      name="Offer_ID(ready)"
-                      truncationRowDisposition="RedirectRow">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行輸出].Columns[衍生的資料行 Offer_ID]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[COUPON_SRC]}</property>
                         <property
                           dataType="System.Boolean"
                           description="指出資料行是否使用更快、地區設定中立的剖析常式。"
@@ -7235,151 +7235,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[WERKS_ISS(ready)]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="RedirectRow"
-                      length="10"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[WERKS_ISS(ready)]"
-                      name="WERKS_ISS(ready)"
-                      truncationRowDisposition="RedirectRow">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[WERKS_ISS]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUNTER_ID_RE(ready)]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="RedirectRow"
-                      length="12"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUNTER_ID_RE(ready)]"
-                      name="COUNTER_ID_RE(ready)"
-                      truncationRowDisposition="RedirectRow">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[COUNTER_ID_RE]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[WERKS_RE(ready)]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="RedirectRow"
-                      length="10"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[WERKS_RE(ready)]"
-                      name="WERKS_RE(ready)"
-                      truncationRowDisposition="RedirectRow">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[WERKS_RE]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Coupon_Date_Recv(ready)]"
-                      dataType="date"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="RedirectRow"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Coupon_Date_Recv(ready)]"
-                      name="Coupon_Date_Recv(ready)"
-                      truncationRowDisposition="RedirectRow">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行輸出].Columns[衍生的資料行 Coupon_Date_Recv]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Coupon_Date_Use(ready)]"
-                      dataType="date"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="RedirectRow"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Coupon_Date_Use(ready)]"
-                      name="Coupon_Date_Use(ready)"
-                      truncationRowDisposition="RedirectRow">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行輸出].Columns[衍生的資料行 Coupon_Date_Use]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUPON_DATE_START(ready)]"
-                      dataType="date"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="RedirectRow"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUPON_DATE_START(ready)]"
-                      name="COUPON_DATE_START(ready)"
-                      truncationRowDisposition="RedirectRow">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行輸出].Columns[衍生的資料行 COUPON_DATE_START]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUPON_DATE_END(ready)]"
-                      dataType="date"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="RedirectRow"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUPON_DATE_END(ready)]"
-                      name="COUPON_DATE_END(ready)"
-                      truncationRowDisposition="RedirectRow">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行輸出].Columns[衍生的資料行 COUPON_DATE_END]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[CREATE_USER(ready)]"
                       dataType="wstr"
                       errorOrTruncationOperation="轉換"
@@ -7401,12 +7256,34 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </outputColumn>
                     <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Event_ID(ready)]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="RedirectRow"
+                      length="15"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Event_ID(ready)]"
+                      name="Event_ID(ready)"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[EVENT_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
                       refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[EX_POSNO(ready)]"
                       codePage="950"
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="3"
+                      length="6"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[EX_POSNO(ready)]"
                       name="EX_POSNO(ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7445,12 +7322,56 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </outputColumn>
                     <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[MEMBER_ID(ready)]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="RedirectRow"
+                      length="10"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[MEMBER_ID(ready)]"
+                      name="MEMBER_ID(ready)"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[MEMBER_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[RE_FLAG(ready)]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[RE_FLAG(ready)]"
+                      name="RE_FLAG(ready)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[RE_FLAG]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
                       refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[RE_POSNO(ready)]"
                       codePage="950"
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="3"
+                      length="6"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[RE_POSNO(ready)]"
                       name="RE_POSNO(ready)"
                       truncationRowDisposition="RedirectRow">
@@ -7489,21 +7410,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUNTER_ID_ISS(ready)]"
-                      codePage="950"
-                      dataType="str"
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[WERKS_ISS(ready)]"
+                      dataType="wstr"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
-                      length="12"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUNTER_ID_ISS(ready)]"
-                      name="COUNTER_ID_ISS(ready)"
+                      length="10"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[WERKS_ISS(ready)]"
+                      name="WERKS_ISS(ready)"
                       truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[COUNTER_ID_ISS]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[WERKS_ISS]}</property>
                         <property
                           dataType="System.Boolean"
                           description="指出資料行是否使用更快、地區設定中立的剖析常式。"
@@ -7511,21 +7431,21 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUPON_SRC(ready)]"
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[WERKS_RE(ready)]"
                       codePage="950"
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
                       length="10"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUPON_SRC(ready)]"
-                      name="COUPON_SRC(ready)"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[WERKS_RE(ready)]"
+                      name="WERKS_RE(ready)"
                       truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[COUPON_SRC]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[WERKS_RE]}</property>
                         <property
                           dataType="System.Boolean"
                           description="指出資料行是否使用更快、地區設定中立的剖析常式。"
@@ -7533,21 +7453,101 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[RE_FLAG(ready)]"
-                      codePage="950"
-                      dataType="str"
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUPON_DATE_END(ready)]"
+                      dataType="date"
                       errorOrTruncationOperation="轉換"
-                      errorRowDisposition="FailComponent"
-                      length="2"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[RE_FLAG(ready)]"
-                      name="RE_FLAG(ready)"
-                      truncationRowDisposition="FailComponent">
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUPON_DATE_END(ready)]"
+                      name="COUPON_DATE_END(ready)"
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[RE_FLAG]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行輸出].Columns[衍生的資料行 COUPON_DATE_END]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Coupon_Date_Recv(ready)]"
+                      dataType="date"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Coupon_Date_Recv(ready)]"
+                      name="Coupon_Date_Recv(ready)"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行輸出].Columns[衍生的資料行 Coupon_Date_Recv]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUPON_DATE_START(ready)]"
+                      dataType="date"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[COUPON_DATE_START(ready)]"
+                      name="COUPON_DATE_START(ready)"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行輸出].Columns[衍生的資料行 COUPON_DATE_START]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Coupon_Date_Use(ready)]"
+                      dataType="date"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Coupon_Date_Use(ready)]"
+                      name="Coupon_Date_Use(ready)"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行輸出].Columns[衍生的資料行 Coupon_Date_Use]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Offer_ID(ready)]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="RedirectRow"
+                      length="15"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[Offer_ID(ready)]"
+                      name="Offer_ID(ready)"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行輸出].Columns[衍生的資料行 Offer_ID]}</property>
                         <property
                           dataType="System.Boolean"
                           description="指出資料行是否使用更快、地區設定中立的剖析常式。"
@@ -7661,7 +7661,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{016E067F-2738-4D43-AC17-0070B8EDC0A7}"
+      DTS:DTSID="{BB0CE0EF-747F-41E2-8EE8-924CF88ABE70}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -7686,7 +7686,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\取得ReloadWorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{942ED738-975F-4E8E-B4C1-7CA3CBDF53CC}"
+      DTS:DTSID="{583D14C7-A0BB-40A5-964B-85415500DF6B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得ReloadWorkDate"
@@ -7707,7 +7707,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{30CA45CA-F947-42F4-B366-10343D5558F5}"
+      DTS:DTSID="{C3F1D3E0-E5A9-49C9-8B69-4F325B10F22D}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -7728,7 +7728,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{007B7C86-CC0F-4253-B700-B9DC4FAE0DDF}"
+      DTS:DTSID="{0761782C-3214-4F6B-BF81-CAA29519F72F}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -7739,7 +7739,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\Delete ODS Table by PK"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{611A8BC0-4667-4918-8894-185544BE7B70}"
+          DTS:DTSID="{A5BEB462-EA16-4D66-9D96-B578873B1214}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete ODS Table by PK"
@@ -7780,7 +7780,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{AB965875-B9FD-4000-BA75-6E28C9339109}"
+          DTS:DTSID="{F43DF2B1-8F7C-4704-8C33-EBD8362ED44F}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -7816,7 +7816,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{E30184B9-A965-4CB2-8AD8-E41123EF986A}"
+          DTS:DTSID="{185D98EA-9F6E-4A20-8233-EB93C63CA1BA}"
           DTS:From="Package\時序容器\Delete ODS Table by PK"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -7827,7 +7827,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{794FAFD4-ACFB-439D-9323-AA1EBF13E46D}"
+      DTS:DTSID="{D294FC56-1583-4418-971D-F2F48518BE5F}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -7890,7 +7890,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{B47FDE89-A8A7-4EA8-AE5A-C6322BD65E7C}"
+      DTS:DTSID="{D2516369-827F-43A1-9E66-347ED595BE78}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -7898,7 +7898,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{0C903AC7-170B-4D4A-AA9F-FA00E097FC4F}"
+      DTS:DTSID="{EEA5F302-1156-4EE7-BE14-3883F7FBED94}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -7906,7 +7906,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{19C0C6E7-DB74-4337-8556-BC862E261879}"
+      DTS:DTSID="{212D55E8-BE54-4C78-928C-F4988066C17E}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -7914,7 +7914,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{B3A67DC5-515D-487B-AB30-5421BE045D2B}"
+      DTS:DTSID="{061BF944-F326-46A0-A462-C9DE0A4EA014}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -7922,7 +7922,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 4]"
       DTS:CreationName=""
-      DTS:DTSID="{45E97E37-BE57-4244-97A2-879B588C1B39}"
+      DTS:DTSID="{2F96E087-138E-4ACF-94A9-AC7B2AFC8664}"
       DTS:From="Package\取得ReloadWorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 4"
@@ -8116,17 +8116,17 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
-          Size="151,42"
-          Id="Package\Stage To ODS\衍生的資料行"
-          TopLeft="318.666654083464,343.785700860073" />
+          Size="285,42"
+          Id="Package\Stage To ODS\衍生資料行 - 記錄錯誤資訊欄位(select)"
+          TopLeft="655.83330727286,4.29762693854294" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Stage To ODS\資料列計數"
+          TopLeft="321.805542768153,85.9345275296433" />
         <NodeLayout
           Size="210,42"
           Id="Package\Stage To ODS\衍生的資料行 (固定字串)"
           TopLeft="287.499988575777,527.869029101466" />
-        <NodeLayout
-          Size="285,42"
-          Id="Package\Stage To ODS\衍生資料行 - 記錄錯誤資訊欄位(select)"
-          TopLeft="655.83330727286,4.29762693854294" />
         <NodeLayout
           Size="219,42"
           Id="Package\Stage To ODS\TRIM 所有字串型態的欄位"
@@ -8148,10 +8148,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Stage To ODS\select from Stage"
           TopLeft="310.888876614748,2.50000232458115" />
         <NodeLayout
-          Size="151,42"
-          Id="Package\Stage To ODS\資料型態轉換"
-          TopLeft="318.981468806297,434.412680459132" />
-        <NodeLayout
           Size="230,42"
           Id="Package\Stage To ODS\Insert Into Error Log (Select)"
           TopLeft="686.666638387576,173.940472553376" />
@@ -8160,9 +8156,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Stage To ODS\寫入 ODSDB"
           TopLeft="318.981468806297,630.035685252171" />
         <NodeLayout
-          Size="139,42"
-          Id="Package\Stage To ODS\資料列計數"
-          TopLeft="321.805542768153,85.9345275296433" />
+          Size="151,42"
+          Id="Package\Stage To ODS\資料型態轉換"
+          TopLeft="318.981468806297,434.412680459132" />
         <NodeLayout
           Size="200,42"
           Id="Package\Stage To ODS\GetErrorDetail (Select)"
@@ -8175,6 +8171,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Size="269,42"
           Id="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位"
           TopLeft="254.166656566991,255.369042938258" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Stage To ODS\衍生的資料行"
+          TopLeft="318.666654083464,343.785700860073" />
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[輸出 03]"
           TopLeft="772.06941796729,674.988071264864">
