@@ -1,26 +1,26 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="1/7/2019 11:50:57 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1701003NB01"
   DTS:CreatorName="IEAD\1701003"
-  DTS:DTSID="{66CFBDB3-DC8C-48A6-ADDA-E8C7BFBD6B08}"
+  DTS:DTSID="{A3D985DC-67CF-4FAD-A5B0-D93F21FBF9B6}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:MaxConcurrentExecutables="2"
   DTS:ObjectName="Main_TW ME_Container"
   DTS:PackageType="5"
-  DTS:VersionBuild="165"
-  DTS:VersionGUID="{F363FF5F-AFB6-4322-A43C-4373D8C46631}">
+  DTS:VersionBuild="167"
+  DTS:VersionGUID="{2FC8A191-659F-4A6B-A57E-941A76E8D9FA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{88EF7969-63B8-4973-AAD5-72493496EEE6}"
+      DTS:DTSID="{34431B6A-BA5D-4A75-A5C4-4808EA9230FF}"
       DTS:ObjectName="concurrentFiles">
       <DTS:Property
         DTS:DataType="8"
@@ -30,7 +30,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{1BB2118D-33F8-47FB-8B95-5ACA9A888DE9}"
+      DTS:DTSID="{58B3163C-43B9-4FC5-8C61-C85C1ECB9191}"
       DTS:ObjectName="mailFrom">
       <DTS:Property
         DTS:DataType="8"
@@ -40,7 +40,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{84D0FE99-DAE6-47CC-B5BB-494FE073456E}"
+      DTS:DTSID="{EACF58F7-D8E3-47F2-8B77-CF3A38D06408}"
       DTS:ObjectName="param_mailTo">
       <DTS:Property
         DTS:DataType="8"
@@ -50,7 +50,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="3"
-      DTS:DTSID="{0859BAB0-DA5F-4C3C-9DF1-F14166F0195B}"
+      DTS:DTSID="{A873A6E4-F826-4B99-8770-345DE060E40A}"
       DTS:ObjectName="param_maxConcurrent">
       <DTS:Property
         DTS:DataType="3"
@@ -59,7 +59,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{D71795E4-33E9-42DA-AD07-99AF4BB18B62}"
+      DTS:DTSID="{4949ABEE-15DA-4D2E-ADEB-F257E12BF585}"
       DTS:ObjectName="srcEkorg">
       <DTS:Property
         DTS:DataType="8"
@@ -69,7 +69,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{93920F51-8E40-4C3E-AB83-028495B1ED33}"
+      DTS:DTSID="{C0AA9DF1-6AD9-416A-9D44-A632CF29E83A}"
       DTS:ObjectName="srcFileFolder">
       <DTS:Property
         DTS:DataType="8"
@@ -79,7 +79,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{CCCB0288-7DA9-483C-9D0C-16F6D89E3EAA}"
+      DTS:DTSID="{8CA2B164-D821-4621-AE12-95B364BE8AD8}"
       DTS:ObjectName="srcNatName">
       <DTS:Property
         DTS:DataType="8"
@@ -88,7 +88,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{8D3B80F2-426C-4ACD-9936-9898B0770A57}"
+      DTS:DTSID="{8D2F5659-ED9D-43CE-B583-31EA783B997F}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -98,7 +98,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{5F6D3536-53FD-4218-8DB1-9397074839D5}"
+      DTS:DTSID="{6C4E9C1F-F574-409F-B1D1-12229C7AAF43}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_MemberBrowse">
@@ -107,22 +107,80 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{8603E369-69D3-491A-91AB-8EDC609B524C}"
+      DTS:DTSID="{15B72F16-2026-47DF-9959-51A9F5226DB5}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_PageCounts">
       <DTS:VariableValue
         DTS:DataType="8">PageCounts</DTS:VariableValue>
     </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A1E07999-F92F-433B-BC76-3FE7AF609B5A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tableNmae_HKLogin">
+      <DTS:VariableValue
+        DTS:DataType="8">HKLogin</DTS:VariableValue>
+    </DTS:Variable>
   </DTS:Variables>
   <DTS:PropertyExpression
     DTS:Name="MaxConcurrentExecutables">@[$Package::param_maxConcurrent]</DTS:PropertyExpression>
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\執行HKLogin檔案處理流程"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{98F8B061-2969-430C-A97B-12EDD2A24309}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行HKLogin檔案處理流程"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Main_Container_Process.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>concurrentFiles</ParameterName>
+            <BindedVariableOrParameterName>$Package::concurrentFiles</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcNatName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcSysName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcEkorg</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcEkorg</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>tableName</ParameterName>
+            <BindedVariableOrParameterName>User::tableNmae_HKLogin</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>mailFrom</ParameterName>
+            <BindedVariableOrParameterName>$Package::mailFrom</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_mailTo</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_mailTo</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcFileFolder</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcFileFolder</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\執行MemberBrowse檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{35011a7f-6530-4083-b807-a4d88470ec2e}"
+      DTS:DTSID="{06A18A73-41E1-42A4-B82E-7D685FB98863}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行MemberBrowse檔案處理流程"
@@ -171,7 +229,7 @@
       DTS:refId="Package\執行PageCounts檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{d3a6db25-627d-41dd-acc3-74a158fceb01}"
+      DTS:DTSID="{A94BB8EE-5048-4A46-B8B4-3D690CEBFBC7}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行PageCounts檔案處理流程"
@@ -228,7 +286,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
         <NodeLayout
           Size="241,42"
           Id="Package\執行PageCounts檔案處理流程"
@@ -261,6 +319,23 @@
           TopLeft="400.333335088359,150.357135456436">
           <GroupLayout.ChildrenIds>
             <s:String>Package\執行MemberBrowse檔案處理流程</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="218,42"
+          Id="Package\執行HKLogin檔案處理流程"
+          TopLeft="5.5,5.5" />
+        <GroupLayout
+          Text="HKLogin"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="252,103"
+          Size="252,146"
+          Id="e7485306-de26-441a-8508-cb2fff3c6589"
+          TopLeft="90,330.266667686038">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\執行HKLogin檔案處理流程</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
       </GraphLayout>
