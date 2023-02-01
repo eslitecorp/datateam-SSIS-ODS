@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">1505003NB02</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAvKkzgek89E++bjdVNIPx6QAAAAACAAAAAAADZgAAwAAAABAAAACOyy4MLD8ks8vurTWrJDy3AAAAAASAAACgAAAAEAAAAHYQ7nS79NIk6cR4Ds6jGS6IAAAA5cgXHqXA3wxEK2rjd1KwvLE1ukPKCy8GQRI0n3fizj/zqX+iQB47vNyjETHA8MpVYG2VirvUzg6/itzVhsNjKjdQOjqm4iyJdDz54Hlv+Eg2ziyJDOAQ1o36LHqj6Es+W4Wl6pmqbEbGFxMGxK2ArT0ACvJ1qQv1IzMpntMxIPiE0n0B3EJuhhQAAACSCVqvvN5xo0flnvkArO2w+lDpGA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAznbtiykb20+ney3WMBfyyQAAAAACAAAAAAADZgAAwAAAABAAAABDRps3jpLakM6hfnsVeBEmAAAAAASAAACgAAAAEAAAADXq8we3ZEuryJe7U6gHEGyIAAAAQWKHKvQ6YN+qZoN3meNUZtLQ6hlx4qi7xb/F4ugi5AJUJvRdT6FwpqzlolQWcwfslezg/e1FWm1YRkq/JIYddznZdg8wgj18phlkCm4c7RboIrxBy6eICxn9Xl5DGiGYT2ggl7hbRlsN/TVjiBdOk17IKjMqYmwG1vKMit6JzbnkCJcch+eLPBQAAABfbYSBfsmgDVbio4IwV3uQbqVbUA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -194,6 +194,8 @@
           <SSIS:Package SSIS:Name="MY_TRANS_HEAD_TPOS.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="MY_WEBTRACK_APP.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="MY_MF_DEPT_EKORG_SAP_EMRD.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="WEBTRACK_HKAPP.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="WEBTRACK_LOGIN_HKAPP.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="StageETLDB.conmgr" />
@@ -9093,6 +9095,84 @@
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">EMRD</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="WEBTRACK_HKAPP.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{96EEA08A-B491-41A0-A097-6462597335A6}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">WEBTRACK_HKAPP</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">371</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{0CA8F646-9FFD-4D4E-9691-4BC98E7FC9C3}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="fullTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{FD56FC3A-D479-4056-AA7E-42F995627F5B}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">dbo.WEBTRACK_HKAPP</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="queryBaseDate">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{002647E8-349A-44F6-B92B-D07580A0F562}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">2023-01-30</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="WEBTRACK_LOGIN_HKAPP.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{A8BE49BB-BCE3-46AC-9B4F-31CEE3EE284C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">WEBTRACK_LOGIN_HKAPP</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">386</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{53381220-2380-4E6E-B114-8B3BB2D7FFD8}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="fullTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{3EDD9EE7-5B98-47D2-B77A-AF363CC48C89}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">dbo.WEBTRACK_LOGIN_HKAPP</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
