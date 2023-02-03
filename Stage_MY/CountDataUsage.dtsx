@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="12/10/2019 9:49:37 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{B6C6B2D1-3462-400C-9B45-06F9641E6C2F}"
+  DTS:DTSID="{3ABF429D-D3A9-4E76-A2B7-9A77BC5B4FFD}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="CountDataUsage"
   DTS:PackageType="5"
-  DTS:VersionBuild="243"
-  DTS:VersionGUID="{199F042E-1338-41FD-8ED7-12D85F7E12A3}">
+  DTS:VersionBuild="244"
+  DTS:VersionGUID="{723E7908-5E24-446F-82EC-871F8BB8D9E7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{3FE48381-7737-45F8-87A2-3A06A5EB016C}"
+      DTS:DTSID="{D45FEBE9-C664-403E-8A1C-8C55627F033B}"
       DTS:ObjectName="dbContainerNameODS">
       <DTS:Property
         DTS:DataType="8"
@@ -28,11 +28,11 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{1D49D04C-BF3D-4696-9441-4975F9B67D19}"
+      DTS:DTSID="{756086A0-FE7A-4F88-8AFB-BC0845189221}"
       DTS:ObjectName="dbContainerNameStage">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">StagingDB_TW</DTS:Property>
+        DTS:Name="ParameterValue">StagingDB_MY</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables />
@@ -41,7 +41,7 @@
       DTS:refId="Package\查詢目前資料表筆數與使用量"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程"
-      DTS:DTSID="{3EAB5781-6966-44C0-AB9A-4571980B6672}"
+      DTS:DTSID="{1ED80387-930C-4A7A-AC1B-977D5E858695}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="查詢目前資料表筆數與使用量"
