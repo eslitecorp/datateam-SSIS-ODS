@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{175D620F-DDE7-49FB-BEEF-925518ABB56E}"
+  DTS:DTSID="{0F178B98-3ADE-4B43-8CBF-C49E1B8790C6}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="MY TPOS PosTradeD"
   DTS:PackageType="5"
-  DTS:VersionBuild="131"
-  DTS:VersionGUID="{57B7286A-6D0D-4ECB-85B5-CCA3CA9AD513}">
+  DTS:VersionBuild="132"
+  DTS:VersionGUID="{00BD3B39-28DA-4CE0-AD97-58CB733F1F0D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{2A49D431-2159-4ABB-97EB-4F57F07D7E8A}"
+      DTS:DTSID="{44625C1E-D54B-41D0-B4C0-DFA2E1D91ACC}"
       DTS:ObjectName="dbPrestageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{EEB198AA-53D0-44E8-AACE-0E4E6A4EB68A}"
+      DTS:DTSID="{4E11271F-27D2-47A4-9007-E2B1021787C7}"
       DTS:ObjectName="dbSchemaName">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +38,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{09140078-5B74-4500-A664-13E8B68F9351}"
+      DTS:DTSID="{E5062961-34A6-42EA-BD58-874E13DEEF7F}"
       DTS:ObjectName="dbStageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -47,7 +47,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{2A684008-7273-4E08-952C-F455C4746F91}"
+      DTS:DTSID="{F1F8861D-34E6-41B5-BAA3-76EF0BBEB781}"
       DTS:ObjectName="dbTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -57,7 +57,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{13FAC7E3-B0E6-4F08-A660-A1D1735A80DB}"
+      DTS:DTSID="{C3E4B3B2-3DBD-43B5-825C-C1D60E24F5D0}"
       DTS:ObjectName="srcRawDataFileName">
       <DTS:Property
         DTS:DataType="8"
@@ -67,7 +67,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{EFC5B861-CA22-41E1-A685-FD20588F21AA}"
+      DTS:DTSID="{F4F59783-F6A9-44AF-8846-9E6907F0B88C}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -76,7 +76,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{1242879D-6037-4DDF-BDC2-F1511F7AA533}"
+      DTS:DTSID="{36D8A108-14CC-4D99-8DEE-7B99DD8393DE}"
       DTS:ObjectName="writeInEvent">
       <DTS:Property
         DTS:DataType="8"
@@ -87,7 +87,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{BDC80AE0-CEEA-4792-9429-22BEE06B5390}"
+      DTS:DTSID="{268FAB87-C798-4E57-846A-BCFDD368EF8F}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;SELECT *  FROM &quot; + @[$Package::dbPrestageTableName] + &quot; WHERE FILE_NAME =  '&quot; + @[$Package::srcRawDataFileName]  +&quot;' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = '&quot;+ @[$Package::srcRawDataFileName] +&quot;' and l.executionid = &quot;+ (DT_WSTR,100) @[System::ServerExecutionID] +&quot;)&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -102,7 +102,7 @@
       DTS:refId="Package\I／IU資料流程"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{6FD55EBC-A160-4A22-91F1-C1452980A8AD}"
+      DTS:DTSID="{8E567F2E-9FB3-46C3-AB0B-A602DC6E7B77}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="I／IU資料流程"
@@ -443,6 +443,7 @@
                       cachedDataType="numeric"
                       cachedName="CostPrice 的副本"
                       cachedPrecision="12"
+                      cachedScale="2"
                       externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[CostPrice]"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CostPrice 的副本]" />
                     <inputColumn
@@ -450,6 +451,7 @@
                       cachedDataType="numeric"
                       cachedName="SalePrice 的副本"
                       cachedPrecision="12"
+                      cachedScale="2"
                       externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[SalePrice]"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[SalePrice 的副本]" />
                     <inputColumn
@@ -457,6 +459,7 @@
                       cachedDataType="numeric"
                       cachedName="UnitPrice 的副本"
                       cachedPrecision="12"
+                      cachedScale="2"
                       externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[UnitPrice]"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[UnitPrice 的副本]" />
                     <inputColumn
@@ -1161,21 +1164,21 @@
                   synchronousInputId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[StoreID 的副本]"
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ActivityNo 的副本]"
                       codePage="950"
                       dataType="str"
                       errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="8"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[StoreID 的副本]"
-                      name="StoreID 的副本"
-                      truncationRowDisposition="IgnoreFailure">
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ActivityNo 的副本]"
+                      name="ActivityNo 的副本"
+                      truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[StoreID]}</property>
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ActivityNo]}</property>
                         <property
                           dataType="System.Boolean"
                           description="指出資料行是否使用更快、地區設定中立的剖析常式。"
@@ -1205,417 +1208,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[PosNo 的副本]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="6"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[PosNo 的副本]"
-                      name="PosNo 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[PosNo]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TradeSeqNo 的副本]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="6"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TradeSeqNo 的副本]"
-                      name="TradeSeqNo 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[TradeSeqNo]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemSeqNo 的副本]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemSeqNo 的副本]"
-                      name="ItemSeqNo 的副本"
-                      precision="3"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ItemSeqNo]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemCode 的副本]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="13"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemCode 的副本]"
-                      name="ItemCode 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ItemCode]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemBarCode 的副本]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="26"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemBarCode 的副本]"
-                      name="ItemBarCode 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ItemBarCode]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemName 的副本]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="150"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemName 的副本]"
-                      name="ItemName 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ItemName]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[MealName 的副本]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="40"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[MealName 的副本]"
-                      name="MealName 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[MealName]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[UseActyType 的副本]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="2"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[UseActyType 的副本]"
-                      name="UseActyType 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[UseActyType]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[UnitPrice 的副本]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[UnitPrice 的副本]"
-                      name="UnitPrice 的副本"
-                      precision="12"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[UnitPrice]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[SalePrice 的副本]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[SalePrice 的副本]"
-                      name="SalePrice 的副本"
-                      precision="12"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[SalePrice]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CostPrice 的副本]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CostPrice 的副本]"
-                      name="CostPrice 的副本"
-                      precision="12"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CostPrice]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[Quantity 的副本]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[Quantity 的副本]"
-                      name="Quantity 的副本"
-                      precision="5"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[Quantity]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[UseActDiscAmt 的副本]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[UseActDiscAmt 的副本]"
-                      name="UseActDiscAmt 的副本"
-                      precision="12"
-                      scale="2"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[UseActDiscAmt]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[FullActDiscAmt 的副本]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[FullActDiscAmt 的副本]"
-                      name="FullActDiscAmt 的副本"
-                      precision="12"
-                      scale="2"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[FullActDiscAmt]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[PriceFreeDiscAmt 的副本]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[PriceFreeDiscAmt 的副本]"
-                      name="PriceFreeDiscAmt 的副本"
-                      precision="12"
-                      scale="2"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[PriceFreeDiscAmt]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TotDiscAmt 的副本]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TotDiscAmt 的副本]"
-                      name="TotDiscAmt 的副本"
-                      precision="12"
-                      scale="2"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[TotDiscAmt]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[SalesAmt 的副本]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[SalesAmt 的副本]"
-                      name="SalesAmt 的副本"
-                      precision="12"
-                      scale="2"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[SalesAmt]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TaxType 的副本]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="1"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TaxType 的副本]"
-                      name="TaxType 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[TaxType]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TaxAmt 的副本]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TaxAmt 的副本]"
-                      name="TaxAmt 的副本"
-                      precision="12"
-                      scale="2"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[TaxAmt]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CatID1 的副本]"
                       codePage="950"
                       dataType="str"
@@ -1631,6 +1223,27 @@
                           dataType="System.Int32"
                           description="指定作為轉換之資料來源的輸入資料行。"
                           name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CatID1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CatID1Name 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="35"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CatID1Name 的副本]"
+                      name="CatID1Name 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CatID1Name]}</property>
                         <property
                           dataType="System.Boolean"
                           description="指出資料行是否使用更快、地區設定中立的剖析常式。"
@@ -1660,6 +1273,27 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CatID2Name 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="35"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CatID2Name 的副本]"
+                      name="CatID2Name 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CatID2Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
                       refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CatID3 的副本]"
                       codePage="950"
                       dataType="str"
@@ -1682,48 +1316,6 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CatID1Name 的副本]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="35"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CatID1Name 的副本]"
-                      name="CatID1Name 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CatID1Name]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CatID2Name 的副本]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="35"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CatID2Name 的副本]"
-                      name="CatID2Name 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CatID2Name]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
                       refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CatID3Name 的副本]"
                       dataType="wstr"
                       errorOrTruncationOperation="轉換"
@@ -1738,6 +1330,70 @@
                           dataType="System.Int32"
                           description="指定作為轉換之資料來源的輸入資料行。"
                           name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CatID3Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CostPrice 的副本]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CostPrice 的副本]"
+                      name="CostPrice 的副本"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CostPrice]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CreateDate 的副本]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CreateDate 的副本]"
+                      name="CreateDate 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CreateDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[DiscountType 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="3"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[DiscountType 的副本]"
+                      name="DiscountType 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[DiscountType]}</property>
                         <property
                           dataType="System.Boolean"
                           description="指出資料行是否使用更快、地區設定中立的剖析常式。"
@@ -1788,6 +1444,158 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[FullActDiscAmt 的副本]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[FullActDiscAmt 的副本]"
+                      name="FullActDiscAmt 的副本"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[FullActDiscAmt]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemBarCode 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="26"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemBarCode 的副本]"
+                      name="ItemBarCode 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ItemBarCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemCode 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="13"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemCode 的副本]"
+                      name="ItemCode 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ItemCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemName 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="150"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemName 的副本]"
+                      name="ItemName 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ItemName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemOffActNo 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="15"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemOffActNo 的副本]"
+                      name="ItemOffActNo 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ItemOffActNo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemSeqNo 的副本]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemSeqNo 的副本]"
+                      name="ItemSeqNo 的副本"
+                      precision="3"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ItemSeqNo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[LotNumber 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[LotNumber 的副本]"
+                      name="LotNumber 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[LotNumber]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
                       refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[LowestDiscountRate 的副本]"
                       dataType="decimal"
                       errorOrTruncationOperation="轉換"
@@ -1808,86 +1616,20 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TenantItemCat3 的副本]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="8"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TenantItemCat3 的副本]"
-                      name="TenantItemCat3 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[TenantItemCat3]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TenantItemCat3NM 的副本]"
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[MealName 的副本]"
                       dataType="wstr"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="IgnoreFailure"
-                      length="30"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TenantItemCat3NM 的副本]"
-                      name="TenantItemCat3NM 的副本"
+                      length="40"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[MealName 的副本]"
+                      name="MealName 的副本"
                       truncationRowDisposition="IgnoreFailure">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[TenantItemCat3NM]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[VendorCode 的副本]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="10"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[VendorCode 的副本]"
-                      name="VendorCode 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[VendorCode]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[DiscountType 的副本]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="3"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[DiscountType 的副本]"
-                      name="DiscountType 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[DiscountType]}</property>
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[MealName]}</property>
                         <property
                           dataType="System.Boolean"
                           description="指出資料行是否使用更快、地區設定中立的剖析常式。"
@@ -1961,6 +1703,71 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[PosNo 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="6"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[PosNo 的副本]"
+                      name="PosNo 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[PosNo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[PriceFreeDiscAmt 的副本]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[PriceFreeDiscAmt 的副本]"
+                      name="PriceFreeDiscAmt 的副本"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[PriceFreeDiscAmt]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[Quantity 的副本]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[Quantity 的副本]"
+                      name="Quantity 的副本"
+                      precision="5"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[Quantity]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
                       refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ReturnInvoNo 的副本]"
                       codePage="950"
                       dataType="str"
@@ -1983,21 +1790,21 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemOffActNo 的副本]"
-                      codePage="950"
-                      dataType="str"
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[SalePrice 的副本]"
+                      dataType="numeric"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="IgnoreFailure"
-                      length="15"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ItemOffActNo 的副本]"
-                      name="ItemOffActNo 的副本"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[SalePrice 的副本]"
+                      name="SalePrice 的副本"
+                      precision="12"
+                      scale="2"
                       truncationRowDisposition="IgnoreFailure">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ItemOffActNo]}</property>
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[SalePrice]}</property>
                         <property
                           dataType="System.Boolean"
                           description="指出資料行是否使用更快、地區設定中立的剖析常式。"
@@ -2005,107 +1812,21 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ServiceNo 的副本]"
-                      codePage="950"
-                      dataType="str"
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[SalesAmt 的副本]"
+                      dataType="numeric"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="IgnoreFailure"
-                      length="4"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ServiceNo 的副本]"
-                      name="ServiceNo 的副本"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[SalesAmt 的副本]"
+                      name="SalesAmt 的副本"
+                      precision="12"
+                      scale="2"
                       truncationRowDisposition="IgnoreFailure">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ServiceNo]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ServiceCashier 的副本]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="12"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ServiceCashier 的副本]"
-                      name="ServiceCashier 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ServiceCashier]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ServiceActivityNo 的副本]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      length="15"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ServiceActivityNo 的副本]"
-                      name="ServiceActivityNo 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ServiceActivityNo]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CreateDate 的副本]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="IgnoreFailure"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[CreateDate 的副本]"
-                      name="CreateDate 的副本"
-                      truncationRowDisposition="IgnoreFailure">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[CreateDate]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[LotNumber 的副本]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="FailComponent"
-                      length="30"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[LotNumber 的副本]"
-                      name="LotNumber 的副本"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[LotNumber]}</property>
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[SalesAmt]}</property>
                         <property
                           dataType="System.Boolean"
                           description="指出資料行是否使用更快、地區設定中立的剖析常式。"
@@ -2135,21 +1856,306 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ActivityNo 的副本]"
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ServiceActivityNo 的副本]"
                       codePage="950"
                       dataType="str"
                       errorOrTruncationOperation="轉換"
-                      errorRowDisposition="FailComponent"
-                      length="10"
-                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ActivityNo 的副本]"
-                      name="ActivityNo 的副本"
-                      truncationRowDisposition="FailComponent">
+                      errorRowDisposition="IgnoreFailure"
+                      length="15"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ServiceActivityNo 的副本]"
+                      name="ServiceActivityNo 的副本"
+                      truncationRowDisposition="IgnoreFailure">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ActivityNo]}</property>
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ServiceActivityNo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ServiceCashier 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="12"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ServiceCashier 的副本]"
+                      name="ServiceCashier 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ServiceCashier]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ServiceNo 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="4"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[ServiceNo 的副本]"
+                      name="ServiceNo 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[ServiceNo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[StoreID 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="8"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[StoreID 的副本]"
+                      name="StoreID 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[StoreID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TaxAmt 的副本]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TaxAmt 的副本]"
+                      name="TaxAmt 的副本"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[TaxAmt]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TaxType 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="1"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TaxType 的副本]"
+                      name="TaxType 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[TaxType]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TenantItemCat3 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="8"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TenantItemCat3 的副本]"
+                      name="TenantItemCat3 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[TenantItemCat3]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TenantItemCat3NM 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="30"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TenantItemCat3NM 的副本]"
+                      name="TenantItemCat3NM 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[TenantItemCat3NM]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TotDiscAmt 的副本]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TotDiscAmt 的副本]"
+                      name="TotDiscAmt 的副本"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[TotDiscAmt]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TradeSeqNo 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="6"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TradeSeqNo 的副本]"
+                      name="TradeSeqNo 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[TradeSeqNo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[UnitPrice 的副本]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[UnitPrice 的副本]"
+                      name="UnitPrice 的副本"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[UnitPrice]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[UseActDiscAmt 的副本]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[UseActDiscAmt 的副本]"
+                      name="UseActDiscAmt 的副本"
+                      precision="12"
+                      scale="2"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[UseActDiscAmt]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[UseActyType 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="2"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[UseActyType 的副本]"
+                      name="UseActyType 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[UseActyType]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[VendorCode 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="IgnoreFailure"
+                      length="10"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[VendorCode 的副本]"
+                      name="VendorCode 的副本"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[VendorCode]}</property>
                         <property
                           dataType="System.Boolean"
                           description="指出資料行是否使用更快、地區設定中立的剖析常式。"
@@ -3417,7 +3423,7 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
       DTS:refId="Package\紀錄目前檔案執行封裝至dbo sysssislog"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="指令碼工作"
-      DTS:DTSID="{20031907-C520-4A79-880E-5FF4894EAC3A}"
+      DTS:DTSID="{3B09918D-423D-49A1-ACE1-BC84957C9AD2}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄目前檔案執行封裝至dbo sysssislog"
@@ -3455,6 +3461,15 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
           VSTAMinorVersion="0"
           Language="CSharp"
           ReadOnlyVariables="$Package::srcRawDataFileName">
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -3574,35 +3589,6 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-          <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Settings.get_Default():ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Sett" +
-    "ings")]
-
-namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -3741,6 +3727,35 @@ namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
           <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Settings.get_Default():ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Sett" +
+    "ings")]
+
+namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
             Name="Properties\AssemblyInfo.cs"
             Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -3770,15 +3785,6 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-          <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
