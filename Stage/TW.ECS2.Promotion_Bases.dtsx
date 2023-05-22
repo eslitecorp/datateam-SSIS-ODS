@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{7055BDF7-A3CA-4A2D-977C-1EC0421CCA9D}"
+  DTS:DTSID="{A4C137DA-FD38-4C6D-99E8-17A33BF8AC81}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="TW ECS2 Promotion_Bases"
   DTS:PackageType="5"
-  DTS:VersionBuild="129"
-  DTS:VersionGUID="{6F50F246-625C-42CE-90F0-960FB9671475}">
+  DTS:VersionBuild="139"
+  DTS:VersionGUID="{A68134F5-FBBB-457B-9C5B-FDAA87E49864}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{4FAE8936-51F6-4E28-8C9D-487833F8CC63}"
+      DTS:DTSID="{B5A835EC-6C2A-4B07-B1ED-87001753C91E}"
       DTS:ObjectName="dbPrestageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{AB7C8114-2020-46FE-B238-2CA2F53CB3A2}"
+      DTS:DTSID="{3EE247C4-F87A-4795-8143-E4D89C825FA4}"
       DTS:ObjectName="dbSchemaName">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +38,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{00F60345-7985-4D62-8B8F-19840BB602C3}"
+      DTS:DTSID="{9AFBED6A-AFA5-4F90-95E8-65E0A990026A}"
       DTS:ObjectName="dbStageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -47,7 +47,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{ED2E4753-EE92-4BF7-AD05-CE56AE2BB575}"
+      DTS:DTSID="{94121DAD-F5F7-4CB8-8756-35198A3E3D36}"
       DTS:ObjectName="dbTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -57,7 +57,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{82A87F5B-D2C1-4BBF-BCEF-160AED941FFB}"
+      DTS:DTSID="{5476C887-7502-4D47-93EC-7E84B77119C6}"
       DTS:ObjectName="srcRawDataFileName">
       <DTS:Property
         DTS:DataType="8"
@@ -66,7 +66,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{616D9789-A2D3-4843-9BAF-C2773C2E512E}"
+      DTS:DTSID="{E83E1B83-312C-4A71-B5BC-424E9AE09A26}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -75,7 +75,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{E5C0F480-2063-41B6-AECC-1AF133B9A9F9}"
+      DTS:DTSID="{4A2CB379-5360-44BA-BC54-BA1CB11E6749}"
       DTS:ObjectName="writeInEvent">
       <DTS:Property
         DTS:DataType="8"
@@ -86,7 +86,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{31CE45CC-C6F5-4C7F-92A6-3F7770A73DB8}"
+      DTS:DTSID="{679B9FB9-CA71-47D8-8CDF-0578DCA4EC93}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;SELECT *  FROM &quot; + @[$Package::dbPrestageTableName] + &quot; WHERE FILE_NAME =  '&quot; + @[$Package::srcRawDataFileName]  +&quot;' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = '&quot;+ @[$Package::srcRawDataFileName] +&quot;' and l.executionid = &quot;+ (DT_WSTR,100) @[System::ServerExecutionID] +&quot;)&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -101,7 +101,7 @@
       DTS:refId="Package\I／IU資料流程"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{104B22C8-BED1-40FB-A660-EEE575ED0184}"
+      DTS:DTSID="{6F408034-9128-47C9-A3BA-03E8038CBC69}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:ForceExecValue="True"
       DTS:LocaleID="-1"
@@ -305,6 +305,28 @@
                       cachedPrecision="23"
                       externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[id]"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[id(ready)]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[dynamic(ready)]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="dynamic(ready)"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[dynamic]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[dynamic(ready)]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[dynamic_start_days(ready)]"
+                      cachedDataType="numeric"
+                      cachedName="dynamic_start_days(ready)"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[dynamic_start_days]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[dynamic_start_days(ready)]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[dynamic_end_days(ready)]"
+                      cachedDataType="numeric"
+                      cachedName="dynamic_end_days(ready)"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[dynamic_end_days]"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[dynamic_end_days(ready)]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -393,6 +415,22 @@
                       refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[send_qty]"
                       dataType="i4"
                       name="send_qty" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[dynamic]"
+                      codePage="950"
+                      dataType="str"
+                      length="10"
+                      name="dynamic" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[dynamic_start_days]"
+                      dataType="numeric"
+                      name="dynamic_start_days"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[dynamic_end_days]"
+                      dataType="numeric"
+                      name="dynamic_end_days"
+                      precision="4" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -529,6 +567,24 @@
                       cachedLength="100"
                       cachedName="send_qty"
                       lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[send_qty]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[dynamic]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="dynamic"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[dynamic_start_days]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="dynamic_start_days"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic_start_days]" />
+                    <inputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Inputs[資料轉換輸入].Columns[dynamic_end_days]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="dynamic_end_days"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic_end_days]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -869,6 +925,70 @@
                           name="FastParse">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[dynamic(ready)]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[dynamic(ready)]"
+                      name="dynamic(ready)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[dynamic_start_days(ready)]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[dynamic_start_days(ready)]"
+                      name="dynamic_start_days(ready)"
+                      precision="4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic_start_days]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[dynamic_end_days(ready)]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[dynamic_end_days(ready)]"
+                      name="dynamic_end_days(ready)"
+                      precision="4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic_end_days]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1159,6 +1279,36 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
                       lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[send_qty]"
                       name="send_qty"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[dynamic]"
+                      length="100"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic]"
+                      name="dynamic"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic_start_days]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[dynamic_start_days]"
+                      length="100"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic_start_days]"
+                      name="dynamic_start_days"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic_end_days]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[dynamic_end_days]"
+                      length="100"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic_end_days]"
+                      name="dynamic_end_days"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1260,6 +1410,21 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
                       dataType="wstr"
                       length="100"
                       name="send_qty" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[dynamic]"
+                      dataType="wstr"
+                      length="100"
+                      name="dynamic" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[dynamic_start_days]"
+                      dataType="wstr"
+                      length="100"
+                      name="dynamic_start_days" />
+                    <externalMetadataColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].ExternalColumns[dynamic_end_days]"
+                      dataType="wstr"
+                      length="100"
+                      name="dynamic_end_days" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1368,6 +1533,24 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
                       length="100"
                       lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[send_qty]"
                       name="send_qty" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[dynamic]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[dynamic]"
+                      name="dynamic" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[dynamic_start_days]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[dynamic_start_days]"
+                      name="dynamic_start_days" />
+                    <outputColumn
+                      refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[dynamic_end_days]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[dynamic_end_days]"
+                      name="dynamic_end_days" />
                     <outputColumn
                       refId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源錯誤輸出].Columns[FILE_NAME]"
                       codePage="950"
@@ -1536,13 +1719,13 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\I／IU資料流程\衍生的資料行.Inputs[衍生的資料行輸入].Columns[discount_type]"
+                      refId="Package\I／IU資料流程\衍生的資料行.Inputs[衍生的資料行輸入].Columns[dynamic_start_days]"
                       cachedDataType="wstr"
                       cachedLength="100"
-                      cachedName="discount_type"
+                      cachedName="dynamic_start_days"
                       errorOrTruncationOperation="計算"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[discount_type]"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic_start_days]"
                       truncationRowDisposition="FailComponent"
                       usageType="readWrite">
                       <properties>
@@ -1550,13 +1733,37 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
                           containsID="true"
                           dataType="System.String"
                           description="衍生的資料行運算式"
-                          name="Expression">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[discount_type]} == "" ? NULL(DT_I4) : (DT_I4)#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[discount_type]}</property>
+                          name="Expression">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic_start_days]} == "" ? NULL(DT_NUMERIC,4,0) : (DT_NUMERIC,4,0)#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic_start_days]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="衍生的資料行易記運算式"
                           expressionType="Notify"
-                          name="FriendlyExpression">discount_type == "" ? NULL(DT_I4) : (DT_I4)discount_type</property>
+                          name="FriendlyExpression">dynamic_start_days == "" ? NULL(DT_NUMERIC,4,0) : (DT_NUMERIC,4,0)dynamic_start_days</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\I／IU資料流程\衍生的資料行.Inputs[衍生的資料行輸入].Columns[dynamic_end_days]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="dynamic_end_days"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic_end_days]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic_end_days]} == "" ? NULL(DT_NUMERIC,4,0) : (DT_NUMERIC,4,0)#{Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出.Outputs[OLE DB 來源輸出].Columns[dynamic_end_days]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">dynamic_end_days == "" ? NULL(DT_NUMERIC,4,0) : (DT_NUMERIC,4,0)dynamic_end_days</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -1700,7 +1907,7 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
       DTS:refId="Package\紀錄目前檔案執行封裝至dbo sysssislog"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="指令碼工作"
-      DTS:DTSID="{21C59EBE-5EB7-4222-BF41-76EE95C0AB6C}"
+      DTS:DTSID="{46791224-D668-4F96-B899-7687610591D3}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄目前檔案執行封裝至dbo sysssislog"
@@ -1739,35 +1946,14 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
           Language="CSharp"
           ReadOnlyVariables="$Package::srcRawDataFileName">
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -2054,14 +2240,35 @@ namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
     }
 }]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -2256,11 +2463,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="153.6,41.6"
+          Size="154,42"
           Id="Package\I／IU資料流程"
           TopLeft="440.089270610895,59.7749254147891" />
         <NodeLayout
-          Size="288.8,41.6"
+          Size="289,42"
           Id="Package\紀錄目前檔案執行封裝至dbo sysssislog"
           TopLeft="60,60" />
       </GraphLayout>
@@ -2272,39 +2479,39 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="151.2,41.6"
-          Id="Package\I／IU資料流程\衍生的資料行"
-          TopLeft="376,124.200000867844" />
+          Size="272,42"
+          Id="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換"
+          TopLeft="313.999987483025,198.342851153977" />
         <NodeLayout
-          Size="294.4,41.6"
+          Size="294,42"
           Id="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出"
           TopLeft="305.259248957223,52.99999667917" />
         <NodeLayout
-          Size="272,41.6"
-          Id="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換"
-          TopLeft="313.999987483025,199.209517827531" />
+          Size="151,42"
+          Id="Package\I／IU資料流程\衍生的資料行"
+          TopLeft="376,124.200000867844" />
         <NodeLayout
-          Size="230.4,41.6"
+          Size="230,42"
           Id="Package\I／IU資料流程\衍生的資料行 ETL_DATE"
           TopLeft="338.081998737296,285.830177205149" />
         <NodeLayout
-          Size="172.8,41.6"
+          Size="173,42"
           Id="Package\I／IU資料流程\intsert into stage"
           TopLeft="370.748684013856,365.115877068973" />
         <EdgeLayout
           Id="Package\I／IU資料流程.Paths[資料轉換輸出]"
-          TopLeft="451.54099311016,241.209517827531">
+          TopLeft="451.54099311016,240.342851153977">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,44.6206593776171"
+              EndConnector="0,45.4873260511724"
               Start="0,0"
-              End="0,37.1206593776171">
+              End="0,37.9873260511724">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.1206593776171" />
+                    End="0,37.9873260511724" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2319,14 +2526,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.0095169596878"
+              EndConnector="0,32.1428502861327"
               Start="0,0"
-              End="0,25.5095169596878">
+              End="0,24.6428502861327">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.5095169596878" />
+                    End="0,24.6428502861327" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2383,7 +2590,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\I／IU資料流程\intsert into stage">
+    design-time-name="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2391,7 +2598,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出">
+    design-time-name="Package\I／IU資料流程\intsert into stage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

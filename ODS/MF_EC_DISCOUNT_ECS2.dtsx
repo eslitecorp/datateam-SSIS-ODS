@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{0B1388F2-EBD1-45EE-9D65-9B3749AB6EF8}"
+  DTS:DTSID="{E3E7A35A-6CB5-4F42-BE2C-7FDC1F3278AF}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="MF_EC_DISCOUNT_ECS2"
   DTS:PackageType="5"
-  DTS:VersionBuild="425"
-  DTS:VersionGUID="{A9DBB9C8-DCA2-40EC-AA74-886E9375C8A2}">
+  DTS:VersionBuild="432"
+  DTS:VersionGUID="{95DDF738-9ACD-4B06-9DFD-0A8EF8A2D3B3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{996F2308-ADDB-49D4-838D-A8E8D7A1E3F9}"
+      DTS:DTSID="{583244CE-A8F7-4972-B3AB-A0BF984DCA77}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{19B5CC63-968F-49D8-A547-9676B6CD8678}"
+      DTS:DTSID="{2EF6D9E7-0174-49C5-92CE-653D4E689AA9}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -37,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{B1365AD7-BE25-43AA-8994-5C7345B5DCA0}"
+      DTS:DTSID="{521D1C55-7543-435E-AEAE-A4560E4A074F}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -48,7 +48,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{77ED3EBB-36BB-4AF0-9F71-5FB149398535}"
+      DTS:DTSID="{AF07170C-114F-4965-8201-D465E88024D3}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -57,7 +57,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C4756CE0-5BEF-4A93-AA42-5CAB598967C5}"
+      DTS:DTSID="{F6EA978E-07DF-4122-8B79-C24A1EF807E0}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ? ,?,?);&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -69,7 +69,7 @@ values(?,?,?,(select count(*) from dbo.MF_EC_DISCOUNT_ECS2_),?,GETDATE(), ? ,?,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{073D7036-0A06-45B5-BB35-A0BD130228EE}"
+      DTS:DTSID="{83EC4A8C-6E86-4CA6-97B4-886A8854A91E}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -80,7 +80,7 @@ values(?,?,?,(select count(*) from dbo.MF_EC_DISCOUNT_ECS2_),?,GETDATE(), ? ,?,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1E37C503-B5A1-4F5E-82C8-85AC9E9B2D25}"
+      DTS:DTSID="{B1557B15-9AFD-43E5-97BD-911C3F931094}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -90,9 +90,9 @@ values(?,?,?,(select count(*) from dbo.MF_EC_DISCOUNT_ECS2_),?,GETDATE(), ? ,?,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E1E771CB-E809-418F-848E-B41CB5951347}"
+      DTS:DTSID="{7ED58C8F-25E7-4E2A-8465-73C5D43835F1}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT ID &#x9;&#x9;&#x9;&#x9;&#x9;AS EC_ACT_ID&#xA;      , DESCRIPTION &#x9;&#x9;AS EC_ACT_NAME&#xA;&#x9;  , NAME&#x9;&#x9;&#x9;&#x9;AS NAME&#xA;&#x9;  , COUPON_NAME&#x9;&#x9;&#x9;AS COUPON_NAME&#xA;      , SEND_TYPE &#x9;&#x9;&#x9;AS EC_ACT_SENDTP&#xA;      , DISCOUNT_TYPE &#x9;&#x9;AS EC_ACT_DISCTP&#xA;      , STARTED_AT &#x9;&#x9;&#x9;AS EC_ACT_START_DATE&#xA;      , ENDED_AT &#x9;&#x9;&#x9;AS EC_ACT_END_DATE&#xA;      , COUPON_MAX_COUNT&#x9;AS PUBMAX&#xA;&#x9;  , SEND_QTY&#x9;&#x9;&#x9;AS PUBTOTAL&#xA;&#x9;  , ''&#x9;&#x9;&#x9;&#x9;&#x9;AS CMS_ACT_ID&#xA;      , CASE WHEN ENDED_AT &gt;= GETDATE() THEN 1&#xA;&#x9;&#x9;&#x9; ELSE 0 END &#x9;AS EC_ACT_STS&#xA;&#x9;  , 0&#x9;&#x9;&#x9;&#x9;&#x9;AS EC_ACT_RATE&#xA;&#x9;  , 0.00&#x9;&#x9;&#x9;&#x9;AS EC_ACT_DISC&#xA;&#x9;  , ETL_DATE &#x9;&#x9;&#x9;AS ETL_DATE&#xA;&#x9;  , HALL_TYPE &#x9;&#x9;&#x9;AS HALL_TYPE&#xA;&#x9;  , DISCOUNT_SITUATION  AS DISCOUNT_SITUATION&#x9;  &#xA;&#x9;  , SERIAL_NUMBER&#x9;&#x9;AS SERIAL_NUMBER&#xA;&#x9;  , TYPE&#x9;&#x9;&#x9;&#x9;AS EC_ACT_TYPE&#xA;&#x9;  , CREATED_AT&#x9;&#x9;&#x9;AS CRE_DATE&#xA;&#x9;  , UPDATED_AT&#x9;&#x9;&#x9;AS UPD_DATE&#xA;  FROM ECS2.PROMOTION_BASES&#xA;  where ENDED_AT &gt;= cast(concat(cast((YEAR(GETDATE()) - 5 + '&quot; + (DT_STR, 10, 950) @[User::testYearDiff]  + &quot;') as varchar),'-01-01') as datetime)&#xA;    and ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&quot;"
+      DTS:Expression="&quot;SELECT ID &#x9;&#x9;&#x9;&#x9;&#x9;AS EC_ACT_ID&#xA;      , DESCRIPTION &#x9;&#x9;AS EC_ACT_NAME&#xA;&#x9;  , NAME&#x9;&#x9;&#x9;&#x9;AS NAME&#xA;&#x9;  , COUPON_NAME&#x9;&#x9;&#x9;AS COUPON_NAME&#xA;      , SEND_TYPE &#x9;&#x9;&#x9;AS EC_ACT_SENDTP&#xA;      , DISCOUNT_TYPE &#x9;&#x9;AS EC_ACT_DISCTP&#xA;      , STARTED_AT &#x9;&#x9;&#x9;AS EC_ACT_START_DATE&#xA;      , ENDED_AT &#x9;&#x9;&#x9;AS EC_ACT_END_DATE&#xA;      , COUPON_MAX_COUNT&#x9;AS PUBMAX&#xA;&#x9;  , SEND_QTY&#x9;&#x9;&#x9;AS PUBTOTAL&#xA;&#x9;  , ''&#x9;&#x9;&#x9;&#x9;&#x9;AS CMS_ACT_ID&#xA;      , CASE WHEN ENDED_AT &gt;= GETDATE() THEN 1&#xA;&#x9;&#x9;&#x9; ELSE 0 END &#x9;AS EC_ACT_STS&#xA;&#x9;  , 0&#x9;&#x9;&#x9;&#x9;&#x9;AS EC_ACT_RATE&#xA;&#x9;  , 0.00&#x9;&#x9;&#x9;&#x9;AS EC_ACT_DISC&#xA;&#x9;  , ETL_DATE &#x9;&#x9;&#x9;AS ETL_DATE&#xA;&#x9;  , HALL_TYPE &#x9;&#x9;&#x9;AS HALL_TYPE&#xA;&#x9;  , DISCOUNT_SITUATION  AS DISCOUNT_SITUATION&#x9;  &#xA;&#x9;  , SERIAL_NUMBER&#x9;&#x9;AS SERIAL_NUMBER&#xA;&#x9;  , TYPE&#x9;&#x9;&#x9;&#x9;AS EC_ACT_TYPE&#xA;&#x9;  , CREATED_AT&#x9;&#x9;&#x9;AS CRE_DATE&#xA;&#x9;  , UPDATED_AT&#x9;&#x9;&#x9;AS UPD_DATE&#xA;      , dynamic             AS DYNAMIC&#xA;      , dynamic_start_days  AS DYNAMIC_START_DAYS&#xA;      , dynamic_end_days    AS DYNAMIC_END_DAYS&#xA;  FROM ECS2.PROMOTION_BASES&#xA;  where ENDED_AT &gt;= cast(concat(cast((YEAR(GETDATE()) - 5 + '&quot; + (DT_STR, 10, 950) @[User::testYearDiff]  + &quot;') as varchar),'-01-01') as datetime)&#xA;    and ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="queryFromStage">
@@ -119,13 +119,16 @@ values(?,?,?,(select count(*) from dbo.MF_EC_DISCOUNT_ECS2_),?,GETDATE(), ? ,?,?
 	  , TYPE				AS EC_ACT_TYPE
 	  , CREATED_AT			AS CRE_DATE
 	  , UPDATED_AT			AS UPD_DATE
+      , dynamic             AS DYNAMIC
+      , dynamic_start_days  AS DYNAMIC_START_DAYS
+      , dynamic_end_days    AS DYNAMIC_END_DAYS
   FROM ECS2.PROMOTION_BASES
   where ENDED_AT &gt;= cast(concat(cast((YEAR(GETDATE()) - 5 + '0') as varchar),'-01-01') as datetime)
-    and ETL_DATE &gt;= cast(cast('2022-03-04 11:43:12.841000000' as date) as datetime)</DTS:VariableValue>
+    and ETL_DATE &gt;= cast(cast('2023-05-16 15:56:37.882000000' as date) as datetime)</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{0C73D7BE-9F5F-4952-89EC-2B3806FA8531}"
+      DTS:DTSID="{A2068272-0DF1-4EAE-BF42-973261391179}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="testYearDiff">
@@ -134,7 +137,7 @@ values(?,?,?,(select count(*) from dbo.MF_EC_DISCOUNT_ECS2_),?,GETDATE(), ? ,?,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C7F41543-45B3-47DE-8554-32CACBC525C9}"
+      DTS:DTSID="{32F225E5-0C8F-456E-B695-C8964FD4D883}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -143,7 +146,7 @@ values(?,?,?,(select count(*) from dbo.MF_EC_DISCOUNT_ECS2_),?,GETDATE(), ? ,?,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{83B1DE81-5724-45A9-A8E8-F46AA84278B2}"
+      DTS:DTSID="{D80348DE-7574-4E00-AA97-402E09EDC3BC}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -152,7 +155,7 @@ values(?,?,?,(select count(*) from dbo.MF_EC_DISCOUNT_ECS2_),?,GETDATE(), ? ,?,?
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{EA927A2B-4700-4CC0-8DF6-497B500C58FC}"
+      DTS:DTSID="{48A00262-45C1-4A67-8403-33FB8446A18D}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -167,7 +170,7 @@ values(?,?,?,(select count(*) from dbo.MF_EC_DISCOUNT_ECS2_),?,GETDATE(), ? ,?,?
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{B777DC33-7BC4-4BA2-8277-382D6959E80D}"
+      DTS:DTSID="{3BBC6A20-530B-44A2-8DB9-D2DDD4671906}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -4229,7 +4232,7 @@ select head.SUB_ORDER_NUMBER
                 <property
                   dataType="System.String"
                   description="SQL 命令中的參數和變數之間的對應。"
-                  name="ParameterMapping">"參數0:Input",{0C73D7BE-9F5F-4952-89EC-2B3806FA8531};"參數1:Input",{0C73D7BE-9F5F-4952-89EC-2B3806FA8531};</property>
+                  name="ParameterMapping">"參數0:Input",{A2068272-0DF1-4EAE-BF42-973261391179};"參數1:Input",{A2068272-0DF1-4EAE-BF42-973261391179};</property>
               </properties>
               <connections>
                 <connection
@@ -4444,6 +4447,37 @@ select head.SUB_ORDER_NUMBER
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[UPD_DATE]"
                       name="UPD_DATE"
                       truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[DYNAMIC]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[DYNAMIC]"
+                      length="10"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[DYNAMIC]"
+                      name="DYNAMIC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[DYNAMIC_START_DAYS]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[DYNAMIC_START_DAYS]"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[DYNAMIC_START_DAYS]"
+                      name="DYNAMIC_START_DAYS"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[DYNAMIC_END_DAYS]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[DYNAMIC_END_DAYS]"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[DYNAMIC_END_DAYS]"
+                      name="DYNAMIC_END_DAYS"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4542,6 +4576,22 @@ select head.SUB_ORDER_NUMBER
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[UPD_DATE]"
                       dataType="dbTimeStamp"
                       name="UPD_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[DYNAMIC]"
+                      codePage="950"
+                      dataType="str"
+                      length="10"
+                      name="DYNAMIC" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[DYNAMIC_START_DAYS]"
+                      dataType="numeric"
+                      name="DYNAMIC_START_DAYS"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[DYNAMIC_END_DAYS]"
+                      dataType="numeric"
+                      name="DYNAMIC_END_DAYS"
+                      precision="4" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -4665,6 +4715,25 @@ select head.SUB_ORDER_NUMBER
                       dataType="dbTimeStamp"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[UPD_DATE]"
                       name="UPD_DATE" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[DYNAMIC]"
+                      codePage="950"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[DYNAMIC]"
+                      name="DYNAMIC" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[DYNAMIC_START_DAYS]"
+                      dataType="numeric"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[DYNAMIC_START_DAYS]"
+                      name="DYNAMIC_START_DAYS"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[DYNAMIC_END_DAYS]"
+                      dataType="numeric"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[DYNAMIC_END_DAYS]"
+                      name="DYNAMIC_END_DAYS"
+                      precision="4" />
                     <outputColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
                       dataType="i4"
@@ -5990,6 +6059,26 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       cachedName="CMS_ACT_ID"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[CMS_ACT_ID]"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[CMS_ACT_ID]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[DYNAMIC (ready)]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="DYNAMIC (ready)"
+                      externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[DYNAMIC]"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[DYNAMIC (ready)]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[DYNAMIC_START_DAYS (ready)]"
+                      cachedDataType="i4"
+                      cachedName="DYNAMIC_START_DAYS (ready)"
+                      externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[DYNAMIC_START_DAYS]"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[DYNAMIC_START_DAYS (ready)]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[DYNAMIC_END_DAYS (ready)]"
+                      cachedDataType="i4"
+                      cachedName="DYNAMIC_END_DAYS (ready)"
+                      externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[DYNAMIC_END_DAYS]"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[DYNAMIC_END_DAYS (ready)]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -6100,6 +6189,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       dataType="wstr"
                       length="100"
                       name="COUPON_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[DYNAMIC]"
+                      codePage="950"
+                      dataType="str"
+                      length="1"
+                      name="DYNAMIC" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[DYNAMIC_START_DAYS]"
+                      dataType="i4"
+                      name="DYNAMIC_START_DAYS" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[DYNAMIC_END_DAYS]"
+                      dataType="i4"
+                      name="DYNAMIC_END_DAYS" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -6121,6 +6224,82 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Stage To ODS\寫入 ODSDB.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Stage To ODS\衍生的資料行"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="衍生的資料行;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="透過套用運算式到轉換輸入資料行來建立新資料行值。建立新資料行或覆寫現有資料行。例如，將 [名字] 和 [姓氏] 資料行的值串連成 [全名] 資料行。"
+              name="衍生的資料行"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Stage To ODS\衍生的資料行.Inputs[衍生的資料行輸入]"
+                  description="輸入至衍生的資料行轉換"
+                  name="衍生的資料行輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Stage To ODS\衍生的資料行.Inputs[衍生的資料行輸入].Columns[DYNAMIC]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="DYNAMIC"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[DYNAMIC]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[DYNAMIC]} == "True" ? "1" : "0"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DYNAMIC == "True" ? "1" : "0"</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行輸出]"
+                  description="衍生的資料行轉換的預設輸出"
+                  exclusionGroup="1"
+                  name="衍生的資料行輸出"
+                  synchronousInputId="Package\Stage To ODS\衍生的資料行.Inputs[衍生的資料行輸入]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行錯誤輸出]"
+                  description="衍生的資料行轉換的錯誤輸出"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="衍生的資料行錯誤輸出"
+                  synchronousInputId="Package\Stage To ODS\衍生的資料行.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -6646,6 +6825,25 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                       cachedLength="100"
                       cachedName="COUPON_NAME"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[COUPON_NAME]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[DYNAMIC]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="DYNAMIC"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[DYNAMIC]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[DYNAMIC_START_DAYS]"
+                      cachedDataType="numeric"
+                      cachedName="DYNAMIC_START_DAYS"
+                      cachedPrecision="4"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[DYNAMIC_START_DAYS]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[DYNAMIC_END_DAYS]"
+                      cachedDataType="numeric"
+                      cachedName="DYNAMIC_END_DAYS"
+                      cachedPrecision="4"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[DYNAMIC_END_DAYS]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -6930,6 +7128,68 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
                           name="FastParse">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[DYNAMIC (ready)]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[DYNAMIC (ready)]"
+                      name="DYNAMIC (ready)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[DYNAMIC]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[DYNAMIC_START_DAYS (ready)]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[DYNAMIC_START_DAYS (ready)]"
+                      name="DYNAMIC_START_DAYS (ready)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[DYNAMIC_START_DAYS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[DYNAMIC_END_DAYS (ready)]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[DYNAMIC_END_DAYS (ready)]"
+                      name="DYNAMIC_END_DAYS (ready)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[DYNAMIC_END_DAYS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -6990,6 +7250,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               name="衍生的資料行輸出"
               startId="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位.Outputs[衍生的資料行輸出]" />
             <path
+              refId="Package\Stage To ODS.Paths[衍生的資料行輸出3]"
+              endId="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位.Inputs[衍生的資料行輸入]"
+              name="衍生的資料行輸出"
+              startId="Package\Stage To ODS\衍生的資料行.Outputs[衍生的資料行輸出]" />
+            <path
               refId="Package\Stage To ODS.Paths[資料列計數 輸出 1]"
               endId="Package\Stage To ODS\TRIM 所有字串型態的欄位.Inputs[輸入 0]"
               name="資料列計數 輸出 1"
@@ -7021,7 +7286,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
               startId="Package\Stage To ODS\GetErrorDetail  (Insert).Outputs[輸出 0]" />
             <path
               refId="Package\Stage To ODS.Paths[輸出 03]"
-              endId="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位.Inputs[衍生的資料行輸入]"
+              endId="Package\Stage To ODS\衍生的資料行.Inputs[衍生的資料行輸入]"
               name="輸出 0"
               startId="Package\Stage To ODS\TRIM 所有字串型態的欄位.Outputs[輸出 0]" />
           </paths>
@@ -7032,7 +7297,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{151C6263-E77C-4310-B077-DCEC58F02EA5}"
+      DTS:DTSID="{E95C2D74-D15A-4E8B-A8FF-A3C51D50D2B8}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -7057,7 +7322,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{F74E736E-0F32-425D-8CDC-BF9442D352F0}"
+      DTS:DTSID="{2890935E-CBF3-4FA7-A242-53A6EAC045C1}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -7078,7 +7343,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{CD5786A2-D708-47D9-AC7B-C1D5BA60A163}"
+      DTS:DTSID="{2B987D7E-B3AE-4826-96CD-96EF0ABF2E3C}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -7089,7 +7354,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:refId="Package\時序容器\Delete WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{6ECA248F-BAF7-4751-B108-2CB7731F2038}"
+          DTS:DTSID="{FBD1E4FF-7B23-4D89-A64E-51BEF596EF29}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete WorkDateTable"
@@ -7130,7 +7395,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{5FAFA5A4-1455-44D5-8DA3-5A42E6C9C993}"
+          DTS:DTSID="{25D22CD9-6060-43E0-BCFC-73E1DDB76E92}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -7166,7 +7431,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{2CA5157E-00AE-476A-8703-12682779F67B}"
+          DTS:DTSID="{0064303F-3ECB-4C4A-85A9-960E39395A4B}"
           DTS:From="Package\時序容器\Delete WorkDateTable"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -7177,7 +7442,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{B613AE59-C120-4B44-9CE3-A0B29CE8E502}"
+      DTS:DTSID="{2E424554-7F17-40FA-8EAB-102ED140E7A0}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -7240,7 +7505,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{B840D231-5380-4097-BDEB-8AFA03606F06}"
+      DTS:DTSID="{91E55AB4-FD4B-48CA-A7BE-9C5B85AA4BF8}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -7248,7 +7513,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{60A066BE-5FA0-459D-BED3-ECF0F84C9C4A}"
+      DTS:DTSID="{CC12EE5F-7DDD-4EFA-96F1-4325B18FA715}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -7256,7 +7521,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{974F9512-31B0-479B-94E7-6C6600E23EAD}"
+      DTS:DTSID="{9BF6B3FA-A0E5-46F8-85A4-CE73874071B9}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -7264,7 +7529,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{223929F3-3548-4C62-B92C-F749B946158E}"
+      DTS:DTSID="{0452120E-0263-4644-A5B7-8E6F13A552C1}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -7281,7 +7546,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
           Id="Package\Stage To ODS"
@@ -7311,7 +7576,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="197.361101977252,62.37300711762">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,22.769833515968"
               Start="0,0"
               End="0,15.269833515968">
@@ -7340,7 +7605,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="321.916656964355,89.2142885132711">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,50.1428552452399"
               Start="0,0"
               End="0,42.6428552452399">
@@ -7362,7 +7627,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="321.333323664136,181.357143758511">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,41.4999877129288"
               Start="0,0"
               End="0,33.9999877129288">
@@ -7384,7 +7649,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="322.499992748102,264.85713147144">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,64.642856905655"
               Start="0,0"
               End="0,57.142856905655">
@@ -7406,7 +7671,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="323.851844327686,554.499988377095">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,37.9523687443759"
               Start="0,0"
               End="0,30.4523687443759">
@@ -7430,23 +7695,31 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     design-time-name="Package\Stage To ODS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="149,42"
-          Id="Package\Stage To ODS\寫入 ODSDB"
-          TopLeft="289.310172337993,650.604334677236" />
+          Size="218,42"
+          Id="Package\Stage To ODS\TRIM 所有字串型態的欄位"
+          TopLeft="263.44443413505,172.402341625001" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位"
+          TopLeft="231.44443413505,338.811097723984" />
         <NodeLayout
           Size="139,42"
           Id="Package\Stage To ODS\資料列計數"
           TopLeft="306.88887582002,89.5253957200705" />
         <NodeLayout
+          Size="151,42"
+          Id="Package\Stage To ODS\資料型態轉換"
+          TopLeft="288.44443413505,437.602343732622" />
+        <NodeLayout
           Size="209,42"
           Id="Package\Stage To ODS\GetErrorDetail (Convert)"
           TopLeft="654.935159994868,440.824981401015" />
         <NodeLayout
-          Size="269,42"
-          Id="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位"
-          TopLeft="231.44443413505,338.811097723984" />
+          Size="235,42"
+          Id="Package\Stage To ODS\Insert Into Error Log(Convert)"
+          TopLeft="643.518493344757,534.842833740525" />
         <NodeLayout
           Size="223,42"
           Id="Package\Stage To ODS\Insert Into Error Log(Insert)"
@@ -7456,13 +7729,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           Id="Package\Stage To ODS\select from Stage"
           TopLeft="312.072209567273,4.13928640995578" />
         <NodeLayout
-          Size="230,42"
-          Id="Package\Stage To ODS\Insert Into Error Log (Select)"
-          TopLeft="638.240714385924,173.184117165575" />
-        <NodeLayout
-          Size="235,42"
-          Id="Package\Stage To ODS\Insert Into Error Log(Convert)"
-          TopLeft="643.518493344757,534.842833740525" />
+          Size="149,42"
+          Id="Package\Stage To ODS\寫入 ODSDB"
+          TopLeft="289.310172337993,650.604334677236" />
         <NodeLayout
           Size="210,42"
           Id="Package\Stage To ODS\衍生的資料行 (固定字串)"
@@ -7476,129 +7745,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           Id="Package\Stage To ODS\GetErrorDetail  (Insert)"
           TopLeft="658.402751615204,654.783303803282" />
         <NodeLayout
+          Size="230,42"
+          Id="Package\Stage To ODS\Insert Into Error Log (Select)"
+          TopLeft="638.240714385924,173.184117165575" />
+        <NodeLayout
           Size="285,42"
           Id="Package\Stage To ODS\衍生資料行 - 記錄錯誤資訊欄位(select)"
           TopLeft="612.962938606005,7.66825546688002" />
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[衍生的資料行輸出1]"
-          TopLeft="363.155080456885,577.152375835702">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,73.4519588415344"
-              Start="0,0"
-              End="0,65.9519588415344">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,65.9519588415344" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[衍生的資料行輸出]"
-          TopLeft="753.564789192178,49.66825546688">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,30.7618981834986"
-              Start="0,0"
-              End="0,23.2618981834986">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.2618981834986" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[OLE DB 目的地錯誤輸出]"
-          TopLeft="438.310172337993,673.693819240259">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="220.092579277211,0"
-              Start="0,0"
-              End="212.592579277211,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="212.592579277211,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="52.7418104719388,5,107.108958333333,10.8623046875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[OLE DB 來源錯誤輸出]"
-          TopLeft="453.672209567273,26.7037709384179">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="159.290729038732,0"
-              Start="0,0"
-              End="151.790729038732,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="151.790729038732,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="27.3408853526993,5,97.1089583333333,10.8623046875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[OLE DB 來源輸出]"
-          TopLeft="379.730542693647,46.1392864099558">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,43.3861093101147"
-              Start="0,0"
-              End="0,35.8861093101147">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.8861093101147" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[輸出 02]"
           TopLeft="757.902751863556,696.783303803282">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,45.2857098263122"
               Start="0,0"
               End="0,37.7857098263122">
@@ -7620,7 +7779,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="760.226826669812,482.824981401015">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,52.0178523395107"
               Start="0,0"
               End="0,44.5178523395107">
@@ -7642,7 +7801,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="752.453677082137,122.430153650378">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,50.7539635151966"
               Start="0,0"
               End="0,43.2539635151966">
@@ -7659,86 +7818,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="218,42"
-          Id="Package\Stage To ODS\TRIM 所有字串型態的欄位"
-          TopLeft="263.44443413505,201.869008525848" />
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[資料列計數 輸出 1]"
-          TopLeft="374.416654977535,131.52539572007">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,70.3436128057774"
-              Start="0,0"
-              End="0,62.8436128057774">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,62.8436128057774" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[輸出 03]"
-          TopLeft="369.19443413505,243.869008525848">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,94.9420891981361"
-              Start="0,0"
-              End="0,87.4420891981361">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,87.4420891981361" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="151,42"
-          Id="Package\Stage To ODS\資料型態轉換"
-          TopLeft="288.44443413505,437.602343732622" />
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[衍生的資料行輸出2]"
-          TopLeft="364.94443413505,380.811097723984">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,56.7912460086376"
-              Start="0,0"
-              End="0,49.2912460086376">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,49.2912460086376" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[資料轉換錯誤輸出]"
           TopLeft="439.44443413505,460.213662566818">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="215.490725859818,0"
               Start="0,0"
               End="207.990725859818,0">
@@ -7762,7 +7847,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="363.222211355413,479.602343732622">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,55.5500321030803"
               Start="0,0"
               End="0,48.0500321030803">
@@ -7779,11 +7864,217 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[資料列計數 輸出 1]"
+          TopLeft="374.416654977535,131.52539572007">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.8769459049308"
+              Start="0,0"
+              End="0,33.3769459049308">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.3769459049308" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[衍生的資料行輸出2]"
+          TopLeft="364.94443413505,380.811097723984">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.7912460086376"
+              Start="0,0"
+              End="0,49.2912460086376">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.2912460086376" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[衍生的資料行輸出1]"
+          TopLeft="363.155080456885,577.152375835702">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.4519588415344"
+              Start="0,0"
+              End="0,65.9519588415344">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.9519588415344" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[衍生的資料行輸出]"
+          TopLeft="753.564789192178,49.66825546688">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.7618981834986"
+              Start="0,0"
+              End="0,23.2618981834986">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.2618981834986" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[OLE DB 目的地錯誤輸出]"
+          TopLeft="438.310172337993,673.693819240259">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="220.092579277211,0"
+              Start="0,0"
+              End="212.592579277211,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="212.592579277211,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="52.7418104719388,5,107.108958333333,10.8623046875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[OLE DB 來源錯誤輸出]"
+          TopLeft="453.672209567273,26.7037709384179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="159.290729038732,0"
+              Start="0,0"
+              End="151.790729038732,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="151.790729038732,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="27.3408853526993,5,97.1089583333333,10.8623046875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[OLE DB 來源輸出]"
+          TopLeft="379.730542693647,46.1392864099558">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.3861093101147"
+              Start="0,0"
+              End="0,35.8861093101147">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.8861093101147" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Stage To ODS\衍生的資料行"
+          TopLeft="293,255.266667479409" />
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[輸出 03]"
+          TopLeft="370.472217067525,214.402341625001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.8643258544078"
+              Start="0,0"
+              End="0,33.3643258544078">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.3643258544078" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[衍生的資料行輸出3]"
+          TopLeft="367.222217067525,297.266667479409">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.5444302445749"
+              Start="0,0"
+              End="0,34.0444302445749">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.0444302445749" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Stage To ODS\寫入 ODSDB">
+    design-time-name="Package\Stage To ODS\select from Stage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7796,7 +8087,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Stage To ODS\select from Stage">
+    design-time-name="Package\Stage To ODS\寫入 ODSDB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
