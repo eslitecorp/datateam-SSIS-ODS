@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{AE170ED7-B10D-4788-8F4E-8836C1BFCCB1}"
+  DTS:DTSID="{7B28FB67-1BDE-4139-A334-E765C1BBDE9A}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="TRANS_HEAD_ECS2"
   DTS:PackageType="5"
-  DTS:VersionBuild="442"
-  DTS:VersionGUID="{918B788E-F170-45F6-96A6-C4A25D3EC9ED}">
+  DTS:VersionBuild="450"
+  DTS:VersionGUID="{29D7DF7A-DDE9-42CC-83EE-D4E69A1123D8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{65A949DD-F479-4E97-9D63-47A9C31486C2}"
+      DTS:DTSID="{DD07C442-5306-4FFD-B50D-1EB37AE1D6B6}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{B1D22193-B494-4B41-B0ED-813BC7ED7838}"
+      DTS:DTSID="{E35BB00C-1D31-4ABC-92F0-ED3DDA2C8B7B}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -37,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{4D27F558-30FD-461A-A784-D8FD78E0E435}"
+      DTS:DTSID="{CB5E27AF-8CAF-41A0-9243-C83E3814FD87}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -48,7 +48,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{DB6D7692-D9B0-4027-B91F-5ACC2F1FF29B}"
+      DTS:DTSID="{294E6069-BE59-4557-80CD-5302ED005E2C}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -57,7 +57,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{086A2BCA-8478-4A36-B6CC-195C0B92D457}"
+      DTS:DTSID="{04495F6E-8F80-46B3-BD70-5058A916C1C8}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ? ,?,?);&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -69,7 +69,7 @@ values(?,?,?,(select count(*) from dbo.TRANS_HEAD_ECS2_),?,GETDATE(), ? ,?,?);</
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{982E96D1-3336-42C0-B5D7-1CAEAF6D022F}"
+      DTS:DTSID="{61DFD695-4585-4A46-B2AD-AADDA27236FF}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -80,7 +80,7 @@ values(?,?,?,(select count(*) from dbo.TRANS_HEAD_ECS2_),?,GETDATE(), ? ,?,?);</
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{FB484930-284F-41F7-8177-C7AE7DF47B7E}"
+      DTS:DTSID="{4A653F8A-92D7-4807-A7F8-594F8D5DCFC8}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -90,9 +90,9 @@ values(?,?,?,(select count(*) from dbo.TRANS_HEAD_ECS2_),?,GETDATE(), ? ,?,?);</
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{385A28BE-BDE1-417C-B589-122FB31DFEFF}"
+      DTS:DTSID="{D8465288-2DBA-476D-B4D4-F24A841E9E05}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT CONCAT('P',SUB.ID) AS SL_KEY&#xA;     , SUB.ORDER_NUMBER AS TRANS_SEQNO&#xA;&#x9; , '1' AS TRANS_TYPE&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS TRANS_DATE&#xA;&#x9; , ISNULL(MAIN.INVOICE_DATE,SUB.ESP_INVOICE_NUMBER_CREATED_DATE) AS INVOICE_DATE&#xA;&#x9; , MAIN.CREATED_AT AS ORDER_DATE&#xA;&#x9; , MAIN.INVOICE_TYPE AS INV_TYPE&#xA;&#x9; , CASE WHEN MAIN.INVOICE_NUMBER = ''&#xA;&#x9;        THEN SUB.ESP_INVOICE_NUMBER&#xA;&#x9;&#x9;&#x9;ELSE MAIN.INVOICE_NUMBER END AS INVOICE_NO&#xA;&#x9; , ITEM.ITEMS_AMT AS INVOICE_AMT&#xA;&#x9; , ITEM.ITEMS_AMT + ITEM.ESLITE_DSC_AMT AS SALES_AMT&#xA;&#x9; , ITEM.ITEMS_AMT_NOTAX AS SALES_AMT_NOTAX &#xA;&#x9; , ITEM.ITEMS_DISC_AMT AS TOT_DISC_AMT&#xA;&#x9; , ITEM.ITEMS_AMT + ITEM.ESLITE_DSC_AMT AS SL_EC_AMT&#xA;&#x9; , CARD.CARDCODE AS CARD_ID&#xA;&#x9; , CARD.CARDNUMBER AS MEMBER_ID&#xA;&#x9; , SUB.SP19_CARD_LEVEL AS MEMBER_EN&#xA;&#x9; , SUB.SP19_PROMOTION_CARD_LEVEL AS MEMBER_EN_PARENT&#xA;&#x9; , MAIN.SHIPPING_TYPE AS SHIP_TYPE&#xA;&#x9; , NULL AS RTN_DATE&#xA;&#x9; , NULL AS RTN_BILLING_DATE&#xA;&#x9; , ACC.ACCOUNT AS EC_CUST&#xA;&#x9; , '' AS SL_KEY_O&#xA;&#x9; , 1 AS FLAG&#xA;&#x9; , ITEM.ITEMS_TAX_AMT AS TAX&#xA;&#x9; , MAIN.TAXID AS BUYER_ID&#xA;&#x9; , MAIN.ORDER_NUMBER AS ORDER_NUMBER&#xA;&#x9; , CASE SUB.IS_B2B_ORDER WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_B2B_ORDER&#xA;&#x9; , MAIN.RECIPIENT_STORE_ID&#xA;&#x9; , MAIN.RECIPIENT_STORE_NAME&#xA;&#x9; , MAIN.RECIPIENT_STORE_TYPE&#xA;&#x9; , MAIN.RECIPIENT_COUNTRY&#xA;&#x9; , MAIN.RECIPIENT_ZIP&#xA;&#x9; , MAIN.RECIPIENT_DISTRICT&#xA;&#x9; , MAIN.RECIPIENT_ADDRESS&#xA;&#x9; , '' AS RETURN_TYPE&#xA;&#x9; , SUB.ETL_DATE &#x9;&#x9;&#xA;&#x9; , NULL AS FOR_GROUP&#xA;&#x9; , MAIN.RECIPIENT_CITY&#xA;&#x9; , ITEM.ESLITE_DSC_AMT AS DSC_POINT_AMT&#xA;&#x9; , MAIN.ORDER_SOURCE &#xA;FROM ECS2.SUB_ORDERS SUB&#xA;&#xA;LEFT JOIN ECS2.MAIN_ORDERS MAIN&#xA;  ON SUB.MAIN_ORDER_ID = MAIN.ID&#xA;  &#xA;LEFT JOIN (SELECT MAIN_ORDER_ID , SUB_ORDER_ID , MAX(ETL_DATE) AS ETL_DATE , SUM(ACTUALLY_PRICE) AS ITEMS_AMT, SUM(ISNULL(UNTAXAMOUNT,0)) AS ITEMS_AMT_NOTAX ,&#xA;             SUM(DISCOUNT_AMOUNT_PRICE) AS ITEMS_DISC_AMT , SUM(ISNULL(TAX,0)) AS ITEMS_TAX_AMT , SUM(ESLITE_DISCOUNT_AMOUNT_PRICE) AS ESLITE_DSC_AMT&#xA;&#x9;&#x9;FROM ECS2.SUB_ORDER_ITEMS&#xA;       GROUP BY MAIN_ORDER_ID , SUB_ORDER_ID  ) ITEM&#xA;  ON ITEM.SUB_ORDER_ID = SUB.ID&#xA; &#xA;OUTER APPLY (SELECT TOP 1 * FROM EC.MEMBER_ESLITECARDINF CARD&#xA;&#x9;&#x9;&#x9;  WHERE MAIN.MEMBER_UUID = CARD.USERID &#xA;&#x9;&#x9;&#x9;    AND CARD.DELETE_MARK IS NULL&#xA;&#x9;&#x9;&#x9;  ORDER BY LASTMODIFYDATE DESC ) CARD&#xA;  &#xA;LEFT JOIN EC.ACCOUNT_DATA ACC&#xA;  ON MAIN.MEMBER_UUID = ACC.ACCOUNT_SEQNO&#xA;  &#xA;WHERE SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= concat(cast((YEAR(GETDATE()) - 5 + &quot; + (DT_STR, 10,950) @[User::testYearDiff]  + &quot;) as varchar),'0101')&#xA;  AND ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1&#xA;  AND ( SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;  OR MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;  OR ITEM.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;  OR CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime) )&#xA;  &#xA;union&#xA;&#xA;SELECT CONCAT('N',R_SUB.MIN_ID) AS SL_KEY&#xA;     , SUB.ORDER_NUMBER AS TRANS_SEQNO&#xA;&#x9; , '-1' AS TRANS_TYPE&#xA;&#x9; , R_SUB.CREATED_AT AS TRANS_DATE&#xA;&#x9; , R_SUB.ESP_INVOICE_NUMBER_REVOKED_DATE AS INVOICE_DATE&#xA;&#x9; , MAIN.CREATED_AT AS ORDER_DATE&#xA;&#x9; , MAIN.INVOICE_TYPE AS INV_TYPE&#xA;&#x9; , CASE WHEN MAIN.INVOICE_NUMBER = ''&#xA;&#x9;        THEN SUB.ESP_INVOICE_NUMBER&#xA;&#x9;&#x9;&#x9;ELSE MAIN.INVOICE_NUMBER END AS INVOICE_NO&#xA;&#x9; , R_SUB.R_SALES_AMT AS INVOICE_AMT&#xA;&#x9; , R_SUB.R_SALES_AMT + R_SUB.ESLITE_POINT AS SALES_AMT&#xA;&#x9; , R_SUB.R_NOTAX_AMT AS SALES_AMT_NOTAX &#xA;&#x9; , R_SUB.R_DISC_AMT AS TOT_DISC_AMT&#xA;&#x9; , R_SUB.R_SALES_AMT + R_SUB.ESLITE_POINT AS SL_EC_AMT&#xA;&#x9; , CARD.CARDCODE AS CARD_ID&#xA;&#x9; , CARD.CARDNUMBER AS MEMBER_ID&#xA;&#x9; , SUB.SP19_CARD_LEVEL AS MEMBER_EN&#xA;&#x9; , SUB.SP19_PROMOTION_CARD_LEVEL AS MEMBER_EN_PARENT&#xA;&#x9; , '' AS SHIP_TYPE&#xA;&#x9; , R_SUB.CREATED_AT AS RTN_DATE&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS RTN_BILLING_DATE&#xA;&#x9; , ACC.ACCOUNT AS EC_CUST&#xA;&#x9; , CONCAT('P',R_SUB.SUB_ORDER_ID) AS SL_KEY_O&#xA;&#x9; , '-1' AS FLAG&#xA;&#x9; , R_SUB.R_TAX_AMT AS TAX&#xA;&#x9; , MAIN.TAXID AS BUYER_ID&#xA;&#x9; , MAIN.ORDER_NUMBER AS ORDER_NUMBER&#xA;&#x9; , CASE SUB.IS_B2B_ORDER WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_B2B_ORDER&#xA;&#x9; , '' AS RECIPIENT_STORE_ID&#xA;&#x9; , '' AS RECIPIENT_STORE_NAME&#xA;&#x9; , '' AS RECIPIENT_STORE_TYPE&#xA;&#x9; , '' AS RECIPIENT_COUNTRY&#xA;&#x9; , '' AS RECIPIENT_ZIP&#xA;&#x9; , '' AS RECIPIENT_DISTRICT&#xA;&#x9; , '' AS RECIPIENT_ADDRESS&#xA;&#x9; , R_SUB.RETURN_TYPE AS RETURN_TYPE&#xA;&#x9; , R_SUB.ETL_DATE&#xA;&#x9; , R_SUB.FOR_GROUP&#xA;&#x9; , '' AS RECIPIENT_CITY&#xA;&#x9; , R_SUB.ESLITE_POINT AS DSC_POINT_AMT&#xA;&#x9; , MAIN.ORDER_SOURCE &#xA;FROM (SELECT R_SUB.MAIN_ORDER_ID , R_SUB.SUB_ORDER_ID , CONVERT(VARCHAR(10) , R_SUB.CREATED_AT ,111) AS FOR_GROUP , MAX(R_SUB.CREATED_AT) AS CREATED_AT, R_SUB.RETURN_TYPE , MAX(R_SUB.ETL_DATE) AS ETL_DATE , MIN(R_SUB.ID) AS MIN_ID , SUM(R_SUB.PRICE) AS R_SALES_AMT , SUM(ISNULL(R_SUB.TAX,0)) AS R_TAX_AMT ,&#xA;             SUM(ISNULL(R_SUB.UNTAXAMOUNT,0)) AS R_NOTAX_AMT , SUM(ISNULL(SUB.DISCOUNT_AMOUNT_PRICE,0)) AS R_DISC_AMT , MIN(ESP_INVOICE_NUMBER_REVOKED_DATE) AS ESP_INVOICE_NUMBER_REVOKED_DATE , SUM(ESLITE_POINT) AS ESLITE_POINT&#xA;&#x9;&#x9;&#x9; &#xA;&#x9;&#x9;FROM ECS2.RETURN_SUB_ORDER_ITEMS R_SUB&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;LEFT JOIN ECS2.SUB_ORDER_ITEMS SUB&#xA;&#x9;&#x9;  ON R_SUB.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID&#xA;&#x9;&#x9; AND R_SUB.SUB_ORDER_ID = SUB.SUB_ORDER_ID&#xA;&#x9;&#x9; AND R_SUB.SUB_ORDER_ITEM_ID = SUB.ID&#xA;&#x9;&#x9; &#xA;&#x9;   GROUP BY R_SUB.MAIN_ORDER_ID , R_SUB.SUB_ORDER_ID , CONVERT(VARCHAR(10) , R_SUB.CREATED_AT ,111) , R_SUB.RETURN_TYPE ) R_SUB&#xA;&#x9;   &#xA;JOIN ECS2.SUB_ORDERS SUB&#xA;  ON R_SUB.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID&#xA; AND R_SUB.SUB_ORDER_ID = SUB.ID&#xA; &#xA;JOIN ECS2.MAIN_ORDERS MAIN&#xA;  ON R_SUB.MAIN_ORDER_ID = MAIN.ID&#xA;  &#xA;OUTER APPLY (SELECT TOP 1 * FROM EC.MEMBER_ESLITECARDINF CARD&#xA;&#x9;&#x9;&#x9;  WHERE MAIN.MEMBER_UUID = CARD.USERID &#xA;&#x9;&#x9;&#x9;    AND CARD.DELETE_MARK IS NULL&#xA;&#x9;&#x9;&#x9;  ORDER BY LASTMODIFYDATE DESC ) CARD&#xA;  &#xA;LEFT JOIN EC.ACCOUNT_DATA ACC&#xA;  ON MAIN.MEMBER_UUID = ACC.ACCOUNT_SEQNO&#xA;  &#xA;WHERE R_SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&quot;"
+      DTS:Expression="&quot;SELECT CONCAT('P',SUB.ID) AS SL_KEY&#xA;     , SUB.ORDER_NUMBER AS TRANS_SEQNO&#xA;&#x9; , '1' AS TRANS_TYPE&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS TRANS_DATE&#xA;&#x9; , ISNULL(MAIN.INVOICE_DATE,SUB.ESP_INVOICE_NUMBER_CREATED_DATE) AS INVOICE_DATE&#xA;&#x9; , MAIN.CREATED_AT AS ORDER_DATE&#xA;&#x9; , MAIN.INVOICE_TYPE AS INV_TYPE&#xA;&#x9; , CASE WHEN MAIN.INVOICE_NUMBER = ''&#xA;&#x9;        THEN SUB.ESP_INVOICE_NUMBER&#xA;&#x9;&#x9;&#x9;ELSE MAIN.INVOICE_NUMBER END AS INVOICE_NO&#xA;&#x9; , ITEM.ITEMS_AMT AS INVOICE_AMT&#xA;&#x9; , ITEM.ITEMS_AMT + ITEM.ESLITE_DSC_AMT AS SALES_AMT&#xA;&#x9; , ITEM.ITEMS_AMT_NOTAX AS SALES_AMT_NOTAX &#xA;&#x9; , ITEM.ITEMS_DISC_AMT AS TOT_DISC_AMT&#xA;&#x9; , ITEM.ITEMS_AMT + ITEM.ESLITE_DSC_AMT AS SL_EC_AMT&#xA;&#x9; , CARD.CARDCODE AS CARD_ID&#xA;&#x9; , CARD.CARDNUMBER AS MEMBER_ID&#xA;&#x9; , SUB.SP19_CARD_LEVEL AS MEMBER_EN&#xA;&#x9; , SUB.SP19_PROMOTION_CARD_LEVEL AS MEMBER_EN_PARENT&#xA;&#x9; , MAIN.SHIPPING_TYPE AS SHIP_TYPE&#xA;&#x9; , NULL AS RTN_DATE&#xA;&#x9; , NULL AS RTN_BILLING_DATE&#xA;&#x9; , ACC.ACCOUNT AS EC_CUST&#xA;&#x9; , '' AS SL_KEY_O&#xA;&#x9; , 1 AS FLAG&#xA;&#x9; , ITEM.ITEMS_TAX_AMT AS TAX&#xA;&#x9; , MAIN.TAXID AS BUYER_ID&#xA;&#x9; , MAIN.ORDER_NUMBER AS ORDER_NUMBER&#xA;&#x9; , CASE SUB.IS_B2B_ORDER WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_B2B_ORDER&#xA;&#x9; , MAIN.RECIPIENT_STORE_ID&#xA;&#x9; , MAIN.RECIPIENT_STORE_NAME&#xA;&#x9; , MAIN.RECIPIENT_STORE_TYPE&#xA;&#x9; , MAIN.RECIPIENT_COUNTRY&#xA;&#x9; , MAIN.RECIPIENT_ZIP&#xA;&#x9; , MAIN.RECIPIENT_DISTRICT&#xA;&#x9; , MAIN.RECIPIENT_ADDRESS&#xA;&#x9; , '' AS RETURN_TYPE&#xA;&#x9; , SUB.ETL_DATE &#x9;&#x9;&#xA;&#x9; , NULL AS FOR_GROUP&#xA;&#x9; , MAIN.RECIPIENT_CITY&#xA;&#x9; , ITEM.ESLITE_DSC_AMT AS DSC_POINT_AMT&#xA;&#x9; , MAIN.ORDER_SOURCE &#xA;     , SUB.arrived_at AS ARRIVAL_DATE&#xA;     , SUB.finished_at AS PICKUP_DATE&#xA;FROM ECS2.SUB_ORDERS SUB&#xA;&#xA;LEFT JOIN ECS2.MAIN_ORDERS MAIN&#xA;  ON SUB.MAIN_ORDER_ID = MAIN.ID&#xA;  &#xA;LEFT JOIN (SELECT MAIN_ORDER_ID , SUB_ORDER_ID , MAX(ETL_DATE) AS ETL_DATE , SUM(ACTUALLY_PRICE) AS ITEMS_AMT, SUM(ISNULL(UNTAXAMOUNT,0)) AS ITEMS_AMT_NOTAX ,&#xA;             SUM(DISCOUNT_AMOUNT_PRICE) AS ITEMS_DISC_AMT , SUM(ISNULL(TAX,0)) AS ITEMS_TAX_AMT , SUM(ESLITE_DISCOUNT_AMOUNT_PRICE) AS ESLITE_DSC_AMT&#xA;&#x9;&#x9;FROM ECS2.SUB_ORDER_ITEMS&#xA;       GROUP BY MAIN_ORDER_ID , SUB_ORDER_ID  ) ITEM&#xA;  ON ITEM.SUB_ORDER_ID = SUB.ID&#xA; &#xA;OUTER APPLY (SELECT TOP 1 * FROM EC.MEMBER_ESLITECARDINF CARD&#xA;&#x9;&#x9;&#x9;  WHERE MAIN.MEMBER_UUID = CARD.USERID &#xA;&#x9;&#x9;&#x9;    AND CARD.DELETE_MARK IS NULL&#xA;&#x9;&#x9;&#x9;  ORDER BY LASTMODIFYDATE DESC ) CARD&#xA;  &#xA;LEFT JOIN EC.ACCOUNT_DATA ACC&#xA;  ON MAIN.MEMBER_UUID = ACC.ACCOUNT_SEQNO&#xA;  &#xA;WHERE SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= concat(cast((YEAR(GETDATE()) - 5 + &quot; + (DT_STR, 10,950) @[User::testYearDiff]  + &quot;) as varchar),'0101')&#xA;  AND ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1&#xA;  AND ( SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;  OR MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;  OR ITEM.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;  OR CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime) )&#xA;  &#xA;union&#xA;&#xA;SELECT CONCAT('N',R_SUB.MIN_ID) AS SL_KEY&#xA;     , SUB.ORDER_NUMBER AS TRANS_SEQNO&#xA;&#x9; , '-1' AS TRANS_TYPE&#xA;&#x9; , R_SUB.CREATED_AT AS TRANS_DATE&#xA;&#x9; , R_SUB.ESP_INVOICE_NUMBER_REVOKED_DATE AS INVOICE_DATE&#xA;&#x9; , MAIN.CREATED_AT AS ORDER_DATE&#xA;&#x9; , MAIN.INVOICE_TYPE AS INV_TYPE&#xA;&#x9; , CASE WHEN MAIN.INVOICE_NUMBER = ''&#xA;&#x9;        THEN SUB.ESP_INVOICE_NUMBER&#xA;&#x9;&#x9;&#x9;ELSE MAIN.INVOICE_NUMBER END AS INVOICE_NO&#xA;&#x9; , R_SUB.R_SALES_AMT AS INVOICE_AMT&#xA;&#x9; , R_SUB.R_SALES_AMT + R_SUB.ESLITE_POINT AS SALES_AMT&#xA;&#x9; , R_SUB.R_NOTAX_AMT AS SALES_AMT_NOTAX &#xA;&#x9; , R_SUB.R_DISC_AMT AS TOT_DISC_AMT&#xA;&#x9; , R_SUB.R_SALES_AMT + R_SUB.ESLITE_POINT AS SL_EC_AMT&#xA;&#x9; , CARD.CARDCODE AS CARD_ID&#xA;&#x9; , CARD.CARDNUMBER AS MEMBER_ID&#xA;&#x9; , SUB.SP19_CARD_LEVEL AS MEMBER_EN&#xA;&#x9; , SUB.SP19_PROMOTION_CARD_LEVEL AS MEMBER_EN_PARENT&#xA;&#x9; , '' AS SHIP_TYPE&#xA;&#x9; , R_SUB.CREATED_AT AS RTN_DATE&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS RTN_BILLING_DATE&#xA;&#x9; , ACC.ACCOUNT AS EC_CUST&#xA;&#x9; , CONCAT('P',R_SUB.SUB_ORDER_ID) AS SL_KEY_O&#xA;&#x9; , '-1' AS FLAG&#xA;&#x9; , R_SUB.R_TAX_AMT AS TAX&#xA;&#x9; , MAIN.TAXID AS BUYER_ID&#xA;&#x9; , MAIN.ORDER_NUMBER AS ORDER_NUMBER&#xA;&#x9; , CASE SUB.IS_B2B_ORDER WHEN 1 THEN 'Y'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  WHEN 0 THEN 'N'&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  ELSE '' END AS IS_B2B_ORDER&#xA;&#x9; , '' AS RECIPIENT_STORE_ID&#xA;&#x9; , '' AS RECIPIENT_STORE_NAME&#xA;&#x9; , '' AS RECIPIENT_STORE_TYPE&#xA;&#x9; , '' AS RECIPIENT_COUNTRY&#xA;&#x9; , '' AS RECIPIENT_ZIP&#xA;&#x9; , '' AS RECIPIENT_DISTRICT&#xA;&#x9; , '' AS RECIPIENT_ADDRESS&#xA;&#x9; , R_SUB.RETURN_TYPE AS RETURN_TYPE&#xA;&#x9; , R_SUB.ETL_DATE&#xA;&#x9; , R_SUB.FOR_GROUP&#xA;&#x9; , '' AS RECIPIENT_CITY&#xA;&#x9; , R_SUB.ESLITE_POINT AS DSC_POINT_AMT&#xA;&#x9; , MAIN.ORDER_SOURCE &#xA;     , NULL AS ARRIVAL_DATE&#xA;     , NULL AS PICKUP_DATE&#xA;FROM (SELECT R_SUB.MAIN_ORDER_ID , R_SUB.SUB_ORDER_ID , CONVERT(VARCHAR(10) , R_SUB.CREATED_AT ,111) AS FOR_GROUP , MAX(R_SUB.CREATED_AT) AS CREATED_AT, R_SUB.RETURN_TYPE , MAX(R_SUB.ETL_DATE) AS ETL_DATE , MIN(R_SUB.ID) AS MIN_ID , SUM(R_SUB.PRICE) AS R_SALES_AMT , SUM(ISNULL(R_SUB.TAX,0)) AS R_TAX_AMT ,&#xA;             SUM(ISNULL(R_SUB.UNTAXAMOUNT,0)) AS R_NOTAX_AMT , SUM(ISNULL(SUB.DISCOUNT_AMOUNT_PRICE,0)) AS R_DISC_AMT , MIN(ESP_INVOICE_NUMBER_REVOKED_DATE) AS ESP_INVOICE_NUMBER_REVOKED_DATE , SUM(ESLITE_POINT) AS ESLITE_POINT&#xA;&#x9;&#x9;&#x9; &#xA;&#x9;&#x9;FROM ECS2.RETURN_SUB_ORDER_ITEMS R_SUB&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;LEFT JOIN ECS2.SUB_ORDER_ITEMS SUB&#xA;&#x9;&#x9;  ON R_SUB.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID&#xA;&#x9;&#x9; AND R_SUB.SUB_ORDER_ID = SUB.SUB_ORDER_ID&#xA;&#x9;&#x9; AND R_SUB.SUB_ORDER_ITEM_ID = SUB.ID&#xA;&#x9;&#x9; &#xA;&#x9;   GROUP BY R_SUB.MAIN_ORDER_ID , R_SUB.SUB_ORDER_ID , CONVERT(VARCHAR(10) , R_SUB.CREATED_AT ,111) , R_SUB.RETURN_TYPE ) R_SUB&#xA;&#x9;   &#xA;JOIN ECS2.SUB_ORDERS SUB&#xA;  ON R_SUB.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID&#xA; AND R_SUB.SUB_ORDER_ID = SUB.ID&#xA; &#xA;JOIN ECS2.MAIN_ORDERS MAIN&#xA;  ON R_SUB.MAIN_ORDER_ID = MAIN.ID&#xA;  &#xA;OUTER APPLY (SELECT TOP 1 * FROM EC.MEMBER_ESLITECARDINF CARD&#xA;&#x9;&#x9;&#x9;  WHERE MAIN.MEMBER_UUID = CARD.USERID &#xA;&#x9;&#x9;&#x9;    AND CARD.DELETE_MARK IS NULL&#xA;&#x9;&#x9;&#x9;  ORDER BY LASTMODIFYDATE DESC ) CARD&#xA;  &#xA;LEFT JOIN EC.ACCOUNT_DATA ACC&#xA;  ON MAIN.MEMBER_UUID = ACC.ACCOUNT_SEQNO&#xA;  &#xA;WHERE R_SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="queryFromStage">
@@ -141,6 +141,8 @@ values(?,?,?,(select count(*) from dbo.TRANS_HEAD_ECS2_),?,GETDATE(), ? ,?,?);</
 	 , MAIN.RECIPIENT_CITY
 	 , ITEM.ESLITE_DSC_AMT AS DSC_POINT_AMT
 	 , MAIN.ORDER_SOURCE 
+     , SUB.arrived_at AS ARRIVAL_DATE
+     , SUB.finished_at AS PICKUP_DATE
 FROM ECS2.SUB_ORDERS SUB
 
 LEFT JOIN ECS2.MAIN_ORDERS MAIN
@@ -162,10 +164,10 @@ LEFT JOIN EC.ACCOUNT_DATA ACC
   
 WHERE SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= concat(cast((YEAR(GETDATE()) - 5 + 0) as varchar),'0101')
   AND ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1
-  AND ( SUB.ETL_DATE &gt;= cast(cast('2022-04-07 10:33:32.144000000' as date) as datetime)
-  OR MAIN.ETL_DATE &gt;= cast(cast('2022-04-07 10:33:32.144000000' as date) as datetime)
-  OR ITEM.ETL_DATE &gt;= cast(cast('2022-04-07 10:33:32.144000000' as date) as datetime)
-  OR CARD.ETL_DATE &gt;= cast(cast('2022-04-07 10:33:32.144000000' as date) as datetime) )
+  AND ( SUB.ETL_DATE &gt;= cast(cast('2023-05-25 16:21:41.916000000' as date) as datetime)
+  OR MAIN.ETL_DATE &gt;= cast(cast('2023-05-25 16:21:41.916000000' as date) as datetime)
+  OR ITEM.ETL_DATE &gt;= cast(cast('2023-05-25 16:21:41.916000000' as date) as datetime)
+  OR CARD.ETL_DATE &gt;= cast(cast('2023-05-25 16:21:41.916000000' as date) as datetime) )
   
 union
 
@@ -213,6 +215,8 @@ SELECT CONCAT('N',R_SUB.MIN_ID) AS SL_KEY
 	 , '' AS RECIPIENT_CITY
 	 , R_SUB.ESLITE_POINT AS DSC_POINT_AMT
 	 , MAIN.ORDER_SOURCE 
+     , NULL AS ARRIVAL_DATE
+     , NULL AS PICKUP_DATE
 FROM (SELECT R_SUB.MAIN_ORDER_ID , R_SUB.SUB_ORDER_ID , CONVERT(VARCHAR(10) , R_SUB.CREATED_AT ,111) AS FOR_GROUP , MAX(R_SUB.CREATED_AT) AS CREATED_AT, R_SUB.RETURN_TYPE , MAX(R_SUB.ETL_DATE) AS ETL_DATE , MIN(R_SUB.ID) AS MIN_ID , SUM(R_SUB.PRICE) AS R_SALES_AMT , SUM(ISNULL(R_SUB.TAX,0)) AS R_TAX_AMT ,
              SUM(ISNULL(R_SUB.UNTAXAMOUNT,0)) AS R_NOTAX_AMT , SUM(ISNULL(SUB.DISCOUNT_AMOUNT_PRICE,0)) AS R_DISC_AMT , MIN(ESP_INVOICE_NUMBER_REVOKED_DATE) AS ESP_INVOICE_NUMBER_REVOKED_DATE , SUM(ESLITE_POINT) AS ESLITE_POINT
 			 
@@ -240,14 +244,14 @@ OUTER APPLY (SELECT TOP 1 * FROM EC.MEMBER_ESLITECARDINF CARD
 LEFT JOIN EC.ACCOUNT_DATA ACC
   ON MAIN.MEMBER_UUID = ACC.ACCOUNT_SEQNO
   
-WHERE R_SUB.ETL_DATE &gt;= cast(cast('2022-04-07 10:33:32.144000000' as date) as datetime)
-   OR SUB.ETL_DATE &gt;= cast(cast('2022-04-07 10:33:32.144000000' as date) as datetime)
-   OR MAIN.ETL_DATE &gt;= cast(cast('2022-04-07 10:33:32.144000000' as date) as datetime)
-   OR CARD.ETL_DATE &gt;= cast(cast('2022-04-07 10:33:32.144000000' as date) as datetime)</DTS:VariableValue>
+WHERE R_SUB.ETL_DATE &gt;= cast(cast('2023-05-25 16:21:41.916000000' as date) as datetime)
+   OR SUB.ETL_DATE &gt;= cast(cast('2023-05-25 16:21:41.916000000' as date) as datetime)
+   OR MAIN.ETL_DATE &gt;= cast(cast('2023-05-25 16:21:41.916000000' as date) as datetime)
+   OR CARD.ETL_DATE &gt;= cast(cast('2023-05-25 16:21:41.916000000' as date) as datetime)</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9C74D2AE-4AF0-4395-B4C5-CAC42DF9DA06}"
+      DTS:DTSID="{A9ED6B95-AB70-4A4E-8A2E-316E43777D37}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="testYearDiff">
@@ -256,7 +260,7 @@ WHERE R_SUB.ETL_DATE &gt;= cast(cast('2022-04-07 10:33:32.144000000' as date) as
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C7832286-F6CB-42C4-BA9D-16EC03166031}"
+      DTS:DTSID="{A7A646E7-EB8D-417F-98D0-8A11440B21FC}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -265,7 +269,7 @@ WHERE R_SUB.ETL_DATE &gt;= cast(cast('2022-04-07 10:33:32.144000000' as date) as
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{806C4500-0A64-44EB-8F86-D0D91638448E}"
+      DTS:DTSID="{B621A4E6-FF7B-4E7F-B619-70B37A78F3DF}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -274,7 +278,7 @@ WHERE R_SUB.ETL_DATE &gt;= cast(cast('2022-04-07 10:33:32.144000000' as date) as
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E6532895-38CD-4683-AFD4-F9FBC1473E4F}"
+      DTS:DTSID="{2302C08D-9CB2-480A-AC12-9AA34CDD6F62}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -289,7 +293,7 @@ WHERE R_SUB.ETL_DATE &gt;= cast(cast('2022-04-07 10:33:32.144000000' as date) as
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{801937A4-245D-41A0-BBA2-F2FF11FC1FB5}"
+      DTS:DTSID="{367FA00A-9EEF-43E0-9084-4807C16F72F2}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -4347,7 +4351,7 @@ left join EC.Account_Data acc on orders.UserID = acc.Account_SeqNo</property>
                 <property
                   dataType="System.String"
                   description="SQL 命令中的參數和變數之間的對應。"
-                  name="ParameterMapping">"參數0:Input",{9C74D2AE-4AF0-4395-B4C5-CAC42DF9DA06};"參數1:Input",{9C74D2AE-4AF0-4395-B4C5-CAC42DF9DA06};</property>
+                  name="ParameterMapping">"參數0:Input",{A9ED6B95-AB70-4A4E-8A2E-316E43777D37};"參數1:Input",{A9ED6B95-AB70-4A4E-8A2E-316E43777D37};</property>
               </properties>
               <connections>
                 <connection
@@ -4422,7 +4426,7 @@ left join EC.Account_Data acc on orders.UserID = acc.Account_SeqNo</property>
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="RedirectRow"
                       externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[INVOICE_NO]"
-                      length="20"
+                      length="35"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[INVOICE_NO]"
                       name="INVOICE_NO"
                       truncationRowDisposition="RedirectRow" />
@@ -4764,6 +4768,24 @@ left join EC.Account_Data acc on orders.UserID = acc.Account_SeqNo</property>
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[ORDER_SOURCE]"
                       name="ORDER_SOURCE"
                       truncationRowDisposition="RedirectRow" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[ARRIVAL_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[ARRIVAL_DATE]"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[ARRIVAL_DATE]"
+                      name="ARRIVAL_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[PICKUP_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[PICKUP_DATE]"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[PICKUP_DATE]"
+                      name="PICKUP_DATE"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4969,6 +4991,14 @@ left join EC.Account_Data acc on orders.UserID = acc.Account_SeqNo</property>
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[ORDER_SOURCE]"
                       dataType="i4"
                       name="ORDER_SOURCE" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[ARRIVAL_DATE]"
+                      dataType="dbTimeStamp"
+                      name="ARRIVAL_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[PICKUP_DATE]"
+                      dataType="dbTimeStamp"
+                      name="PICKUP_DATE" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -5218,6 +5248,16 @@ left join EC.Account_Data acc on orders.UserID = acc.Account_SeqNo</property>
                       dataType="i4"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[ORDER_SOURCE]"
                       name="ORDER_SOURCE" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[ARRIVAL_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[ARRIVAL_DATE]"
+                      name="ARRIVAL_DATE" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[PICKUP_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[PICKUP_DATE]"
+                      name="PICKUP_DATE" />
                     <outputColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
                       dataType="i4"
@@ -6394,7 +6434,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\TRIM 所有字串型態的欄位.Inputs[輸入 0].Columns[INVOICE_NO]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="20"
+                      cachedLength="35"
                       cachedName="INVOICE_NO"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[INVOICE_NO]" />
                     <inputColumn
@@ -6884,6 +6924,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       cachedScale="2"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[DSC_COUPON_AMT]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[DSC_COUPON_AMT(ready)]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[ARRIVAL_DATE(ready)]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ARRIVAL_DATE(ready)"
+                      externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[ARRIVAL_DATE]"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[ARRIVAL_DATE(ready)]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[PICKUP_DATE(ready)]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PICKUP_DATE(ready)"
+                      externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[PICKUP_DATE]"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[PICKUP_DATE(ready)]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -7190,6 +7242,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[ORDER_SOURCE]"
                       dataType="i4"
                       name="ORDER_SOURCE" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[ARRIVAL_DATE]"
+                      dataType="dbTimeStamp"
+                      name="ARRIVAL_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[PICKUP_DATE]"
+                      dataType="dbTimeStamp"
+                      name="PICKUP_DATE" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -7791,7 +7851,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[INVOICE_NO]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="20"
+                      cachedLength="35"
                       cachedName="INVOICE_NO"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[INVOICE_NO]" />
                     <inputColumn
@@ -8008,6 +8068,16 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       cachedLength="2"
                       cachedName="TRANS_TYPE"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TRANS_TYPE]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[ARRIVAL_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ARRIVAL_DATE"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[ARRIVAL_DATE]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[PICKUP_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PICKUP_DATE"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[PICKUP_DATE]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -8901,6 +8971,46 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                           name="FastParse">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[ARRIVAL_DATE(ready)]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[ARRIVAL_DATE(ready)]"
+                      name="ARRIVAL_DATE(ready)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[ARRIVAL_DATE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[PICKUP_DATE(ready)]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[PICKUP_DATE(ready)]"
+                      name="PICKUP_DATE(ready)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[PICKUP_DATE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -9008,7 +9118,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{AC28964D-B3CA-410C-9C9F-D85B25E2342A}"
+      DTS:DTSID="{91A1CE99-8F78-4C0E-8706-8D6D14B28CD0}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -9033,7 +9143,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{4C27286B-17A5-4E2A-8205-BED79E018F2F}"
+      DTS:DTSID="{03A2A87F-A31C-42EF-BE73-1B36A8E5A506}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -9054,7 +9164,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{F3185692-2BEB-4A28-A506-7B527568AC3D}"
+      DTS:DTSID="{6B65F3A7-5543-4720-BCB0-6F1B585B9509}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -9065,7 +9175,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\Delete WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{DEC8F5B2-367D-4B8B-8CD5-9A7946053946}"
+          DTS:DTSID="{4C354611-801D-498C-8731-9BEBEFFBB12C}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete WorkDateTable"
@@ -9106,7 +9216,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{8E7F19A7-4A2D-4CCA-85EF-26E3053A0547}"
+          DTS:DTSID="{DA8DA2D8-E18B-4BD5-909C-DADE867A09C0}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -9142,7 +9252,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{6755E2FF-4C95-44E3-9FF3-A03028388687}"
+          DTS:DTSID="{6305EBC1-19B2-4FA9-94A6-A8794CFEDD1F}"
           DTS:From="Package\時序容器\Delete WorkDateTable"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -9153,7 +9263,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{24CBA7C4-D0D6-4529-B805-E61717D85E36}"
+      DTS:DTSID="{C90E2098-3B79-4B23-AA48-6AE1086DDACD}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -9216,7 +9326,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{45D6149B-A5FA-46B1-ABE0-C54C0E668746}"
+      DTS:DTSID="{A7BF60B4-F140-4DD6-9912-42E456D3F978}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -9224,7 +9334,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{870E1F1F-0BC3-46FE-AD50-DA4DF7A56F34}"
+      DTS:DTSID="{FCFD16EE-6770-4770-8494-03CC2ADD8401}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -9232,7 +9342,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{4070EFF3-EFAD-432B-AA8C-1867A336EC0F}"
+      DTS:DTSID="{132CE3D8-5E82-4158-98C7-707D2FEDE866}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -9240,7 +9350,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{06CFAFDC-FB3A-4513-A0F3-41CF19E62978}"
+      DTS:DTSID="{82934B2F-336C-4E26-B257-4420F9ECDA8A}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -9408,6 +9518,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="139,42"
+          Id="Package\Stage To ODS\資料列計數"
+          TopLeft="405.833317206968,102.511917444313" />
+        <NodeLayout
           Size="149,42"
           Id="Package\Stage To ODS\寫入 ODSDB"
           TopLeft="397.941783089277,658.209198210572" />
@@ -9416,13 +9530,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Stage To ODS\資料型態轉換"
           TopLeft="398.333317504989,476.78366137241" />
         <NodeLayout
-          Size="269,42"
-          Id="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位"
-          TopLeft="336.785700903054,294.858846392878" />
-        <NodeLayout
-          Size="139,42"
-          Id="Package\Stage To ODS\資料列計數"
-          TopLeft="405.833317206968,102.511917444313" />
+          Size="210,42"
+          Id="Package\Stage To ODS\衍生的資料行 (固定字串)"
+          TopLeft="362.976176052814,559.903085995171" />
         <NodeLayout
           Size="209,42"
           Id="Package\Stage To ODS\GetErrorDetail (Convert)"
@@ -9440,14 +9550,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Stage To ODS\select from Stage"
           TopLeft="388.630936938146,15.1760203353084" />
         <NodeLayout
-          Size="210,42"
-          Id="Package\Stage To ODS\衍生的資料行 (固定字串)"
-          TopLeft="362.976176052814,559.903085995171" />
-        <NodeLayout
-          Size="230,42"
-          Id="Package\Stage To ODS\Insert Into Error Log (Select)"
-          TopLeft="757.190444552712,198.685378692646" />
-        <NodeLayout
           Size="285,42"
           Id="Package\Stage To ODS\衍生資料行 - 記錄錯誤資訊欄位(select)"
           TopLeft="738.690446837557,19.7568192665034" />
@@ -9455,6 +9557,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Size="220,42"
           Id="Package\Stage To ODS\TRIM 所有字串型態的欄位"
           TopLeft="364.166652195985,196.096931605228" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Stage To ODS\衍生的資料行"
+          TopLeft="397.592841312148,388.913252985165" />
         <NodeLayout
           Size="200,42"
           Id="Package\Stage To ODS\GetErrorDetail (Select)"
@@ -9464,9 +9570,105 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Stage To ODS\GetErrorDetail  (Insert)"
           TopLeft="717.192431818795,657.624169438005" />
         <NodeLayout
-          Size="151,42"
-          Id="Package\Stage To ODS\衍生的資料行"
-          TopLeft="397.592841312148,388.913252985165" />
+          Size="230,42"
+          Id="Package\Stage To ODS\Insert Into Error Log (Select)"
+          TopLeft="757.190444552712,198.685378692646" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位"
+          TopLeft="336.785700903054,294.858846392878" />
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[衍生的資料行輸出]"
+          TopLeft="473.463079408568,430.913252985165">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.8704083872449"
+              Start="0,0"
+              End="0,38.3704083872449">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.3704083872449" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[OLE DB 目的地錯誤輸出]"
+          TopLeft="546.941783089277,678.916683824289">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="170.250648729518,0"
+              Start="0,0"
+              End="162.750648729518,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="162.750648729518,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="27.8208451980923,5,107.108958333333,10.8623046875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[OLE DB 來源錯誤輸出]"
+          TopLeft="546.630936938146,38.4664198009059">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="192.059509899411,0"
+              Start="0,0"
+              End="184.559509899411,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="184.559509899411,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="43.7252757830388,5,97.1089583333333,10.8623046875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[OLE DB 來源輸出]"
+          TopLeft="471.482127072557,57.1760203353084">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.3358971090046"
+              Start="0,0"
+              End="0,37.8358971090046">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.8358971090046" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[輸出 03]"
           TopLeft="818.254932005059,699.624169438005">
@@ -9681,98 +9883,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,32.9897888429662" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[衍生的資料行輸出]"
-          TopLeft="473.463079408568,430.913252985165">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45.8704083872449"
-              Start="0,0"
-              End="0,38.3704083872449">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.3704083872449" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[OLE DB 目的地錯誤輸出]"
-          TopLeft="546.941783089277,678.916683824289">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="170.250648729518,0"
-              Start="0,0"
-              End="162.750648729518,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="162.750648729518,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="27.8208451980923,5,107.108958333333,10.8623046875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[OLE DB 來源錯誤輸出]"
-          TopLeft="546.630936938146,38.4664198009059">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="192.059509899411,0"
-              Start="0,0"
-              End="184.559509899411,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="184.559509899411,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="43.7252757830388,5,97.1089583333333,10.8623046875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[OLE DB 來源輸出]"
-          TopLeft="471.482127072557,57.1760203353084">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45.3358971090046"
-              Start="0,0"
-              End="0,37.8358971090046">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.8358971090046" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
