@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{13403E71-361B-4A84-96AD-0CAEC5D6F532}"
+  DTS:DTSID="{7DE74BFE-DB93-4B90-97C8-D484636B603F}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="TW ECS2 Adjustments"
   DTS:PackageType="5"
   DTS:VersionBuild="152"
-  DTS:VersionGUID="{2B7E965D-A778-468A-A2B3-57E08128DF80}">
+  DTS:VersionGUID="{C89EBFA0-4FE2-4A66-BC25-45F30D8C59E7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{8C6DDFD0-E765-4AD8-B6BF-59F6F68435E7}"
+      DTS:DTSID="{14EDD03F-B1E7-486C-BF55-2DED9D7B1D0C}"
       DTS:ObjectName="dbPrestageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{86EED4C0-E9F7-491D-8FA6-218729E1EDD6}"
+      DTS:DTSID="{00CB1687-7A48-4ECA-913C-704657B1B0D7}"
       DTS:ObjectName="dbSchemaName">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +38,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{11AF06A4-66AF-458B-AA41-A7B8A526A8AC}"
+      DTS:DTSID="{80B90B54-DFD0-461A-83D4-2D20B915CFA2}"
       DTS:ObjectName="dbStageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -47,7 +47,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{BCD43B3B-BCF6-4F10-BEC4-9C23009ACD15}"
+      DTS:DTSID="{1352AB90-9284-4FE2-A1F1-1D8BE40C1486}"
       DTS:ObjectName="dbTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -57,7 +57,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{69DA9E7B-8CD3-4DB3-A091-98674F5B6B29}"
+      DTS:DTSID="{094E9B11-324F-4C4E-A7E7-13FA79E44356}"
       DTS:ObjectName="srcRawDataFileName">
       <DTS:Property
         DTS:DataType="8"
@@ -66,7 +66,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{6B8FFB77-5560-4FA8-BEDD-0E83424EBE86}"
+      DTS:DTSID="{B3BCFC2A-A774-4B64-BF8C-39CEFC4AD1D3}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -75,7 +75,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{3C3FB5C5-B2F1-4C90-AEE0-26A61B37A4C2}"
+      DTS:DTSID="{AD8782E7-CD53-4007-9CD2-FDDFCFEADD1A}"
       DTS:ObjectName="writeInEvent">
       <DTS:Property
         DTS:DataType="8"
@@ -86,7 +86,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{25747C1E-BDD2-499D-A27B-4F1E1D521685}"
+      DTS:DTSID="{4ED74719-54C6-4BB0-A2D6-E3E5EC209ED8}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;SELECT *  FROM &quot; + @[$Package::dbPrestageTableName] + &quot; WHERE FILE_NAME =  '&quot; + @[$Package::srcRawDataFileName]  +&quot;' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = '&quot;+ @[$Package::srcRawDataFileName] +&quot;' and l.executionid = &quot;+ (DT_WSTR,100) @[System::ServerExecutionID] +&quot;)&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -101,7 +101,7 @@
       DTS:refId="Package\I／IU資料流程"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{07BAE3F0-ADD2-49FC-9F25-C24F7C4CA95F}"
+      DTS:DTSID="{F6597E48-CDBD-4B4D-8593-749A9354D3C6}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:ForceExecValue="True"
       DTS:LocaleID="-1"
@@ -1274,7 +1274,7 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
       DTS:refId="Package\紀錄目前檔案執行封裝至dbo sysssislog"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="指令碼工作"
-      DTS:DTSID="{47A91B04-BE8B-4D84-B014-ABC748C48D5F}"
+      DTS:DTSID="{3A1BF75C-C8A4-43C0-A043-093696935A9F}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄目前檔案執行封裝至dbo sysssislog"
