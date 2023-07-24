@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">1505003NB02</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAznbtiykb20+ney3WMBfyyQAAAAACAAAAAAADZgAAwAAAABAAAABDRps3jpLakM6hfnsVeBEmAAAAAASAAACgAAAAEAAAADXq8we3ZEuryJe7U6gHEGyIAAAAQWKHKvQ6YN+qZoN3meNUZtLQ6hlx4qi7xb/F4ugi5AJUJvRdT6FwpqzlolQWcwfslezg/e1FWm1YRkq/JIYddznZdg8wgj18phlkCm4c7RboIrxBy6eICxn9Xl5DGiGYT2ggl7hbRlsN/TVjiBdOk17IKjMqYmwG1vKMit6JzbnkCJcch+eLPBQAAABfbYSBfsmgDVbio4IwV3uQbqVbUA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKBbKpTgNBkqbQaF9twOxEwAAAAACAAAAAAADZgAAwAAAABAAAADBtZrtnH13/CVA+ik/EMYLAAAAAASAAACgAAAAEAAAADizexF6ncqI8IicZEO7FxOIAAAA9WxXMJ1+swQdBpnsZ9ZQZ/1lISibk6qD9mQHx4baB/uPqegDXM40VewNrPkzHd8WjBlM2mJ2keoKoSKqvVSfUW76GM2BomJ9Tr+nv5pIJ2FolGfIDCJEYglFx0kJhuSOZk2OR+1dlppbbD19vb6/hLplPFca0rVQA3vQtIuu2TE8OYIO7LhYmxQAAAA5EtuLD+t/PGwfgGe8BGfaJvvw9Q==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -196,6 +196,7 @@
           <SSIS:Package SSIS:Name="MY_MF_DEPT_EKORG_SAP_EMRD.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="WEBTRACK_HKAPP.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="WEBTRACK_LOGIN_HKAPP.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="MF_MEMBER_UUID.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="StageETLDB.conmgr" />
@@ -9173,6 +9174,38 @@
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">dbo.WEBTRACK_LOGIN_HKAPP</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="MF_MEMBER_UUID.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{D829EA84-2381-4916-83D9-C719F7A1BBA4}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">MF_MEMBER_UUID</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">171</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{7002DD8D-D2C3-45AE-B60B-DCE7DA014368}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="fullTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{461C5413-283B-4EE3-AC9B-E89CDC9D6EEB}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">dbo.MF_MEMBER_UUID</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
