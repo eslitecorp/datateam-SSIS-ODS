@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">1505003NB02</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKBbKpTgNBkqbQaF9twOxEwAAAAACAAAAAAADZgAAwAAAABAAAAANkcoCRlb0WAlWUsNWSzTvAAAAAASAAACgAAAAEAAAAIPosAPP7Y2O34J5q/RFUy2IAAAAgi6oe0hpbB+C22jDAXCGGKHCgHa4LonTXpbIefmCDFpvK4OlYAQA2OHnX7dBfDKpapxZTPbG5YJBg87VSorl9rSZrKKbtK8DeOupO0UsakJMQspXb3oihmAyVy8SBmz91T+OYRXcB84IdtMHmVI1LWTQWim1gUySJmJuxGHOFl7ImmbdtbDzHxQAAABlKYmrax+zvL2X9dReXeNcpImKrg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAOnyIUoidFEGbsU1HLkEwhQAAAAACAAAAAAADZgAAwAAAABAAAAAtARKhvcARj6Rf5Q3/Y7xIAAAAAASAAACgAAAAEAAAAMNY1+zLHPiccinBf2zod4aIAAAAQfgdiNM6/rBTb8mqFWs+VPAjp7gZomR/hi9fRxpSkwFsDVffIB/Mr/liiYijeAG2Pk6n+996qf59DbZQk2kAvcIwJ+QRCrQ24wLlreTlItMxSkPXBI3hEdKtPStj71PScQL4ommg5o4uLAeuOJVjTJ25MfdEm5X+Y458lJ7K83id+uT8nZt9/RQAAAAhnaE8MVrOdL1UdBfij0FvB66JJA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -197,6 +197,8 @@
           <SSIS:Package SSIS:Name="WEBTRACK_HKAPP.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="WEBTRACK_LOGIN_HKAPP.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="MF_MEMBER_UUID.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="MF_DEPT_EKORGS_SAP_EAFS.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="MF_PRODUCT_MASTER_SAP_EAFS.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="StageETLDB.conmgr" />
@@ -9206,6 +9208,112 @@
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">dbo.MF_MEMBER_UUID</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="MF_DEPT_EKORGS_SAP_EAFS.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{F2E7E2AB-B8BE-47ED-90A0-D08AE4BC2953}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">MF_DEPT_EKORGS_SAP_EAFS</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">343</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B02E880D-40B7-442A-A1DE-98A81D354826}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="ekorg">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{873EAE6C-D21D-4310-B2F0-3CFDCE5DC79B}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">EAFS</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="MF_PRODUCT_MASTER_SAP_EAFS.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{2DD595C1-7E27-4D45-B6D0-7B158A451724}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">MF_PRODUCT_MASTER_SAP_EAFS</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">404</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{2A1A825C-8CB2-4137-A5DB-2489F1228EFF}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="ekorg">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{CC089FA6-6E11-4E6A-A7BE-AD40A8C3D5E0}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">EAFS</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="fullTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{E9CDF93A-B2EB-4071-A3E4-4DEDE334C342}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">dbo.MF_PRODUCT_MASTER_SAP</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="prefixDG">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{690E683E-9CB0-4846-A62E-C3A68EF1B462}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">MF_PRODUCT_MASTER_SAP_</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="prefixGID">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{8F487343-813C-4842-8FD9-591D853479C1}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">MF_PRODUCT_MASTER_SAP_</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
