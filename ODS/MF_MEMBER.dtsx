@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{0C26DCF7-63BB-417C-96F8-DE472DA2F291}"
+  DTS:DTSID="{AA2E9DC1-CAC7-4902-9987-ED81794E2A47}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="MF_MEMBER"
   DTS:PackageType="5"
-  DTS:VersionBuild="533"
-  DTS:VersionGUID="{05CA876F-C424-49B1-800F-5362B2CFAB99}">
+  DTS:VersionBuild="561"
+  DTS:VersionGUID="{03E654BC-FD1E-41C7-8E95-A8AFDF6C9A3B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -20,7 +20,7 @@
       DTS:ConfigString="StagingDB_TW"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="將事件的記錄項目寫入 SQL Server 資料庫"
-      DTS:DTSID="{4BAE3517-035E-4800-92AD-63C678302198}"
+      DTS:DTSID="{CE38B1B6-EE5D-4892-982E-7181E1BF0E06}"
       DTS:ObjectName="SQL Server 的 SSIS 記錄提供者">
       <DTS:ObjectData>
         <InnerObject />
@@ -31,17 +31,27 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{F10BA2D1-08B9-4D59-A801-752C2701CB7E}"
+      DTS:DTSID="{8E871ABC-F798-469C-B7A3-D463CEE76C65}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
         DTS:Name="ParameterValue">dbo.MF_MEMBER</DTS:Property>
     </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{861DFD46-F22D-4584-9EE3-331FD55ACBB5}"
+      DTS:ObjectName="queryBaseDate">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4FAA29DE-42DC-4ED8-AFFA-1D615F208740}"
+      DTS:DTSID="{90E49B52-36C2-459F-8AFB-BD3EBDED8794}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -50,7 +60,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3C6F173A-A906-4AD7-ADA7-CE9BBA655DF1}"
+      DTS:DTSID="{41A6594D-79F2-420F-8CBC-F0522E26A40C}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]"
       DTS:IncludeInDebugDump="2345"
@@ -61,7 +71,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B862D8EA-AE4A-46E5-8A37-EBA3CEF8C7B2}"
+      DTS:DTSID="{849B815C-437E-416A-9ACD-03A57DBD309C}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), -1,?,? );&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -73,7 +83,7 @@ values(?,?,?,(select count(*) from dbo.MF_MEMBER_),?,GETDATE(), -1,?,? );</DTS:V
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{BCD0DAB2-9810-4F3A-A83B-DCCF17CFCBEC}"
+      DTS:DTSID="{54FB68F1-690E-4248-B9FC-66E0C6B1B676}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -84,7 +94,7 @@ values(?,?,?,(select count(*) from dbo.MF_MEMBER_),?,GETDATE(), -1,?,? );</DTS:V
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{9E002C86-38B3-448B-8469-52A4CF1004E5}"
+      DTS:DTSID="{30525E25-8B0F-4EF4-A867-A8BA4C2BABE6}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -94,7 +104,99 @@ values(?,?,?,(select count(*) from dbo.MF_MEMBER_),?,GETDATE(), -1,?,? );</DTS:V
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3A5D5BE0-8432-4AEB-9956-405E2FFD95D3}"
+      DTS:DTSID="{5EEF5B78-0C1C-4C54-AC4A-B601D1079A6E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT CO.c_no as MEMBER_ID&#xA;&#x9;, CCO.CC_NO as CARD_ID&#xA;&#x9;, CCO.crd_no as MEMBER_EN&#xA;&#x9;, CCO.crd_name as MEMBER_CN&#xA;&#x9;, CCO.APP_SNO as WERKS&#xA;&#x9;, CO.CRE_DATE as MEMBER_ACTDATE&#xA;&#x9;, CO.C_STATUS as MEMBER_STS&#xA;&#x9;, CASE &#xA;&#x9;&#x9;WHEN CO.C_STATUS = 'D' &#xA;&#x9;&#x9;THEN CCO.APF_DATE&#xA;&#x9;&#x9;ELSE '9999/12/31'&#xA;&#x9;  END as MEM_EXP_DATE&#xA;&#xA;&#x9;, CO.c_name as MEM_NAME&#xA;&#x9;, CO.c_sex as MEM_SEX&#xA;&#x9;, CO.c_mobile as MEM_MOBILE&#xA;&#x9;, CO.c_mobilestatus as MEM_MOBILE_STS&#xA;&#x9;, CO.C_BIRTH as MEM_BIRTH&#xA;&#x9;, CO.c_email as MEM_EMAIL&#xA;&#x9;, CO.c_emailstatus as MEM_EMAIL_STS&#xA;&#x9;, CO.C_COUNTRY as MEM_COUNTRY&#xA;&#x9;, CO.c_mailstatus as MEM_MAIL_STS&#xA;&#x9;, CO.C_ZIP as MEM_ZIP&#xA;&#xA;&#x9;, CO.C_TCOUNT as MEM_SHOP_CNT&#xA;&#x9;, CO.C_TAMT as MEM_SHOP_AMTTOT&#xA;&#x9;, CO.C_TCNT as MEM_SHOP_LASTAMT&#xA;&#x9;, CO.C_TRAN_D as MEM_SHOP_LASTDATE&#xA;&#xA;&#x9;, CO.POINT as MEM_POINT&#xA;&#x9;, CO.POINT_LY as MEM_POINT_LY&#xA;&#x9;, CO.POINT_TY as MEM_POINT_TY&#xA;&#xA;&#x9;, CO.C_MAILABLE_SL as MEM_ACK_DM&#xA;&#x9;, CO.MSG_SEND_SL as MEM_ACK_SMS&#xA;&#x9;, CO.EBILL as MEM_ACK_EDM&#xA;&#xA;&#x9;, CO.C_MAILABLE as CMS_ACK_DM&#xA;&#x9;, CO.MSG_SEND as CMS_ACK_SMS&#xA;&#x9;, CO.C_EMAILABLE as CMS_ACK_EDM&#xA;&#xA;&#x9;, AD.Account as MEM_ACCT_INT&#xA;&#x9;, AD.Regist_Source as MEM_ACCT_INT_SRC&#xA;&#x9;, AD.Open_Date as MEM_ACCT_INT_ACTDATE&#xA;&#xA;&#x9;, CO.MEMBER_TYPE as MEMBER_SRC_TYPE&#xA;&#xA;&#x9;, CO.C_TRAN_D as MEM_TRANS_DATE&#xA;&#xA;&#x9;, null as WERKS_TRANS&#xA;&#xA;&#x9;, CO.c_child as MEM_CHILD&#xA;&#x9;, CO.c_family as MEM_FAMILY&#xA;&#x9;, CO.c_book as MEM_BOOK&#xA;&#x9;, CO.c_wine as MEM_WINE&#xA;&#x9;, CO.c_mobile_p as MEM_MOBILE_COUNTRY&#xA;FROM [StagingDB_TW].[LMS].[CUST_OUT] CO&#xA;outer apply (&#xA;&#x9;select top 1 *&#xA;&#x9;  from [StagingDB_TW].[LMS].[CUST_CRD_CAL] CCO &#xA;&#x9;where CO.C_NO = CCO.C_NO  order by CC_STATUS,S_DATE desc&#xA;   )CCO&#xA;outer apply (&#xA;&#x9;select top 1 ME.UserId&#xA;&#x9;  from [StagingDB_TW].[EC].[Member_EsliteCardInf] ME&#xA;&#x9;where CO.C_NO = ME.CardNumber &#xA;&#x9;order by ME.LastModifyDate desc&#xA;   )ME&#xA;LEFT JOIN  [StagingDB_TW].[EC].[Account_Data] AD on ME.UserId = AD.Account_SeqNo&#xA;where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1&#xA;and (CO.ETL_DATE &gt;= CAST(CAST('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) +&quot;' AS DATE) AS DATETIME)&#xA;or CCO.ETL_DATE &gt;= CAST(CAST('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) +&quot;' AS DATE) AS DATETIME)&#xA;or AD.ETL_DATE &gt;= CAST(CAST('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) +&quot;' AS DATE) AS DATETIME))&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="queryFromStage">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT CO.c_no as MEMBER_ID
+	, CCO.CC_NO as CARD_ID
+	, CCO.crd_no as MEMBER_EN
+	, CCO.crd_name as MEMBER_CN
+	, CCO.APP_SNO as WERKS
+	, CO.CRE_DATE as MEMBER_ACTDATE
+	, CO.C_STATUS as MEMBER_STS
+	, CASE 
+		WHEN CO.C_STATUS = 'D' 
+		THEN CCO.APF_DATE
+		ELSE '9999/12/31'
+	  END as MEM_EXP_DATE
+
+	, CO.c_name as MEM_NAME
+	, CO.c_sex as MEM_SEX
+	, CO.c_mobile as MEM_MOBILE
+	, CO.c_mobilestatus as MEM_MOBILE_STS
+	, CO.C_BIRTH as MEM_BIRTH
+	, CO.c_email as MEM_EMAIL
+	, CO.c_emailstatus as MEM_EMAIL_STS
+	, CO.C_COUNTRY as MEM_COUNTRY
+	, CO.c_mailstatus as MEM_MAIL_STS
+	, CO.C_ZIP as MEM_ZIP
+
+	, CO.C_TCOUNT as MEM_SHOP_CNT
+	, CO.C_TAMT as MEM_SHOP_AMTTOT
+	, CO.C_TCNT as MEM_SHOP_LASTAMT
+	, CO.C_TRAN_D as MEM_SHOP_LASTDATE
+
+	, CO.POINT as MEM_POINT
+	, CO.POINT_LY as MEM_POINT_LY
+	, CO.POINT_TY as MEM_POINT_TY
+
+	, CO.C_MAILABLE_SL as MEM_ACK_DM
+	, CO.MSG_SEND_SL as MEM_ACK_SMS
+	, CO.EBILL as MEM_ACK_EDM
+
+	, CO.C_MAILABLE as CMS_ACK_DM
+	, CO.MSG_SEND as CMS_ACK_SMS
+	, CO.C_EMAILABLE as CMS_ACK_EDM
+
+	, AD.Account as MEM_ACCT_INT
+	, AD.Regist_Source as MEM_ACCT_INT_SRC
+	, AD.Open_Date as MEM_ACCT_INT_ACTDATE
+
+	, CO.MEMBER_TYPE as MEMBER_SRC_TYPE
+
+	, CO.C_TRAN_D as MEM_TRANS_DATE
+
+	, null as WERKS_TRANS
+
+	, CO.c_child as MEM_CHILD
+	, CO.c_family as MEM_FAMILY
+	, CO.c_book as MEM_BOOK
+	, CO.c_wine as MEM_WINE
+	, CO.c_mobile_p as MEM_MOBILE_COUNTRY
+FROM [StagingDB_TW].[LMS].[CUST_OUT] CO
+outer apply (
+	select top 1 *
+	  from [StagingDB_TW].[LMS].[CUST_CRD_CAL] CCO 
+	where CO.C_NO = CCO.C_NO  order by CC_STATUS,S_DATE desc
+   )CCO
+outer apply (
+	select top 1 ME.UserId
+	  from [StagingDB_TW].[EC].[Member_EsliteCardInf] ME
+	where CO.C_NO = ME.CardNumber 
+	order by ME.LastModifyDate desc
+   )ME
+LEFT JOIN  [StagingDB_TW].[EC].[Account_Data] AD on ME.UserId = AD.Account_SeqNo
+where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
+and (CO.ETL_DATE &gt;= CAST(CAST('2024-10-24 17:05:37.518000000' AS DATE) AS DATETIME)
+or CCO.ETL_DATE &gt;= CAST(CAST('2024-10-24 17:05:37.518000000' AS DATE) AS DATETIME)
+or AD.ETL_DATE &gt;= CAST(CAST('2024-10-24 17:05:37.518000000' AS DATE) AS DATETIME))</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D8BFDC45-E46F-4452-B600-B8D3BD584152}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="varDelResulte">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5836D635-F805-4453-9761-F146991BB9EC}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -103,7 +205,7 @@ values(?,?,?,(select count(*) from dbo.MF_MEMBER_),?,GETDATE(), -1,?,? );</DTS:V
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{FFEE1205-841F-475D-A019-80BE1B1132E7}"
+      DTS:DTSID="{17925725-0940-45BE-8D40-52DC221FCC3A}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -118,7 +220,7 @@ values(?,?,?,(select count(*) from dbo.MF_MEMBER_),?,GETDATE(), -1,?,? );</DTS:V
     DTS:LoggingMode="1">
     <DTS:SelectedLogProviders>
       <DTS:SelectedLogProvider
-        DTS:InstanceID="{4BAE3517-035E-4800-92AD-63C678302198}" />
+        DTS:InstanceID="{CE38B1B6-EE5D-4892-982E-7181E1BF0E06}" />
     </DTS:SelectedLogProviders>
   </DTS:LoggingOptions>
   <DTS:Executables>
@@ -126,7 +228,7 @@ values(?,?,?,(select count(*) from dbo.MF_MEMBER_),?,GETDATE(), -1,?,? );</DTS:V
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{CE33C8AD-5F75-4194-9477-4B4CACD00ACF}"
+      DTS:DTSID="{295BB14D-E40E-481F-A282-6F1313E69A0E}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -158,7 +260,7 @@ values(?,?,?,(select count(*) from dbo.MF_MEMBER_),?,GETDATE(), -1,?,? );</DTS:V
         </DTS:Property>
         <DTS:SelectedLogProviders>
           <DTS:SelectedLogProvider
-            DTS:InstanceID="{4BAE3517-035E-4800-92AD-63C678302198}" />
+            DTS:InstanceID="{CE38B1B6-EE5D-4892-982E-7181E1BF0E06}" />
         </DTS:SelectedLogProviders>
       </DTS:LoggingOptions>
       <DTS:ObjectData>
@@ -6871,13 +6973,13 @@ outer apply (
    )ME
 LEFT JOIN  [StagingDB_TW].[EC].[Account_Data] AD on ME.UserId = AD.Account_SeqNo
 where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
---where CO.ETL_DATE &gt; cast(cast(getdate() as date)as datetime)
---or CCO.ETL_DATE &gt; cast(cast(getdate() as date)as datetime)
---or AD.ETL_DATE &gt; cast(cast(getdate() as date)as datetime)</property>
+and (CO.ETL_DATE &gt;= CAST(CAST('2024-10-24' AS DATE) AS DATETIME)
+or CCO.ETL_DATE &gt;= CAST(CAST('2024-10-24' AS DATE) AS DATETIME)
+or AD.ETL_DATE &gt;= CAST(CAST('2024-10-24' AS DATE) AS DATETIME))</property>
                 <property
                   dataType="System.String"
                   description="包含要執行之 SQL 命令的變數。"
-                  name="SqlCommandVariable"></property>
+                  name="SqlCommandVariable">User::queryFromStage</property>
                 <property
                   dataType="System.Int32"
                   description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
@@ -6890,7 +6992,7 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
                   dataType="System.Int32"
                   description="指定用於存取資料庫的模式。"
                   name="AccessMode"
-                  typeConverter="AccessMode">2</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.String"
                   description="SQL 命令中的參數和變數之間的對應。"
@@ -10291,7 +10393,7 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{3560F041-8F08-48CC-9E1F-B5A864AC037C}"
+      DTS:DTSID="{70FCD8EF-DDA3-49D0-8202-54D4C1D70320}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -10316,7 +10418,7 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{13E15BF1-118E-4CA1-8757-EF2E6CEA514A}"
+      DTS:DTSID="{5951BC72-F628-4B60-B17A-2773363E751C}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -10337,7 +10439,7 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{2ECC6332-E747-47CB-808E-B1A6E1D58D67}"
+      DTS:DTSID="{A8161731-DBC3-4DB1-B469-E1892050A457}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -10345,10 +10447,51 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
+          DTS:refId="Package\時序容器\Delete ODS Table by PK"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="執行 SQL 工作"
+          DTS:DTSID="{82650F64-9936-4692-B1FB-39D4ADDC30F6}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete ODS Table by PK"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BCE09612-5D02-4D81-A529-B6EDFCA7C1E3}"
+              SQLTask:SqlStatementSource="exec DELETE_BY_PK ?,?,?,? output" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::fullTableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::workDateTableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::varDelResulte"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="$Package::fullTableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{B723FC36-EE7C-4FAC-8956-89C3A3507537}"
+          DTS:DTSID="{7112E242-C688-4945-9F37-C046632236D4}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -10379,44 +10522,15 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\時序容器\Truncate ODS Table"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{B2553615-B8E9-442F-90D4-257C2BAC2C1A}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Truncate ODS Table"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{BCE09612-5D02-4D81-A529-B6EDFCA7C1E3}"
-              SQLTask:SqlStatementSource="exec TRUNCATE_TABLE ?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="$Package::fullTableName"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="1"
-                SQLTask:DtsVariableName="User::varUpsertResult"
-                SQLTask:ParameterDirection="Output"
-                SQLTask:DataType="3"
-                SQLTask:ParameterSize="-1" />
-            </SQLTask:SqlTaskData>
-          </DTS:ObjectData>
-        </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
-          DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
+          DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束 1]"
           DTS:CreationName=""
-          DTS:DTSID="{EE680587-19C1-49D6-BE00-191876A7FCCF}"
-          DTS:From="Package\時序容器\Truncate ODS Table"
+          DTS:DTSID="{733ACBEA-A2CA-443D-BC6A-D06AEAD2A080}"
+          DTS:From="Package\時序容器\Delete ODS Table by PK"
           DTS:LogicalAnd="True"
-          DTS:ObjectName="條件約束"
+          DTS:ObjectName="條件約束 1"
           DTS:To="Package\時序容器\insert into ODS table from WorkDateTable" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
@@ -10424,7 +10538,7 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{D5CE3455-0C3E-457F-A55D-83343FE188D6}"
+      DTS:DTSID="{72F7FBA0-644E-402E-91B3-EF6A1A597B92}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -10481,7 +10595,7 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{BF7029FC-FC5E-436A-B861-9A8749E15482}"
+      DTS:DTSID="{24CD5B7C-C36C-4B7A-BBC9-D2630A3C5D35}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -10489,7 +10603,7 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{E0D7CF5F-024A-4080-B2DC-EFA66A9C9234}"
+      DTS:DTSID="{04A12B8B-F967-4A94-8DD8-232C3622E626}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -10497,7 +10611,7 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{2A3D2D37-C97B-43D1-BF5F-5BEC3599C821}"
+      DTS:DTSID="{01E458F6-1689-44CA-ACCF-110643ACA37D}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -10505,7 +10619,7 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{9AE55B7F-20C6-46DF-9D47-8CE7A7A73BB9}"
+      DTS:DTSID="{37F1B73B-DE07-4302-B57F-4A74E9834B8B}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -10532,7 +10646,7 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
           Id="Package\初始化作業"
           TopLeft="365.499985794226,111.500002324581" />
         <NodeLayout
-          Size="156,42"
+          Size="150,42"
           Id="Package\取得WorkDate"
           TopLeft="359.166652394666,22.1428612227342" />
         <NodeLayout
@@ -10540,27 +10654,27 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
           Id="Package\紀錄執行筆數"
           TopLeft="367.666660441292,551.285696542994" />
         <NodeLayout
+          Size="195,42"
+          Id="Package\時序容器\Delete ODS Table by PK"
+          TopLeft="96.3333317107626,10.3428392285078" />
+        <NodeLayout
           Size="303,42"
           Id="Package\時序容器\insert into ODS table from WorkDateTable"
           TopLeft="46.3333317107626,85.142840633588" />
-        <NodeLayout
-          Size="189,42"
-          Id="Package\時序容器\Truncate ODS Table"
-          TopLeft="96.3333297239411,13.7856962109109" />
         <EdgeLayout
-          Id="Package\時序容器.PrecedenceConstraints[條件約束]"
-          TopLeft="194.333330717352,55.7856962109109">
+          Id="Package\時序容器.PrecedenceConstraints[條件約束 1]"
+          TopLeft="195.833331710763,52.3428392285078">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29.3571444226771"
+              EndConnector="0,32.8000014050802"
               Start="0,0"
-              End="0,21.8571444226771">
+              End="0,25.3000014050802">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.8571444226771" />
+                    End="0,25.3000014050802" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10572,24 +10686,24 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="403,154"
-          Size="403,197"
+          PanelSize="403,161"
+          Size="403,204"
           Id="Package\時序容器"
           TopLeft="238.833324160841,303.642856905655" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[條件約束]"
-          TopLeft="437.866654878193,246.241904371361">
+          TopLeft="437.916654878193,246.041904371361">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,57.4009525342939"
+              EndConnector="0,57.600952534294"
               Start="0,0"
-              End="0,49.9009525342939">
+              End="0,50.100952534294">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.9009525342939" />
+                    End="0,50.100952534294" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10600,18 +10714,18 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[條件約束 1]"
-          TopLeft="436.083319094446,64.1428612227342">
+          TopLeft="434.583319094446,64.1428612227342">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47.3571411018466"
+              EndConnector="0,47.3571411018468"
               Start="0,0"
-              End="0,39.8571411018466">
+              End="0,39.8571411018468">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.8571411018466" />
+                    End="0,39.8571411018468" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10644,18 +10758,18 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[條件約束 3]"
-          TopLeft="441.749992301066,500.642856905655">
+          TopLeft="441.749992301067,507.642856905655">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,50.642839637339"
+              EndConnector="0,43.642839637339"
               Start="0,0"
-              End="0,43.142839637339">
+              End="0,36.142839637339">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.142839637339" />
+                    End="0,36.142839637339" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10689,13 +10803,13 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
           Id="Package\Stage To ODS\資料型態轉換"
           TopLeft="369.999985297521,466.142840633588" />
         <NodeLayout
-          Size="182,42"
+          Size="176,42"
           Id="Package\Stage To ODS\取得Stage所需資料"
-          TopLeft="346.666652891372,56.642854248991" />
+          TopLeft="350.666652891372,56.642854248991" />
         <NodeLayout
           Size="269,42"
           Id="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位"
-          TopLeft="302.708321304785,216.839289094415" />
+          TopLeft="305.708321304785,215.972622420861" />
         <NodeLayout
           Size="139,42"
           Id="Package\Stage To ODS\資料列計數"
@@ -10840,7 +10954,7 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="10.5405224015329,5,80.1689453125,10.9208984375"
+              BoundingBox="10.540522401533,5,80.1689453125,10.9208984375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -10850,14 +10964,14 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48.3392887623314"
+              EndConnector="0,48.339288762331"
               Start="0,0"
-              End="0,40.8392887623314">
+              End="0,40.839288762331">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.8392887623314" />
+                    End="0,40.839288762331" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10868,18 +10982,18 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[資料列計數 輸出 1]"
-          TopLeft="439.291653263901,177.660709909335">
+          TopLeft="440.7916532639,177.660709909335">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.1785791850799"
+              EndConnector="0,38.3119125115257"
               Start="0,0"
-              End="0,31.6785791850799">
+              End="0,30.8119125115257">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.6785791850799" />
+                    End="0,30.8119125115257" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10912,18 +11026,18 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[衍生的資料行輸出2]"
-          TopLeft="438.791659572059,258.839289094415">
+          TopLeft="440.291659572059,257.972622420861">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.0714179922147"
+              EndConnector="0,39.9380846657683"
               Start="0,0"
-              End="0,31.5714179922147">
+              End="0,32.4380846657683">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5714179922147" />
+                    End="0,32.4380846657683" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11002,42 +11116,42 @@ where ISNULL(CO.DELETE_MARK,0) &lt;&gt; 1
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[OLE DB 來源錯誤輸出]"
-          TopLeft="528.666652891372,78.767860973671">
+          TopLeft="526.666652891372,78.7678609736709">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="143.83332038588,0"
+              EndConnector="145.83332038588,0"
               Start="0,0"
-              End="136.33332038588,0">
+              End="138.33332038588,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="136.33332038588,0" />
+                    End="138.33332038588,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="19.6121810262734,5,97.1089583333333,10.8623046875"
+              BoundingBox="20.6121810262733,5,97.1089583333333,10.8623046875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[OLE DB 來源輸出]"
-          TopLeft="439.520819057194,98.642854248991">
+          TopLeft="440.020819057194,98.642854248991">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,37.0178556603438"
+              EndConnector="0,37.017855660344"
               Start="0,0"
-              End="0,29.5178556603438">
+              End="0,29.517855660344">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.5178556603438" />
+                    End="0,29.517855660344" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
