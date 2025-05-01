@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{BEDFEC1B-F4AA-4F51-B5FC-2FDF9B1A11C8}"
+  DTS:DTSID="{377A92B2-B205-4EDA-B2EA-5701BBA994D1}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="TRANS_DETAIL_PAYMENT_ECS2"
   DTS:PackageType="5"
-  DTS:VersionBuild="383"
-  DTS:VersionGUID="{1BD7A69A-06F6-4211-A853-B0AF6DA35B88}">
+  DTS:VersionBuild="384"
+  DTS:VersionGUID="{1ACC7FBB-B583-4DAE-A758-26BF55BA2B0B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{3F0D974E-2651-4034-8A12-501DC8D5DF95}"
+      DTS:DTSID="{A73694C2-B482-4711-A512-1743EE475588}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{53542FB9-8DB6-4110-977D-ED3B718B38E1}"
+      DTS:DTSID="{18331301-6936-4E0F-8B5D-D188B82C16B0}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -37,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{D63E283D-5F54-47CD-8EBB-EA9172CC63B9}"
+      DTS:DTSID="{133FC761-9973-4613-91E7-E31CDDB83932}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -48,7 +48,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{34CAE6D3-B6F1-4BB4-8F33-8223E801087A}"
+      DTS:DTSID="{E6B428B5-4360-47E4-809F-F472C2F464EC}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -57,7 +57,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1CCBEE1A-53CF-4B86-8282-E344704350A3}"
+      DTS:DTSID="{D99E5CCF-EFAE-4EE4-8440-D1700DFB8C98}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ? ,?,?);&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -69,7 +69,7 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_PAYMENT_ECS2_),?,GETDATE(), 
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4D84868D-F725-411F-ACA0-5291D4AD7080}"
+      DTS:DTSID="{80A89AF2-FC88-4671-A5E2-02932B1EC538}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -80,7 +80,7 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_PAYMENT_ECS2_),?,GETDATE(), 
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{558C8AAF-77DE-4273-A529-E8A205E204D2}"
+      DTS:DTSID="{4E57D33E-BE27-4E87-A778-B7396D932123}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -90,15 +90,15 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_PAYMENT_ECS2_),?,GETDATE(), 
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{15070EF7-2852-4743-A87A-710CF9F56E0F}"
+      DTS:DTSID="{0306AD90-EE22-481D-BF69-2E019B6CFE6D}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT CONCAT( 'P' , SUB.ID ) AS SL_KEY&#xA;     , 'C002' AS WERKS&#x9;      &#xA;&#x9; , SUB.ORDER_NUMBER AS TRANS_SEQNO &#xA;&#x9; , MAIN.PAYMENT_TYPE AS PMT_ID &#xA;&#x9; , ISNULL(ITEMS.PMT_AMT,0) AS PMT_AMT&#xA;&#x9; &#xA;&#x9; ,CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2', '18') THEN &#xA;          ISNULL((SELECT TOP 1 BANKNO &#xA;&#x9;&#x9;&#x9;        FROM (SELECT BANKNO , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  SELECT BANKNO , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO_UNIONPAY ) CREDITCARDNO&#xA;&#x9;&#x9;&#x9;&#x9;   WHERE LEFT(CARDNO,6) = LEFT(CARD.CARDNUMBER,6)&#xA;&#x9;&#x9;&#x9;&#x9;   ORDER BY ETL_DATE DESC),MAIN.BANK_ID)&#xA;&#x9;&#x9;  ELSE NULL END AS BANK_NO&#xA;&#xA;&#x9; ,CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2', '18') THEN &#xA;          ISNULL((SELECT TOP 1 BANKNM &#xA;&#x9;&#x9;&#x9;        FROM (SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO_UNIONPAY ) CREDITCARDNO&#xA;&#x9;&#x9;&#x9;&#x9;   WHERE LEFT(CARDNO,6) = LEFT(CARD.CARDNUMBER,6)&#xA;&#x9;&#x9;&#x9;&#x9;   ORDER BY ETL_DATE DESC)&#xA;&#x9;&#x9;&#x9;&#x9;   ,(SELECT TOP 1 BANKNM &#xA;&#x9;&#x9;&#x9;        FROM (SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO_UNIONPAY ) CREDITCARDNO&#xA;&#x9;&#x9;&#x9;&#x9;   WHERE LEFT(CARDNO,6) = LEFT(MAIN.BANK_ID,6) &#xA;&#x9;&#x9;&#x9;&#x9;   ORDER BY ETL_DATE DESC))&#xA;&#x9;&#x9;  ELSE NULL END AS BANK_NAME&#x9;&#xA;&#x9;&#x9;  &#xA;&#x9; , 'EC' AS SRC_SYS&#xA;&#x9; , '001' AS ITEM_SEQ_NO&#xA;&#x9; , '1' AS FLAG&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS TRANS_DATE&#xA;&#x9; , LEFT(CARD.CARDNUMBER,8) AS CC_BIN_NO&#xA;&#x9; , NULL AS FOR_GROUP&#xA;&#x9; , MAIN.INSTALLMENT_PERIOD AS CREDIT_INSTALLMENT&#xA;&#x9; &#xA; FROM ECS2.SUB_ORDERS SUB&#xA; &#xA; LEFT JOIN ECS2.MAIN_ORDERS MAIN&#xA;   ON SUB.MAIN_ORDER_ID = MAIN.ID&#xA;&#xA; LEFT JOIN ( SELECT MAIN_ORDER_ID , SUB_ORDER_ID , DELETE_MARK , SUM(ACTUALLY_PRICE) PMT_AMT , MAX(ETL_DATE) AS ETL_DATE&#xA;&#x9;      FROM ECS2.SUB_ORDER_ITEMS&#xA;         GROUP BY MAIN_ORDER_ID , SUB_ORDER_ID , DELETE_MARK) ITEMS&#xA;   ON SUB.MAIN_ORDER_ID = ITEMS.MAIN_ORDER_ID&#xA;  AND SUB.ID = ITEMS.SUB_ORDER_ID&#xA;  &#xA; LEFT JOIN ECS2.CREDIT_CARD CARD&#xA;   ON SUB.MAIN_ORDER_ID = CARD.MAIN_ORDER_ID&#xA;  --AND MAIN.ORDER_NUMBER = CARD.ORDER_NUMBER&#xA;&#xA;WHERE SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= CONCAT(CAST((YEAR(GETDATE()) - 5 + &quot; + (DT_STR, 10,950) @[User::testYearDiff]  + &quot;) AS VARCHAR),'0101')&#xA;  AND (SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  ITEMS.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime))&#xA;  AND ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1&#xA;  &#xA;UNION ALL&#xA;&#xA;SELECT CONCAT( 'N' , R_SUB.MIN_ID ) AS SL_KEY&#xA;     , 'C002' AS WERKS&#x9;      &#xA;&#x9; , SUB.ORDER_NUMBER AS TRANS_SEQNO &#xA;&#x9; , MAIN.PAYMENT_TYPE AS PMT_ID &#xA;&#x9; , ISNULL(R_SUB.PMT_AMT,0) AS PMT_AMT&#xA;&#x9; &#xA;&#x9; , CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2', '18') THEN &#xA;          ISNULL((SELECT TOP 1 BANKNO &#xA;&#x9;&#x9;&#x9;        FROM (SELECT BANKNO , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  SELECT BANKNO , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO_UNIONPAY ) CREDITCARDNO&#xA;&#x9;&#x9;&#x9;&#x9;   WHERE LEFT(CARDNO,6) = LEFT(CARD.CARDNUMBER,6)&#xA;&#x9;&#x9;&#x9;&#x9;   ORDER BY ETL_DATE DESC),MAIN.BANK_ID)&#xA;&#x9;&#x9;  ELSE NULL END AS BANK_NO    &#xA;&#x9;&#x9;  &#xA;&#x9; ,CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2', '18') THEN &#xA;          ISNULL((SELECT TOP 1 BANKNM &#xA;&#x9;&#x9;&#x9;        FROM (SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO_UNIONPAY ) CREDITCARDNO&#xA;&#x9;&#x9;&#x9;&#x9;   WHERE LEFT(CARDNO,6) = LEFT(CARD.CARDNUMBER,6)&#xA;&#x9;&#x9;&#x9;&#x9;   ORDER BY ETL_DATE DESC)&#xA;&#x9;&#x9;&#x9;&#x9;   ,(SELECT TOP 1 BANKNM &#xA;&#x9;&#x9;&#x9;        FROM (SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO_UNIONPAY ) CREDITCARDNO&#xA;&#x9;&#x9;&#x9;&#x9;   WHERE LEFT(CARDNO,6) = LEFT(MAIN.BANK_ID,6) &#xA;&#x9;&#x9;&#x9;&#x9;   ORDER BY ETL_DATE DESC))&#xA;&#x9;&#x9;  ELSE NULL END AS BANK_NAME&#xA;&#x9;&#x9;  &#xA;&#x9; , 'EC' AS SRC_SYS&#xA;&#x9; , '001' AS ITEM_SEQ_NO&#xA;&#x9; , '-1' AS FLAG&#xA;&#x9; , R_SUB.CREATED_AT AS TRANS_DATE&#xA;&#x9; , LEFT(CARD.CARDNUMBER,8) AS CC_BIN_NO&#xA;&#x9; , R_SUB.FOR_GROUP &#xA;&#x9; , MAIN.INSTALLMENT_PERIOD AS CREDIT_INSTALLMENT&#xA;&#x9; &#xA; FROM (SELECT SUB_ORDER_ID , MAIN_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) AS FOR_GROUP , MAX(CREATED_AT) AS CREATED_AT , DELETE_MARK , MIN(ID) AS MIN_ID , SUM(PRICE) AS PMT_AMT , MAX(ETL_DATE) AS ETL_DATE , RETURN_TYPE&#xA;         FROM ECS2.RETURN_SUB_ORDER_ITEMS&#xA;&#x9;&#x9;GROUP BY SUB_ORDER_ID , MAIN_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) , DELETE_MARK , RETURN_TYPE) R_SUB&#xA;&#x9;&#x9;&#xA; JOIN ECS2.SUB_ORDERS SUB&#xA;   ON R_SUB.SUB_ORDER_ID = SUB.ID&#xA;  AND R_SUB.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID&#xA; &#xA; JOIN ECS2.MAIN_ORDERS MAIN&#xA;   ON SUB.MAIN_ORDER_ID = MAIN.ID&#xA;  &#xA; LEFT JOIN ECS2.CREDIT_CARD CARD&#xA;   ON SUB.MAIN_ORDER_ID = CARD.MAIN_ORDER_ID&#xA;  --AND MAIN.ORDER_NUMBER = CARD.ORDER_NUMBER&#xA;&#xA;WHERE (R_SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime))&#xA;  AND ISNULL(R_SUB.DELETE_MARK,0) &lt;&gt; 1&quot;"
+      DTS:Expression="&quot;SELECT CONCAT( 'P' , SUB.ID ) AS SL_KEY&#xA;     , 'C101' AS WERKS&#x9;      &#xA;&#x9; , SUB.ORDER_NUMBER AS TRANS_SEQNO &#xA;&#x9; , MAIN.PAYMENT_TYPE AS PMT_ID &#xA;&#x9; , ISNULL(ITEMS.PMT_AMT,0) AS PMT_AMT&#xA;&#x9; &#xA;&#x9; ,CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2', '18') THEN &#xA;          ISNULL((SELECT TOP 1 BANKNO &#xA;&#x9;&#x9;&#x9;        FROM (SELECT BANKNO , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  SELECT BANKNO , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO_UNIONPAY ) CREDITCARDNO&#xA;&#x9;&#x9;&#x9;&#x9;   WHERE LEFT(CARDNO,6) = LEFT(CARD.CARDNUMBER,6)&#xA;&#x9;&#x9;&#x9;&#x9;   ORDER BY ETL_DATE DESC),MAIN.BANK_ID)&#xA;&#x9;&#x9;  ELSE NULL END AS BANK_NO&#xA;&#xA;&#x9; ,CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2', '18') THEN &#xA;          ISNULL((SELECT TOP 1 BANKNM &#xA;&#x9;&#x9;&#x9;        FROM (SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO_UNIONPAY ) CREDITCARDNO&#xA;&#x9;&#x9;&#x9;&#x9;   WHERE LEFT(CARDNO,6) = LEFT(CARD.CARDNUMBER,6)&#xA;&#x9;&#x9;&#x9;&#x9;   ORDER BY ETL_DATE DESC)&#xA;&#x9;&#x9;&#x9;&#x9;   ,(SELECT TOP 1 BANKNM &#xA;&#x9;&#x9;&#x9;        FROM (SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO_UNIONPAY ) CREDITCARDNO&#xA;&#x9;&#x9;&#x9;&#x9;   WHERE LEFT(CARDNO,6) = LEFT(MAIN.BANK_ID,6) &#xA;&#x9;&#x9;&#x9;&#x9;   ORDER BY ETL_DATE DESC))&#xA;&#x9;&#x9;  ELSE NULL END AS BANK_NAME&#x9;&#xA;&#x9;&#x9;  &#xA;&#x9; , 'EC' AS SRC_SYS&#xA;&#x9; , '001' AS ITEM_SEQ_NO&#xA;&#x9; , '1' AS FLAG&#xA;&#x9; , SUB.ESP_INVOICE_NUMBER_CREATED_DATE AS TRANS_DATE&#xA;&#x9; , LEFT(CARD.CARDNUMBER,8) AS CC_BIN_NO&#xA;&#x9; , NULL AS FOR_GROUP&#xA;&#x9; , MAIN.INSTALLMENT_PERIOD AS CREDIT_INSTALLMENT&#xA;&#x9; &#xA; FROM ECS2.SUB_ORDERS SUB&#xA; &#xA; LEFT JOIN ECS2.MAIN_ORDERS MAIN&#xA;   ON SUB.MAIN_ORDER_ID = MAIN.ID&#xA;&#xA; LEFT JOIN ( SELECT MAIN_ORDER_ID , SUB_ORDER_ID , DELETE_MARK , SUM(ACTUALLY_PRICE) PMT_AMT , MAX(ETL_DATE) AS ETL_DATE&#xA;&#x9;      FROM ECS2.SUB_ORDER_ITEMS&#xA;         GROUP BY MAIN_ORDER_ID , SUB_ORDER_ID , DELETE_MARK) ITEMS&#xA;   ON SUB.MAIN_ORDER_ID = ITEMS.MAIN_ORDER_ID&#xA;  AND SUB.ID = ITEMS.SUB_ORDER_ID&#xA;  &#xA; LEFT JOIN ECS2.CREDIT_CARD CARD&#xA;   ON SUB.MAIN_ORDER_ID = CARD.MAIN_ORDER_ID&#xA;  --AND MAIN.ORDER_NUMBER = CARD.ORDER_NUMBER&#xA;&#xA;WHERE SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= CONCAT(CAST((YEAR(GETDATE()) - 5 + &quot; + (DT_STR, 10,950) @[User::testYearDiff]  + &quot;) AS VARCHAR),'0101')&#xA;  AND (SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  ITEMS.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime))&#xA;  AND ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1&#xA;  &#xA;UNION ALL&#xA;&#xA;SELECT CONCAT( 'N' , R_SUB.MIN_ID ) AS SL_KEY&#xA;     , 'C101' AS WERKS&#x9;      &#xA;&#x9; , SUB.ORDER_NUMBER AS TRANS_SEQNO &#xA;&#x9; , MAIN.PAYMENT_TYPE AS PMT_ID &#xA;&#x9; , ISNULL(R_SUB.PMT_AMT,0) AS PMT_AMT&#xA;&#x9; &#xA;&#x9; , CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2', '18') THEN &#xA;          ISNULL((SELECT TOP 1 BANKNO &#xA;&#x9;&#x9;&#x9;        FROM (SELECT BANKNO , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  SELECT BANKNO , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO_UNIONPAY ) CREDITCARDNO&#xA;&#x9;&#x9;&#x9;&#x9;   WHERE LEFT(CARDNO,6) = LEFT(CARD.CARDNUMBER,6)&#xA;&#x9;&#x9;&#x9;&#x9;   ORDER BY ETL_DATE DESC),MAIN.BANK_ID)&#xA;&#x9;&#x9;  ELSE NULL END AS BANK_NO    &#xA;&#x9;&#x9;  &#xA;&#x9; ,CASE WHEN MAIN.PAYMENT_TYPE IN ('02' ,'2', '18') THEN &#xA;          ISNULL((SELECT TOP 1 BANKNM &#xA;&#x9;&#x9;&#x9;        FROM (SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO_UNIONPAY ) CREDITCARDNO&#xA;&#x9;&#x9;&#x9;&#x9;   WHERE LEFT(CARDNO,6) = LEFT(CARD.CARDNUMBER,6)&#xA;&#x9;&#x9;&#x9;&#x9;   ORDER BY ETL_DATE DESC)&#xA;&#x9;&#x9;&#x9;&#x9;   ,(SELECT TOP 1 BANKNM &#xA;&#x9;&#x9;&#x9;        FROM (SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;       UNION&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  SELECT BANKNM , CARDNO , ETL_DATE FROM POSNEC.CREDITCARDNO_UNIONPAY ) CREDITCARDNO&#xA;&#x9;&#x9;&#x9;&#x9;   WHERE LEFT(CARDNO,6) = LEFT(MAIN.BANK_ID,6) &#xA;&#x9;&#x9;&#x9;&#x9;   ORDER BY ETL_DATE DESC))&#xA;&#x9;&#x9;  ELSE NULL END AS BANK_NAME&#xA;&#x9;&#x9;  &#xA;&#x9; , 'EC' AS SRC_SYS&#xA;&#x9; , '001' AS ITEM_SEQ_NO&#xA;&#x9; , '-1' AS FLAG&#xA;&#x9; , R_SUB.CREATED_AT AS TRANS_DATE&#xA;&#x9; , LEFT(CARD.CARDNUMBER,8) AS CC_BIN_NO&#xA;&#x9; , R_SUB.FOR_GROUP &#xA;&#x9; , MAIN.INSTALLMENT_PERIOD AS CREDIT_INSTALLMENT&#xA;&#x9; &#xA; FROM (SELECT SUB_ORDER_ID , MAIN_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) AS FOR_GROUP , MAX(CREATED_AT) AS CREATED_AT , DELETE_MARK , MIN(ID) AS MIN_ID , SUM(PRICE) AS PMT_AMT , MAX(ETL_DATE) AS ETL_DATE , RETURN_TYPE&#xA;         FROM ECS2.RETURN_SUB_ORDER_ITEMS&#xA;&#x9;&#x9;GROUP BY SUB_ORDER_ID , MAIN_ORDER_ID , CONVERT(VARCHAR(10),CREATED_AT,111) , DELETE_MARK , RETURN_TYPE) R_SUB&#xA;&#x9;&#x9;&#xA; JOIN ECS2.SUB_ORDERS SUB&#xA;   ON R_SUB.SUB_ORDER_ID = SUB.ID&#xA;  AND R_SUB.MAIN_ORDER_ID = SUB.MAIN_ORDER_ID&#xA; &#xA; JOIN ECS2.MAIN_ORDERS MAIN&#xA;   ON SUB.MAIN_ORDER_ID = MAIN.ID&#xA;  &#xA; LEFT JOIN ECS2.CREDIT_CARD CARD&#xA;   ON SUB.MAIN_ORDER_ID = CARD.MAIN_ORDER_ID&#xA;  --AND MAIN.ORDER_NUMBER = CARD.ORDER_NUMBER&#xA;&#xA;WHERE (R_SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR  SUB.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR MAIN.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&#xA;   OR CARD.ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime))&#xA;  AND ISNULL(R_SUB.DELETE_MARK,0) &lt;&gt; 1&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="queryFromStage">
       <DTS:VariableValue
         DTS:DataType="8">SELECT CONCAT( 'P' , SUB.ID ) AS SL_KEY
-     , 'C002' AS WERKS	      
+     , 'C101' AS WERKS	      
 	 , SUB.ORDER_NUMBER AS TRANS_SEQNO 
 	 , MAIN.PAYMENT_TYPE AS PMT_ID 
 	 , ISNULL(ITEMS.PMT_AMT,0) AS PMT_AMT
@@ -151,16 +151,16 @@ values(?,?,?,(select count(*) from dbo.TRANS_DETAIL_PAYMENT_ECS2_),?,GETDATE(), 
   --AND MAIN.ORDER_NUMBER = CARD.ORDER_NUMBER
 
 WHERE SUB.ESP_INVOICE_NUMBER_CREATED_DATE &gt;= CONCAT(CAST((YEAR(GETDATE()) - 5 + 0) AS VARCHAR),'0101')
-  AND (SUB.ETL_DATE &gt;= cast(cast('2024-08-08 09:46:49.168000000' as date) as datetime)
-   OR  ITEMS.ETL_DATE &gt;= cast(cast('2024-08-08 09:46:49.168000000' as date) as datetime)
-   OR  MAIN.ETL_DATE &gt;= cast(cast('2024-08-08 09:46:49.168000000' as date) as datetime)
-   OR  CARD.ETL_DATE &gt;= cast(cast('2024-08-08 09:46:49.168000000' as date) as datetime))
+  AND (SUB.ETL_DATE &gt;= cast(cast('2025-03-12 11:19:57.348000000' as date) as datetime)
+   OR  ITEMS.ETL_DATE &gt;= cast(cast('2025-03-12 11:19:57.348000000' as date) as datetime)
+   OR  MAIN.ETL_DATE &gt;= cast(cast('2025-03-12 11:19:57.348000000' as date) as datetime)
+   OR  CARD.ETL_DATE &gt;= cast(cast('2025-03-12 11:19:57.348000000' as date) as datetime))
   AND ISNULL(SUB.DELETE_MARK,0) &lt;&gt; 1
   
 UNION ALL
 
 SELECT CONCAT( 'N' , R_SUB.MIN_ID ) AS SL_KEY
-     , 'C002' AS WERKS	      
+     , 'C101' AS WERKS	      
 	 , SUB.ORDER_NUMBER AS TRANS_SEQNO 
 	 , MAIN.PAYMENT_TYPE AS PMT_ID 
 	 , ISNULL(R_SUB.PMT_AMT,0) AS PMT_AMT
@@ -212,15 +212,15 @@ SELECT CONCAT( 'N' , R_SUB.MIN_ID ) AS SL_KEY
    ON SUB.MAIN_ORDER_ID = CARD.MAIN_ORDER_ID
   --AND MAIN.ORDER_NUMBER = CARD.ORDER_NUMBER
 
-WHERE (R_SUB.ETL_DATE &gt;= cast(cast('2024-08-08 09:46:49.168000000' as date) as datetime)
-   OR  SUB.ETL_DATE &gt;= cast(cast('2024-08-08 09:46:49.168000000' as date) as datetime)
-   OR MAIN.ETL_DATE &gt;= cast(cast('2024-08-08 09:46:49.168000000' as date) as datetime)
-   OR CARD.ETL_DATE &gt;= cast(cast('2024-08-08 09:46:49.168000000' as date) as datetime))
+WHERE (R_SUB.ETL_DATE &gt;= cast(cast('2025-03-12 11:19:57.348000000' as date) as datetime)
+   OR  SUB.ETL_DATE &gt;= cast(cast('2025-03-12 11:19:57.348000000' as date) as datetime)
+   OR MAIN.ETL_DATE &gt;= cast(cast('2025-03-12 11:19:57.348000000' as date) as datetime)
+   OR CARD.ETL_DATE &gt;= cast(cast('2025-03-12 11:19:57.348000000' as date) as datetime))
   AND ISNULL(R_SUB.DELETE_MARK,0) &lt;&gt; 1</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C89BE95A-106C-4751-8133-982830A85C25}"
+      DTS:DTSID="{70E13E1D-A05F-4A0F-BEC1-1C6F9EBFAFDA}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="testYearDiff">
@@ -229,7 +229,7 @@ WHERE (R_SUB.ETL_DATE &gt;= cast(cast('2024-08-08 09:46:49.168000000' as date) a
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{0980B916-AED5-4542-9C6E-1FFE2E262F59}"
+      DTS:DTSID="{EE4F925D-3788-44A0-A731-06E5B3910ED7}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -238,7 +238,7 @@ WHERE (R_SUB.ETL_DATE &gt;= cast(cast('2024-08-08 09:46:49.168000000' as date) a
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7988D285-E639-4EFC-82EB-29E911383672}"
+      DTS:DTSID="{5EC24D4E-E98B-4919-AD6B-45CDA3F7E7AD}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -247,7 +247,7 @@ WHERE (R_SUB.ETL_DATE &gt;= cast(cast('2024-08-08 09:46:49.168000000' as date) a
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{332802C0-0A9E-48E0-8BEC-AACF64F9158E}"
+      DTS:DTSID="{0083BE58-55C0-4E37-853C-946444830F97}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -262,7 +262,7 @@ WHERE (R_SUB.ETL_DATE &gt;= cast(cast('2024-08-08 09:46:49.168000000' as date) a
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{22045C3C-91F6-42F6-9117-68FD7368BEE3}"
+      DTS:DTSID="{2F863975-B9B9-45F8-97FA-3E9D6550AB28}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -4269,7 +4269,7 @@ outer apply(
                 <property
                   dataType="System.String"
                   description="SQL 命令中的參數和變數之間的對應。"
-                  name="ParameterMapping">"參數0:Input",{C89BE95A-106C-4751-8133-982830A85C25};</property>
+                  name="ParameterMapping">"參數0:Input",{70E13E1D-A05F-4A0F-BEC1-1C6F9EBFAFDA};</property>
               </properties>
               <connections>
                 <connection
@@ -6889,7 +6889,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{00C6BCC2-D9BF-4A7A-93F9-4EEC2B129C4C}"
+      DTS:DTSID="{C0D6E1FD-858B-4335-AFDB-F33D053D74BC}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -6914,7 +6914,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{16352B20-E31C-4EEB-A624-DD6FB1B95604}"
+      DTS:DTSID="{818235A7-D93C-401C-B6E9-BD39D5631E1A}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -6935,7 +6935,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{DAD92E39-5C5B-4D4A-B2E2-45DD435045BE}"
+      DTS:DTSID="{B9157D09-D746-4B06-AEAB-4FDF75F5AC01}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -6946,7 +6946,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\Delete WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{6E0F5876-F9F2-4520-A6CD-7EAB06D1FADC}"
+          DTS:DTSID="{582D5C74-6B5F-42DF-90D0-2F0C02AE2864}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete WorkDateTable"
@@ -6987,7 +6987,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{3B07C635-D746-4D9C-BABD-A524AB95E75B}"
+          DTS:DTSID="{4709FCC2-F624-4203-B203-77A24D0C165D}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -7023,7 +7023,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{739F0BC0-904E-41BA-8D02-D885E77A85B5}"
+          DTS:DTSID="{853CF423-5266-4D4C-A75A-84D9B2A07961}"
           DTS:From="Package\時序容器\Delete WorkDateTable"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -7034,7 +7034,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{4B34E4DC-8D6C-467D-AE05-37C46CF3714F}"
+      DTS:DTSID="{CCA4CBC0-C2D6-45B3-86F0-C45E5A041B6A}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -7097,7 +7097,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{64C4E9E5-F52A-498C-9CC3-59C25BB5A45A}"
+      DTS:DTSID="{EA4A58F2-EE9E-4A61-9402-3E2BCA656400}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -7105,7 +7105,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{C5C56B13-FB55-439C-99E0-F2F9B3EF604C}"
+      DTS:DTSID="{33D08135-8B49-4DD6-965C-F83DC310F803}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -7113,7 +7113,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{15EEC222-F6C5-4548-9E51-7C00E57B7818}"
+      DTS:DTSID="{6BDDAEB4-AAC3-425A-AE98-D7A6DD8FB265}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -7121,7 +7121,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{648962BE-171B-43B0-94F7-6A567A9ACFB4}"
+      DTS:DTSID="{19EE59F7-4D74-4526-BFEB-7568350921F4}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -7138,7 +7138,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
           Id="Package\Stage To ODS"
@@ -7168,7 +7168,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="197.361101977252,62.37300711762">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,22.769833515968"
               Start="0,0"
               End="0,15.269833515968">
@@ -7197,7 +7197,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="275.583334094948,135.785709494231">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,47.3571411018469"
               Start="0,0"
               End="0,39.8571411018469">
@@ -7219,7 +7219,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="273.166663222842,224.742850596078">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,46.7167993608429"
               Start="0,0"
               End="0,39.2167993608429">
@@ -7241,7 +7241,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="267.916661583715,313.059649956921">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,61.0117647144622"
               Start="0,0"
               End="0,53.5117647144622">
@@ -7263,7 +7263,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="263.851846711872,599.071414671383">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,37.9523687443759"
               Start="0,0"
               End="0,30.4523687443759">
@@ -7287,7 +7287,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     design-time-name="Package\Stage To ODS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="151,42"
           Id="Package\Stage To ODS\衍生的資料行"
@@ -7353,7 +7353,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="686.791643578147,693.089278135677">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,45.285709826313"
               Start="0,0"
               End="0,37.785709826313">
@@ -7375,7 +7375,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="682.124977524084,493.446431192513">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,52.01785233951"
               Start="0,0"
               End="0,44.51785233951">
@@ -7397,7 +7397,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="385.458322993585,212.428565569678">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,49.821446717393"
               Start="0,0"
               End="0,42.321446717393">
@@ -7419,7 +7419,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="727.094885469129,127.815481602639">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,43.7896781567141"
               Start="0,0"
               End="0,36.2896781567141">
@@ -7441,7 +7441,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="457.924987756212,470.375000664166">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="118.908323092928,0"
               Start="0,0"
               End="111.408323092928,0">
@@ -7465,7 +7465,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="380.587488439183,489.30357013582">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,57.32142762262"
               Start="0,0"
               End="0,49.82142762262">
@@ -7487,7 +7487,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="386.812488315008,130.500008136034">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,39.9285574336439"
               Start="0,0"
               End="0,32.4285574336439">
@@ -7509,7 +7509,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="380.560173629428,588.62499775844">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,61.4464180752335"
               Start="0,0"
               End="0,53.9464180752335">
@@ -7531,7 +7531,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="384.958322248526,304.250012287071">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,50.1428474412892"
               Start="0,0"
               End="0,42.6428474412892">
@@ -7553,7 +7553,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="727.685164266532,45.76786960783">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,40.0476119948086"
               Start="0,0"
               End="0,32.5476119948086">
@@ -7575,7 +7575,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="384.54582106885,396.392859728361">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,50.910710407459"
               Start="0,0"
               End="0,43.410710407459">
@@ -7597,7 +7597,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="456.870358136701,671.580346984676">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="130.421285193094,0"
               Start="0,0"
               End="122.921285193094,0">
@@ -7621,7 +7621,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="474.76189269879,24.3780526957462">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="112.32142098157,0"
               Start="0,0"
               End="104.82142098157,0">
@@ -7645,7 +7645,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="387.410106728601,44.9882357836624">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,43.5117723523717"
               Start="0,0"
               End="0,36.0117723523717">

@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{7CA36476-8F46-461E-90D5-D042C99375E0}"
+  DTS:DTSID="{5C657306-D629-4731-BDA7-FC2E5C1A06DF}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="MF_SD_COUNTER"
   DTS:PackageType="5"
-  DTS:VersionBuild="224"
-  DTS:VersionGUID="{ABC0F627-3660-4B85-8CCC-EBCA346F3FA8}">
+  DTS:VersionBuild="225"
+  DTS:VersionGUID="{FB6ED575-8910-4977-964B-2CD99E69DDD6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{8F69D11A-93FD-47AF-A810-827BB50A2F3B}"
+      DTS:DTSID="{9E22784C-E709-4E56-9AA4-1BB80885E80F}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{FDC54C01-C560-4004-9AA8-97E2B52EA85F}"
+      DTS:DTSID="{C63B803C-4A8A-426D-BA61-EC333518B91C}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -39,7 +39,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{63F528C7-071F-4E5F-A797-F2D332AF15B6}"
+      DTS:DTSID="{6DA11DCC-4762-4069-A829-691C005ADC1D}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -48,7 +48,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{332D2232-5670-4A35-B67E-941A8245B5F5}"
+      DTS:DTSID="{54200D29-178C-498E-916D-FC93088B168D}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]"
       DTS:IncludeInDebugDump="2345"
@@ -59,7 +59,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{8A3467B0-4B45-4951-A98D-F473CC941BE1}"
+      DTS:DTSID="{7C583601-7DE4-481B-B8E1-03EF8800A0FD}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), -1,?,? );&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -71,7 +71,7 @@ values(?,?,?,(select count(*) from dbo.MF_SD_COUNTER_),?,GETDATE(), -1,?,? );</D
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1E763A29-E86F-45A0-B74C-1BADF6625F43}"
+      DTS:DTSID="{214E6A0B-8193-4B19-A2D5-31A733A0BB64}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -82,7 +82,7 @@ values(?,?,?,(select count(*) from dbo.MF_SD_COUNTER_),?,GETDATE(), -1,?,? );</D
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D036A58A-F28A-42D0-A284-44D0AB961266}"
+      DTS:DTSID="{D52F2DD1-CF0C-46A1-825A-51168A37896A}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -92,19 +92,19 @@ values(?,?,?,(select count(*) from dbo.MF_SD_COUNTER_),?,GETDATE(), -1,?,? );</D
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D8E41DCB-2AFA-4726-8461-97B8B864A782}"
+      DTS:DTSID="{2C6DF674-ABF0-47AC-9662-35B0666CA0C9}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;SELECT * FROM SAP_EARD.SP04&#xA;WHERE ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&quot;"
+      DTS:Expression="&quot;SELECT * FROM SAP_EADB.SP04&#xA;WHERE ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) + &quot;' as date) as datetime)&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="queryFromStage">
       <DTS:VariableValue
-        DTS:DataType="8">SELECT * FROM SAP_EARD.SP04
-WHERE ETL_DATE &gt;= cast(cast('2024-10-24 18:03:57.978000000' as date) as datetime)</DTS:VariableValue>
+        DTS:DataType="8">SELECT * FROM SAP_EADB.SP04
+WHERE ETL_DATE &gt;= cast(cast('2025-03-10 11:57:36.123000000' as date) as datetime)</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{931D9FAD-E6F2-4F70-AD4E-8AC270A97D06}"
+      DTS:DTSID="{895B020D-998F-4B65-8A56-46E5BF86ABB6}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -113,7 +113,7 @@ WHERE ETL_DATE &gt;= cast(cast('2024-10-24 18:03:57.978000000' as date) as datet
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CEE88998-5E52-4F42-874E-611A0C33F89E}"
+      DTS:DTSID="{D50A90FA-C466-4E49-B00F-7A18E38CB992}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -122,7 +122,7 @@ WHERE ETL_DATE &gt;= cast(cast('2024-10-24 18:03:57.978000000' as date) as datet
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{64632AF3-A252-44E5-8971-A06369E02BCF}"
+      DTS:DTSID="{2A8EF2C2-4A65-430C-9615-53C7FDFAFC9B}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -137,7 +137,7 @@ WHERE ETL_DATE &gt;= cast(cast('2024-10-24 18:03:57.978000000' as date) as datet
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{C6339F28-9DB0-4D72-AA30-FE1379631E84}"
+      DTS:DTSID="{37E99B6F-167E-43B7-8353-6A1872C50F14}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -5804,7 +5804,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{E745A865-41EE-4DD1-B5DE-3D4684BBB001}"
+      DTS:DTSID="{A784469F-9662-4B89-9495-0B13569F6D09}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -5829,7 +5829,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{6584149B-D059-4843-8ECD-C8C1F3CBB82E}"
+      DTS:DTSID="{EBB0FD37-F95C-4E79-BC02-C53836BE7668}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -5850,7 +5850,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{31BA8071-8E38-4DC0-8055-ED3F9710B8B9}"
+      DTS:DTSID="{13CB59E0-63BB-4238-8B91-DB877B30E07F}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -5861,7 +5861,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:refId="Package\時序容器\Delete WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{1051F2C1-58FE-4B53-9CCF-271166B218BD}"
+          DTS:DTSID="{90454FC5-D704-493A-93EC-D25B75404EC2}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete WorkDateTable"
@@ -5902,7 +5902,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{3F5A54E3-3583-417E-A6B7-1D2DC5D470D6}"
+          DTS:DTSID="{448FB80C-0247-475B-851C-13E8DDA38148}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -5938,7 +5938,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{392C746D-F69F-4B90-BF9C-D94853768E8B}"
+          DTS:DTSID="{0606DF35-D87F-4BE6-B79D-D631523333CC}"
           DTS:From="Package\時序容器\Delete WorkDateTable"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -5949,7 +5949,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{9D302108-73CF-4C3C-96DB-1DD5FFF133DC}"
+      DTS:DTSID="{A04C8E7C-505D-4A8A-A227-B933F1ACAEA7}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -6006,7 +6006,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{4ABDB319-4BF7-4F3C-AC0F-99296D52DD55}"
+      DTS:DTSID="{5A03815D-4410-46CE-94F5-A70E83DD8C4A}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -6014,7 +6014,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{1B8040E4-2C63-46A4-B2C8-C7EAF999A166}"
+      DTS:DTSID="{EC9A1163-50E2-4B4A-83AA-B87A426EA86C}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -6022,7 +6022,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{17CF2959-6C9B-4AAD-9593-4BB17DE7D2C3}"
+      DTS:DTSID="{35F03BE1-020F-4EEC-BD71-15B1C28DC62F}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -6030,7 +6030,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{4B3B3055-45D2-4D84-8A21-9F50E7EB403A}"
+      DTS:DTSID="{28DC9EEA-C8E2-4EE8-9F1B-4596E9F65D1A}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -6047,7 +6047,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
           Id="Package\Stage To ODS"
@@ -6065,19 +6065,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           Id="Package\紀錄執行筆數"
           TopLeft="234.833332704173,524.157125991333" />
         <NodeLayout
-          Size="303,42"
-          Id="Package\時序容器\insert into ODS table from WorkDateTable"
-          TopLeft="50.3333317107626,107.676174146" />
-        <NodeLayout
           Size="200,42"
           Id="Package\時序容器\Delete WorkDateTable"
           TopLeft="96.3333317107626,19.8761726376053" />
+        <NodeLayout
+          Size="303,42"
+          Id="Package\時序容器\insert into ODS table from WorkDateTable"
+          TopLeft="50.3333317107626,107.676174146" />
         <EdgeLayout
           Id="Package\時序容器.PrecedenceConstraints[條件約束]"
           TopLeft="199.083331710763,61.8761726376053">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,45.8000015083949"
               Start="0,0"
               End="0,38.3000015083949">
@@ -6106,7 +6106,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="313.499999254942,55.9285707169651">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,41.7857128150609"
               Start="0,0"
               End="0,34.2857128150609">
@@ -6128,7 +6128,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="311.999995132288,139.714283532026">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,36.714278882864"
               Start="0,0"
               End="0,29.214278882864">
@@ -6150,7 +6150,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="313.499993344148,218.42856241489">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,39.642866868145"
               Start="0,0"
               End="0,32.142866868145">
@@ -6172,7 +6172,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="313.083330866364,486.071429283035">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,38.0856967082976"
               Start="0,0"
               End="0,30.5856967082976">
@@ -6196,7 +6196,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
     design-time-name="Package\Stage To ODS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="151,42"
           Id="Package\Stage To ODS\衍生的資料行"
@@ -6258,7 +6258,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="782.434508632812,154.499991033759">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,42.4999956829209"
               Start="0,0"
               End="0,34.9999956829209">
@@ -6280,7 +6280,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="461.416654331817,362.149218449767">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="185.458333474069,0"
               Start="0,0"
               End="177.958333474069,0">
@@ -6304,7 +6304,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="386.187488240501,381.124984143037">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,36.321433101989"
               Start="0,0"
               End="0,28.821433101989">
@@ -6326,7 +6326,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="387.824393185716,145.487247925675">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,38.5867305767262"
               Start="0,0"
               End="0,31.0867305767262">
@@ -6348,7 +6348,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="780.767843075454,69.357141101847">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,43.1428499319122"
               Start="0,0"
               End="0,35.6428499319122">
@@ -6370,7 +6370,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="388.854155387317,226.073978502401">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,37.4617323201622"
               Start="0,0"
               End="0,29.9617323201622">
@@ -6392,7 +6392,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="386.854154294564,305.535710822563">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,33.5892733204737"
               Start="0,0"
               End="0,26.0892733204737">
@@ -6414,7 +6414,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="385.270821590391,459.446417245026">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,47.249988543136"
               Start="0,0"
               End="0,39.749988543136">
@@ -6436,7 +6436,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="458.583321031597,527.765283064706">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="182.083333250551,0"
               Start="0,0"
               End="174.583333250551,0">
@@ -6460,7 +6460,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="471.166654778851,48.357141101847">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="166.684522987598,0"
               Start="0,0"
               End="159.184522987598,0">
@@ -6484,7 +6484,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="385.44939231648,69.357141101847">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,34.1301068238278"
               Start="0,0"
               End="0,26.6301068238278">
@@ -6506,7 +6506,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="748.52082129237,385.173452756497">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,32.2857104904771"
               Start="0,0"
               End="0,24.7857104904771">
@@ -6528,7 +6528,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==]]></arrayElement>
           TopLeft="739.645821217863,548.83416034125">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,48.7678525055536"
               Start="0,0"
               End="0,41.2678525055536">
