@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{19EA42F6-CA02-4671-B71C-6174264546A0}"
+  DTS:DTSID="{867B89F2-7B41-43E6-93E6-C55AEED42EC0}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="TW OMI EmailOpen"
   DTS:PackageType="5"
-  DTS:VersionBuild="189"
-  DTS:VersionGUID="{265BF6C5-9C95-41AE-B3B0-12EF249072B5}">
+  DTS:VersionBuild="191"
+  DTS:VersionGUID="{307911C5-C701-4E05-AEEA-424511A9AFAA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{8BB0FC00-3462-49ED-9227-D50E7D5355EA}"
+      DTS:DTSID="{F3481BC9-4636-4404-9800-CD31AD34F628}"
       DTS:ObjectName="dbPrestageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{D46ECFE6-316A-4D85-8C95-41DC29617368}"
+      DTS:DTSID="{28EE8486-C2AD-430F-80E9-E048D4BAD890}"
       DTS:ObjectName="dbSchemaName">
       <DTS:Property
         DTS:DataType="8"
@@ -38,7 +38,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{CD7B459D-3073-4045-A2E2-B056537DF7B6}"
+      DTS:DTSID="{CD2317A2-18B1-4562-B726-CAA7C1F8BF07}"
       DTS:ObjectName="dbStageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -47,7 +47,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{7FCD3738-48FD-43A2-AA03-E817FA03B772}"
+      DTS:DTSID="{F24B7ACD-3CCB-453D-98C9-4EC438C0B4F5}"
       DTS:ObjectName="dbTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -57,7 +57,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{BF4C6970-24CF-4D24-AE0A-F88EE9CE07A4}"
+      DTS:DTSID="{559749D2-C585-49A2-BBAD-9BD87A7726A6}"
       DTS:ObjectName="srcRawDataFileName">
       <DTS:Property
         DTS:DataType="8"
@@ -67,7 +67,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{EB550F27-F7C5-4E6E-9FC8-539154C2AE8B}"
+      DTS:DTSID="{DA991EB1-3034-4727-AE14-D0F45C022C04}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -77,7 +77,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{05CB002D-B4F0-4D6B-B036-688D332F040A}"
+      DTS:DTSID="{8D71B713-BEE6-443E-A5DD-E15E173C3A50}"
       DTS:ObjectName="writeInEvent">
       <DTS:Property
         DTS:DataType="8"
@@ -88,9 +88,9 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{0127329A-B34E-4CAC-86E3-D69241F94E44}"
+      DTS:DTSID="{9D550A60-55A6-4355-A2A3-2FB8BBEFD934}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;WITH EmailOpen_tmp AS (&#xA;SELECT *  &#xA;FROM &quot; + @[$Package::dbPrestageTableName] + &quot; &#xA;WHERE FILE_NAME =  '&quot; + @[$Package::srcRawDataFileName]  +&quot;' &#xA;and PKEY not in (&#xA;select isnull(PRESTAGE_PKEY,0) &#xA;from dbo.veri_prestage_log_fail_detail fd &#xA;join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY &#xA;where l.file_name = '&quot;+ @[$Package::srcRawDataFileName] +&quot;' &#xA;and l.executionid = &quot;+ (DT_WSTR,100) @[System::ServerExecutionID] +&quot;))&#xA;/*&#xA;2024/11/08 發生CMS同一個任務發送兩次信件的事件，&#xA;導致後面的 [OMI].[EmailOpen] 可能出現同個 Node_ID, Campaign_ID, Member_ID, Open_Date 有兩筆的狀況&#xA;故針對 Campaign_ID IN ('0000022638', '0000022641', '0000022640', '0000022642', '0000022644') 的事件進行篩選，&#xA;避免後續組 dbo.VW_CMS_EMAIL 出現 duplicate 的異常&#xA;*/&#xA;,tmp AS (&#xA;select * ,&#xA;&#x9;&#x9;ROW_NUMBER() OVER (PARTITION BY Node_ID, Campaign_ID, Member_ID, Open_Date ORDER BY Job_ID) AS rn&#xA;from EmailOpen_tmp&#xA;where Campaign_ID IN ('0000022638', '0000022641', '0000022640', '0000022642', '0000022644')&#xA;)&#xA;&#xA;SELECT PKEY,Job_ID,Node_ID,Campaign_ID,Member_ID,Open_Date,FILE_NAME,ETL_INSERT_DATE,VER_VALUE&#xA;FROM tmp&#xA;WHERE rn = 1&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT *&#xA;FROM EmailOpen_tmp&#xA;WHERE Campaign_ID NOT IN ('0000022638', '0000022641', '0000022640', '0000022642', '0000022644')&#xA;&quot;"
+      DTS:Expression="&quot;WITH EmailOpen_tmp AS (&#xA;SELECT *  &#xA;FROM &quot; + @[$Package::dbPrestageTableName] + &quot; &#xA;WHERE FILE_NAME =  '&quot; + @[$Package::srcRawDataFileName]  +&quot;' &#xA;and PKEY not in (&#xA;select isnull(PRESTAGE_PKEY,0) &#xA;from dbo.veri_prestage_log_fail_detail fd &#xA;join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY &#xA;where l.file_name = '&quot;+ @[$Package::srcRawDataFileName] +&quot;' &#xA;and l.executionid = &quot;+ (DT_WSTR,100) @[System::ServerExecutionID] +&quot;))&#xA;/*&#xA;2024/11/08 發生CMS同一個任務發送兩次信件的事件，&#xA;導致後面的 [OMI].[EmailOpen] 可能出現同個 Node_ID, Campaign_ID, Member_ID, Open_Date 有兩筆的狀況&#xA;故針對 Campaign_ID IN ('0000022638', '0000022641', '0000022640', '0000022642', '0000022644', '0000027707', '0000027711') 的事件進行篩選，&#xA;避免後續組 dbo.VW_CMS_EMAIL 出現 duplicate 的異常&#xA;*/&#xA;,tmp AS (&#xA;select * ,&#xA;&#x9;&#x9;ROW_NUMBER() OVER (PARTITION BY Node_ID, Campaign_ID, Member_ID, Open_Date ORDER BY Job_ID) AS rn&#xA;from EmailOpen_tmp&#xA;where Campaign_ID IN ('0000022638', '0000022641', '0000022640', '0000022642', '0000022644', '0000027707', '0000027711')&#xA;)&#xA;&#xA;SELECT PKEY,Job_ID,Node_ID,Campaign_ID,Member_ID,Open_Date,FILE_NAME,ETL_INSERT_DATE,VER_VALUE&#xA;FROM tmp&#xA;WHERE rn = 1&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT *&#xA;FROM EmailOpen_tmp&#xA;WHERE Campaign_ID NOT IN ('0000022638', '0000022641', '0000022640', '0000022642', '0000022644', '0000027707', '0000027711')&#xA;&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="sqlQueryPrestage">
@@ -108,14 +108,14 @@ and l.executionid = 0))
 /*
 2024/11/08 發生CMS同一個任務發送兩次信件的事件，
 導致後面的 [OMI].[EmailOpen] 可能出現同個 Node_ID, Campaign_ID, Member_ID, Open_Date 有兩筆的狀況
-故針對 Campaign_ID IN ('0000022638', '0000022641', '0000022640', '0000022642', '0000022644') 的事件進行篩選，
+故針對 Campaign_ID IN ('0000022638', '0000022641', '0000022640', '0000022642', '0000022644', '0000027707', '0000027711') 的事件進行篩選，
 避免後續組 dbo.VW_CMS_EMAIL 出現 duplicate 的異常
 */
 ,tmp AS (
 select * ,
 		ROW_NUMBER() OVER (PARTITION BY Node_ID, Campaign_ID, Member_ID, Open_Date ORDER BY Job_ID) AS rn
 from EmailOpen_tmp
-where Campaign_ID IN ('0000022638', '0000022641', '0000022640', '0000022642', '0000022644')
+where Campaign_ID IN ('0000022638', '0000022641', '0000022640', '0000022642', '0000022644', '0000027707', '0000027711')
 )
 
 SELECT PKEY,Job_ID,Node_ID,Campaign_ID,Member_ID,Open_Date,FILE_NAME,ETL_INSERT_DATE,VER_VALUE
@@ -126,7 +126,7 @@ UNION ALL
 
 SELECT *
 FROM EmailOpen_tmp
-WHERE Campaign_ID NOT IN ('0000022638', '0000022641', '0000022640', '0000022642', '0000022644')
+WHERE Campaign_ID NOT IN ('0000022638', '0000022641', '0000022640', '0000022642', '0000022644', '0000027707', '0000027711')
 </DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
@@ -135,7 +135,7 @@ WHERE Campaign_ID NOT IN ('0000022638', '0000022641', '0000022640', '0000022642'
       DTS:refId="Package\I／IU資料流程"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{CED3E80E-D987-49D2-8AFB-3CBC03261820}"
+      DTS:DTSID="{83FD23EB-49AE-4DA8-B97A-EBECA0C24211}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="I／IU資料流程"
@@ -905,7 +905,7 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
       DTS:refId="Package\紀錄目前檔案執行封裝至dbo sysssislog"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="指令碼工作"
-      DTS:DTSID="{B084A04A-D840-48A9-983E-708EF2FEED6B}"
+      DTS:DTSID="{ED2101CB-C3E7-45C0-803D-E52F11B46EA6}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄目前檔案執行封裝至dbo sysssislog"
@@ -943,6 +943,15 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
           VSTAMinorVersion="0"
           Language="CSharp"
           ReadOnlyVariables="$Package::srcRawDataFileName">
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -1062,35 +1071,6 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-          <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Settings.get_Default():ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Sett" +
-    "ings")]
-
-namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -1229,6 +1209,35 @@ namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
           <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Settings.get_Default():ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Sett" +
+    "ings")]
+
+namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
             Name="Properties\AssemblyInfo.cs"
             Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -1258,15 +1267,6 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
-          <ProjectItem
-            Name="Properties\Settings.settings"
-            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
           <ProjectItem
             Name="Properties\Resources.Designer.cs"
             Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
