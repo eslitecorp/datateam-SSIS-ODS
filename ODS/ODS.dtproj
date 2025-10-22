@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">1505003NB02</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAt5SO2I3eR0aAEXU2NiaavwAAAAACAAAAAAADZgAAwAAAABAAAAD9UQOO5vj3ZrSCihnMIpuOAAAAAASAAACgAAAAEAAAALJ8561BDa0KV/3bkStnapOIAAAARXYSEHr/9lIktLHeZ2mWJfFo4N3x7PSR9Dh0aZwmpeXJK2P1qF8Hnd/3xDMDlrLTmYFZJ6o09+lc//+5nQsGA9CA5189kUqmJqe1+nvH7/kWCcmx8u8oQ8PkwGXVoKde1/GDZ9tp4z/s92kyLkerqKPraGLWH7MJfdlUx9v/F0LLNM7T+3HQ6hQAAABnMuACrrev0/bkc2CM8AHjyfR+5g==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7p4U/7DqHEmGmkAsgy4D4wAAAAACAAAAAAADZgAAwAAAABAAAAAjBCkUbAIaCt5s9+EJG19vAAAAAASAAACgAAAAEAAAAKKKXPBWDMme3veSM2gDKr6IAAAA/+xgGmGXSPXFQVAdLOph0i99mWcftJg4+0Y+gqrg6hHm98Qu573FabbnoLim7EF9CaVTcTAHEFus6SrLOn5uKrMxpDxtnbzWpGGT3nryW6O0EUZAqnt7cCAd8pr/Dfit4wu/CbJ2LuUFN6RHN2zTT8hI5SaUZkHPO+ro/BQZd7ZCk2O6jyrZMRQAAACU5cirIXmVJwvpJ/DnCfGBYBrkWA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -202,6 +202,9 @@
           <SSIS:Package SSIS:Name="EK_lms2dm_transactionrreply.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="EK_lms2dm_level.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="EK_lms2dm_cardinfo.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="EK_lms2dm_dwcardapply.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="EK_lms2dm_dwlabel.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="EK_lms2dm_dwtransaction.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="StageETLDB.conmgr" />
@@ -9376,8 +9379,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -9442,6 +9443,131 @@
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">dbo.EK_lms2dm_cardinfo</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="EK_lms2dm_dwcardapply.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{CEEB2CE6-94CA-4747-87E6-38202E3F73A5}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">EK_lms2dm_dwcardapply</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">440</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{815BCB0D-5CC6-4E4A-9234-3E73CD3CC25F}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="fullTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{AE3D91D2-5628-4692-B349-11F94B5E3877}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">dbo.EK_lms2dm_dwcardapply</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="EK_lms2dm_dwlabel.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{0DFCECFA-2F9B-47A5-8B34-0075F91DBAAA}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">EK_lms2dm_dwlabel</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">444</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{474596FE-8A1F-4A48-A487-00ADA6CB0492}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="fullTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{1C0646BF-6198-4B4F-A3EB-6943A06C8FF7}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">dbo.EK_lms2dm_dwlabel</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="EK_lms2dm_dwtransaction.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{C33B5D32-00CF-403B-AE53-8DF7DD3BFFD0}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">EK_lms2dm_dwtransaction</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">420</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{17B171DC-BE07-4FD3-AFCB-8A19EAB4E650}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="DG">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{A2365629-ABA3-4863-8598-1BD45468F4FE}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">EK_lms2dm_dwtransaction</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="fullTableName">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{36C015F2-03FD-4761-A4B0-D5D0155BB5A1}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">dbo.EK_lms2dm_dwtransaction</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="queryBaseDate">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{1D68D0A6-F283-4FF1-A583-1BBC40ADE67D}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">
+                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
