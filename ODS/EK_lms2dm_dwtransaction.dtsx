@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{2106F3E9-3E9A-4E35-9DB7-4BBC5CAC1EE5}"
+  DTS:DTSID="{2BBCD3F7-A372-4432-953B-65255FC88041}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="EK_lms2dm_dwtransaction"
   DTS:PackageType="5"
   DTS:VersionBuild="420"
-  DTS:VersionGUID="{276B9392-2407-4FE2-B4E4-80975A1414A1}">
+  DTS:VersionGUID="{9558ABC0-224A-422F-AD81-F1A8FF0B8095}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{68E979AF-45D0-4B33-B983-85CAE98E17F0}"
+      DTS:DTSID="{A7E0B114-E7CF-423C-9F73-A00934371FE7}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{6E282A4E-1FBB-4A87-92FD-D6C1871EB4AC}"
+      DTS:DTSID="{765DFB2C-8348-4145-A923-54DD80B7245F}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -37,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{82805735-E498-47AD-A962-562893719979}"
+      DTS:DTSID="{4AC25BA3-99AC-4532-BAD0-61FDC7A6EEC9}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -48,7 +48,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{03AE9802-4F33-4BD4-9788-ADFEBFEE8226}"
+      DTS:DTSID="{138F1C43-1E18-45E8-B305-D963D0CB8C2F}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -57,7 +57,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{2A815EA2-4BFD-40A0-A8B1-7E0A4AFF7E7B}"
+      DTS:DTSID="{9A01DD04-E57A-4D40-9137-266EF2348D3D}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ?,?,? );&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -69,7 +69,7 @@ values(?,?,?,(select count(*) from dbo.EK_lms2dm_dwtransaction_20251020),?,GETDA
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{2DB5907C-7828-413B-BA67-8D12C234F53E}"
+      DTS:DTSID="{8650A079-FD2B-460E-B6C2-6CFB06971341}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -80,7 +80,7 @@ values(?,?,?,(select count(*) from dbo.EK_lms2dm_dwtransaction_20251020),?,GETDA
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{FA379845-F2B6-4A48-986A-BB12A78D1A74}"
+      DTS:DTSID="{5E35B7E2-DEBB-4F09-82AD-A657752CC2C0}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
@@ -89,7 +89,7 @@ values(?,?,?,(select count(*) from dbo.EK_lms2dm_dwtransaction_20251020),?,GETDA
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{EB949AA4-AED3-4DD9-9386-B163D5A2A8C9}"
+      DTS:DTSID="{D1DCBC7B-D6DA-4276-A233-F2B7F00D1013}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;select  [YYYYMM]&#xA;      ,[MEMBER_ID]&#xA;      ,[TXN_DATE]&#xA;      ,[TXN_TIME]&#xA;      ,[TXN_MCC_CODE]&#xA;      ,[TXN_AMT]&#xA;      ,[TXN_ORG_CURRENCY]&#xA;      ,[TXN_DESC]&#xA;&#xA;&#xA;from [LMSNS].[dwtransaction]&#xA;where ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) +&quot;' as date) as datetime)&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -111,7 +111,7 @@ where ETL_DATE &gt;= cast(cast('2025-10-20 16:37:50.240000000' as date) as datet
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D13D52B0-CADB-4114-9974-D58CE0121C48}"
+      DTS:DTSID="{D284EA07-52A6-4C1A-88EF-383AC67E338C}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -120,7 +120,7 @@ where ETL_DATE &gt;= cast(cast('2025-10-20 16:37:50.240000000' as date) as datet
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{16F616FD-B5CF-40D6-8CE7-A7665ECF0345}"
+      DTS:DTSID="{2CA06E4B-1B83-4557-AA31-B3A3E9FA9D10}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -129,7 +129,7 @@ where ETL_DATE &gt;= cast(cast('2025-10-20 16:37:50.240000000' as date) as datet
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CF39386A-C6A5-41ED-B663-858E3DF43BC3}"
+      DTS:DTSID="{C63ACB3E-B85F-495E-9D8F-F4C07A1ABF67}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
@@ -144,7 +144,7 @@ where ETL_DATE &gt;= cast(cast('2025-10-20 16:37:50.240000000' as date) as datet
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{6417B257-D888-4AB3-9E77-A7FB6838CC10}"
+      DTS:DTSID="{60DA7E11-7C8E-46A4-A612-1FAB257DC982}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -6690,7 +6690,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{BA967679-B2C9-45F3-96AE-2DD7A535B5D7}"
+      DTS:DTSID="{FC4A652D-9EBE-41A9-8A5D-196473251811}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -6715,7 +6715,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{B3CC842C-AB83-4B61-AF0B-C5DA775B2FA7}"
+      DTS:DTSID="{CF8F786C-4468-41FA-86E2-AF8F0C0A8049}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -6736,7 +6736,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{633CD5CA-514F-4A67-8C67-3A351B9A9520}"
+      DTS:DTSID="{357CA48C-682E-4F81-97CA-2A3CBE08D00A}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -6747,7 +6747,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           DTS:refId="Package\時序容器\Delete ODS Table by PK"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{C63DB6E7-AC28-4879-893E-0BD04A0317A8}"
+          DTS:DTSID="{E483AC5A-3138-428A-A6A0-7F310BCC2359}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete ODS Table by PK"
@@ -6788,7 +6788,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{18561280-BA04-43CF-962C-8445C042AFEB}"
+          DTS:DTSID="{F9DE179E-1BD2-4A16-BEF6-D4B2D1DD683A}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -6824,7 +6824,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{D32B0781-F538-45D0-BBB1-165F198F5EA9}"
+          DTS:DTSID="{944878A1-ED50-4E74-8D0C-46D730C442FE}"
           DTS:From="Package\時序容器\Delete ODS Table by PK"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -6835,7 +6835,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{806BFD3E-525D-4782-8A78-D73D31A946B1}"
+      DTS:DTSID="{456F56EE-69D9-4815-A82C-C022CB0C0CB6}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -6898,7 +6898,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{71F1280A-F1A2-44A0-82EC-281CCBF3A2DB}"
+      DTS:DTSID="{52C469B4-40B4-4A28-9A0D-C781DB1CAB24}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -6906,7 +6906,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{E4D23722-29CB-496C-8D32-65F06977E632}"
+      DTS:DTSID="{F6E9E782-0A6C-41AC-A37B-E452A7F8EC69}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -6914,7 +6914,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{C69360E8-4FBE-4E44-9119-B4DC7396DC18}"
+      DTS:DTSID="{AAF45A50-C24E-4607-BA68-3766F3704454}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -6922,7 +6922,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{85F188CB-32C9-4FFB-9013-8F46ABBBDD95}"
+      DTS:DTSID="{3E895DB1-E447-4218-8691-FDAEA674A28E}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"

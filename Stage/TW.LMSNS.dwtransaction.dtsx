@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1701003NB01"
   DTS:CreatorName="IEAD\1701003"
-  DTS:DTSID="{1766D66F-E404-4575-B4D9-E8B83E19CBED}"
+  DTS:DTSID="{BE6194E2-0539-4019-8D44-F0FE2743F953}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="TW LMSNS dwtransaction"
   DTS:PackageType="5"
   DTS:VersionBuild="416"
-  DTS:VersionGUID="{DC8628F3-5A83-4B6A-9880-4A01E36947BF}">
+  DTS:VersionGUID="{C7C2D6F2-29B8-4857-A072-C2A280F14D49}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -20,7 +20,7 @@
       DTS:ConfigString="StagingDB_TW"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="將事件的記錄項目寫入 SQL Server 資料庫"
-      DTS:DTSID="{A6C1AEA3-DC08-4312-8747-496E07A5012F}"
+      DTS:DTSID="{DAAF1E42-582B-41D2-A8FC-1B928BFE4BE3}"
       DTS:ObjectName="SQL Server 的 SSIS 記錄提供者">
       <DTS:ObjectData>
         <InnerObject />
@@ -31,7 +31,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{DB9176D1-1BD0-429F-9BCF-2D7494CA19B4}"
+      DTS:DTSID="{3E732D47-14C9-4629-904B-3BA3A028D6BF}"
       DTS:ObjectName="dbPrestageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -40,7 +40,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{84EE1F09-BCC2-4486-B6CD-4A59D6D8E6F9}"
+      DTS:DTSID="{99480F0C-7965-42F6-9B70-45C29155E451}"
       DTS:ObjectName="dbSchemaName">
       <DTS:Property
         DTS:DataType="8"
@@ -50,7 +50,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{B5418384-9E13-4C20-86D4-2D41661484E4}"
+      DTS:DTSID="{EA4A4ED1-4583-45A2-95E7-8C8A5E7B2ABF}"
       DTS:ObjectName="dbStageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -59,7 +59,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{AFA32855-30BE-4496-ACCE-7460CF6FD74A}"
+      DTS:DTSID="{CDF040CD-C7DB-4B9F-B7DF-163ECA90DB1C}"
       DTS:ObjectName="dbTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -68,7 +68,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{AD6219B8-F3F4-4338-840A-C8EA0FEB8DA7}"
+      DTS:DTSID="{32FC6310-2FE4-4394-A86B-370452910D52}"
       DTS:ObjectName="srcRawDataFileName">
       <DTS:Property
         DTS:DataType="8"
@@ -77,7 +77,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{72250BEC-7232-4A7A-9EED-B1008843E628}"
+      DTS:DTSID="{8B75064F-A43A-4F08-A4F7-9EA760AA2E2C}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -86,7 +86,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{EA3BEA4E-2A54-4C0D-A9F9-8D875DF641F7}"
+      DTS:DTSID="{81EA74B3-81D4-49E1-ACA8-588E18CB136B}"
       DTS:ObjectName="writeInEvent">
       <DTS:Property
         DTS:DataType="8"
@@ -97,7 +97,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{FC4CC35E-62C9-425C-86A2-B76586273FBA}"
+      DTS:DTSID="{0CF75F05-48DA-4210-8A88-7A4546090198}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;SELECT *  FROM &quot; + @[$Package::dbPrestageTableName] + &quot; WHERE FILE_NAME =  '&quot; + @[$Package::srcRawDataFileName]  +&quot;' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = '&quot;+ @[$Package::srcRawDataFileName] +&quot;' and l.executionid = &quot;+ (DT_WSTR,100) @[System::ServerExecutionID] +&quot;)&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -112,7 +112,7 @@
     DTS:LoggingMode="1">
     <DTS:SelectedLogProviders>
       <DTS:SelectedLogProvider
-        DTS:InstanceID="{A6C1AEA3-DC08-4312-8747-496E07A5012F}" />
+        DTS:InstanceID="{DAAF1E42-582B-41D2-A8FC-1B928BFE4BE3}" />
     </DTS:SelectedLogProviders>
   </DTS:LoggingOptions>
   <DTS:Executables>
@@ -120,7 +120,7 @@
       DTS:refId="Package\I／IU資料流程"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{4464C7E8-4F94-4AC7-8492-EB0A016DE378}"
+      DTS:DTSID="{A1D93880-EAB4-441E-9735-7B1D88F00112}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="I／IU資料流程"
@@ -1079,7 +1079,7 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
       DTS:refId="Package\紀錄目前檔案執行封裝至dbo sysssislog"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="指令碼工作"
-      DTS:DTSID="{601A83CA-356C-49E7-BCC3-D8D7257735D3}"
+      DTS:DTSID="{94C41448-F03E-460B-8615-75759B4296DB}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄目前檔案執行封裝至dbo sysssislog"
