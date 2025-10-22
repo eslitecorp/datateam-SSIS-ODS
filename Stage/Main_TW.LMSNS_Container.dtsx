@@ -5,22 +5,22 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1703001NB01"
   DTS:CreatorName="IEAD\1703001"
-  DTS:DTSID="{FB3B5AE7-5E1D-450F-A04F-DB4BC9F01242}"
+  DTS:DTSID="{F861C703-3DD7-4334-94E7-C5C98538E8BA}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:MaxConcurrentExecutables="2"
   DTS:ObjectName="Main_TW LMSNS_Container"
   DTS:PackageType="5"
-  DTS:VersionBuild="307"
-  DTS:VersionGUID="{546917BD-8E0F-4DA2-97D6-A22636B162A2}">
+  DTS:VersionBuild="312"
+  DTS:VersionGUID="{01BF7C4B-D95A-4DFB-B650-C707E0FF23A5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{8A60DEA3-DF8F-4EF3-BC94-FBAAADC6B40C}"
+      DTS:DTSID="{9C16C3C7-430F-4ADA-A43F-0808119363BE}"
       DTS:ObjectName="concurrentFiles">
       <DTS:Property
         DTS:DataType="8"
@@ -30,7 +30,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{C3CAF2F7-FFC0-484F-93EA-DA9D763DA197}"
+      DTS:DTSID="{B6ADF591-2FE9-4DCE-9F31-9B6F273C84DF}"
       DTS:ObjectName="mailFrom">
       <DTS:Property
         DTS:DataType="8"
@@ -40,7 +40,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{3A23AD40-FDFE-41EB-8A28-76BFFD6C9C2C}"
+      DTS:DTSID="{F0222C97-51FC-4A68-8639-6628C854B103}"
       DTS:ObjectName="param_mailTo">
       <DTS:Property
         DTS:DataType="8"
@@ -50,7 +50,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="3"
-      DTS:DTSID="{CF5138B9-B3EF-46CA-A61A-A4BF6DF3D412}"
+      DTS:DTSID="{FEEF87E6-BAB4-4CBE-BFF9-2DEF801B10AB}"
       DTS:ObjectName="param_maxConcurrent">
       <DTS:Property
         DTS:DataType="3"
@@ -59,7 +59,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{AF0CD35E-D6C0-40D9-A968-6EF185B7304B}"
+      DTS:DTSID="{0839572C-C6F5-42C0-A27D-41F60FD46428}"
       DTS:ObjectName="srcEkorg">
       <DTS:Property
         DTS:DataType="8"
@@ -69,7 +69,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{3F97F771-E280-4C7D-9274-F550C98A26D3}"
+      DTS:DTSID="{A6D1A86F-876D-4AB9-8D2B-A8CF2B4F5AA5}"
       DTS:ObjectName="srcFileFolder">
       <DTS:Property
         DTS:DataType="8"
@@ -79,7 +79,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{AA453A95-2E7C-4789-BCFF-A05507AA8CEE}"
+      DTS:DTSID="{96442ECC-406C-4D8D-9DFB-A31D5D999841}"
       DTS:ObjectName="srcNatName">
       <DTS:Property
         DTS:DataType="8"
@@ -88,7 +88,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{19195D36-B945-45CB-B95B-159CD82F75F9}"
+      DTS:DTSID="{5DFF0807-BFBB-4446-AD14-E74801E3811C}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -98,7 +98,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{ADCAB2B4-260B-40EE-B940-5FC53092EC22}"
+      DTS:DTSID="{9C980765-DD9C-41D6-8DE7-2810369C72B9}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_cardinfo">
@@ -107,7 +107,34 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{64AF01F9-F131-4394-831C-60857314D1A9}"
+      DTS:DTSID="{1B2AB571-DB86-4361-9E7A-C348A1ABD06A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tableName_dwcardapply">
+      <DTS:VariableValue
+        DTS:DataType="8">dwcardapply</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B54E7660-BCB1-49E2-85D4-3292C67B4359}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tableName_dwlable">
+      <DTS:VariableValue
+        DTS:DataType="8">dwlabel</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D6CA66A3-E38B-4260-B80F-DC19FBBB52C3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tableName_dwtransaction">
+      <DTS:VariableValue
+        DTS:DataType="8">dwtransaction</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{15CB1A02-6F41-40C2-90CA-8ECE2E885409}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_level">
@@ -116,7 +143,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{5312F643-8401-40BE-A57F-FF700C0C175C}"
+      DTS:DTSID="{923EC6CE-948F-465D-8630-FC200D030A02}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="tableName_transactionrreply">
@@ -131,7 +158,7 @@
       DTS:refId="Package\執行此cardinfo檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{594510C1-EC79-454C-B354-C2D9B5D7127C}"
+      DTS:DTSID="{C81602CF-41AD-4D4F-ABC9-879E4C9F61D7}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此cardinfo檔案處理流程"
@@ -177,10 +204,157 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\執行此dwcardapply檔案處理流程"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{D6F05661-B2E5-48BB-80CD-A69BF3C03D09}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行此dwcardapply檔案處理流程"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Main_Container_Process.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>concurrentFiles</ParameterName>
+            <BindedVariableOrParameterName>$Package::concurrentFiles</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcNatName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcSysName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcEkorg</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcEkorg</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>tableName</ParameterName>
+            <BindedVariableOrParameterName>User::tableName_dwcardapply</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>mailFrom</ParameterName>
+            <BindedVariableOrParameterName>$Package::mailFrom</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_mailTo</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_mailTo</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcFileFolder</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcFileFolder</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行此dwlabel檔案處理流程"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{C47EDD9E-5A48-4280-A3FD-890A54707133}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行此dwlabel檔案處理流程"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Main_Container_Process.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>concurrentFiles</ParameterName>
+            <BindedVariableOrParameterName>$Package::concurrentFiles</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcNatName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcSysName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcEkorg</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcEkorg</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>tableName</ParameterName>
+            <BindedVariableOrParameterName>User::tableName_dwlable</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>mailFrom</ParameterName>
+            <BindedVariableOrParameterName>$Package::mailFrom</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_mailTo</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_mailTo</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcFileFolder</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcFileFolder</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行此dwtransaction檔案處理流程"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{9DC30103-5C19-4539-858B-0DC60A13B5F3}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行此dwtransaction檔案處理流程"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Main_Container_Process.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>concurrentFiles</ParameterName>
+            <BindedVariableOrParameterName>$Package::concurrentFiles</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcNatName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcNatName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcSysName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcSysName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcEkorg</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcEkorg</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>tableName</ParameterName>
+            <BindedVariableOrParameterName>User::tableName_dwtransaction</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>mailFrom</ParameterName>
+            <BindedVariableOrParameterName>$Package::mailFrom</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_mailTo</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_mailTo</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcFileFolder</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcFileFolder</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\執行此level檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{2A05A160-929E-45F0-B040-AF61D04B6814}"
+      DTS:DTSID="{D967DB9F-09E4-4BFB-BB5D-5A43E4E5E98B}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此level檔案處理流程"
@@ -229,7 +403,7 @@
       DTS:refId="Package\執行此transactionrreply檔案處理流程"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{ADD6C211-4571-49E1-BABD-EB54D6509C18}"
+      DTS:DTSID="{86D6F58B-3D2F-43BA-ADD9-8D283FDFAF12}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="執行此transactionrreply檔案處理流程"
@@ -286,9 +460,9 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="225,42"
+          Size="225.333333333334,42"
           Id="Package\執行此cardinfo檔案處理流程"
           TopLeft="27.7222222222222,39.2037039715567" />
         <GroupLayout
@@ -297,7 +471,7 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="284,136"
-          Size="284,179"
+          Size="284,178.666666666667"
           Id="091d8a77-3e2f-4542-aae3-e687a1c85ee1"
           TopLeft="96.1051599455089,217.7899565491">
           <GroupLayout.ChildrenIds>
@@ -305,7 +479,7 @@
           </GroupLayout.ChildrenIds>
         </GroupLayout>
         <NodeLayout
-          Size="209,42"
+          Size="209.333333333334,42"
           Id="Package\執行此level檔案處理流程"
           TopLeft="26.6111111111111,43.0555558540202" />
         <GroupLayout
@@ -314,9 +488,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="284,138"
-          Size="284,181"
+          Size="284,181.333333333334"
           Id="bebd32bf-3c0c-4ee2-89dc-cf48d036aeee"
-          TopLeft="284.218898173811,433.636432052475">
+          TopLeft="104.218898173811,429.436432011149">
           <GroupLayout.ChildrenIds>
             <s:String>Package\執行此level檔案處理流程</s:String>
           </GroupLayout.ChildrenIds>
@@ -325,11 +499,11 @@
           Text=""
           ParentId="Package"
           FontInfo="{x:Null}"
-          Size="29,39"
+          Size="29.3333333333334,39.3333333333334"
           Id="5211ad25-9e01-4a21-93da-ba76cc999c5d"
           TopLeft="624.074049275599,1395.87299025518" />
         <NodeLayout
-          Size="263,42"
+          Size="262.666666666667,42"
           Id="Package\執行此transactionrreply檔案處理流程"
           TopLeft="29.9444444444445,26.6851853535499" />
         <GroupLayout
@@ -338,7 +512,7 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="314,124"
-          Size="314,167"
+          Size="314,166.666666666667"
           Id="7ecbc405-6017-4ab2-a10e-f03c17784e67"
           TopLeft="497.177208094582,224.390043169659">
           <GroupLayout.ChildrenIds>
@@ -346,12 +520,63 @@
           </GroupLayout.ChildrenIds>
         </GroupLayout>
         <AnnotationLayout
-          Text="「MaxConcurrentExecutables」屬性，&#xD;&#xA;以此控制可平行執行ETL作業流程的資料表上限。"
+          Text="「MaxConcurrentExecutables」屬性，&#xA;以此控制可平行執行ETL作業流程的資料表上限。"
           ParentId="Package"
           FontInfo="{x:Null}"
-          Size="288,60"
+          Size="288,54.6666666666667"
           Id="9fcad901-f064-4248-b621-5026bd5aed67"
           TopLeft="155,127.066667231454" />
+        <NodeLayout
+          Size="209.333333333334,42"
+          Id="Package\執行此dwcardapply檔案處理流程"
+          TopLeft="26.6111111111111,43.0555558540202" />
+        <GroupLayout
+          Text="dwcardapply"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="284,138"
+          Size="284,181.333333333334"
+          Id="75274c17-75a5-414d-a73c-a30115c27faa"
+          TopLeft="484,425.000001239777">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\執行此dwcardapply檔案處理流程</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="209.333333333334,42"
+          Id="Package\執行此dwtransaction檔案處理流程"
+          TopLeft="26.6111111111111,43.0555558540202" />
+        <GroupLayout
+          Text="dwtransaction"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="284,138"
+          Size="284,181.333333333334"
+          Id="51d0e3be-7df7-4500-9e85-889847821680"
+          TopLeft="101,641.000002169609">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\執行此dwtransaction檔案處理流程</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="209.333333333334,42"
+          Id="Package\執行此dwlabel檔案處理流程"
+          TopLeft="26.6111111111111,43.0555558540202" />
+        <GroupLayout
+          Text="dwlabel"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="284,138"
+          Size="284,180.666666666667"
+          Id="89f62975-1876-4ced-919d-c28931c2c6bc"
+          TopLeft="473,641.333334607548">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\執行此dwlabel檔案處理流程</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
