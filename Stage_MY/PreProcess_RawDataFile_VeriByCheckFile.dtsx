@@ -1,0 +1,1823 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/21/2018 11:53:06 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1701003NB01"
+  DTS:CreatorName="IEAD\1701003"
+  DTS:DTSID="{014D4D69-3B01-42AA-93D2-59E239499AED}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:ForceExecutionResult="0"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="PreProcess_RawDataFile_VeriByCheckFile"
+  DTS:PackageType="5"
+  DTS:VersionBuild="152"
+  DTS:VersionGUID="{4831CE1B-0305-4B5C-B03E-6A229F295EE7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{986D5EF8-AD43-459D-92A3-BF059E487DD7}"
+      DTS:ObjectName="dbTableName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SP01</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{1D2FF9AE-D751-49DA-A5EC-8761D2528FDA}"
+      DTS:ObjectName="param_fileStatusCheckFileVeriFailBoth">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{2F182A86-4B92-4613-AF97-33E81D7AD5B1}"
+      DTS:ObjectName="param_fileStatusCheckFileVeriFailChecksum">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{C896E039-3F00-480E-BA15-5611583AFA24}"
+      DTS:ObjectName="param_fileStatusCheckFileVeriFailRowcount">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{0328A990-0E0D-44C4-A950-E4E73BF960B1}"
+      DTS:ObjectName="param_fileStatusCheckFileVeriPass">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{BC693D62-D7E5-4085-AE21-32046A935937}"
+      DTS:ObjectName="param_fileStatusETLPrestage">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{FA5D37AF-66F0-4656-BCF2-8019C6F680DC}"
+      DTS:ObjectName="param_fileStatusKeepPoolingCheckfile">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{08381934-98FC-4C20-B7E3-876E924BC07C}"
+      DTS:ObjectName="param_poolingNeedVeriButWithoutCheckFileMins">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{957F312F-3671-4414-80CC-51499C3E4BC5}"
+      DTS:ObjectName="srcEkorg">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">EADB</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{BF9A2616-1003-420D-86CB-0B581B4C4A81}"
+      DTS:ObjectName="srcEncodedFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{E5470E3B-4707-468F-AD46-E0F3D1F6612E}"
+      DTS:ObjectName="srcErrorFileFolder">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8C4783DE-B959-4435-814E-8542876F67E0}"
+      DTS:ObjectName="srcNatName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">TW</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{2E601B9E-9299-4958-AA86-932733219F96}"
+      DTS:ObjectName="srcOngoingFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\1703001\Desktop\SAP test\ODSSAP-SP02-IU-20190329-01.PUB</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C2FB403D-DD77-4755-A71F-36356FAFDD6C}"
+      DTS:ObjectName="srcRawDataFileName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">ODSSAP-SP02-IU-20190329-01.PUB</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{D3185BA2-33AE-4114-A2B6-4B520DEA01F7}"
+      DTS:ObjectName="srcRawDataFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\1703001\Desktop\SAP test\ODSSAP-SP02-IU-20190329-01.PUB</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{240FFFD7-0EB6-49EC-9255-F7E6A29DF817}"
+      DTS:ObjectName="srcSysName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SAP</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0A748855-9C9E-455D-B70A-6D2D4263AFA2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="checkValue">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BA0DEF12-310B-4759-B051-C08251A16A03}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;  if not exists (SELECT CHECK_VALUE FROM [dbo].[STAGE_TAB_ACT] WHERE NATIONALITY = '&quot;+ @[$Package::srcNatName] +&quot;' AND  SYS_NAME = '&quot;+@[$Package::srcSysName]+&quot;' AND EKORG = '&quot;+@[$Package::srcEkorg]+&quot;' AND TABLE_NAME = '&quot;+ @[$Package::dbTableName] +&quot;' )&#xA;&#x9;begin&#xA;&#x9;&#x9;INSERT INTO [dbo].[STAGE_TAB_ACT] (NATIONALITY,SYS_NAME,EKORG,TABLE_NAME,TABLE_ORDER,CHECK_VALUE,UPDATE_USER,UPDATE_DATE)&#xA;&#x9;&#x9;VALUES('&quot;+@[$Package::srcNatName]+&quot;',&#xA;&#x9;&#x9;&#x9;&#x9;'&quot;+ @[$Package::srcSysName] +&quot;',&#xA;&#x9;&#x9;&#x9;&#x9;'&quot;+ @[$Package::srcEkorg] +&quot;',&#xA;&#x9;&#x9;&#x9;&#x9;'&quot;+ @[$Package::dbTableName] +&quot;',&#xA;&#x9;&#x9;&#x9;&#x9;1,&#xA;&#x9;&#x9;&#x9;&#x9;'Y',&#xA;&#x9;&#x9;&#x9;&#x9;'SYS',GETDATE())&#xA;&#x9;end;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sqlQueryCheckList">
+      <DTS:VariableValue
+        DTS:DataType="8">  if not exists (SELECT CHECK_VALUE FROM [dbo].[STAGE_TAB_ACT] WHERE NATIONALITY = 'TW' AND  SYS_NAME = 'SAP' AND EKORG = 'EADB' AND TABLE_NAME = 'SP01' )
+	begin
+		INSERT INTO [dbo].[STAGE_TAB_ACT] (NATIONALITY,SYS_NAME,EKORG,TABLE_NAME,TABLE_ORDER,CHECK_VALUE,UPDATE_USER,UPDATE_DATE)
+		VALUES('TW',
+				'SAP',
+				'EADB',
+				'SP01',
+				1,
+				'Y',
+				'SYS',GETDATE())
+	end;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7850A127-6E09-41C1-811E-C2BDF6104252}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="srcCheckSum">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7A61AEC1-4670-4386-AE1F-FA1A15A3B54E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="srcFileHeaderRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BBB97D4D-54DA-4A3C-9062-B6F6E2DD832E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="srcRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\【更新檔案狀態】 執行 checkfile 驗證 - 狀態更新為 checkfile驗證通過"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{033e8aef-a6af-437f-bf94-156011517874}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="【更新檔案狀態】 執行 checkfile 驗證 - 狀態更新為 checkfile驗證通過"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Util_File_Status_Change.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>fileName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcRawDataFileName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>fileStatus</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_fileStatusCheckFileVeriPass</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\【更新檔案狀態】 執行 checkfile 驗證 - 狀態更新為 寫入prestage資料表中"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{50c03035-a5d4-424a-8000-98717fc955cb}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="【更新檔案狀態】 執行 checkfile 驗證 - 狀態更新為 寫入prestage資料表中"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Util_File_Status_Change.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>fileName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcRawDataFileName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>fileStatus</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_fileStatusETLPrestage</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\【更新檔案狀態】 持續找不到checkfile資訊，且超過系統設定時間 - 狀態更新為寫入prestage資料表中"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{b131839c-d88a-4685-9b4f-2b28984a6054}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="【更新檔案狀態】 持續找不到checkfile資訊，且超過系統設定時間 - 狀態更新為寫入prestage資料表中"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Util_File_Status_Change.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>fileName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcRawDataFileName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>fileStatus</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_fileStatusETLPrestage</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\【更新檔案狀態】 無需做checkfile驗證 - 狀態更新為寫入prestage資料表中"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{d1245143-7791-4859-a018-f6d0404d9152}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="【更新檔案狀態】 無需做checkfile驗證 - 狀態更新為寫入prestage資料表中"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Util_File_Status_Change.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>fileName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcRawDataFileName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>fileStatus</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_fileStatusETLPrestage</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\【更新檔案狀態】 狀態為 仍可持續掃描對應的check file"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{13abfafe-69b4-4012-853a-655b5f9ca15d}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="【更新檔案狀態】 狀態為 仍可持續掃描對應的check file"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>Util_File_Status_Change.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>fileName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcRawDataFileName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>fileStatus</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_fileStatusKeepPoolingCheckfile</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>fileName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcRawDataFileName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>fileStatus</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_fileStatusKeepPoolingCheckfile</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行 checkfile 驗證"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="執行 SQL 工作"
+      DTS:DTSID="{DEEB0626-4634-4122-BAB9-D3FC755B0B9C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行 checkfile 驗證"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{03CA2D3E-F4F8-40A7-85A4-F81AB71ED870}"
+          SQLTask:SqlStatementSource="select CASE WHEN ISNULL(ROW_COUNT_REAL,0) = ISNULL(ROW_COUNT,0) and ISNULL(CHECK_SUM_REAL,'') = ISNULL(CHECK_SUM,'') THEN 'Y' ELSE 'N' END&#xA;  from dbo.FILE_REC&#xA; where FILE_NAME = ? and SYS_NAME = ? and EXECUTIONID = ?"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::checkValue" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::srcRawDataFileName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Package::srcSysName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="System::ServerExecutionID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行 checkfile 驗證 - 仍沒有對應的 checkfile 資料可供驗證"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="執行 SQL 工作"
+      DTS:DTSID="{c7bd36bd-0b0f-4d4d-ba99-c332873c3721}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行 checkfile 驗證 - 仍沒有對應的 checkfile 資料可供驗證"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{03CA2D3E-F4F8-40A7-85A4-F81AB71ED870}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="select ISNULL(MIN(convert(varchar, ETL_FILE_LOADED_DATE, 101)),'N') AS ETL_FILE_LOADED_TIME  FROM FILE_REC &#xA;WHERE FILE_NAME = ?&#xA; and  GETDATE() &lt; DATEADD(MINUTE,?,ETL_FILE_LOADED_DATE)"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::checkValue" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::srcRawDataFileName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="0" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Package::param_poolingNeedVeriButWithoutCheckFileMins"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="0" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行 checkfile 驗證 - 從 dbo FILE_REC中取得資料檔應有的 資料筆數 與 checksum"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="執行 SQL 工作"
+      DTS:DTSID="{33643886-c5e2-4d59-ba84-0c543e92d0c3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行 checkfile 驗證 - 從 dbo FILE_REC中取得資料檔應有的 資料筆數 與 checksum"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{03CA2D3E-F4F8-40A7-85A4-F81AB71ED870}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="SELECT isnull(ROW_COUNT,0) ROW_COUNT,&#xA; isnull(CHECK_SUM,'') CHECK_SUM&#xA; FROM FILE_REC  WHERE FILE_NAME = ?"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::srcRowCount" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="1"
+            SQLTask:DtsVariableName="User::srcCheckSum" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::srcRawDataFileName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="0" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行 checkfile 驗證 - 檢核不通過"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{0427b40e-fc75-4a6e-95a5-35cf3cd8de5f}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行 checkfile 驗證 - 檢核不通過"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>PreProcess_RawDataFile_VeriByCheckFileFail.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>srcEncodedFilePath</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcEncodedFilePath</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcErrorFileFolder</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcErrorFileFolder</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcOngoingFilePath</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcOngoingFilePath</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcRawDataFileName</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcRawDataFileName</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>srcRawDataFilePath</ParameterName>
+            <BindedVariableOrParameterName>$Package::srcRawDataFilePath</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_fileStatusCheckFileVeriFailBoth</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_fileStatusCheckFileVeriFailBoth</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_fileStatusCheckFileVeriFailChecksum</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_fileStatusCheckFileVeriFailChecksum</BindedVariableOrParameterName>
+          </ParameterAssignment>
+          <ParameterAssignment>
+            <ParameterName>param_fileStatusCheckFileVeriFailRowcount</ParameterName>
+            <BindedVariableOrParameterName>$Package::param_fileStatusCheckFileVeriFailRowcount</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\從 dbo STAGE_TAB_ACT 判斷資料檔是否要做 checkfile 驗證"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="執行 SQL 工作"
+      DTS:DTSID="{6a08a959-b7e8-4d17-8b27-2cc7364a5be7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="5"
+      DTS:ObjectName="從 dbo STAGE_TAB_ACT 判斷資料檔是否要做 checkfile 驗證"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F1F1D88D-9B56-4830-8096-6067D3DB3248}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="select CHECK_VALUE &#xA;FROM [dbo].[STAGE_TAB_ACT] &#xA;WHERE NATIONALITY = ? &#xA;AND SYS_NAME = ?&#xA;AND EKORG = ?&#xA;AND TABLE_NAME = ? "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::checkValue" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::srcNatName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Package::srcSysName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="$Package::dbTableName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="$Package::srcEkorg"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\檢查 dbo STAGE_TAB_ACT 是否有資料檔對應的資料表紀錄，若無，則由系統自動新增"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="執行 SQL 工作"
+      DTS:DTSID="{1502A635-6154-4C7F-9A62-08BFF8C49705}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="檢查 dbo STAGE_TAB_ACT 是否有資料檔對應的資料表紀錄，若無，則由系統自動新增"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F1F1D88D-9B56-4830-8096-6067D3DB3248}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStmtSourceType="Variable"
+          SQLTask:SqlStatementSource="User::sqlQueryCheckList" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\還沒超過使用者允許持續掃描對應 checkfile 的時間上限，執行檔案工作允許該資料檔被重新掃描"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="指令碼工作"
+      DTS:DTSID="{aee5a2c7-e2e6-4fb8-9f43-78c0df31dc06}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="2"
+      DTS:ObjectName="還沒超過使用者允許持續掃描對應 checkfile 的時間上限，執行檔案工作允許該資料檔被重新掃描"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_fac34a3717d640b387f4f86ce28dd3b6"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadOnlyVariables="$Package::srcEkorg,$Package::srcEncodedFilePath,$Package::srcOngoingFilePath,$Package::srcRawDataFilePath">
+          <ProjectItem
+            Name="ST_fac34a3717d640b387f4f86ce28dd3b6.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{e4d7dbc2-a5dc-43c5-ab78-a47ed8085530}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_fa63f52061d144388042db205dee6fba</RootNamespace>
+    <AssemblyName>ST_fac34a3717d640b387f4f86ce28dd3b6</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST140</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_fa63f52061d144388042db205dee6fba.Properties.Settings.get_Default():ST_fa63f52061d144388042db205dee6fba.Properties.Sett" +
+    "ings")]
+
+namespace ST_fa63f52061d144388042db205dee6fba.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using System.IO;
+using System.Threading;
+using System.Security.Cryptography;
+#endregion
+
+namespace ST_fa63f52061d144388042db205dee6fba
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            // 1. delete T 檔
+            string srcEncodedFilePaths = Dts.Variables["$Package::srcEncodedFilePath"].Value.ToString();
+            string srcEkorg = Dts.Variables["$Package::srcEkorg"].Value.ToString();
+            string[] srcEncodedFilePath = srcEncodedFilePaths.Split(';');
+            foreach(string sefp in srcEncodedFilePath)
+            {
+                if (System.IO.File.Exists(sefp))
+                {
+                    System.IO.File.Delete(sefp);
+                }
+                else
+                {
+                    Dts.TaskResult = (int)ScriptResults.Failure;
+                    break;
+                }
+            }
+
+            // 2. delete raw data file
+            string srcRawDatadFilePath = Dts.Variables["$Package::srcRawDataFilePath"].Value.ToString();
+            if (System.IO.File.Exists(srcRawDatadFilePath))
+            {
+                System.IO.File.Delete(srcRawDatadFilePath);
+            }
+            else
+            {
+                Dts.TaskResult = (int)ScriptResults.Failure;
+            }
+            // 3. move ongoing to soure folder
+            string srcOngoingFilePath = Dts.Variables["$Package::srcOngoingFilePath"].Value.ToString();
+            string srcRawDataFilePath = Dts.Variables["$Package::srcRawDataFilePath"].Value.ToString();
+            if (System.IO.File.Exists(srcOngoingFilePath))
+            {
+                System.IO.File.Move(srcOngoingFilePath, srcRawDataFilePath);
+                if (!String.IsNullOrWhiteSpace(srcEkorg))
+                {
+                    // 重新rename檔名
+                    FileInfo file = new FileInfo(srcRawDataFilePath);
+                    string path = Path.GetDirectoryName(srcRawDataFilePath);
+                    string renameFile = file.Name.Replace("-" + srcEkorg, "");
+                    File.Move(path + "\\" + file.Name, path + "\\" + renameFile);
+
+                    Variables vars = null;
+                    Dts.VariableDispenser.LockForWrite("User::srcRawDataFileName");
+                    Dts.VariableDispenser.GetVariables(ref vars);
+                    vars["User::srcRawDataFileName"].Value = renameFile;
+                    vars.Unlock();
+                }                
+            }
+            else
+            {
+                Dts.TaskResult = (int)ScriptResults.Failure;
+            }
+        }
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_fac34a3717d640b387f4f86ce28dd3b6</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_fac34a3717d640b387f4f86ce28dd3b6</msb:DisplayName>
+    <msb:ProjectId>{2B24811E-CA62-41EF-92CD-5BC874775935}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_fac34a3717d640b387f4f86ce28dd3b6.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+    <msb:Breakpoint Include="d3de708d5fb345709e713d499d8dbd0d">
+      <msb:FileName>ScriptMain.cs</msb:FileName>
+      <msb:ColumnNumber>17</msb:ColumnNumber>
+      <msb:Enabled>True</msb:Enabled>
+      <msb:LineNumber>130</msb:LineNumber>
+      <msb:Condition>
+      </msb:Condition>
+      <msb:ConditionType>1</msb:ConditionType>
+      <msb:Language>C#</msb:Language>
+      <msb:HitCountType>1</msb:HitCountType>
+      <msb:HitCountTarget>1</msb:HitCountTarget>
+    </msb:Breakpoint>
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_fa63f52061d144388042db205dee6fba")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_fa63f52061d144388042db205dee6fba")]
+[assembly: AssemblyCopyright("Copyright @  2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_fa63f52061d144388042db205dee6fba.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_fa63f52061d144388042db205dee6fba.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_fa63f52061d144388042db205dee6fba.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_fa63f52061d144388042db205dee6fba.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_fa63f52061d144388042db205dee6fba.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_fac34a3717d640b387f4f86ce28dd3b6.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAHc2310AAAAAAAAAAOAAIiALATAAABIAAAAIAAAAAAAA2jEA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAIgxAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA4BEAAAAgAAAAEgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAAUAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAC8
+MQAAAAAAAEgAAAACAAUAjCIAAEQOAAABAAAAAAAAANAwAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwBQDKAQAAAQAAEQIoEAAACm8RAAAKcgEAAHBvEgAACm8T
+AAAKbxQAAAoCKBAAAApvEQAACnI7AABwbxIAAApvEwAACm8UAAAKCheNHAAAASUWHzudbxUAAAoT
+BBYTBSstEQQRBZoTBhEGKBYAAAosCREGKBcAAAorDgIoEAAAChdvGAAACisOEQUXWBMFEQURBI5p
+MssCKBAAAApvEQAACnJhAABwbxIAAApvEwAACm8UAAAKCwcoFgAACiwIBygXAAAKKwwCKBAAAAoX
+bxgAAAoCKBAAAApvEQAACnKbAABwbxIAAApvEwAACm8UAAAKDAIoEAAACm8RAAAKcmEAAHBvEgAA
+Cm8TAAAKbxQAAAoNCCgWAAAKOasAAAAICSgZAAAKBigaAAAKOqUAAAAJcxsAAAoTBwkoHAAAChMI
+EQdvHQAACnLVAABwBigeAAAKctkAAHBvHwAAChMJEQhy2wAAcBEHbx0AAAooIAAAChEIctsAAHAR
+CSggAAAKKBkAAAoUEwoCKBAAAApvIQAACnLfAABwbyIAAAoCKBAAAApvIQAAChIKbyMAAAoRCnLf
+AABwbxIAAAoRCW8kAAAKEQpvJQAACioCKBAAAAoXbxgAAAoqHgIoJgAACioeAignAAAKKq5+AQAA
+BC0echEBAHDQAwAAAigoAAAKbykAAApzKgAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4D
+AAAEKh4CKCsAAAoqLnMIAAAGgAMAAAQqQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBs
+AAAASAQAACN+AAC0BAAASAYAACNTdHJpbmdzAAAAAPwKAACEAQAAI1VTAIAMAAAQAAAAI0dVSUQA
+AACQDAAAtAEAACNCbG9iAAAAAAAAAAIAAAFXHaIBCQMAAAD6ATMAFgAAAQAAACQAAAAFAAAABgAA
+AAkAAAABAAAAKwAAAAIAAAAQAAAAAQAAAAIAAAADAAAABAAAAAEAAAAEAAAAAQAAAAEAAAAAAAwE
+AQAAAAAABgChAg8FBgAwAw8FBgDtAfwEDwCDBQAABgAaAooEBgCEAooEBgBlAooEBgAXA4oEBgDB
+AooEBgDaAooEBgAxAooEBgBMAm0DCgD1ArsDCgBYAbsDBgCcBC4ADgDSBQMBBgBEBD0EBgDQAfwE
+BgARBj0EBgDJBC8FBgClBHUEEgCMAfYDEgABAvYDEgB0AWAEBgC1AQ8FCgDkA7sDDgC3AAMBBgDA
+BD0EBgCJAz0EBgDkAC4ABgCQAy4ABgCxBC4ADgDdBAMBBgAjAT0EBgDAAD0EBgA9BooEAAAAACUA
+AAAAAAEAAQABABAAVQRfADkAAQABAAAAEAA2BZIFTQABAAMAAAEQANwFkgVhAAMABwADAQAA9QUA
+AEUABAAKABEASQS4ABEASAG8ABEApwDAAAYGVwDEAFaA5QXHAFaAKAHHAFAgAAAAAIYAWwQGAAEA
+JiIAAAAAhhjvBAYAAQAuIgAAAACDGO8EBgABADYiAAAAAJMIxQTLAAEAYiIAAAAAkwgwAdAAAQBp
+IgAAAACTCDwB1QABAHEiAAAAAJYIHgbbAAIAeCIAAAAAhhjvBAYAAgCAIgAAAACRGPUE4AACAAAA
+AQBiAwkA7wQBABEA7wQGABkA7wQKACkA7wQQADEA7wQQADkA7wQQAEEA7wQQAEkA7wQQAFEA7wQQ
+AFkA7wQQAGEA7wQQAGkA7wQGAJEA7wQGALkA7wQVAMkA7wQGAHEA7QUsANEAwQUxAIEANAQ2ANkA
+TgM8AJkAhwNAAOkAGAZEAPEAAwZLAPEAoQFQANEAKgYBAPEAaANVAOkAlABLAHkA7wQQAPkA8gBb
+AAEB6QBAAOkACgZgAOkAjABmAOkACgZsANEA2QRzAAkBqAEQAAkBzwV5ANkAWAOAAIEAlQMGAHEA
+7wQGAJkA7wQGABEB0gCFABEBOQaOAKEA7wSUAMEA7wQGAAgAFACuAAgAGACzACkAcwAbAS4ACwDz
+AC4AEwD8AC4AGwAbAS4AIwAkAS4AKwBNAS4AMwBNAS4AOwBNAS4AQwAkAS4ASwBTAS4AUwBNAS4A
+WwBqAUMAYwCzAEkAcwAbAWEAewCzAGMAawCzABsAAwABAAQAAwAAAMkE5AAAAFAB6QAAACIG7gAC
+AAQAAwACAAUABQABAAYABQACAAcABwAEgAAAAQAAAGcce0wAAAAAAAABAAAABAAAAAAAAAAAAAAA
+nACDAAAAAAAOAAAAAAAAAAAAAAClAJwDAAAAAA4AAAAAAAAAAAAAAKUAOAAAAAAABAAAAAAAAAAA
+AAAAnAA9BAAAAAAAAAAAAQAAAEAFAAAFAAIAAAAAAABTVF9mYWMzNGEzNzE3ZDY0MGIzODdmNGY4
+NmNlMjhkZDNiNgA8TW9kdWxlPgBTeXN0ZW0uSU8ATWljcm9zb2Z0LlNxbFNlcnZlci5NYW5hZ2Vk
+RFRTAHZhbHVlX18AU1RfZmE2M2Y1MjA2MWQxNDQzODgwNDJkYjIwNWRlZTZmYmEAbXNjb3JsaWIA
+UmVwbGFjZQBJc051bGxPcldoaXRlU3BhY2UAZGVmYXVsdEluc3RhbmNlAFZhcmlhYmxlAFJ1bnRp
+bWVUeXBlSGFuZGxlAEdldFR5cGVGcm9tSGFuZGxlAEZpbGUAZ2V0X05hbWUAR2V0RGlyZWN0b3J5
+TmFtZQBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5SdW50aW1lAFR5cGUARmFpbHVyZQBnZXRfQ3Vs
+dHVyZQBzZXRfQ3VsdHVyZQByZXNvdXJjZUN1bHR1cmUAVlNUQVJUU2NyaXB0T2JqZWN0TW9kZWxC
+YXNlAEFwcGxpY2F0aW9uU2V0dGluZ3NCYXNlAEVkaXRvckJyb3dzYWJsZVN0YXRlAERlbGV0ZQBM
+b2NrRm9yV3JpdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25Vc2VyQ29k
+ZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBB
+c3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRhcmdldEZy
+YW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlE
+ZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRlAEFzc2Vt
+Ymx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lTU2NyaXB0
+VGFza0VudHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVD
+b21wYXRpYmlsaXR5QXR0cmlidXRlAGdldF9WYWx1ZQBzZXRfVmFsdWUAdmFsdWUATW92ZQBTeXN0
+ZW0uUnVudGltZS5WZXJzaW9uaW5nAFRvU3RyaW5nAFBhdGgAVW5sb2NrAE1pY3Jvc29mdC5TcWxT
+ZXJ2ZXIuU2NyaXB0VGFzawBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5UYXNrcy5TY3JpcHRUYXNr
+AFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25lbnRNb2RlbABTVF9mYWMzNGEzNzE3ZDY0
+MGIzODdmNGY4NmNlMjhkZDNiNi5kbGwAZ2V0X0l0ZW0AU3lzdGVtAEVudW0AcmVzb3VyY2VNYW4A
+U2NyaXB0TWFpbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBTeXN0
+ZW0uUmVmbGVjdGlvbgBGaWxlSW5mbwBDdWx0dXJlSW5mbwBGaWxlU3lzdGVtSW5mbwBDaGFyAGdl
+dF9SZXNvdXJjZU1hbmFnZXIAZ2V0X1ZhcmlhYmxlRGlzcGVuc2VyAC5jdG9yAC5jY3RvcgBTeXN0
+ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVz
+b3VyY2VzAFNUX2ZhNjNmNTIwNjFkMTQ0Mzg4MDQyZGIyMDVkZWU2ZmJhLlByb3BlcnRpZXMuUmVz
+b3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTVF9mYTYzZjUyMDYxZDE0NDM4ODA0MmRi
+MjA1ZGVlNmZiYS5Qcm9wZXJ0aWVzAGdldF9WYXJpYWJsZXMAR2V0VmFyaWFibGVzAFNldHRpbmdz
+AFN1Y2Nlc3MAZ2V0X0R0cwBTY3JpcHRSZXN1bHRzAEV4aXN0cwBDb25jYXQAT2JqZWN0AFNwbGl0
+AGdldF9EZWZhdWx0AHNldF9UYXNrUmVzdWx0AGdldF9Bc3NlbWJseQAAAAA5JABQAGEAYwBrAGEA
+ZwBlADoAOgBzAHIAYwBFAG4AYwBvAGQAZQBkAEYAaQBsAGUAUABhAHQAaAAAJSQAUABhAGMAawBh
+AGcAZQA6ADoAcwByAGMARQBrAG8AcgBnAAA5JABQAGEAYwBrAGEAZwBlADoAOgBzAHIAYwBSAGEA
+dwBEAGEAdABhAEYAaQBsAGUAUABhAHQAaAAAOSQAUABhAGMAawBhAGcAZQA6ADoAcwByAGMATwBu
+AGcAbwBpAG4AZwBGAGkAbABlAFAAYQB0AGgAAAMtAAEBAANcAAAxVQBzAGUAcgA6ADoAcwByAGMA
+UgBhAHcARABhAHQAYQBGAGkAbABlAE4AYQBtAGUAAHFTAFQAXwBmAGEANgAzAGYANQAyADAANgAx
+AGQAMQA0ADQAMwA4ADgAMAA0ADIAZABiADIAMAA1AGQAZQBlADYAZgBiAGEALgBQAHIAbwBwAGUA
+cgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAA+fqhDzSV/SINi3/RSbhPjAAQgAQEIAyAA
+AQUgAQEREQQgAQEOBSABARFZEAcLDg4ODh0OCA4SPQ4OEkEEIAASaQQgABJBBSABEm0cAyAAHAMg
+AA4GIAEdDh0DBAABAg4EAAEBDgUAAgEODgQAAQ4OBQACDg4OBSACDg4OBgADDg4ODgUgABKAhQYg
+AQEQEkEEIAEBHAgAARKAiRGAjQUgABKAkQcgAgEOEoCRCLd6XFYZNOCJCImEXc2AgMyRBAAAAAAE
+AQAAAAMGElEDBhJVAwYSEAIGCAMGERQEAAASUQQAABJVBQABARJVBAAAEhADAAABBAgAElEECAAS
+VQQIABIQCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgB
+ACNTVF9mYTYzZjUyMDYxZDE0NDM4ODA0MmRiMjA1ZGVlNmZiYQAABQEAAAAAFgEAEUNvcHlyaWdo
+dCBAICAyMDE4AABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rp
+c3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNbQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291
+cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1u
+ZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMu
+UnVudGltZVJlc291cmNlU2V0AgAAAAAAAAAAAAAAUEFEUEFEULQAAACwMQAAAAAAAAAAAADKMQAA
+ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvDEAAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVl
+LmRsbAAAAAAA/yUAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAEAEAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAA
+AEgAAABYQAAAGgQAAAAAAAAAAAAAGgQ0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8A
+AAAAAL0E7/4AAAEAAAABAHtMZxwAAAEAe0xnHD8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABE
+AAAAAQBWAGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8A
+bgAAAAAAAACwBHoDAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAAFYDAAABADAAMAAw
+ADAAMAA0AGIAMAAAABoAAQABAEMAbwBtAG0AZQBuAHQAcwAAAAAAAAAiAAEAAQBDAG8AbQBwAGEA
+bgB5AE4AYQBtAGUAAAAAAAAAAABwACQAAQBGAGkAbABlAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAA
+AAAAUwBUAF8AZgBhADYAMwBmADUAMgAwADYAMQBkADEANAA0ADMAOAA4ADAANAAyAGQAYgAyADAA
+NQBkAGUAZQA2AGYAYgBhAAAAPgAPAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBuAAAAAAAxAC4AMAAu
+ADcAMgA3ADEALgAxADkANQA3ADkAAAAAAHAAKAABAEkAbgB0AGUAcgBuAGEAbABOAGEAbQBlAAAA
+UwBUAF8AZgBhAGMAMwA0AGEAMwA3ADEANwBkADYANAAwAGIAMwA4ADcAZgA0AGYAOAA2AGMAZQAy
+ADgAZABkADMAYgA2AC4AZABsAGwAAABIABIAAQBMAGUAZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQA
+AABDAG8AcAB5AHIAaQBnAGgAdAAgAEAAIAAgADIAMAAxADgAAAAqAAEAAQBMAGUAZwBhAGwAVABy
+AGEAZABlAG0AYQByAGsAcwAAAAAAAAAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4A
+YQBtAGUAAABTAFQAXwBmAGEAYwAzADQAYQAzADcAMQA3AGQANgA0ADAAYgAzADgANwBmADQAZgA4
+ADYAYwBlADIAOABkAGQAMwBiADYALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0A
+ZQAAAAAAUwBUAF8AZgBhADYAMwBmADUAMgAwADYAMQBkADEANAA0ADMAOAA4ADAANAAyAGQAYgAy
+ADAANQBkAGUAZQA2AGYAYgBhAAAAQgAPAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAA
+MQAuADAALgA3ADIANwAxAC4AMQA5ADUANwA5AAAAAABGAA8AAQBBAHMAcwBlAG0AYgBsAHkAIABW
+AGUAcgBzAGkAbwBuAAAAMQAuADAALgA3ADIANwAxAC4AMQA5ADUANwA5AAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAADAAAANwxAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
+          <Breakpoint
+            Enabled="True"
+            File="ScriptMain.cs"
+            Line="130"
+            Column="17" />
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束]"
+      DTS:CreationName=""
+      DTS:DTSID="{1CC08E56-653D-4F59-B369-7A184619C0E1}"
+      DTS:From="Package\檢查 dbo STAGE_TAB_ACT 是否有資料檔對應的資料表紀錄，若無，則由系統自動新增"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束"
+      DTS:To="Package\從 dbo STAGE_TAB_ACT 判斷資料檔是否要做 checkfile 驗證" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{67BF1B70-8B36-4E05-8C95-9AEEBF09353F}"
+      DTS:EvalOp="3"
+      DTS:Expression="LEN( TRIM(  @[User::srcCheckSum] )  )&gt;0"
+      DTS:From="Package\執行 checkfile 驗證 - 從 dbo FILE_REC中取得資料檔應有的 資料筆數 與 checksum"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 1"
+      DTS:To="Package\執行 checkfile 驗證" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{2E5140D8-9043-4148-82F0-1D289CF456DC}"
+      DTS:EvalOp="3"
+      DTS:Expression="LEN( TRIM(  @[User::srcCheckSum] )  ) == 0"
+      DTS:From="Package\執行 checkfile 驗證 - 從 dbo FILE_REC中取得資料檔應有的 資料筆數 與 checksum"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 10"
+      DTS:To="Package\執行 checkfile 驗證 - 仍沒有對應的 checkfile 資料可供驗證" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{4737A7EF-C8FA-448D-9EB4-50A3DBE6BA55}"
+      DTS:From="Package\【更新檔案狀態】 執行 checkfile 驗證 - 狀態更新為 checkfile驗證通過"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 12"
+      DTS:To="Package\【更新檔案狀態】 執行 checkfile 驗證 - 狀態更新為 寫入prestage資料表中" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 13]"
+      DTS:CreationName=""
+      DTS:DTSID="{F8524144-B724-4704-B16E-F5562306D60F}"
+      DTS:From="Package\還沒超過使用者允許持續掃描對應 checkfile 的時間上限，執行檔案工作允許該資料檔被重新掃描"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 13"
+      DTS:To="Package\【更新檔案狀態】 狀態為 仍可持續掃描對應的check file" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{2C8D2F81-14D3-4609-B810-2BA9CA5C8D9C}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::checkValue] == &quot;N&quot;"
+      DTS:From="Package\從 dbo STAGE_TAB_ACT 判斷資料檔是否要做 checkfile 驗證"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 2"
+      DTS:To="Package\【更新檔案狀態】 無需做checkfile驗證 - 狀態更新為寫入prestage資料表中" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{0727D109-75F8-479C-923F-1AF59585A330}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::checkValue] == &quot;Y&quot;"
+      DTS:From="Package\執行 checkfile 驗證"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 3"
+      DTS:To="Package\【更新檔案狀態】 執行 checkfile 驗證 - 狀態更新為 checkfile驗證通過" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{A68FA4B2-3F6F-4DA3-BFFA-5F16CD6DD8B2}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::checkValue] == &quot;Y&quot;"
+      DTS:From="Package\從 dbo STAGE_TAB_ACT 判斷資料檔是否要做 checkfile 驗證"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 4"
+      DTS:To="Package\執行 checkfile 驗證 - 從 dbo FILE_REC中取得資料檔應有的 資料筆數 與 checksum" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{030B2873-819E-464F-A9C6-192AFE7B15E0}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::checkValue] != &quot;Y&quot;"
+      DTS:From="Package\執行 checkfile 驗證"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 5"
+      DTS:To="Package\執行 checkfile 驗證 - 檢核不通過" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{8B493D80-2470-4A12-ADD5-4ECF57289899}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::checkValue]!=&quot;N&quot;"
+      DTS:From="Package\執行 checkfile 驗證 - 仍沒有對應的 checkfile 資料可供驗證"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 8"
+      DTS:To="Package\還沒超過使用者允許持續掃描對應 checkfile 的時間上限，執行檔案工作允許該資料檔被重新掃描" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{EB6D9B78-E76C-4178-958F-157502391AC4}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::checkValue] ==&quot;N&quot;"
+      DTS:From="Package\執行 checkfile 驗證 - 仍沒有對應的 checkfile 資料可供驗證"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 9"
+      DTS:To="Package\【更新檔案狀態】 持續找不到checkfile資訊，且超過系統設定時間 - 狀態更新為寫入prestage資料表中" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="363,42"
+          Id="Package\【更新檔案狀態】 狀態為 仍可持續掃描對應的check file"
+          TopLeft="1384.69637565457,688.552601537796" />
+        <NodeLayout
+          Size="335,59"
+          Id="Package\【更新檔案狀態】 持續找不到checkfile資訊，且超過系統設定時間 - 狀態更新為寫入prestage資料表中"
+          TopLeft="1800.20830406911,558.571415169507" />
+        <NodeLayout
+          Size="285,59"
+          Id="Package\【更新檔案狀態】 執行 checkfile 驗證 - 狀態更新為 checkfile驗證通過"
+          TopLeft="718.689791700537,556.557110680296" />
+        <NodeLayout
+          Size="281,59"
+          Id="Package\【更新檔案狀態】 執行 checkfile 驗證 - 狀態更新為 寫入prestage資料表中"
+          TopLeft="721.074699048197,641.585775206671" />
+        <NodeLayout
+          Size="292,57"
+          Id="Package\【更新檔案狀態】 無需做checkfile驗證 - 狀態更新為寫入prestage資料表中"
+          TopLeft="403.04233357284,372.180840139709" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\執行 checkfile 驗證"
+          TopLeft="942.291654455993,460.45917579497" />
+        <NodeLayout
+          Size="388,42"
+          Id="Package\執行 checkfile 驗證 - 仍沒有對應的 checkfile 資料可供驗證"
+          TopLeft="1551.38945381632,461.788788546998" />
+        <NodeLayout
+          Size="535,42"
+          Id="Package\執行 checkfile 驗證 - 從 dbo FILE_REC中取得資料檔應有的 資料筆數 與 checksum"
+          TopLeft="1038.36040022719,370.393878284279" />
+        <NodeLayout
+          Size="251,42"
+          Id="Package\執行 checkfile 驗證 - 檢核不通過"
+          TopLeft="1095.10113225326,562.36186721252" />
+        <NodeLayout
+          Size="407,42"
+          Id="Package\從 dbo STAGE_TAB_ACT 判斷資料檔是否要做 checkfile 驗證"
+          TopLeft="719.31213117045,258.232134875291" />
+        <NodeLayout
+          Size="546,42"
+          Id="Package\檢查 dbo STAGE_TAB_ACT 是否有資料檔對應的資料表紀錄，若無，則由系統自動新增"
+          TopLeft="654.236085114105,152.646817598147" />
+        <NodeLayout
+          Size="357,61"
+          Id="Package\還沒超過使用者允許持續掃描對應 checkfile 的時間上限，執行檔案工作允許該資料檔被重新掃描"
+          TopLeft="1383.65932099369,558.765770071258" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束]"
+          TopLeft="925.024108142278,194.646817598147">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63.585317277144"
+              Start="0,0"
+              End="0,56.085317277144">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.085317277144" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 1]"
+          TopLeft="1218.02706689386,412.393878284279">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-185.735412437863,48.0652975106905"
+              Start="0,0"
+              End="-185.735412437863,40.5652975106905">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.3121098458905" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.3121098458905"
+                    Point2="0,19.3121098458905"
+                    Point3="-4,19.3121098458905" />
+                  <mssgle:LineSegment
+                    End="-181.735412437863,19.3121098458905" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-181.735412437863,19.3121098458905"
+                    Point2="-185.735412437863,19.3121098458905"
+                    Point3="-185.735412437863,23.3121098458905" />
+                  <mssgle:LineSegment
+                    End="-185.735412437863,40.5652975106905" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-111.925811687682,24.3121098458905,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 10]"
+          TopLeft="1393.69373356053,412.393878284279">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="351.695720255794,49.3949102627193"
+              Start="0,0"
+              End="351.695720255794,41.8949102627193">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.8463336799148" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.8463336799148"
+                    Point2="0,19.8463336799148"
+                    Point3="4,19.8463336799148" />
+                  <mssgle:LineSegment
+                    End="347.695720255794,19.8463336799148" />
+                  <mssgle:CubicBezierSegment
+                    Point1="347.695720255794,19.8463336799148"
+                    Point2="351.695720255794,19.8463336799148"
+                    Point3="351.695720255794,23.8463336799148" />
+                  <mssgle:LineSegment
+                    End="351.695720255794,41.8949102627193" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="167.847860127897,24.8463336799148,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 12]"
+          TopLeft="861.382245374367,615.557110680296">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.0286645263752"
+              Start="0,0"
+              End="0,18.5286645263752">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5286645263752" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 13]"
+          TopLeft="1564.17784832413,619.765770071258">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68.7868314665378"
+              Start="0,0"
+              End="0,61.2868314665378">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.2868314665378" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 2]"
+          TopLeft="856.31213117045,300.232134875291">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-307.26979759761,71.948705264418"
+              Start="0,0"
+              End="-307.26979759761,64.448705264418">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.9485245850962" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.9485245850962"
+                    Point2="0,28.9485245850962"
+                    Point3="-4,28.9485245850962" />
+                  <mssgle:LineSegment
+                    End="-303.26979759761,28.9485245850962" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-303.26979759761,28.9485245850962"
+                    Point2="-307.26979759761,28.9485245850962"
+                    Point3="-307.26979759761,32.9485245850963" />
+                  <mssgle:LineSegment
+                    End="-307.26979759761,64.448705264418" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-161.634898798805,33.9485245850963,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 3]"
+          TopLeft="1032.29165445599,502.45917579497">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-171.101862755456,54.0979348853264"
+              Start="0,0"
+              End="-171.101862755456,46.5979348853264">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.0489674426632" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.0489674426632"
+                    Point2="0,27.0489674426632"
+                    Point3="-4,27.0489674426632" />
+                  <mssgle:LineSegment
+                    End="-167.101862755456,27.0489674426632" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-167.101862755456,27.0489674426632"
+                    Point2="-171.101862755456,27.0489674426632"
+                    Point3="-171.101862755456,31.0489674426632" />
+                  <mssgle:LineSegment
+                    End="-171.101862755456,46.5979348853264" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-104.609036846478,32.0489674426632,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 4]"
+          TopLeft="989.31213117045,300.232134875291">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="316.54826905674,70.1617434089881"
+              Start="0,0"
+              End="316.54826905674,62.6617434089881">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2295414009732" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2295414009732"
+                    Point2="0,28.2295414009732"
+                    Point3="4,28.2295414009732" />
+                  <mssgle:LineSegment
+                    End="312.54826905674,28.2295414009732" />
+                  <mssgle:CubicBezierSegment
+                    Point1="312.54826905674,28.2295414009732"
+                    Point2="316.54826905674,28.2295414009732"
+                    Point3="316.54826905674,32.2295414009732" />
+                  <mssgle:LineSegment
+                    End="316.54826905674,62.6617434089881" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="150.27413452837,33.2295414009732,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 5]"
+          TopLeft="1060.95832112266,502.45917579497">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="159.642811130596,59.9026914175507"
+              Start="0,0"
+              End="159.642811130596,52.4026914175507">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2777427771571" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2777427771571"
+                    Point2="0,24.2777427771571"
+                    Point3="4,24.2777427771571" />
+                  <mssgle:LineSegment
+                    End="155.642811130596,24.2777427771571" />
+                  <mssgle:CubicBezierSegment
+                    Point1="155.642811130596,24.2777427771571"
+                    Point2="159.642811130596,24.2777427771571"
+                    Point3="159.642811130596,28.2777427771571" />
+                  <mssgle:LineSegment
+                    End="159.642811130596,52.4026914175507" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="60.7633000965482,29.2777427771571,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 8]"
+          TopLeft="1682.05612048299,503.788788546998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-119.896799489294,54.9769815242601"
+              Start="0,0"
+              End="-119.896799489294,47.4769815242601">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1262595046304" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1262595046304"
+                    Point2="0,22.1262595046304"
+                    Point3="-4,22.1262595046304" />
+                  <mssgle:LineSegment
+                    End="-115.896799489294,22.1262595046304" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-115.896799489294,22.1262595046304"
+                    Point2="-119.896799489294,22.1262595046304"
+                    Point3="-119.896799489294,26.1262595046304" />
+                  <mssgle:LineSegment
+                    End="-119.896799489294,47.4769815242601" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-67.9483997446472,27.1262595046304,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 9]"
+          TopLeft="1808.72278714966,503.788788546998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="158.985516919455,54.7826266225093"
+              Start="0,0"
+              End="158.985516919455,47.2826266225093">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.0480386406814" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.0480386406814"
+                    Point2="0,22.0480386406814"
+                    Point3="4,22.0480386406814" />
+                  <mssgle:LineSegment
+                    End="154.985516919455,22.0480386406814" />
+                  <mssgle:CubicBezierSegment
+                    Point1="154.985516919455,22.0480386406814"
+                    Point2="158.985516919455,22.0480386406814"
+                    Point3="158.985516919455,26.0480386406814" />
+                  <mssgle:LineSegment
+                    End="158.985516919455,47.2826266225093" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="71.4927584597274,27.0480386406814,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

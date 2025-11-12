@@ -1,0 +1,88 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/4/2019 10:32:02 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1703001NB01"
+  DTS:CreatorName="1703001NB01\1703001NB01"
+  DTS:DTSID="{6B29118C-F8B7-4724-B707-F396F1590A83}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="MF_PRODUCT_TYPE_SAP_EARD"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{13E8FF95-7723-4BEF-8AF8-A6E62B222918}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A9792493-4BE9-4C46-9863-965FA8B8DF99}"
+      DTS:ObjectName="ekorg">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">EARD</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\執行封裝工作"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{09B0216D-6AD7-42C2-B0C5-018789503997}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行封裝工作"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>MF_PRODUCT_TYPE_SAP.dtsx</PackageName>
+          <ParameterAssignment>
+            <ParameterName>ekorg</ParameterName>
+            <BindedVariableOrParameterName>$Package::ekorg</BindedVariableOrParameterName>
+          </ParameterAssignment>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\執行封裝工作"
+          TopLeft="226.333328199765,221.065541337694" />
+        <AnnotationLayout
+          Text="// ###############################&#xA;// DataMart Def.：SRC028 商品分類&#xA;// ODS DB Table Name：dbo.MF_PRODUCT_TYPE&#xA;// ODS DB View Name：dbo.VW_MF_PRODUCT_TYPE&#xA;// Brief Desc.：&#xA;//        由此封裝傳入採購組織EARD作為參數，&#xA;//        透過執行封裝工作，呼叫SAP商品分類共用流程封裝(MF_PRODUCT_TYPE_SAP.dtsx)，&#xA;//        產製EARD的商品分類&#xA;// ###############################"
+          ParentId="Package"
+          Size="481.6,143.2"
+          Id="688ad388-6646-4975-bb8a-c3dcbcbbad02"
+          TopLeft="57.1904681764223,66.9478906925266">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

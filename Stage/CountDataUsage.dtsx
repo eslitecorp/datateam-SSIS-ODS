@@ -1,0 +1,1314 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/10/2019 9:49:37 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1505003NB02"
+  DTS:CreatorName="IEAD\1505003"
+  DTS:DTSID="{B6C6B2D1-3462-400C-9B45-06F9641E6C2F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="CountDataUsage"
+  DTS:PackageType="5"
+  DTS:VersionBuild="242"
+  DTS:VersionGUID="{DA365B9E-E21D-4936-B3B5-FA2044E9E910}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{3FE48381-7737-45F8-87A2-3A06A5EB016C}"
+      DTS:ObjectName="dbContainerNameODS">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">ODSDB</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{1D49D04C-BF3D-4696-9441-4975F9B67D19}"
+      DTS:ObjectName="dbContainerNameStage">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">StagingDB_TW</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\查詢目前資料表筆數與使用量"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="資料流程"
+      DTS:DTSID="{3EAB5781-6966-44C0-AB9A-4571980B6672}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="查詢目前資料表筆數與使用量"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB 來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;7"
+              description="OLE DB 來源"
+              name="OLE DB 來源"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT          t.name AS TableName, s.name AS SchemaName, p.[rows], CAST(ROUND(SUM(a.total_pages) * 8 / 1024.00, 2) 
+                            AS NUMERIC(36, 2)) AS TotalSpaceMB, CAST(ROUND(SUM(a.used_pages) * 8 / 1024.00, 2) AS NUMERIC(36, 2)) 
+                            AS UsedSpaceMB, CAST(ROUND((SUM(a.total_pages) - SUM(a.used_pages)) * 8 / 1024.00, 2) AS NUMERIC(36, 2)) 
+                            AS UnusedSpaceMB
+FROM              sys.tables AS t INNER JOIN
+                            sys.indexes AS i ON t.object_id = i.object_id INNER JOIN
+                            sys.partitions AS p ON i.object_id = p.object_id AND i.index_id = p.index_id INNER JOIN
+                            sys.allocation_units AS a ON p.partition_id = a.container_id LEFT OUTER JOIN
+                            sys.schemas AS s ON t.schema_id = s.schema_id
+WHERE          (t.name NOT LIKE 'dt%') AND (t.is_ms_shipped = 0) AND (i.object_id &gt; 255)
+GROUP BY   t.name, s.name, p.[rows]
+ORDER BY   TotalSpaceMB DESC, TableName</property>
+                <property
+                  dataType="System.String"
+                  description="包含要執行之 SQL 命令的變數。"
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="SQL 命令中的參數和變數之間的對應。"
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Connections[OleDbConnection]"
+                  connectionManagerID="{317F7F78-B848-480C-B983-2137EF141394}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[StagingDB_TW]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出]"
+                  name="OLE DB 來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[TableName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[TableName]"
+                      length="128"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[TableName]"
+                      name="TableName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[SchemaName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[SchemaName]"
+                      length="128"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[SchemaName]"
+                      name="SchemaName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[rows]"
+                      dataType="i8"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[rows]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[rows]"
+                      name="rows"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[TotalSpaceMB]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[TotalSpaceMB]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[TotalSpaceMB]"
+                      name="TotalSpaceMB"
+                      precision="36"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[UsedSpaceMB]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[UsedSpaceMB]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[UsedSpaceMB]"
+                      name="UsedSpaceMB"
+                      precision="36"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[UnusedSpaceMB]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[UnusedSpaceMB]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[UnusedSpaceMB]"
+                      name="UnusedSpaceMB"
+                      precision="36"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[TableName]"
+                      dataType="wstr"
+                      length="128"
+                      name="TableName" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[SchemaName]"
+                      dataType="wstr"
+                      length="128"
+                      name="SchemaName" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[rows]"
+                      dataType="i8"
+                      name="rows" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[TotalSpaceMB]"
+                      dataType="numeric"
+                      name="TotalSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[UsedSpaceMB]"
+                      dataType="numeric"
+                      name="UsedSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].ExternalColumns[UnusedSpaceMB]"
+                      dataType="numeric"
+                      name="UnusedSpaceMB"
+                      precision="36"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="OLE DB 來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[TableName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[TableName]"
+                      name="TableName" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[SchemaName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[SchemaName]"
+                      name="SchemaName" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[rows]"
+                      dataType="i8"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[rows]"
+                      name="rows" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[TotalSpaceMB]"
+                      dataType="numeric"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[TotalSpaceMB]"
+                      name="TotalSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[UsedSpaceMB]"
+                      dataType="numeric"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[UsedSpaceMB]"
+                      name="UsedSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[UnusedSpaceMB]"
+                      dataType="numeric"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[UnusedSpaceMB]"
+                      name="UnusedSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB 來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;7"
+              description="OLE DB 來源"
+              name="OLE DB 來源 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT          t.name AS TableName, s.name AS SchemaName, p.[rows], CAST(ROUND(SUM(a.total_pages) * 8 / 1024.00, 2) 
+                            AS NUMERIC(36, 2)) AS TotalSpaceMB, CAST(ROUND(SUM(a.used_pages) * 8 / 1024.00, 2) AS NUMERIC(36, 2)) 
+                            AS UsedSpaceMB, CAST(ROUND((SUM(a.total_pages) - SUM(a.used_pages)) * 8 / 1024.00, 2) AS NUMERIC(36, 2)) 
+                            AS UnusedSpaceMB
+FROM              sys.tables AS t INNER JOIN
+                            sys.indexes AS i ON t.object_id = i.object_id INNER JOIN
+                            sys.partitions AS p ON i.object_id = p.object_id AND i.index_id = p.index_id INNER JOIN
+                            sys.allocation_units AS a ON p.partition_id = a.container_id LEFT OUTER JOIN
+                            sys.schemas AS s ON t.schema_id = s.schema_id
+WHERE          (t.name NOT LIKE 'dt%') AND (t.is_ms_shipped = 0) AND (i.object_id &gt; 255)
+GROUP BY   t.name, s.name, p.[rows]
+ORDER BY   TotalSpaceMB DESC, TableName</property>
+                <property
+                  dataType="System.String"
+                  description="包含要執行之 SQL 命令的變數。"
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="SQL 命令中的參數和變數之間的對應。"
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Connections[OleDbConnection]"
+                  connectionManagerID="{A8540D2B-B077-4E50-BC27-6FA6200AE568}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODSDB]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出]"
+                  name="OLE DB 來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[TableName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].ExternalColumns[TableName]"
+                      length="128"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[TableName]"
+                      name="TableName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[SchemaName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].ExternalColumns[SchemaName]"
+                      length="128"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[SchemaName]"
+                      name="SchemaName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[rows]"
+                      dataType="i8"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].ExternalColumns[rows]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[rows]"
+                      name="rows"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[TotalSpaceMB]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].ExternalColumns[TotalSpaceMB]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[TotalSpaceMB]"
+                      name="TotalSpaceMB"
+                      precision="36"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[UsedSpaceMB]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].ExternalColumns[UsedSpaceMB]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[UsedSpaceMB]"
+                      name="UsedSpaceMB"
+                      precision="36"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[UnusedSpaceMB]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].ExternalColumns[UnusedSpaceMB]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[UnusedSpaceMB]"
+                      name="UnusedSpaceMB"
+                      precision="36"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].ExternalColumns[TableName]"
+                      dataType="wstr"
+                      length="128"
+                      name="TableName" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].ExternalColumns[SchemaName]"
+                      dataType="wstr"
+                      length="128"
+                      name="SchemaName" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].ExternalColumns[rows]"
+                      dataType="i8"
+                      name="rows" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].ExternalColumns[TotalSpaceMB]"
+                      dataType="numeric"
+                      name="TotalSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].ExternalColumns[UsedSpaceMB]"
+                      dataType="numeric"
+                      name="UsedSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].ExternalColumns[UnusedSpaceMB]"
+                      dataType="numeric"
+                      name="UnusedSpaceMB"
+                      precision="36"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="OLE DB 來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[TableName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[TableName]"
+                      name="TableName" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[SchemaName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[SchemaName]"
+                      name="SchemaName" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[rows]"
+                      dataType="i8"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[rows]"
+                      name="rows" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[TotalSpaceMB]"
+                      dataType="numeric"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[TotalSpaceMB]"
+                      name="TotalSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[UsedSpaceMB]"
+                      dataType="numeric"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[UsedSpaceMB]"
+                      name="UsedSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[UnusedSpaceMB]"
+                      dataType="numeric"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[UnusedSpaceMB]"
+                      name="UnusedSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目的地"
+              name="存入歷史資料庫"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">[dbo].[DATA_USAGERATE]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable">$Package::dbStageTableName</property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出提供給識別欄位的值是否複製到目的地。如果為 False，則會在目的地自動產生識別欄位的值。只有在開啟快速載入時才會套用。"
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出包含 Null 之資料行的 Null 是否會插入目的地。若是 False，則包含 Null 的資料行的預設值會插入目的地。唯有開啟快速載入時才適用。"
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="指定快速載入使用的選項。只有開啟快速載入時才會套用。"
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在資料插入期間發出認可的時間。值為 0 指定在資料插入結束時發出一次認可。只有開啟快速載入時才會套用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Connections[OleDbConnection]"
+                  connectionManagerID="{66214BFE-3C93-49AB-B581-7F462381403E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[StageETLDB]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].Columns[TableName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="TableName"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[TableName]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[TableName]" />
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].Columns[SchemaName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="SchemaName"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[SchemaName]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[SchemaName]" />
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].Columns[rows]"
+                      cachedDataType="i8"
+                      cachedName="rows"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[Rows]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[rows]" />
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].Columns[TotalSpaceMB]"
+                      cachedDataType="numeric"
+                      cachedName="TotalSpaceMB"
+                      cachedPrecision="36"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[TotalSpaceMB]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[TotalSpaceMB]" />
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].Columns[UsedSpaceMB]"
+                      cachedDataType="numeric"
+                      cachedName="UsedSpaceMB"
+                      cachedPrecision="36"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[UsedSpaceMB]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[UsedSpaceMB]" />
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].Columns[UnusedSpaceMB]"
+                      cachedDataType="numeric"
+                      cachedName="UnusedSpaceMB"
+                      cachedPrecision="36"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[UnusedSpaceMB]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出].Columns[UnusedSpaceMB]" />
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].Columns[ExecuteDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ExecuteDate"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[ExecuteTime]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Outputs[衍生的資料行輸出].Columns[ExecuteDate]" />
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].Columns[Container]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="Container"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[Container]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Outputs[衍生的資料行輸出].Columns[Container]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[Id]"
+                      dataType="i8"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[Container]"
+                      dataType="wstr"
+                      length="128"
+                      name="Container" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[TableName]"
+                      dataType="wstr"
+                      length="128"
+                      name="TableName" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[SchemaName]"
+                      dataType="wstr"
+                      length="128"
+                      name="SchemaName" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[Rows]"
+                      dataType="i4"
+                      name="Rows" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[TotalSpaceMB]"
+                      dataType="numeric"
+                      name="TotalSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[UsedSpaceMB]"
+                      dataType="numeric"
+                      name="UsedSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[UnusedSpaceMB]"
+                      dataType="numeric"
+                      name="UnusedSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入].ExternalColumns[ExecuteTime]"
+                      dataType="dbTimeStamp"
+                      name="ExecuteTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Outputs[OLE DB 目的地錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目的地錯誤輸出"
+                  synchronousInputId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目的地"
+              name="存入歷史資料庫 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">[dbo].[DATA_USAGERATE]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable">$Package::dbStageTableName</property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出提供給識別欄位的值是否複製到目的地。如果為 False，則會在目的地自動產生識別欄位的值。只有在開啟快速載入時才會套用。"
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出包含 Null 之資料行的 Null 是否會插入目的地。若是 False，則包含 Null 的資料行的預設值會插入目的地。唯有開啟快速載入時才適用。"
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="指定快速載入使用的選項。只有開啟快速載入時才會套用。"
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在資料插入期間發出認可的時間。值為 0 指定在資料插入結束時發出一次認可。只有開啟快速載入時才會套用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Connections[OleDbConnection]"
+                  connectionManagerID="{66214BFE-3C93-49AB-B581-7F462381403E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[StageETLDB]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].Columns[TableName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="TableName"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[TableName]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[TableName]" />
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].Columns[SchemaName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="SchemaName"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[SchemaName]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[SchemaName]" />
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].Columns[rows]"
+                      cachedDataType="i8"
+                      cachedName="rows"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[Rows]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[rows]" />
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].Columns[TotalSpaceMB]"
+                      cachedDataType="numeric"
+                      cachedName="TotalSpaceMB"
+                      cachedPrecision="36"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[TotalSpaceMB]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[TotalSpaceMB]" />
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].Columns[UsedSpaceMB]"
+                      cachedDataType="numeric"
+                      cachedName="UsedSpaceMB"
+                      cachedPrecision="36"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[UsedSpaceMB]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[UsedSpaceMB]" />
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].Columns[UnusedSpaceMB]"
+                      cachedDataType="numeric"
+                      cachedName="UnusedSpaceMB"
+                      cachedPrecision="36"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[UnusedSpaceMB]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出].Columns[UnusedSpaceMB]" />
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].Columns[ExecuteDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ExecuteDate"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[ExecuteTime]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Outputs[衍生的資料行輸出].Columns[ExecuteDate]" />
+                    <inputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].Columns[Container]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Container"
+                      externalMetadataColumnId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[Container]"
+                      lineageId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Outputs[衍生的資料行輸出].Columns[Container]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[Id]"
+                      dataType="i8"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[Container]"
+                      dataType="wstr"
+                      length="128"
+                      name="Container" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[TableName]"
+                      dataType="wstr"
+                      length="128"
+                      name="TableName" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[SchemaName]"
+                      dataType="wstr"
+                      length="128"
+                      name="SchemaName" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[Rows]"
+                      dataType="i4"
+                      name="Rows" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[TotalSpaceMB]"
+                      dataType="numeric"
+                      name="TotalSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[UsedSpaceMB]"
+                      dataType="numeric"
+                      name="UsedSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[UnusedSpaceMB]"
+                      dataType="numeric"
+                      name="UnusedSpaceMB"
+                      precision="36"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入].ExternalColumns[ExecuteTime]"
+                      dataType="dbTimeStamp"
+                      name="ExecuteTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Outputs[OLE DB 目的地錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目的地錯誤輸出"
+                  synchronousInputId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="衍生的資料行;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="透過套用運算式到轉換輸入資料行來建立新資料行值。建立新資料行或覆寫現有資料行。例如，將 [名字] 和 [姓氏] 資料行的值串連成 [全名] 資料行。"
+              name="新增ExcuteDate欄位"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Inputs[衍生的資料行輸入]"
+                  description="輸入至衍生的資料行轉換"
+                  name="衍生的資料行輸入">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Outputs[衍生的資料行輸出]"
+                  description="衍生的資料行轉換的預設輸出"
+                  exclusionGroup="1"
+                  name="衍生的資料行輸出"
+                  synchronousInputId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Outputs[衍生的資料行輸出].Columns[ExecuteDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Outputs[衍生的資料行輸出].Columns[ExecuteDate]"
+                      name="ExecuteDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Outputs[衍生的資料行輸出].Columns[Container]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      length="12"
+                      lineageId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Outputs[衍生的資料行輸出].Columns[Container]"
+                      name="Container"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">@[$Package::dbContainerNameStage]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::dbContainerNameStage]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Outputs[衍生的資料行錯誤輸出]"
+                  description="衍生的資料行轉換的錯誤輸出"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="衍生的資料行錯誤輸出"
+                  synchronousInputId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="衍生的資料行;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="透過套用運算式到轉換輸入資料行來建立新資料行值。建立新資料行或覆寫現有資料行。例如，將 [名字] 和 [姓氏] 資料行的值串連成 [全名] 資料行。"
+              name="新增ExcuteDate欄位 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Inputs[衍生的資料行輸入]"
+                  description="輸入至衍生的資料行轉換"
+                  name="衍生的資料行輸入">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Outputs[衍生的資料行輸出]"
+                  description="衍生的資料行轉換的預設輸出"
+                  exclusionGroup="1"
+                  name="衍生的資料行輸出"
+                  synchronousInputId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Outputs[衍生的資料行輸出].Columns[ExecuteDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Outputs[衍生的資料行輸出].Columns[ExecuteDate]"
+                      name="ExecuteDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Outputs[衍生的資料行輸出].Columns[Container]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      length="5"
+                      lineageId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Outputs[衍生的資料行輸出].Columns[Container]"
+                      name="Container"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">@[$Package::dbContainerNameODS]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::dbContainerNameODS]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Outputs[衍生的資料行錯誤輸出]"
+                  description="衍生的資料行轉換的錯誤輸出"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="衍生的資料行錯誤輸出"
+                  synchronousInputId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\查詢目前資料表筆數與使用量.Paths[OLE DB 來源輸出]"
+              endId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Inputs[衍生的資料行輸入]"
+              name="OLE DB 來源輸出"
+              startId="Package\查詢目前資料表筆數與使用量\OLE DB 來源.Outputs[OLE DB 來源輸出]" />
+            <path
+              refId="Package\查詢目前資料表筆數與使用量.Paths[OLE DB 來源輸出1]"
+              endId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Inputs[衍生的資料行輸入]"
+              name="OLE DB 來源輸出"
+              startId="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1.Outputs[OLE DB 來源輸出]" />
+            <path
+              refId="Package\查詢目前資料表筆數與使用量.Paths[衍生的資料行輸出]"
+              endId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫.Inputs[OLE DB 目的地輸入]"
+              name="衍生的資料行輸出"
+              startId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位.Outputs[衍生的資料行輸出]" />
+            <path
+              refId="Package\查詢目前資料表筆數與使用量.Paths[衍生的資料行輸出1]"
+              endId="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1.Inputs[OLE DB 目的地輸入]"
+              name="衍生的資料行輸出"
+              startId="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1.Outputs[衍生的資料行輸出]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="257,42"
+          Id="Package\查詢目前資料表筆數與使用量"
+          TopLeft="188,30.8000001653036" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\查詢目前資料表筆數與使用量">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\查詢目前資料表筆數與使用量\存入歷史資料庫 1"
+          TopLeft="483,173.933333905008" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位 1"
+          TopLeft="472,108.33333419429" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\查詢目前資料表筆數與使用量\存入歷史資料庫"
+          TopLeft="259,167.866667190128" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\查詢目前資料表筆數與使用量\OLE DB 來源"
+          TopLeft="269,30.333333574401" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1"
+          TopLeft="484,37.2666669628355" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\查詢目前資料表筆數與使用量\新增ExcuteDate欄位"
+          TopLeft="248,100.533334132301" />
+        <EdgeLayout
+          Id="Package\查詢目前資料表筆數與使用量.Paths[OLE DB 來源輸出]"
+          TopLeft="340.25,72.333333574401">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.2000005578995"
+              Start="0,0"
+              End="0,20.7000005578995">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.7000005578995" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\查詢目前資料表筆數與使用量.Paths[衍生的資料行輸出1]"
+          TopLeft="563.25,150.33333419429">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.5999997107182"
+              Start="0,0"
+              End="0,16.0999997107182">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.0999997107182" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\查詢目前資料表筆數與使用量.Paths[衍生的資料行輸出]"
+          TopLeft="339.25,142.533334132301">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.3333330578267"
+              Start="0,0"
+              End="0,17.8333330578267">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.8333330578267" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\查詢目前資料表筆數與使用量.Paths[OLE DB 來源輸出1]"
+          TopLeft="562,79.2666669628355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.0666672314541"
+              Start="0,0"
+              End="0,21.5666672314541">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5666672314541" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\查詢目前資料表筆數與使用量\存入歷史資料庫">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\查詢目前資料表筆數與使用量\OLE DB 來源">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\查詢目前資料表筆數與使用量\OLE DB 來源 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

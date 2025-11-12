@@ -1,0 +1,2689 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/11/2019 9:46:36 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1505003NB02"
+  DTS:CreatorName="IEAD\1505003"
+  DTS:DTSID="{3518947D-415E-4BE4-B945-397B4E6BFF3C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="Util_Mail_LogFile"
+  DTS:PackageType="5"
+  DTS:VersionBuild="661"
+  DTS:VersionGUID="{B8C19AD3-4140-4F7A-A1CE-3064D3F30A08}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="20"
+      DTS:DTSID="{2C94D3C7-BE30-49AC-8ACB-D41E1F1FD110}"
+      DTS:ObjectName="executionID">
+      <DTS:Property
+        DTS:DataType="20"
+        DTS:Name="ParameterValue">48688</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{B9755F27-859F-4529-9940-5D8C46F05EF6}"
+      DTS:ObjectName="mail_From">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Eslite ODS Test</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{E7A650EF-7A35-4D7C-8BB5-4432C38F879F}"
+      DTS:ObjectName="mail_To">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">1505003@iisigroup.com</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{32C43140-26C2-46E1-8839-A2C59E4A1376}"
+      DTS:ObjectName="mail_ToAdmin">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{EEC91F28-59C6-4703-9F39-B78DC7C2DCA9}"
+      DTS:ObjectName="srcEkorg">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A9E396D4-37EC-4F36-8D4B-B8DB4D07F119}"
+      DTS:ObjectName="sysName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">ECS2</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{1D748EB5-11F2-4B8B-A540-FA9C4A229BA2}"
+      DTS:ObjectName="workDate">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">2022-01-17</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D53F37A3-F0AF-488C-AC33-B304A3340014}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="baseDetailFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">資料檔驗證失敗清單</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BAEF0D9B-A84A-45CD-99A1-B200E83F3CAF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="baseFlowFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">資料檔處理狀態</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{285DB0D2-840B-4EFB-B668-E8FB008641A0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="detailReportFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\\SSIS_DATA\\template\\stage_detail_template.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0BD6992F-3EE5-451B-B9F3-5EC4EF638572}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;ETL作業執行日期(WORK_DATE)：&quot;+ @[$Package::workDate]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="excelDateTimeString">
+      <DTS:VariableValue
+        DTS:DataType="8">ETL作業執行日期(WORK_DATE)：2022-01-17</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{68734B50-7C2A-478F-98AF-36B55CA8E3E9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="failrecords">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0E660318-5800-440F-84D3-68BF2CC6C7CA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="flowReportFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\\SSIS_DATA\\template\\stage_flow_template.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7DF30BC7-DC56-494B-8B0D-A4189D22E4A1}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::sysName] +(len(@[$Package::srcEkorg]) &gt; 0 ?&quot; &quot;:&quot;&quot;)+ @[$Package::srcEkorg] +&quot;  資料處理&quot; + ( @[User::resultStatErrAmt] &gt; 0 ? &quot;異常，錯誤 &quot;+ (DT_STR,10, 950) @[User::resultStatErrAmt] +&quot; 個資料表&quot;:&quot;完畢&quot; ) + (@[User::mail_msgNoDataTable] == &quot;&quot; ? &quot;&quot; :&quot;\n\n未下檔清單:\n---------------------------\n&quot; + @[User::mail_msgNoDataTable] + &quot;---------------------------&quot;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="mail_messageSource">
+      <DTS:VariableValue
+        DTS:DataType="8">ECS2  資料處理完畢
+
+未下檔清單:
+---------------------------
+SELECT TABLE_NAME 
+  FROM [StagingDB_TW].[dbo].[FILE_REC]
+  where sys_name = 'ecs2'
+    and work_date = '2022-01-17'
+    and ekorg = ''
+	and file_type != 1
+  group by table_name
+  having sum(case file_type when 2 then -1
+			          else 1 end) &lt; 0 ---------------------------</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5D2DA19C-B78E-4F60-9A4C-011CB3C8812C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="mail_msgNoDataTable">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT TABLE_NAME 
+  FROM [StagingDB_TW].[dbo].[FILE_REC]
+  where sys_name = 'ecs2'
+    and work_date = '2022-01-17'
+    and ekorg = ''
+	and file_type != 1
+  group by table_name
+  having sum(case file_type when 2 then -1
+			          else 1 end) &lt; 0 </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7FAD5A30-F6BB-4F05-A15A-3A5A1547F379}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;「ODS」&quot;  + @[$Package::sysName] +(len(@[$Package::srcEkorg]) &gt; 0 ?&quot; &quot;:&quot;&quot;)+ @[$Package::srcEkorg] +&quot; 資料處理&quot;+( @[User::resultStatErrAmt] &gt; 0 ? &quot;異常&quot;:&quot;完畢&quot; ) + ( @[User::mail_msgNoDataTable] == &quot;&quot; ? &quot;&quot;:&quot;(含未下檔清單)&quot; ) +&quot;_&quot; + (DT_STR, 4, 1252) DATEPART(&quot;yyyy&quot; , GETDATE())&#xA;+ RIGHT(&quot;0&quot; + (DT_STR, 2, 1252) DATEPART(&quot;mm&quot; , GETDATE()), 2)&#xA;+ RIGHT(&quot;0&quot; + (DT_STR, 2, 1252) DATEPART(&quot;dd&quot; , GETDATE()), 2)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="mail_subject">
+      <DTS:VariableValue
+        DTS:DataType="8">「ODS」ECS2 資料處理完畢(含未下檔清單)_20220622</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CEA0BA8E-4AB9-4107-9EBB-8CFCA8FCDF06}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="resultNoDataTable">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DA03CEEE-52B6-496E-A118-E2288C485559}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="resultSet_detail">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{289DB97F-5EEB-4CD8-81BF-68E9E42E452A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="resultSet_flow1">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5C3EC986-49FE-4ADA-865D-FC5EC6448AF9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="resultSet_flow2">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{371CD92E-6951-464F-89C1-5E45AE173823}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="resultSet_stat">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2CFB742E-DCF8-4DB3-9D04-6D71C871B494}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="resultStatErrAmt">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A903F9F2-B877-47F5-8606-010C61094E86}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;select top 5000 main.SYS_NAME + CASE WHEN main.EKORG &lt;&gt; '' THEN '('+ main.EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統&#xA;    , main.EXECUTIONID&#xA;    , main.FILE_NAME&#xA;&#x9;, (select [DESC] from  StageETLDB.dbo.PROJECT_PARAMS where PARAM_VALUE = VPI.VERI_PROC_PKEY and TYPE = 1) AS VERI_DESC&#xA;&#x9;, VPI.COLUMN_NAME&#xA;&#x9;, SUBSTRING(VPLFD.RAW_DATA_PK,1,255) AS RAW_DATA_PK&#xA;&#x9;, SUBSTRING(VPLFD.RAW_DATA,1,255) AS RAW_DATA&#xA;&#x9;, VPL.START_VERI_DATE&#xA;&#x9;, VPL.END_VERI_DATE&#xA;from V_FILE_LIST main with(nolock) &#xA;join dbo.VERI_PRESTAGE_LOG VPL on main.FILE_NAME = VPL.FILE_NAME and main.EXECUTIONID = VPL.EXECUTIONID&#xA;join dbo.VERI_PRESTAGE_ITEM VPI on VPL.ITEM_PKEY = VPI.PKEY&#xA;join dbo.VERI_PRESTAGE_LOG_FAIL_DETAIL VPLFD on VPL.PKEY = VPLFD.LOG_PKEY&#xA;where (select [DESC] from  StageETLDB.dbo.PROJECT_PARAMS where PARAM_VALUE = VPI.VERI_PROC_PKEY and TYPE = 1) != '驗證D檔刪除的PKEY是否重複' and main.SYS_NAME = '&quot;+ @[$Package::sysName] +&quot;' and main.EKORG = '&quot;+ @[$Package::srcEkorg] +&quot;' and main.WORK_DATE = '&quot;+ @[$Package::workDate]   + ( @[$Package::executionID] &gt; 0 ?  &quot;' and main.EXECUTIONID =   &quot;  + (DT_STR, 100, 950) @[$Package::executionID]   :  &quot;'&quot;  )   +&quot;   &#xA;order by ROW_NUMBER() OVER(order by main.EXECUTIONID desc, WORK_DATE desc, main.FILE_NAME, VPI.VERI_PROC_PKEY, VPLFD.PKEY)&#xA;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sqlDetailList">
+      <DTS:VariableValue
+        DTS:DataType="8">select top 5000 main.SYS_NAME + CASE WHEN main.EKORG &lt;&gt; '' THEN '('+ main.EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統
+    , main.EXECUTIONID
+    , main.FILE_NAME
+	, (select [DESC] from  StageETLDB.dbo.PROJECT_PARAMS where PARAM_VALUE = VPI.VERI_PROC_PKEY and TYPE = 1) AS VERI_DESC
+	, VPI.COLUMN_NAME
+	, SUBSTRING(VPLFD.RAW_DATA_PK,1,255) AS RAW_DATA_PK
+	, SUBSTRING(VPLFD.RAW_DATA,1,255) AS RAW_DATA
+	, VPL.START_VERI_DATE
+	, VPL.END_VERI_DATE
+from V_FILE_LIST main with(nolock) 
+join dbo.VERI_PRESTAGE_LOG VPL on main.FILE_NAME = VPL.FILE_NAME and main.EXECUTIONID = VPL.EXECUTIONID
+join dbo.VERI_PRESTAGE_ITEM VPI on VPL.ITEM_PKEY = VPI.PKEY
+join dbo.VERI_PRESTAGE_LOG_FAIL_DETAIL VPLFD on VPL.PKEY = VPLFD.LOG_PKEY
+where (select [DESC] from  StageETLDB.dbo.PROJECT_PARAMS where PARAM_VALUE = VPI.VERI_PROC_PKEY and TYPE = 1) != '驗證D檔刪除的PKEY是否重複' and main.SYS_NAME = 'ECS2' and main.EKORG = '' and main.WORK_DATE = '2022-01-17' and main.EXECUTIONID =   48688   
+order by ROW_NUMBER() OVER(order by main.EXECUTIONID desc, WORK_DATE desc, main.FILE_NAME, VPI.VERI_PROC_PKEY, VPLFD.PKEY)
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{92D6A1C3-0976-4934-811B-E527C7BF39B3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;select main.SYS_NAME + CASE WHEN main.EKORG &lt;&gt; '' THEN '('+ main.EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統&#xA;&#x9;, main.TABLE_NAME      -- 資料表名稱&#x9;&#xA;&#x9;, main.EXECUTIONID&#xA;&#x9;, CASE WHEN main.FILE_TYPE = 1 THEN 'CHECKFILE' ELSE '資料檔' END AS FILE_TYPE       -- 檔案類型：0=資料檔案,1=checkfile&#xA;&#x9;, COUNT(1) AS FILE_AMT -- 檔案數量&#xA;&#x9; /* ----- 重複下檔統計 ----- */&#xA;&#x9; , SUM(CASE WHEN exeEndInfo.FILE_STATUS = 11 THEN 1 ELSE 0 END) AS RELOAD_AMT&#xA;&#x9; /* ----- 第一列欄位名稱異常統計 ----- */&#xA;&#x9; , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (12) THEN 1 ELSE 0 END) AS COL_ERR_AMT&#xA;&#x9; /* ----- 異常統計 ----- */&#xA;&#x9; , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (51,61,71) THEN 1 ELSE 0 END) AS ERROR_AMT&#xA;&#x9; /* ----- 寫入結果統計 ----- */&#xA;&#x9; , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (81,82,83,84) AND ISNULL(veriFailCount.FAIL_AMT,0) = 0 THEN 1 ELSE 0 END) AS SUCCESS_AMT&#xA;&#x9; /* ----- 部分資料驗證錯誤無法寫入Stage結果統計 ----- */&#xA;&#x9; , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (81,82,83,84) AND ISNULL(veriFailCount.FAIL_AMT,0) &gt; 0 THEN 1 ELSE 0 END) AS VERI_PRESTAGE_FAIL_AMT&#xA;&#x9; /* ----- CHECKFILE 驗證結果統計 ----- */&#xA;&#x9; , SUM(CASE WHEN FILE_TYPE = 1 THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE IS NULL THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = -4 THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = 4 THEN 1&#xA;&#x9;&#x9;&#x9;&#x9;ELSE 0 END) AS CHECKFILE_VERI_SUCCESS&#xA;&#x9; , SUM(CASE WHEN FILE_TYPE = 1 THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE IS NULL THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = -4 THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = 4 THEN 0&#xA;&#x9;&#x9;&#x9;&#x9;ELSE 1 END) AS CHECKFILE_VERI_FAIL&#xA;&#x9; /* ----- 執行中檔案數量統計 ----- */&#xA;&#x9; , SUM(CASE WHEN exeEndInfo.FILE_STATUS &lt; 10 THEN 1 ELSE 0 END) AS EXE_ING_AMT&#xA;&#x9; /* ----- 未處理檔案數量統計 ----- */&#xA;&#x9; , SUM(CASE WHEN exeEndInfo.FILE_STATUS &gt; 90 THEN 1 ELSE 0 END) AS QUEUE_AMT&#xA;&#x9; /* ----- 檔名不符合Pattern數量統計 ----- */&#xA;&#x9; , 0 AS PATTERN_ERR_AMT&#xA;  from V_FILE_LIST main with(nolock)&#xA;  left join V_FILE_HIS_EXE_END exeEndInfo with(nolock)&#xA;         on main.FILE_NAME = exeEndInfo.FILE_NAME&#xA;&#x9;    and main.CHECK_FILE_NAME = exeEndInfo.CHECK_FILE_NAME&#xA;&#x9;&#x9;and main.EXECUTIONID = exeEndInfo.EXECUTIONID&#xA;  left join V_FILE_VERI_FAIL_COUNT veriFailCount with(nolock)&#xA;         on main.FILE_NAME = veriFailCount.FILE_NAME&#xA;&#x9;&#x9;and main.EXECUTIONID = veriFailCount.EXECUTIONID&#xA;  left join V_FILE_VERI_CHECKFILE veriCheckfile with(nolock)&#xA;&#x9;     on main.FILE_NAME = veriCheckfile.FILE_NAME&#xA;&#x9;    and main.CHECK_FILE_NAME = veriCheckfile.CHECK_FILE_NAME&#xA;&#x9;&#x9;and main.EXECUTIONID = veriCheckfile.EXECUTIONID&#xA; where main.WORK_DATE = '&quot;+ @[$Package::workDate] +&quot;'  and main.SYS_NAME = '&quot;+ @[$Package::sysName] +&quot;' and main.EKORG = '&quot;+ @[$Package::srcEkorg] +&quot;'  and (FILE_TYPE = 1 or (FILE_TYPE = 0 and TABLE_NAME &lt;&gt; '')) &quot;  + ( @[$Package::executionID] &gt; 0 ?  &quot; and main.EXECUTIONID =   &quot;  + (DT_STR, 100, 950) @[$Package::executionID]   :  &quot;&quot;  )  +  &quot;&#xA; group by main.SYS_NAME, main.EKORG, main.TABLE_NAME, main.FILE_TYPE, main.EXECUTIONID&#xA; union&#xA; select SYS_NAME + CASE WHEN EKORG &lt;&gt; '' THEN '('+ EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統&#xA;&#x9;, '' AS TABLE_NAME      -- 資料表名稱&#x9;&#xA;&#x9;, EXECUTIONID&#xA;&#x9;, '不符合ODS檔名規則' AS FILE_TYPE       -- 檔案類型&#xA;&#x9;, ISNULL(COUNT(1),0) AS FILE_AMT -- 檔案數量&#xA;&#x9; /* ----- 重複下檔統計 ----- */&#xA;&#x9; , 0 AS RELOAD_AMT&#xA;&#x9; /* ----- 第一列欄位名稱異常統計 ----- */&#xA;&#x9; , 0 AS COL_ERR_AMT&#xA;&#x9; /* ----- 異常統計 ----- */&#xA;&#x9; , 0 AS ERROR_AMT&#xA;&#x9; /* ----- 寫入結果統計 ----- */&#xA;&#x9; , 0 AS SUCCESS_AMT&#xA;&#x9; /* ----- 部分資料驗證錯誤無法寫入Stage結果統計 ----- */&#xA;&#x9; , 0 AS VERI_PRESTAGE_FAIL_AMT&#xA;&#x9; /* ----- CHECKFILE 驗證結果統計 ----- */&#xA;&#x9; , 0 AS CHECKFILE_VERI_SUCCESS&#xA;&#x9; , 0 AS CHECKFILE_VERI_FAIL&#xA;&#x9; /* ----- 執行中檔案數量統計 ----- */&#xA;&#x9; , 0 AS EXE_ING_AMT&#xA;&#x9; /* ----- 未處理檔案數量統計 ----- */&#xA;&#x9; , 0 AS QUEUE_AMT&#xA;&#x9; /* ----- 檔名不符合Pattern數量統計 ----- */&#xA;&#x9; , ISNULL(COUNT(1),0) AS PATTERN_ERR_AMT&#xA;   from FILE_REC&#xA;  where WORK_DATE = '&quot;+ @[$Package::workDate] +&quot;'  and SYS_NAME = '&quot;+ @[$Package::sysName] +&quot;' and EKORG = '&quot;+ @[$Package::srcEkorg] +&quot;'  and FILE_STATUS in (13) &quot;  + ( @[$Package::executionID] &gt; 0 ?  &quot; and EXECUTIONID =   &quot;  + (DT_STR, 100, 950) @[$Package::executionID]   :  &quot;&quot;  )  +  &quot;&#xA;  group by WORK_DATE, SYS_NAME, EKORG, EXECUTIONID&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sqlFlow1Base">
+      <DTS:VariableValue
+        DTS:DataType="8">select main.SYS_NAME + CASE WHEN main.EKORG &lt;&gt; '' THEN '('+ main.EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統
+	, main.TABLE_NAME      -- 資料表名稱	
+	, main.EXECUTIONID
+	, CASE WHEN main.FILE_TYPE = 1 THEN 'CHECKFILE' ELSE '資料檔' END AS FILE_TYPE       -- 檔案類型：0=資料檔案,1=checkfile
+	, COUNT(1) AS FILE_AMT -- 檔案數量
+	 /* ----- 重複下檔統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS = 11 THEN 1 ELSE 0 END) AS RELOAD_AMT
+	 /* ----- 第一列欄位名稱異常統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (12) THEN 1 ELSE 0 END) AS COL_ERR_AMT
+	 /* ----- 異常統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (51,61,71) THEN 1 ELSE 0 END) AS ERROR_AMT
+	 /* ----- 寫入結果統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (81,82,83,84) AND ISNULL(veriFailCount.FAIL_AMT,0) = 0 THEN 1 ELSE 0 END) AS SUCCESS_AMT
+	 /* ----- 部分資料驗證錯誤無法寫入Stage結果統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (81,82,83,84) AND ISNULL(veriFailCount.FAIL_AMT,0) &gt; 0 THEN 1 ELSE 0 END) AS VERI_PRESTAGE_FAIL_AMT
+	 /* ----- CHECKFILE 驗證結果統計 ----- */
+	 , SUM(CASE WHEN FILE_TYPE = 1 THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE IS NULL THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = -4 THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = 4 THEN 1
+				ELSE 0 END) AS CHECKFILE_VERI_SUCCESS
+	 , SUM(CASE WHEN FILE_TYPE = 1 THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE IS NULL THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = -4 THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = 4 THEN 0
+				ELSE 1 END) AS CHECKFILE_VERI_FAIL
+	 /* ----- 執行中檔案數量統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS &lt; 10 THEN 1 ELSE 0 END) AS EXE_ING_AMT
+	 /* ----- 未處理檔案數量統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS &gt; 90 THEN 1 ELSE 0 END) AS QUEUE_AMT
+	 /* ----- 檔名不符合Pattern數量統計 ----- */
+	 , 0 AS PATTERN_ERR_AMT
+  from V_FILE_LIST main with(nolock)
+  left join V_FILE_HIS_EXE_END exeEndInfo with(nolock)
+         on main.FILE_NAME = exeEndInfo.FILE_NAME
+	    and main.CHECK_FILE_NAME = exeEndInfo.CHECK_FILE_NAME
+		and main.EXECUTIONID = exeEndInfo.EXECUTIONID
+  left join V_FILE_VERI_FAIL_COUNT veriFailCount with(nolock)
+         on main.FILE_NAME = veriFailCount.FILE_NAME
+		and main.EXECUTIONID = veriFailCount.EXECUTIONID
+  left join V_FILE_VERI_CHECKFILE veriCheckfile with(nolock)
+	     on main.FILE_NAME = veriCheckfile.FILE_NAME
+	    and main.CHECK_FILE_NAME = veriCheckfile.CHECK_FILE_NAME
+		and main.EXECUTIONID = veriCheckfile.EXECUTIONID
+ where main.WORK_DATE = '2022-01-17'  and main.SYS_NAME = 'ECS2' and main.EKORG = ''  and (FILE_TYPE = 1 or (FILE_TYPE = 0 and TABLE_NAME &lt;&gt; ''))  and main.EXECUTIONID =   48688
+ group by main.SYS_NAME, main.EKORG, main.TABLE_NAME, main.FILE_TYPE, main.EXECUTIONID
+ union
+ select SYS_NAME + CASE WHEN EKORG &lt;&gt; '' THEN '('+ EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統
+	, '' AS TABLE_NAME      -- 資料表名稱	
+	, EXECUTIONID
+	, '不符合ODS檔名規則' AS FILE_TYPE       -- 檔案類型
+	, ISNULL(COUNT(1),0) AS FILE_AMT -- 檔案數量
+	 /* ----- 重複下檔統計 ----- */
+	 , 0 AS RELOAD_AMT
+	 /* ----- 第一列欄位名稱異常統計 ----- */
+	 , 0 AS COL_ERR_AMT
+	 /* ----- 異常統計 ----- */
+	 , 0 AS ERROR_AMT
+	 /* ----- 寫入結果統計 ----- */
+	 , 0 AS SUCCESS_AMT
+	 /* ----- 部分資料驗證錯誤無法寫入Stage結果統計 ----- */
+	 , 0 AS VERI_PRESTAGE_FAIL_AMT
+	 /* ----- CHECKFILE 驗證結果統計 ----- */
+	 , 0 AS CHECKFILE_VERI_SUCCESS
+	 , 0 AS CHECKFILE_VERI_FAIL
+	 /* ----- 執行中檔案數量統計 ----- */
+	 , 0 AS EXE_ING_AMT
+	 /* ----- 未處理檔案數量統計 ----- */
+	 , 0 AS QUEUE_AMT
+	 /* ----- 檔名不符合Pattern數量統計 ----- */
+	 , ISNULL(COUNT(1),0) AS PATTERN_ERR_AMT
+   from FILE_REC
+  where WORK_DATE = '2022-01-17'  and SYS_NAME = 'ECS2' and EKORG = ''  and FILE_STATUS in (13)  and EXECUTIONID =   48688
+  group by WORK_DATE, SYS_NAME, EKORG, EXECUTIONID</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4E596FBD-D32E-4ED6-BF0E-2735767A7153}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::sqlFlow1Base] +&quot; order by SYS_NAME, EXECUTIONID desc,  FILE_TYPE , TABLE_NAME &quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sqlFlow1List">
+      <DTS:VariableValue
+        DTS:DataType="8">select main.SYS_NAME + CASE WHEN main.EKORG &lt;&gt; '' THEN '('+ main.EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統
+	, main.TABLE_NAME      -- 資料表名稱	
+	, main.EXECUTIONID
+	, CASE WHEN main.FILE_TYPE = 1 THEN 'CHECKFILE' ELSE '資料檔' END AS FILE_TYPE       -- 檔案類型：0=資料檔案,1=checkfile
+	, COUNT(1) AS FILE_AMT -- 檔案數量
+	 /* ----- 重複下檔統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS = 11 THEN 1 ELSE 0 END) AS RELOAD_AMT
+	 /* ----- 第一列欄位名稱異常統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (12) THEN 1 ELSE 0 END) AS COL_ERR_AMT
+	 /* ----- 異常統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (51,61,71) THEN 1 ELSE 0 END) AS ERROR_AMT
+	 /* ----- 寫入結果統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (81,82,83,84) AND ISNULL(veriFailCount.FAIL_AMT,0) = 0 THEN 1 ELSE 0 END) AS SUCCESS_AMT
+	 /* ----- 部分資料驗證錯誤無法寫入Stage結果統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (81,82,83,84) AND ISNULL(veriFailCount.FAIL_AMT,0) &gt; 0 THEN 1 ELSE 0 END) AS VERI_PRESTAGE_FAIL_AMT
+	 /* ----- CHECKFILE 驗證結果統計 ----- */
+	 , SUM(CASE WHEN FILE_TYPE = 1 THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE IS NULL THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = -4 THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = 4 THEN 1
+				ELSE 0 END) AS CHECKFILE_VERI_SUCCESS
+	 , SUM(CASE WHEN FILE_TYPE = 1 THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE IS NULL THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = -4 THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = 4 THEN 0
+				ELSE 1 END) AS CHECKFILE_VERI_FAIL
+	 /* ----- 執行中檔案數量統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS &lt; 10 THEN 1 ELSE 0 END) AS EXE_ING_AMT
+	 /* ----- 未處理檔案數量統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS &gt; 90 THEN 1 ELSE 0 END) AS QUEUE_AMT
+	 /* ----- 檔名不符合Pattern數量統計 ----- */
+	 , 0 AS PATTERN_ERR_AMT
+  from V_FILE_LIST main with(nolock)
+  left join V_FILE_HIS_EXE_END exeEndInfo with(nolock)
+         on main.FILE_NAME = exeEndInfo.FILE_NAME
+	    and main.CHECK_FILE_NAME = exeEndInfo.CHECK_FILE_NAME
+		and main.EXECUTIONID = exeEndInfo.EXECUTIONID
+  left join V_FILE_VERI_FAIL_COUNT veriFailCount with(nolock)
+         on main.FILE_NAME = veriFailCount.FILE_NAME
+		and main.EXECUTIONID = veriFailCount.EXECUTIONID
+  left join V_FILE_VERI_CHECKFILE veriCheckfile with(nolock)
+	     on main.FILE_NAME = veriCheckfile.FILE_NAME
+	    and main.CHECK_FILE_NAME = veriCheckfile.CHECK_FILE_NAME
+		and main.EXECUTIONID = veriCheckfile.EXECUTIONID
+ where main.WORK_DATE = '2022-01-17'  and main.SYS_NAME = 'ECS2' and main.EKORG = ''  and (FILE_TYPE = 1 or (FILE_TYPE = 0 and TABLE_NAME &lt;&gt; ''))  and main.EXECUTIONID =   48688
+ group by main.SYS_NAME, main.EKORG, main.TABLE_NAME, main.FILE_TYPE, main.EXECUTIONID
+ union
+ select SYS_NAME + CASE WHEN EKORG &lt;&gt; '' THEN '('+ EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統
+	, '' AS TABLE_NAME      -- 資料表名稱	
+	, EXECUTIONID
+	, '不符合ODS檔名規則' AS FILE_TYPE       -- 檔案類型
+	, ISNULL(COUNT(1),0) AS FILE_AMT -- 檔案數量
+	 /* ----- 重複下檔統計 ----- */
+	 , 0 AS RELOAD_AMT
+	 /* ----- 第一列欄位名稱異常統計 ----- */
+	 , 0 AS COL_ERR_AMT
+	 /* ----- 異常統計 ----- */
+	 , 0 AS ERROR_AMT
+	 /* ----- 寫入結果統計 ----- */
+	 , 0 AS SUCCESS_AMT
+	 /* ----- 部分資料驗證錯誤無法寫入Stage結果統計 ----- */
+	 , 0 AS VERI_PRESTAGE_FAIL_AMT
+	 /* ----- CHECKFILE 驗證結果統計 ----- */
+	 , 0 AS CHECKFILE_VERI_SUCCESS
+	 , 0 AS CHECKFILE_VERI_FAIL
+	 /* ----- 執行中檔案數量統計 ----- */
+	 , 0 AS EXE_ING_AMT
+	 /* ----- 未處理檔案數量統計 ----- */
+	 , 0 AS QUEUE_AMT
+	 /* ----- 檔名不符合Pattern數量統計 ----- */
+	 , ISNULL(COUNT(1),0) AS PATTERN_ERR_AMT
+   from FILE_REC
+  where WORK_DATE = '2022-01-17'  and SYS_NAME = 'ECS2' and EKORG = ''  and FILE_STATUS in (13)  and EXECUTIONID =   48688
+  group by WORK_DATE, SYS_NAME, EKORG, EXECUTIONID order by SYS_NAME, EXECUTIONID desc,  FILE_TYPE , TABLE_NAME </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A471D382-CBD6-4534-BB36-AF5F101E4E37}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;select ISNULL(SUM(RELOAD_AMT) + SUM(COL_ERR_AMT) + SUM(ERROR_AMT) + SUM(CHECKFILE_VERI_FAIL) + SUM(VERI_PRESTAGE_FAIL_AMT),0) AS ERR_AMT&#xA;     , ISNULL(SUM(SUCCESS_AMT),0) AS SUCCESS_AMT&#xA;&#x9; , ISNULL(SUM(EXE_ING_AMT) + SUM(QUEUE_AMT) + SUM(PATTERN_ERR_AMT),0) AS OTHER_AMT&#xA;  from (&quot; + @[User::sqlFlow1Base]   + &quot;)tmp&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sqlFlow1Stat">
+      <DTS:VariableValue
+        DTS:DataType="8">select ISNULL(SUM(RELOAD_AMT) + SUM(COL_ERR_AMT) + SUM(ERROR_AMT) + SUM(CHECKFILE_VERI_FAIL) + SUM(VERI_PRESTAGE_FAIL_AMT),0) AS ERR_AMT
+     , ISNULL(SUM(SUCCESS_AMT),0) AS SUCCESS_AMT
+	 , ISNULL(SUM(EXE_ING_AMT) + SUM(QUEUE_AMT) + SUM(PATTERN_ERR_AMT),0) AS OTHER_AMT
+  from (select main.SYS_NAME + CASE WHEN main.EKORG &lt;&gt; '' THEN '('+ main.EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統
+	, main.TABLE_NAME      -- 資料表名稱	
+	, main.EXECUTIONID
+	, CASE WHEN main.FILE_TYPE = 1 THEN 'CHECKFILE' ELSE '資料檔' END AS FILE_TYPE       -- 檔案類型：0=資料檔案,1=checkfile
+	, COUNT(1) AS FILE_AMT -- 檔案數量
+	 /* ----- 重複下檔統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS = 11 THEN 1 ELSE 0 END) AS RELOAD_AMT
+	 /* ----- 第一列欄位名稱異常統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (12) THEN 1 ELSE 0 END) AS COL_ERR_AMT
+	 /* ----- 異常統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (51,61,71) THEN 1 ELSE 0 END) AS ERROR_AMT
+	 /* ----- 寫入結果統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (81,82,83,84) AND ISNULL(veriFailCount.FAIL_AMT,0) = 0 THEN 1 ELSE 0 END) AS SUCCESS_AMT
+	 /* ----- 部分資料驗證錯誤無法寫入Stage結果統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS in (81,82,83,84) AND ISNULL(veriFailCount.FAIL_AMT,0) &gt; 0 THEN 1 ELSE 0 END) AS VERI_PRESTAGE_FAIL_AMT
+	 /* ----- CHECKFILE 驗證結果統計 ----- */
+	 , SUM(CASE WHEN FILE_TYPE = 1 THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE IS NULL THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = -4 THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = 4 THEN 1
+				ELSE 0 END) AS CHECKFILE_VERI_SUCCESS
+	 , SUM(CASE WHEN FILE_TYPE = 1 THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE IS NULL THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = -4 THEN 0
+				WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = 4 THEN 0
+				ELSE 1 END) AS CHECKFILE_VERI_FAIL
+	 /* ----- 執行中檔案數量統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS &lt; 10 THEN 1 ELSE 0 END) AS EXE_ING_AMT
+	 /* ----- 未處理檔案數量統計 ----- */
+	 , SUM(CASE WHEN exeEndInfo.FILE_STATUS &gt; 90 THEN 1 ELSE 0 END) AS QUEUE_AMT
+	 /* ----- 檔名不符合Pattern數量統計 ----- */
+	 , 0 AS PATTERN_ERR_AMT
+  from V_FILE_LIST main with(nolock)
+  left join V_FILE_HIS_EXE_END exeEndInfo with(nolock)
+         on main.FILE_NAME = exeEndInfo.FILE_NAME
+	    and main.CHECK_FILE_NAME = exeEndInfo.CHECK_FILE_NAME
+		and main.EXECUTIONID = exeEndInfo.EXECUTIONID
+  left join V_FILE_VERI_FAIL_COUNT veriFailCount with(nolock)
+         on main.FILE_NAME = veriFailCount.FILE_NAME
+		and main.EXECUTIONID = veriFailCount.EXECUTIONID
+  left join V_FILE_VERI_CHECKFILE veriCheckfile with(nolock)
+	     on main.FILE_NAME = veriCheckfile.FILE_NAME
+	    and main.CHECK_FILE_NAME = veriCheckfile.CHECK_FILE_NAME
+		and main.EXECUTIONID = veriCheckfile.EXECUTIONID
+ where main.WORK_DATE = '2022-01-17'  and main.SYS_NAME = 'ECS2' and main.EKORG = ''  and (FILE_TYPE = 1 or (FILE_TYPE = 0 and TABLE_NAME &lt;&gt; ''))  and main.EXECUTIONID =   48688
+ group by main.SYS_NAME, main.EKORG, main.TABLE_NAME, main.FILE_TYPE, main.EXECUTIONID
+ union
+ select SYS_NAME + CASE WHEN EKORG &lt;&gt; '' THEN '('+ EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統
+	, '' AS TABLE_NAME      -- 資料表名稱	
+	, EXECUTIONID
+	, '不符合ODS檔名規則' AS FILE_TYPE       -- 檔案類型
+	, ISNULL(COUNT(1),0) AS FILE_AMT -- 檔案數量
+	 /* ----- 重複下檔統計 ----- */
+	 , 0 AS RELOAD_AMT
+	 /* ----- 第一列欄位名稱異常統計 ----- */
+	 , 0 AS COL_ERR_AMT
+	 /* ----- 異常統計 ----- */
+	 , 0 AS ERROR_AMT
+	 /* ----- 寫入結果統計 ----- */
+	 , 0 AS SUCCESS_AMT
+	 /* ----- 部分資料驗證錯誤無法寫入Stage結果統計 ----- */
+	 , 0 AS VERI_PRESTAGE_FAIL_AMT
+	 /* ----- CHECKFILE 驗證結果統計 ----- */
+	 , 0 AS CHECKFILE_VERI_SUCCESS
+	 , 0 AS CHECKFILE_VERI_FAIL
+	 /* ----- 執行中檔案數量統計 ----- */
+	 , 0 AS EXE_ING_AMT
+	 /* ----- 未處理檔案數量統計 ----- */
+	 , 0 AS QUEUE_AMT
+	 /* ----- 檔名不符合Pattern數量統計 ----- */
+	 , ISNULL(COUNT(1),0) AS PATTERN_ERR_AMT
+   from FILE_REC
+  where WORK_DATE = '2022-01-17'  and SYS_NAME = 'ECS2' and EKORG = ''  and FILE_STATUS in (13)  and EXECUTIONID =   48688
+  group by WORK_DATE, SYS_NAME, EKORG, EXECUTIONID)tmp</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{10BF11DA-28F1-4AC1-9092-D6227ABEF13F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;select main.SYS_NAME + CASE WHEN main.EKORG &lt;&gt; '' THEN '('+ main.EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統&#xA;&#x9; , main.TABLE_NAME      -- 資料表名稱&#xA;&#x9; , CASE WHEN main.FILE_TYPE = 1 THEN '' WHEN ISNULL(tabs.STATUS,0) = '0' THEN '停用' ELSE '' END AS STATUS&#xA;&#x9; , main.EXECUTIONID     -- 排程執行序號&#xA;&#x9; , main.FILE_NAME       -- 資料檔名&#xA;&#x9; , CASE WHEN main.FILE_TYPE = 1 THEN 'CHECKFILE' ELSE '資料檔' END AS FILE_TYPE       -- 檔案類型：0=資料檔案,1=checkfile&#xA;&#x9; , exeEndInfo.FILE_OP             -- 事件別&#xA;&#x9; , exeEndInfo.FILE_ETL_START_TIME -- 檔案開始ETL作業時間&#xA;&#x9; , round(CAST(DATEDIFF(millisecond,FILE_ETL_START_TIME,FILE_ETL_END_TIME) as float) /1000,2) AS FILE_ETL_DURATION -- 檔案執行ETL作業持續時間(秒)&#xA;&#x9; , (select [DESC] from [StageETLDB].[dbo].[PROJECT_PARAMS] where TYPE = 2 and PARAM_VALUE = exeEndInfo.FILE_STATUS) AS FILE_STATUS -- 檔案最終執行狀態&#xA;&#x9; , CASE WHEN FILE_TYPE = 1 THEN '-'&#xA;&#x9;        WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE IS NULL THEN '-'&#xA;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = -4 THEN '設定不須執行CHECKFILE驗證'&#xA;&#x9;&#x9;&#x9;WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = 4 THEN '通過'&#xA;&#x9;&#x9;&#x9;ELSE '失敗' END AS VERI_CHECKFILE -- chekfile驗證結果&#xA;&#x9; , exeEndInfo.ROW_COUNT_REAL      -- 資料筆數&#xA;&#x9; , CASE WHEN main.FILE_TYPE = 1 THEN 0 ELSE ISNULL(veriFailCount.FAIL_AMT,0) END AS FAIL_AMT                                -- 資料驗證失敗筆數&#xA;&#x9; , CASE WHEN main.FILE_TYPE = 1 THEN 0 WHEN exeEndInfo.FILE_STATUS between 10 and 80 then 0 ELSE exeEndInfo.ROW_COUNT_REAL - ISNULL(veriFailCount.FAIL_AMT,0) END AS SUCCESS_AMT -- 資料驗證成功筆數&#xA;&#x9; , main.CHECK_FILE_NAME -- checkfile檔名&#xA;&#x9; , (select top 1 package_name from [ssisdb].[catalog].executables where execution_id = main.EXECUTIONID and '{' + convert(nvarchar(100),package.sourceid) + '}' = executable_guid) AS PACKAGE_NAME&#xA;&#x9; , main.WORK_DATE       -- 批號&#xA;&#x9; , exeEndInfo.CHECK_SUM_REAL      -- checksum&#xA;&#x9; , exeEndInfo.FILE_ETL_END_TIME   -- 檔案結束ETL作業時間&#x9; &#xA;  from (select * from STAGE_TAB_ACT union select * from STAGE_TAB_HIS) tabs&#xA;  full outer join V_FILE_LIST main with(nolock) &#xA;    on tabs.SYS_NAME = main.SYS_NAME &#xA;   and tabs.EKORG = main.EKORG&#xA;   and tabs.TABLE_NAME = main.TABLE_NAME&#xA;   and tabs.WORK_DATE = main.WORK_DATE&#xA;  left join V_FILE_HIS_EXE_END exeEndInfo &#xA;         on main.FILE_NAME = exeEndInfo.FILE_NAME&#xA;&#x9;    and main.CHECK_FILE_NAME = exeEndInfo.CHECK_FILE_NAME&#xA;&#x9;&#x9;and main.EXECUTIONID = exeEndInfo.EXECUTIONID&#xA;  left join V_FILE_VERI_FAIL_COUNT veriFailCount&#xA;         on main.FILE_NAME = veriFailCount.FILE_NAME&#xA;&#x9;&#x9;and main.EXECUTIONID = veriFailCount.EXECUTIONID&#xA;  left join V_FILE_VERI_CHECKFILE veriCheckfile &#xA;&#x9;     on main.FILE_NAME = veriCheckfile.FILE_NAME&#xA;&#x9;    and main.CHECK_FILE_NAME = veriCheckfile.CHECK_FILE_NAME&#xA;&#x9;&#x9;and main.EXECUTIONID = veriCheckfile.EXECUTIONID&#xA;  left join V_FILE_EXE_PACKAGE package on main.FILE_NAME = package.FILE_NAME&#xA; where main.SYS_NAME = '&quot;+ @[$Package::sysName] +&quot;' and main.EKORG = '&quot;+ @[$Package::srcEkorg] +&quot;' and main.WORK_DATE = '&quot;+ @[$Package::workDate] +&quot;'  and (FILE_TYPE = 1 or (FILE_TYPE = 0 and main.TABLE_NAME &lt;&gt; '')) &quot;  + ( @[$Package::executionID] &gt; 0 ?  &quot; and main.EXECUTIONID =   &quot;  + (DT_STR, 100, 950) @[$Package::executionID]   :  &quot;&quot;  )  +  &quot;&#xA; union&#xA; select SYS_NAME + CASE WHEN EKORG &lt;&gt; '' THEN '('+ EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統&#xA;&#x9; , '' AS TABLE_NAME      -- 資料表名稱&#xA;&#x9; , '' AS STATUS&#xA;&#x9; , EXECUTIONID     -- 排程執行序號&#xA;&#x9; , FILE_NAME       -- 資料檔名&#xA;&#x9; , '不符合ODS檔名規則' AS FILE_TYPE       -- 檔案類型：0=資料檔案,1=checkfile&#xA;&#x9; , '' AS FILE_OP             -- 事件別&#xA;&#x9; , ETL_INSERT_DATE AS FILE_ETL_START_TIME -- 檔案開始ETL作業時間&#xA;&#x9; , round(0,2) AS FILE_ETL_DURATION -- 檔案執行ETL作業持續時間(秒)&#xA;&#x9; , (select [DESC] from [StageETLDB].[dbo].[PROJECT_PARAMS] where TYPE = 2 and PARAM_VALUE = FILE_STATUS) AS FILE_STATUS -- 檔案最終執行狀態&#xA;&#x9; , '-' AS VERI_CHECKFILE -- chekfile驗證結果&#xA;&#x9; , 0 AS ROW_COUNT_REAL      -- 資料筆數&#xA;&#x9; , 0 AS FAIL_AMT                                -- 資料驗證失敗筆數&#xA;&#x9; , 0 AS SUCCESS_AMT -- 資料驗證成功筆數&#xA;&#x9; , ISNULL(CHECK_FILE_NAME,'') AS CHECK_FILE_NAME -- checkfile檔名&#xA;&#x9; , (select top 1 package_name from [ssisdb].[catalog].executables where execution_id = EXECUTIONID and '{' + convert(nvarchar(100),sourceid) + '}' = executable_guid) AS PACKAGE_NAME&#xA;&#x9; , WORK_DATE       -- 批號&#xA;&#x9; , '' AS CHECK_SUM_REAL      -- checksum&#xA;&#x9; , '' AS FILE_ETL_END_TIME   -- 檔案結束ETL作業時間&#xA; from FILE_REC&#xA; where SYS_NAME = '&quot;+ @[$Package::sysName] +&quot;' and EKORG = '&quot;+ @[$Package::srcEkorg] +&quot;' and WORK_DATE = '&quot;+ @[$Package::workDate] +&quot;'  and FILE_STATUS in (13) &quot;  + ( @[$Package::executionID] &gt; 0 ?  &quot; and EXECUTIONID =   &quot;  + (DT_STR, 100, 950) @[$Package::executionID]   :  &quot;&quot;  )  +  &quot;&#xA;order by STATUS ,EXECUTIONID desc, WORK_DATE desc, FILE_NAME&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sqlFlow2List">
+      <DTS:VariableValue
+        DTS:DataType="8">select main.SYS_NAME + CASE WHEN main.EKORG &lt;&gt; '' THEN '('+ main.EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統
+	 , main.TABLE_NAME      -- 資料表名稱
+	 , CASE WHEN main.FILE_TYPE = 1 THEN '' WHEN ISNULL(tabs.STATUS,0) = '0' THEN '停用' ELSE '' END AS STATUS
+	 , main.EXECUTIONID     -- 排程執行序號
+	 , main.FILE_NAME       -- 資料檔名
+	 , CASE WHEN main.FILE_TYPE = 1 THEN 'CHECKFILE' ELSE '資料檔' END AS FILE_TYPE       -- 檔案類型：0=資料檔案,1=checkfile
+	 , exeEndInfo.FILE_OP             -- 事件別
+	 , exeEndInfo.FILE_ETL_START_TIME -- 檔案開始ETL作業時間
+	 , round(CAST(DATEDIFF(millisecond,FILE_ETL_START_TIME,FILE_ETL_END_TIME) as float) /1000,2) AS FILE_ETL_DURATION -- 檔案執行ETL作業持續時間(秒)
+	 , (select [DESC] from [StageETLDB].[dbo].[PROJECT_PARAMS] where TYPE = 2 and PARAM_VALUE = exeEndInfo.FILE_STATUS) AS FILE_STATUS -- 檔案最終執行狀態
+	 , CASE WHEN FILE_TYPE = 1 THEN '-'
+	        WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE IS NULL THEN '-'
+			WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = -4 THEN '設定不須執行CHECKFILE驗證'
+			WHEN FILE_TYPE = 0 and veriCheckfile.VERI_CHECKFILE = 4 THEN '通過'
+			ELSE '失敗' END AS VERI_CHECKFILE -- chekfile驗證結果
+	 , exeEndInfo.ROW_COUNT_REAL      -- 資料筆數
+	 , CASE WHEN main.FILE_TYPE = 1 THEN 0 ELSE ISNULL(veriFailCount.FAIL_AMT,0) END AS FAIL_AMT                                -- 資料驗證失敗筆數
+	 , CASE WHEN main.FILE_TYPE = 1 THEN 0 WHEN exeEndInfo.FILE_STATUS between 10 and 80 then 0 ELSE exeEndInfo.ROW_COUNT_REAL - ISNULL(veriFailCount.FAIL_AMT,0) END AS SUCCESS_AMT -- 資料驗證成功筆數
+	 , main.CHECK_FILE_NAME -- checkfile檔名
+	 , (select top 1 package_name from [ssisdb].[catalog].executables where execution_id = main.EXECUTIONID and '{' + convert(nvarchar(100),package.sourceid) + '}' = executable_guid) AS PACKAGE_NAME
+	 , main.WORK_DATE       -- 批號
+	 , exeEndInfo.CHECK_SUM_REAL      -- checksum
+	 , exeEndInfo.FILE_ETL_END_TIME   -- 檔案結束ETL作業時間	 
+  from (select * from STAGE_TAB_ACT union select * from STAGE_TAB_HIS) tabs
+  full outer join V_FILE_LIST main with(nolock) 
+    on tabs.SYS_NAME = main.SYS_NAME 
+   and tabs.EKORG = main.EKORG
+   and tabs.TABLE_NAME = main.TABLE_NAME
+   and tabs.WORK_DATE = main.WORK_DATE
+  left join V_FILE_HIS_EXE_END exeEndInfo 
+         on main.FILE_NAME = exeEndInfo.FILE_NAME
+	    and main.CHECK_FILE_NAME = exeEndInfo.CHECK_FILE_NAME
+		and main.EXECUTIONID = exeEndInfo.EXECUTIONID
+  left join V_FILE_VERI_FAIL_COUNT veriFailCount
+         on main.FILE_NAME = veriFailCount.FILE_NAME
+		and main.EXECUTIONID = veriFailCount.EXECUTIONID
+  left join V_FILE_VERI_CHECKFILE veriCheckfile 
+	     on main.FILE_NAME = veriCheckfile.FILE_NAME
+	    and main.CHECK_FILE_NAME = veriCheckfile.CHECK_FILE_NAME
+		and main.EXECUTIONID = veriCheckfile.EXECUTIONID
+  left join V_FILE_EXE_PACKAGE package on main.FILE_NAME = package.FILE_NAME
+ where main.SYS_NAME = 'ECS2' and main.EKORG = '' and main.WORK_DATE = '2022-01-17'  and (FILE_TYPE = 1 or (FILE_TYPE = 0 and main.TABLE_NAME &lt;&gt; ''))  and main.EXECUTIONID =   48688
+ union
+ select SYS_NAME + CASE WHEN EKORG &lt;&gt; '' THEN '('+ EKORG + ')' ELSE '' END AS SYS_NAME -- 來源系統
+	 , '' AS TABLE_NAME      -- 資料表名稱
+	 , '' AS STATUS
+	 , EXECUTIONID     -- 排程執行序號
+	 , FILE_NAME       -- 資料檔名
+	 , '不符合ODS檔名規則' AS FILE_TYPE       -- 檔案類型：0=資料檔案,1=checkfile
+	 , '' AS FILE_OP             -- 事件別
+	 , ETL_INSERT_DATE AS FILE_ETL_START_TIME -- 檔案開始ETL作業時間
+	 , round(0,2) AS FILE_ETL_DURATION -- 檔案執行ETL作業持續時間(秒)
+	 , (select [DESC] from [StageETLDB].[dbo].[PROJECT_PARAMS] where TYPE = 2 and PARAM_VALUE = FILE_STATUS) AS FILE_STATUS -- 檔案最終執行狀態
+	 , '-' AS VERI_CHECKFILE -- chekfile驗證結果
+	 , 0 AS ROW_COUNT_REAL      -- 資料筆數
+	 , 0 AS FAIL_AMT                                -- 資料驗證失敗筆數
+	 , 0 AS SUCCESS_AMT -- 資料驗證成功筆數
+	 , ISNULL(CHECK_FILE_NAME,'') AS CHECK_FILE_NAME -- checkfile檔名
+	 , (select top 1 package_name from [ssisdb].[catalog].executables where execution_id = EXECUTIONID and '{' + convert(nvarchar(100),sourceid) + '}' = executable_guid) AS PACKAGE_NAME
+	 , WORK_DATE       -- 批號
+	 , '' AS CHECK_SUM_REAL      -- checksum
+	 , '' AS FILE_ETL_END_TIME   -- 檔案結束ETL作業時間
+ from FILE_REC
+ where SYS_NAME = 'ECS2' and EKORG = '' and WORK_DATE = '2022-01-17'  and FILE_STATUS in (13)  and EXECUTIONID =   48688
+order by STATUS ,EXECUTIONID desc, WORK_DATE desc, FILE_NAME</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5E4C5A6A-4A38-450B-B04E-3FCF9B36085A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT F.TABLE_NAME &#xA;  FROM STAGINGDB_TW.DBO.FILE_REC F &#xA;  JOIN STAGINGDB_TW.DBO.STAGE_TAB_CTL C&#xA;    ON F.SYS_NAME = C.SYS_NAME&#xA;   AND F.EKORG = C.EKORG&#xA;   AND F.TABLE_NAME = C.TABLE_NAME&#xA;   AND C.MAIL_TO_SYSADMIN = 1&#xA;  where F.SYS_NAME = '&quot;+@[$Package::sysName]+&quot;'&#xA;    and F.WORK_DATE = '&quot;+@[$Package::workDate]+&quot;'&#xA;    and F.EKORG = '&quot;+@[$Package::srcEkorg]+&quot;'&#xA;&#x9;AND F.FILE_TYPE != 1&#xA;  GROUP BY F.TABLE_NAME&#xA;  HAVING SUM(CASE WHEN FILE_TYPE = 2 THEN -1&#xA;&#x9;&#x9;&#x9;&#x9;  WHEN FILE_STATUS = 99 AND FILE_OP IS NULL THEN -1 &#xA;&#x9;&#x9;&#x9;      ELSE 1 END) &lt; 0&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sqlNoDataTable">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT F.TABLE_NAME 
+  FROM STAGINGDB_TW.DBO.FILE_REC F 
+  JOIN STAGINGDB_TW.DBO.STAGE_TAB_CTL C
+    ON F.SYS_NAME = C.SYS_NAME
+   AND F.EKORG = C.EKORG
+   AND F.TABLE_NAME = C.TABLE_NAME
+   AND C.MAIL_TO_SYSADMIN = 1
+  where F.SYS_NAME = 'ECS2'
+    and F.WORK_DATE = '2022-01-17'
+    and F.EKORG = ''
+	AND F.FILE_TYPE != 1
+  GROUP BY F.TABLE_NAME
+  HAVING SUM(CASE WHEN FILE_TYPE = 2 THEN -1
+				  WHEN FILE_STATUS = 99 AND FILE_OP IS NULL THEN -1 
+			      ELSE 1 END) &lt; 0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{85E9C5C7-BDB1-4302-9C05-270C602B6C8D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tmpDetailFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">stage_detail_template</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{13205772-FE18-403F-A40C-2D5F22AE9E86}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tmpExtFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{27A20F08-35F2-48ED-8E8A-B4963A9E446C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tmpFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\\SSIS_DATA\\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{00153557-360F-42D5-974F-8C7905E86693}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="tmpFlowFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">stage_flow_template</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\修正excel格式"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="指令碼工作"
+      DTS:DTSID="{688BCE6E-BB73-40C6-A87F-133FABC54664}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="修正excel格式"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_1a7b1ec0644340bc82166b8ef22d95e1"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadOnlyVariables="User::detailReportFile,User::excelDateTimeString,User::flowReportFile,User::resultNoDataTable,User::resultSet_detail,User::resultSet_flow1,User::resultSet_flow2,User::resultSet_stat"
+          ReadWriteVariables="User::mail_msgNoDataTable,User::resultStatErrAmt">
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="Settings.cs"
+            Encoding="UTF8"><![CDATA[namespace ST_f28b723f02644bbb883ef06efd8422d7.Properties {
+    
+    
+    // 這個類別可以讓您處理設定類別上的特定事件:
+    //  在設定值變更之前引發 SettingChanging 事件。
+    //  在設定值變更之後引發 PropertyChanged 事件。
+    //  在載入設定值之後引發 SettingsLoaded 事件。
+    //  在儲存設定值之前引發 SettingsSaving 事件。
+    internal sealed partial class Settings {
+        
+        public Settings() {
+            // // 若要加入用於儲存與變更設定的事件處理常式，請取消註解下列程式行:
+            //
+            // this.SettingChanging += this.SettingChangingEventHandler;
+            //
+            // this.SettingsSaving += this.SettingsSavingEventHandler;
+            //
+        }
+        
+        private void SettingChangingEventHandler(object sender, System.Configuration.SettingChangingEventArgs e) {
+            // 在此加入程式碼以處理 SettingChangingEvent 事件。
+        }
+        
+        private void SettingsSavingEventHandler(object sender, System.ComponentModel.CancelEventArgs e) {
+            // 在此加入程式碼以處理 SettingsSaving 事件。
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.IO;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using System.Data.OleDb;
+#endregion
+
+namespace ST_f28b723f02644bbb883ef06efd8422d7
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            string detailReportFile = Dts.Variables["User::detailReportFile"].Value.ToString();
+            string flowReportFile = Dts.Variables["User::flowReportFile"].Value.ToString();
+            string mail_msgNoDataTable = "";
+            // User::resultSet_detail,User::resultSet_flow1,User::resultSet_flow2
+            OleDbDataAdapter adapter = new OleDbDataAdapter();
+            DataTable resultSet_stat = new DataTable();
+            DataTable resultSet_detail = new DataTable();
+            DataTable resultSet_flow1 = new DataTable();
+            DataTable resultSet_flow2 = new DataTable();
+            DataTable resultNoDataTable = new DataTable();
+
+            adapter.Fill(resultSet_stat, Dts.Variables["User::resultSet_stat"].Value);
+            adapter.Fill(resultSet_detail, Dts.Variables["User::resultSet_detail"].Value);
+            adapter.Fill(resultSet_flow1, Dts.Variables["User::resultSet_flow1"].Value);
+            adapter.Fill(resultSet_flow2, Dts.Variables["User::resultSet_flow2"].Value);
+            adapter.Fill(resultNoDataTable, Dts.Variables["User::resultNoDataTable"].Value);
+
+            try
+            {
+                this.fixExcelStyle(flowReportFile, 0, 4, resultSet_stat, 0);
+                this.fixExcelStyle(flowReportFile, 0, 7, resultSet_flow1, 1);
+                this.fixExcelStyle(flowReportFile, 1, 4, resultSet_flow2, 2);
+                this.fixExcelStyle(detailReportFile, 0, 4, resultSet_detail, 3);
+            }
+            catch (Exception ex)
+            {
+                Dts.Log(ex.Message, 999, null);
+            }
+
+            foreach (DataRow r in resultNoDataTable.Rows)
+            {
+                mail_msgNoDataTable += r[0] + "\r\n" ;
+            }
+            Dts.Variables["User::mail_msgNoDataTable"].Value = mail_msgNoDataTable;
+            Dts.TaskResult = (int)ScriptResults.Success;
+		}
+
+
+        public void fixExcelStyle(String excelPath, int workSheetIndex, int startRowIdx, DataTable dataTable, int type)
+        {
+            try
+            {
+                XSSFWorkbook wb;
+                using (FileStream fs = new FileStream(excelPath, FileMode.Open, FileAccess.ReadWrite))
+                {
+                    wb = new XSSFWorkbook(fs);
+
+                    ISheet ws = wb.GetSheetAt(workSheetIndex);
+
+                    // Header處理
+                    ws.GetRow(1).GetCell(0).SetCellValue(Dts.Variables["User::excelDateTimeString"].Value.ToString());
+
+
+                    // detail format 處理
+                    IFont font = wb.CreateFont();
+                    font.FontName = "微軟正黑體";
+                    font.FontHeightInPoints = 8;
+
+                    IRow baseRow = ws.GetRow(startRowIdx);
+                    foreach (DataRow dr in dataTable.Rows)
+                    {
+                        // 取得excel資料列
+                        IRow row = ws.GetRow(startRowIdx);
+                        if(row == null)
+                        {
+                            row = ws.CreateRow(startRowIdx);
+                        }
+
+                        setRowDataByType(baseRow, row, dr, type, font);
+                        startRowIdx++;
+                    }
+
+                    // 設定自動欄位寬
+                    if (type == 0 || type == 1)
+                    {
+                        for (int j = 0; j < 15; j++)
+                        {
+                            if (j == 0 || j == 1 || j == 2 || j == 3 || j == 6 || j == 14)
+                                ws.AutoSizeColumn(j);
+                        }
+                    }
+                    else if (type == 2)
+                    {
+                        for (int j = 0; j < 16; j++)
+                        {
+                            if (!(j == 7 || j == 8 || j == 11))
+                                ws.AutoSizeColumn(j);
+                        }
+                    }
+
+                    using (FileStream fs2 = new FileStream(excelPath, FileMode.Create, FileAccess.Write))
+                    {
+                        wb.Write(fs2);
+                        fs2.Close();
+                        fs2.Dispose();
+                    }
+
+                    fs.Close();
+                    fs.Dispose();
+                }
+
+                wb.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void setRowDataByType(IRow baseRow, IRow row, DataRow dr, int type, IFont font)
+        {
+            if (type == 0)  // flow sheet1 stat
+            {
+                ICell cell = setCellFormat(row, 3, null);
+                cell.SetCellValue(Int32.Parse(dr[0].ToString()));
+                Dts.Variables["User::resultStatErrAmt"].Value = Int32.Parse(dr[0].ToString());
+                ICell cell2 = setCellFormat(row, 6, null);
+                cell2.SetCellValue(Int32.Parse(dr[1].ToString()));
+                ICell cell3 = setCellFormat(row, 9, null);
+                cell3.SetCellValue(Int32.Parse(dr[2].ToString()));
+            }
+            else if (type == 1) // flow sheet1 data
+            {
+                // 依照sql select 中column順序設定到對應excel (順序需一致!)
+                for (int j = 0; j <= 14; j++)
+                {
+                    ICell cell = setCellFormat(row, j, font);
+                    ICell baseCell = baseRow.GetCell(j);
+                    try
+                    {
+                        if (baseCell != null)
+                        {
+                            cell.SetCellType(baseCell.CellType);    //複製第一個資料列資料型態
+                        }
+
+                        if (j >= 4 || j == 2)
+                        {
+                            // 數值格式
+                            int v = Int32.Parse(dr[j].ToString());
+                            cell.SetCellValue(v);
+                        }
+                        else
+                        {
+                            cell.SetCellValue(dr[j].ToString());
+                        }
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+            } else if(type == 2) // flow sheet2 data
+            {
+                // 依照sql select 中column順序設定到對應excel (順序需一致!)
+                for (int j = 0; j < 16; j++)
+                {
+                    ICell cell = setCellFormat(row, j, font);
+                    ICell baseCell = baseRow.GetCell(j);
+                    try
+                    {
+                        if (baseCell != null)
+                        {
+                            cell.SetCellType(baseCell.CellType);    //複製第一個資料列資料型態
+                        }
+
+                        if (j == 8)
+                        {
+                            // 數值格式
+                            Double v = Double.Parse(dr[j].ToString());
+                            cell.SetCellValue(v);
+                        }
+                        else if (j == 3 || (j >= 11 && j <= 13))
+                        {
+                            // 數值格式
+                            int v = Int32.Parse(dr[j].ToString());
+                            cell.SetCellValue(v);
+                        }
+                        else
+                        {
+                            cell.SetCellValue(dr[j].ToString());
+                        }
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+            }
+            else if (type == 3) // detail sheet1 data
+            {
+                // 依照sql select 中column順序設定到對應excel (順序需一致!)
+                for (int j = 0; j < 9; j++)
+                {
+                    ICell cell = setCellFormat(row, j, font);
+                    ICell baseCell = baseRow.GetCell(j);
+                    try
+                    {
+                        if (baseCell != null)
+                        {
+                            cell.SetCellType(baseCell.CellType);    //複製第一個資料列資料型態
+                        }
+                        string s = dr[j].ToString();
+                        if(j==6)
+                        {
+                            s = s.Replace("\u0001", " ");
+                        }
+                        cell.SetCellValue(s);
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+            }
+        }
+
+        public ICell setCellFormat(IRow row, int colInx, IFont font){
+            ICell cell = row.GetCell(colInx);
+            if(cell == null)
+            {
+                cell = row.CreateCell(colInx);
+            }
+            if(font!=null)
+            {
+                ICellStyle cloneStyle = cell.CellStyle;
+                cloneStyle.VerticalAlignment = VerticalAlignment.Center;
+                cloneStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Left;
+                cloneStyle.SetFont(font);
+                cell.CellStyle.WrapText = true;
+            }
+            return cell;
+        }
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+          <ProjectItem
+            Name="ST_1a7b1ec0644340bc82166b8ef22d95e1.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39A4A416-CAA0-4811-912D-715453293CA6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_f28b723f02644bbb883ef06efd8422d7</RootNamespace>
+    <AssemblyName>ST_1a7b1ec0644340bc82166b8ef22d95e1</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\MyLib\npoi2\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\MyLib\npoi2\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\MyLib\npoi2\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\MyLib\npoi2\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\MyLib\npoi2\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST140</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_1a7b1ec0644340bc82166b8ef22d95e1</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_1a7b1ec0644340bc82166b8ef22d95e1</msb:DisplayName>
+    <msb:ProjectId>{37D2AB8C-921A-4850-B379-DCC4CE813DA7}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_1a7b1ec0644340bc82166b8ef22d95e1.csproj" />
+    <msb:File Include="ScriptMain.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Settings.cs" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_f28b723f02644bbb883ef06efd8422d7.Properties.Settings.get_Default():ST_f28b723f02644bbb883ef06efd8422d7.Properties.Sett" +
+    "ings")]
+
+namespace ST_f28b723f02644bbb883ef06efd8422d7.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_f28b723f02644bbb883ef06efd8422d7")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_f28b723f02644bbb883ef06efd8422d7")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_f28b723f02644bbb883ef06efd8422d7.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_f28b723f02644bbb883ef06efd8422d7.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_f28b723f02644bbb883ef06efd8422d7.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_f28b723f02644bbb883ef06efd8422d7.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_f28b723f02644bbb883ef06efd8422d7.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_1a7b1ec0644340bc82166b8ef22d95e1.dll">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
+7QCZAAYA4AVgBQYAXAaIBw4AuQiZAAYACgFgBRIAYwS4BAYATAVoABYACwjMBBYAgAjMBBYAtAjM
+BBYALgXMBAYAZwVgBRoAKwKSBQYAcgKWBgYABAhgBRoAXweSBRoAeAfwBAYAjQKDBgYABAa2BgYA
+6gWnBRoAVwLwBBoAvgLwBAoA3gSPBB4ATAd1AR4AAQF1AQ4ASwalAA4AzgWZAA4AEAKZAAYATgRg
+BQYA2ABoAAYAmwdoAAYAUAVoABIAZQhYAAYAJQBgBRYApQHMBAYAFgFgBRYATwHMBBYAPwjMBBYA
+UQjMBAYAugFgBQYAHQFgBQYABAm8BQAAAABPAAAAAAABAAEAAQAQAHgFKwA5AAEAAQAAARAAVgcZ
+B20AAQAGAAAAEAC9BhkHdQACAAsAAwEAALYHAABpAAQADwARAMgAWAERAGwFXAERAOQBYQEGBpEA
+ZgFWgKYHaQFWgMQBaQFQIAAAAACGAH4FBgABAFwiAAAAAIYAQQFtAQEAaCQAAAAAhgCuAXcBBgDU
+JgAAAACGAPYHhAELAB4nAAAAAIYYdgYGAA4AJicAAAAAhhh2BgYADgAuJwAAAACBABQGjgEOAC4n
+AAAAAIEAMAaVARAAMCcAAAAAlggSCJwBEgA3JwAAAACRGHwGoQESAEMnAAAAAIMYdgYGABIASycA
+AAAAkwgABqUBEgB3JwAAAACTCMwBqwESAH4nAAAAAJMI2AGxARIAAAABAFkEAAACAOoIAAADAN4I
+AAAEAPcAAAAFAL8BAAABAMEIAAACANoIAAADAPYFAAAEAL8BAAAFAJkIAAABANoIAAACAPkIAAAD
+AJkIAAABAPkFAAACADAEAAABAPkFAAACADAEAAABACwECQB2BgEAEQB2BgYAGQB2BgoAKQB2BhAA
+MQB2BhAAOQB2BhAAQQB2BhAASQB2BhAAUQB2BhAAWQB2BhAAYQB2BhAAaQB2BgYA4QB2BgYAAQF2
+BgYAIQF2BhUAcQCuBzQAKQFIBzoAMQFXBUAAOQELBEcA6QBMBEsAQQF2BgYAeQB2BgYAQQFHBU8A
+gQDhAEsAKQFVBFYAeQDbB14AUQFoBmQAiQB0CEcAkQBXBWkAWQHvB24AiQCeCHUAmQBJAgYAOQEV
+BHkAKQEeCAEAqQB2BpcAoQB2BqIAoQDkB6kAsQDTCK8AwQA/BbUAyQAfBBAAoQCGCLsAuQBoARAA
+uQDEB8AAsQDJCK8AsQCDBQEAeQFsAqIAcQFDAgYAcQFJAgYAeQFDAgYAgQFRAtsAyQAfBMAAyQCV
+AeAAyQCiAeYAkQFRAu0AWQHAAPIAwQA0BbUAyQBaAf0AmQE7CAMBmQEtCAoBmQGRCBEBmQGnCBcB
+cQB2BgYA2QB2BgYA6QB2BgYAsQEvARwBsQEACSUBCQF2BisBCAAUAE4BCAAYAFMBIQBrAFMBLgAL
+AMkBLgATANIBLgAbAPEBLgAjAPoBLgArACMCLgAzACMCLgA7ACMCLgBDAPoBLgBLACkCLgBTACMC
+LgBbAEACQwBjAFMBSQB7APEBaQB7APEBgwBzAFMBHAB+AMUA+AADAAEABAACAAAAFgi4AQAABAa9
+AQAA7AHDAQIACQADAAIADAAFAAIADQAHAAEADgAHAASAAAABAAAAah97TwAAAAAAAAEAAAAEAAAA
+AAAAAAAAAAAzAbcAAAAAAA4AAAAAAAAAAAAAADwBcAQAAAAABAAAAAAAAAAAAAAAMwGZAAAAAAAC
+AAQAAQAAAAAAAABFAV0AAAAAAAIABAABAAAAAAAAAEUBWAAAAAAABAAAAAAAAAAAAAAAMwFgBQAA
+AAAOAAAAAAAAAAAAAAA8AXIAAAAAAAAAAAABAAAAxwYAAAUAAgAAAABTVF8xYTdiMWVjMDY0NDM0
+MGJjODIxNjZiOGVmMjJkOTVlMQBJbnQzMgBTVF9mMjhiNzIzZjAyNjQ0YmJiODgzZWYwNmVmZDg0
+MjJkNwA8TW9kdWxlPgBOUE9JAE5QT0kuT09YTUwAU3lzdGVtLklPAE1pY3Jvc29mdC5TcWxTZXJ2
+ZXIuTWFuYWdlZERUUwB2YWx1ZV9fAFN5c3RlbS5EYXRhAFN5c3RlbS5EYXRhLk9sZURiAG1zY29y
+bGliAFJlcGxhY2UAZGVmYXVsdEluc3RhbmNlAEZpbGVNb2RlAGdldF9NZXNzYWdlAERhdGFUYWJs
+ZQBkYXRhVGFibGUAVmFyaWFibGUASURpc3Bvc2FibGUARG91YmxlAFJ1bnRpbWVUeXBlSGFuZGxl
+AEdldFR5cGVGcm9tSGFuZGxlAGZpeEV4Y2VsU3R5bGUASUNlbGxTdHlsZQBnZXRfQ2VsbFN0eWxl
+AHNldF9Gb250TmFtZQBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5SdW50aW1lAGdldF9DZWxsVHlw
+ZQBTZXRDZWxsVHlwZQBzZXRSb3dEYXRhQnlUeXBlAHR5cGUARmFpbHVyZQBnZXRfQ3VsdHVyZQBz
+ZXRfQ3VsdHVyZQByZXNvdXJjZUN1bHR1cmUAVlNUQVJUU2NyaXB0T2JqZWN0TW9kZWxCYXNlAElu
+dGVybmFsRGF0YUNvbGxlY3Rpb25CYXNlAEFwcGxpY2F0aW9uU2V0dGluZ3NCYXNlAENsb3NlAERp
+c3Bvc2UAUGFyc2UARWRpdG9yQnJvd3NhYmxlU3RhdGUAV3JpdGUAQ29tcGlsZXJHZW5lcmF0ZWRB
+dHRyaWJ1dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRl
+AEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5
+VHJhZGVtYXJrQXR0cmlidXRlAFRhcmdldEZyYW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZp
+Z3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlv
+blJlbGF4YXRpb25zQXR0cmlidXRlAEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNv
+cHlyaWdodEF0dHJpYnV0ZQBTU0lTU2NyaXB0VGFza0VudHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1i
+bHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRlAGdldF9WYWx1
+ZQBzZXRfVmFsdWUAU2V0Q2VsbFZhbHVlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcA
+VG9TdHJpbmcATG9nAGV4Y2VsUGF0aABYU1NGV29ya2Jvb2sATWljcm9zb2Z0LlNxbFNlcnZlci5T
+Y3JpcHRUYXNrAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlRhc2tzLlNjcmlwdFRhc2sATlBPSS5Y
+U1NGLlVzZXJNb2RlbABOUE9JLlNTLlVzZXJNb2RlbABTY3JpcHRPYmplY3RNb2RlbABTeXN0ZW0u
+Q29tcG9uZW50TW9kZWwAU1RfMWE3YjFlYzA2NDQzNDBiYzgyMTY2YjhlZjIyZDk1ZTEuZGxsAElD
+ZWxsAENyZWF0ZUNlbGwAR2V0Q2VsbABGaWxsAEZpbGVTdHJlYW0AZ2V0X0l0ZW0AU3lzdGVtAEVu
+dW0AcmVzb3VyY2VNYW4AU2NyaXB0TWFpbgBBdXRvU2l6ZUNvbHVtbgBTeXN0ZW0uQ29uZmlndXJh
+dGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBEYXRhUm93Q29sbGVj
+dGlvbgBFeGNlcHRpb24AQ3VsdHVyZUluZm8AZHIAc2VuZGVyAGdldF9SZXNvdXJjZU1hbmFnZXIA
+U2V0dGluZ0NoYW5naW5nRXZlbnRIYW5kbGVyAFNldHRpbmdzU2F2aW5nRXZlbnRIYW5kbGVyAE9s
+ZURiRGF0YUFkYXB0ZXIASUVudW1lcmF0b3IAR2V0RW51bWVyYXRvcgAuY3RvcgAuY2N0b3IAU3lz
+dGVtLkRpYWdub3N0aWNzAFN5c3RlbS5SdW50aW1lLkNvbXBpbGVyU2VydmljZXMAU3lzdGVtLlJl
+c291cmNlcwBTVF9mMjhiNzIzZjAyNjQ0YmJiODgzZWYwNmVmZDg0MjJkNy5Qcm9wZXJ0aWVzLlJl
+c291cmNlcy5yZXNvdXJjZXMARGVidWdnaW5nTW9kZXMAU1RfZjI4YjcyM2YwMjY0NGJiYjg4M2Vm
+MDZlZmQ4NDIyZDcuUHJvcGVydGllcwBnZXRfVmFyaWFibGVzAFNldHRpbmdzAFNldHRpbmdDaGFu
+Z2luZ0V2ZW50QXJncwBDYW5jZWxFdmVudEFyZ3MAU3lzdGVtLkNvbGxlY3Rpb25zAEZpbGVBY2Nl
+c3MAU3VjY2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAc2V0X0ZvbnRIZWlnaHRJblBvaW50cwBn
+ZXRfUm93cwBHZXRTaGVldEF0AENvbmNhdABzZXRDZWxsRm9ybWF0AE9iamVjdABJU2hlZXQAZ2V0
+X0RlZmF1bHQAc2V0X1Rhc2tSZXN1bHQAc2V0X0FsaWdubWVudABzZXRfVmVydGljYWxBbGlnbm1l
+bnQASG9yaXpvbnRhbEFsaWdubWVudABQT0lYTUxEb2N1bWVudABnZXRfQ3VycmVudABJRm9udABD
+cmVhdGVGb250AFNldEZvbnQAZm9udABNb3ZlTmV4dABzZXRfV3JhcFRleHQASVJvdwBEYXRhUm93
+AGJhc2VSb3cAQ3JlYXRlUm93AEdldFJvdwByb3cAc3RhcnRSb3dJZHgAd29ya1NoZWV0SW5kZXgA
+Y29sSW54AGdldF9Bc3NlbWJseQAAAAAALVUAcwBlAHIAOgA6AGQAZQB0AGEAaQBsAFIAZQBwAG8A
+cgB0AEYAaQBsAGUAAClVAHMAZQByADoAOgBmAGwAbwB3AFIAZQBwAG8AcgB0AEYAaQBsAGUAAAEA
+KVUAcwBlAHIAOgA6AHIAZQBzAHUAbAB0AFMAZQB0AF8AcwB0AGEAdAAALVUAcwBlAHIAOgA6AHIA
+ZQBzAHUAbAB0AFMAZQB0AF8AZABlAHQAYQBpAGwAACtVAHMAZQByADoAOgByAGUAcwB1AGwAdABT
+AGUAdABfAGYAbABvAHcAMQAAK1UAcwBlAHIAOgA6AHIAZQBzAHUAbAB0AFMAZQB0AF8AZgBsAG8A
+dwAyAAAvVQBzAGUAcgA6ADoAcgBlAHMAdQBsAHQATgBvAEQAYQB0AGEAVABhAGIAbABlAAAFDQAK
+AAAzVQBzAGUAcgA6ADoAbQBhAGkAbABfAG0AcwBnAE4AbwBEAGEAdABhAFQAYQBiAGwAZQAAM1UA
+cwBlAHIAOgA6AGUAeABjAGUAbABEAGEAdABlAFQAaQBtAGUAUwB0AHIAaQBuAGcAAAuuX9+OY2vR
+ntSaAS1VAHMAZQByADoAOgByAGUAcwB1AGwAdABTAHQAYQB0AEUAcgByAEEAbQB0AAADAQABAyAA
+AHFTAFQAXwBmADIAOABiADcAMgAzAGYAMAAyADYANAA0AGIAYgBiADgAOAAzAGUAZgAwADYAZQBm
+AGQAOAA0ADIAMgBkADcALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMA
+AAAAAEyS5vEkwuNHsUo3Hm/h1JcABCABAQgDIAABBSABARERBCABAQ4GIAEBEYCNFwcMDg4OEj0S
+PRI9Ej0SPRJBEkUSSRJNBSAAEoCVBSAAEoCZBiABEoCdHAMgABwDIAAOBiACCBI9HAcgAwEOCB0F
+BSAAEoClBCAAEkUEIAEcCAYAAw4cHBwDIAACBCABARwYBwwSURJVElkSXRJhEkUSSRJhEk0ICBJV
+CiADAQ4RgLERgLUGIAEBEoC5BSABElkIBSABEmEIBSABEmUIBCAAEl0EIAEBDRUHDQgSZRJlCAgS
+ZRJlDQgIEmUSZQ4EAAEIDgUgABGAxQYgAQERgMUEAAENDgUgAg4ODgQHARJlBSAAEoDNBiABARGA
+0QYgAQERgNUFIAEBEl0EIAEBAggAARKA2RGA3QUgABKA4QcgAgEOEoDhCLd6XFYZNOCJCImEXc2A
+gMyRCA33PseUKzThBAAAAAAEAQAAAAMGEgwEBhKAhQQGEoCJAgYIAwYRFAkgBQEOCAgSPQgMIAUB
+EmESYRJJCBJdCSADEmUSYQgSXQYgAgEcEnkGIAIBHBJ9BAAAEgwDAAABBQAAEoCFBQAAEoCJBgAB
+ARKAiQQIABIMBQgAEoCFBQgAEoCJCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhy
+b3dzAQgBAAIAAAAAACgBACNTVF9mMjhiNzIzZjAyNjQ0YmJiODgzZWYwNmVmZDg0MjJkNwAABQEA
+AAAAFgEAEUNvcHlyaWdodCBAICAyMDE5AABJAQAaLk5FVEZyYW1ld29yayxWZXJzaW9uPXY0LjUB
+AFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNQAAtAAAAM7K774BAAAA
+kQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00
+LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkj
+U3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAA
+ABw9AAAAAAAAAAAAADY9AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoPQAAAAAAAAAAAAAAAF9D
+b3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA
+EAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAEgAAABY
+QAAAGgQAAAAAAAAAAAAAGgQ0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8AAAAAAL0E
+7/4AAAEAAAABAHtPah8AAAEAe09qHz8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABEAAAAAQBW
+AGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8AbgAAAAAA
+AACwBHoDAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAAFYDAAABADAAMAAwADAAMAA0
+AGIAMAAAABoAAQABAEMAbwBtAG0AZQBuAHQAcwAAAAAAAAAiAAEAAQBDAG8AbQBwAGEAbgB5AE4A
+YQBtAGUAAAAAAAAAAABwACQAAQBGAGkAbABlAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAAAAAAUwBU
+AF8AZgAyADgAYgA3ADIAMwBmADAAMgA2ADQANABiAGIAYgA4ADgAMwBlAGYAMAA2AGUAZgBkADgA
+NAAyADIAZAA3AAAAPgAPAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBuAAAAAAAxAC4AMAAuADgAMAA0
+ADIALgAyADAAMwA0ADcAAAAAAHAAKAABAEkAbgB0AGUAcgBuAGEAbABOAGEAbQBlAAAAUwBUAF8A
+MQBhADcAYgAxAGUAYwAwADYANAA0ADMANAAwAGIAYwA4ADIAMQA2ADYAYgA4AGUAZgAyADIAZAA5
+ADUAZQAxAC4AZABsAGwAAABIABIAAQBMAGUAZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQAAABDAG8A
+cAB5AHIAaQBnAGgAdAAgAEAAIAAgADIAMAAxADkAAAAqAAEAAQBMAGUAZwBhAGwAVAByAGEAZABl
+AG0AYQByAGsAcwAAAAAAAAAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4AYQBtAGUA
+AABTAFQAXwAxAGEANwBiADEAZQBjADAANgA0ADQAMwA0ADAAYgBjADgAMgAxADYANgBiADgAZQBm
+ADIAMgBkADkANQBlADEALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0AZQAAAAAA
+UwBUAF8AZgAyADgAYgA3ADIAMwBmADAAMgA2ADQANABiAGIAYgA4ADgAMwBlAGYAMAA2AGUAZgBk
+ADgANAAyADIAZAA3AAAAQgAPAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAAMQAuADAA
+LgA4ADAANAAyAC4AMgAwADMANAA3AAAAAABGAA8AAQBBAHMAcwBlAG0AYgBsAHkAIABWAGUAcgBz
+AGkAbwBuAAAAMQAuADAALgA4ADAANAAyAC4AMgAwADMANAA3AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAADAAAAEg9AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\傳送郵件工作"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:DelayValidation="True"
+      DTS:Description="傳送郵件工作"
+      DTS:DTSID="{EDC5DD51-EA3D-48AE-B540-C8682E03E8FF}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="傳送郵件工作"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="CCLine">(@[User::resultStatErrAmt] &gt; 0 ||  @[User::mail_msgNoDataTable] != "" ? @[$Package::mail_ToAdmin] : "")</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="FileAttachments">@[User::flowReportFile] + "|" +  @[User::detailReportFile]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="FromLine">@[$Package::mail_From]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="MessageSource">@[User::mail_messageSource]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Subject">@[User::mail_subject]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ToLine">@[$Package::mail_To]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{AAA07245-3276-4E20-A98C-093FFC81D00F}"
+          SendMailTask:From="Eslite ODS Test"
+          SendMailTask:To="1505003@iisigroup.com"
+          SendMailTask:Subject="「ODS」ECS2 資料處理完畢(含未下檔清單)_20220622"
+          SendMailTask:MessageSource="ECS2  資料處理完畢&#xA;&#xA;未下檔清單:&#xA;---------------------------&#xA;SELECT TABLE_NAME &#xA;  FROM [StagingDB_TW].[dbo].[FILE_REC]&#xA;  where sys_name = 'ecs2'&#xA;    and work_date = '2022-01-17'&#xA;    and ekorg = ''&#xA;&#x9;and file_type != 1&#xA;  group by table_name&#xA;  having sum(case file_type when 2 then -1&#xA;&#x9;&#x9;&#x9;          else 1 end) &lt; 0 ---------------------------" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask">
+          <SendMailTask:Attachments
+            SendMailTask:FileName="C:\\SSIS_DATA\\template\\stage_flow_template.xlsx|C:\\SSIS_DATA\\template\\stage_detail_template.xlsx" />
+        </SendMailTask:SendMailTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\從參數檔USER_PARAMS取得EXCEL檔案範本路徑"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="執行 SQL 工作"
+      DTS:DTSID="{547AF86B-25FE-4328-897E-1055BE48A779}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="從參數檔USER_PARAMS取得EXCEL檔案範本路徑"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{66214BFE-3C93-49AB-B581-7F462381403E}"
+          SQLTask:SqlStatementSource="SELECT PARAM_VALUE&#xA;FROM [dbo].[USER_PARAMS]&#xA;WHERE PARAM_NAME = 'TemplateFolderPath';"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::tmpFilePath" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\時序容器"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="時序容器"
+      DTS:DTSID="{7264361B-D4A6-43E6-98F9-FE2EADF02789}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="時序容器">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\時序容器\產生流程報表resultSet(Sheet1)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="執行 SQL 工作"
+          DTS:DTSID="{ED15DF88-A7EB-4805-9790-38D0151BF37A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="產生流程報表resultSet(Sheet1)"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{317F7F78-B848-480C-B983-2137EF141394}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::sqlFlow1List"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::resultSet_flow1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\時序容器\產生流程報表resultSet(Sheet2)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="執行 SQL 工作"
+          DTS:DTSID="{FD8E27FF-90D5-4638-84C8-C8DE4B435C63}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="產生流程報表resultSet(Sheet2)"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{317F7F78-B848-480C-B983-2137EF141394}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::sqlFlow2List"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::resultSet_flow2" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\時序容器\產生流程報表Stat resultSet(Sheet1)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="執行 SQL 工作"
+          DTS:DTSID="{339355A8-ED7F-4BC5-BF15-E2FE4CE52649}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="產生流程報表Stat resultSet(Sheet1)"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{317F7F78-B848-480C-B983-2137EF141394}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::sqlFlow1Stat"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::resultSet_stat" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\時序容器\產生無資料TABLE清單"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="執行 SQL 工作"
+          DTS:DTSID="{5A279371-C28D-4323-AAA5-37749DEC4B2D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="產生無資料TABLE清單"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{317F7F78-B848-480C-B983-2137EF141394}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::sqlNoDataTable"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::resultNoDataTable" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\時序容器\產生資料驗證錯誤明細報表ResultSet"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="執行 SQL 工作"
+          DTS:DTSID="{0694148A-9018-435A-907B-D86E52B43AE7}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="產生資料驗證錯誤明細報表ResultSet"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{317F7F78-B848-480C-B983-2137EF141394}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::sqlDetailList"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::resultSet_detail" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\用檔案範本 generate 空的EXCEL檔案"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="準備templateLogFile"
+      DTS:DTSID="{5B729560-5654-4C5A-82FF-D56E1583873C}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="用檔案範本 generate 空的EXCEL檔案"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_516089ef4a6941bb9283dd88ee3cf397"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadOnlyVariables="User::baseDetailFileName,User::baseFlowFileName,User::tmpDetailFileName,User::tmpExtFileName,User::tmpFilePath,User::tmpFlowFileName,$Package::srcEkorg,$Package::sysName"
+          ReadWriteVariables="User::detailReportFile,User::flowReportFile">
+          <ProjectItem
+            Name="ST_516089ef4a6941bb9283dd88ee3cf397.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{f0e78757-e4c9-4e37-b757-ad2d6f6073cc}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_325531be07a84c3f9b40f7a02a314619</RootNamespace>
+    <AssemblyName>ST_516089ef4a6941bb9283dd88ee3cf397</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST140</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_325531be07a84c3f9b40f7a02a314619.Properties.Settings.get_Default():ST_325531be07a84c3f9b40f7a02a314619.Properties.Sett" +
+    "ings")]
+
+namespace ST_325531be07a84c3f9b40f7a02a314619.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.Globalization;
+#endregion
+
+namespace ST_325531be07a84c3f9b40f7a02a314619
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            try
+            {
+                string tmpFlowFileName = Dts.Variables["User::tmpFlowFileName"].Value.ToString();
+                string tmpDetailFileName = Dts.Variables["User::tmpDetailFileName"].Value.ToString();
+                string templateExtFileName = Dts.Variables["User::tmpExtFileName"].Value.ToString();
+                string templateFilePath = Dts.Variables["User::tmpFilePath"].Value.ToString();
+
+                string sysName = Dts.Variables["$Package::sysName"].Value.ToString();
+                string ekorg = Dts.Variables["$Package::srcEkorg"].Value.ToString();
+                string datetimeString = string.Format("{0:yyyyMMdd tthhmmss}", DateTime.Now);
+                string baseFlowFileName = sysName + (String.IsNullOrWhiteSpace(ekorg) ? "" : ekorg) + Dts.Variables["User::baseFlowFileName"].Value.ToString() + "_" + datetimeString + templateExtFileName;
+                string baseDetailFileName = sysName + (String.IsNullOrWhiteSpace(ekorg) ? "" : ekorg) + Dts.Variables["User::baseDetailFileName"].Value.ToString() + "_" + datetimeString  + templateExtFileName;
+
+
+                string flowReportFile = System.IO.Path.Combine(templateFilePath, baseFlowFileName);
+                Dts.Variables["User::flowReportFile"].Value = flowReportFile;
+                System.IO.File.Copy(templateFilePath + tmpFlowFileName + templateExtFileName, flowReportFile, true);
+
+                string detailReportFile = System.IO.Path.Combine(templateFilePath, baseDetailFileName);
+                Dts.Variables["User::detailReportFile"].Value = detailReportFile;
+                System.IO.File.Copy(templateFilePath + tmpDetailFileName + templateExtFileName, detailReportFile, true);
+
+                Dts.TaskResult = (int)ScriptResults.Success;
+            }
+            catch (Exception e)
+            {
+                Dts.TaskResult = (int)ScriptResults.Failure;
+            }
+        }
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_516089ef4a6941bb9283dd88ee3cf397</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_516089ef4a6941bb9283dd88ee3cf397</msb:DisplayName>
+    <msb:ProjectId>{E0650153-BDBF-4EEC-B8A3-752FD201210B}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_516089ef4a6941bb9283dd88ee3cf397.csproj" />
+    <msb:File Include="ScriptMain.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_325531be07a84c3f9b40f7a02a314619")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_325531be07a84c3f9b40f7a02a314619")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_325531be07a84c3f9b40f7a02a314619.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_325531be07a84c3f9b40f7a02a314619.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_325531be07a84c3f9b40f7a02a314619.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_325531be07a84c3f9b40f7a02a314619.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_325531be07a84c3f9b40f7a02a314619.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_516089ef4a6941bb9283dd88ee3cf397.dll">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
+AACDGJUEBgABAKAiAAAAAJMIgQS2AAEAzCIAAAAAkwgfAbsAAQDTIgAAAACTCCsBwAABANsiAAAA
+AJYIsQXGAAIA4iIAAAAAhhiVBAYAAgDqIgAAAACRGJsEywACAAAAAQA9AwkAlQQBABEAlQQGABkA
+lQQKACkAlQQQADEAlQQQADkAlQQQAEEAlQQQAEkAlQQQAFEAlQQQAFkAlQQQAGEAlQQQAGkAlQQG
+AIkAlQQGALEAlQQVAMEAlQQGAHEAhgUpAMkAZwUuANEAAwQzANkAKQM5AJEAXQM9AOEAzAVBAOkA
+owVGAOkAjABMAOkAnAVRAPEACgFXANkAMwNdAOkAnAViAPkA4QVpAMkAvQUBAHEAlQQGAJEAlQQG
+AAEBygBwAAEB1AV5AJkAlQR/ALkAlQQGAAgAFACZAAgAGACeACkAcwAGAS4ACwDeAC4AEwDnAC4A
+GwAGAS4AIwAPAS4AKwA4AS4AMwA4AS4AOwA4AS4AQwAPAS4ASwA+AS4AUwA4AS4AWwBVAUMAYwCe
+AEkAcwAGAWEAewCeAGMAawCeABsAAwABAAQAAwAAAIUEzwAAAD8B1AAAALUF2QACAAQAAwACAAUA
+BQABAAYABQACAAcABwAEgAAAAQAAAG8cH0wAAAAAAAABAAAABAAAAAAAAAAAAAAAhwCDAAAAAAAO
+AAAAAAAAAAAAAACQAGsDAAAAAAQAAAAAAAAAAAAAAIcADAQAAAAADgAAAAAAAAAAAAAAkABcAAAA
+AAAAAAAAAQAAAOYEAAAFAAIAAAAAAABTVF81MTYwODllZjRhNjk0MWJiOTI4M2RkODhlZTNjZjM5
+NwBTVF8zMjU1MzFiZTA3YTg0YzNmOWI0MGY3YTAyYTMxNDYxOQA8TW9kdWxlPgBTeXN0ZW0uSU8A
+TWljcm9zb2Z0LlNxbFNlcnZlci5NYW5hZ2VkRFRTAHZhbHVlX18AbXNjb3JsaWIASXNOdWxsT3JX
+aGl0ZVNwYWNlAGRlZmF1bHRJbnN0YW5jZQBWYXJpYWJsZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRU
+eXBlRnJvbUhhbmRsZQBGaWxlAERhdGVUaW1lAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlJ1bnRp
+bWUAQ29tYmluZQBUeXBlAEZhaWx1cmUAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VD
+dWx0dXJlAFZTVEFSVFNjcmlwdE9iamVjdE1vZGVsQmFzZQBBcHBsaWNhdGlvblNldHRpbmdzQmFz
+ZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdlbmVyYXRlZEF0dHJpYnV0ZQBEZWJ1Z2dl
+ck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxl
+QXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1
+dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29uZmlndXJhdGlvbkF0dHJpYnV0
+ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRy
+aWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRl
+AFNTSVNTY3JpcHRUYXNrRW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1
+dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAZ2V0X1ZhbHVlAHNldF9WYWx1ZQB2YWx1
+ZQBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAFRvU3RyaW5nAFBhdGgATWljcm9zb2Z0LlNxbFNl
+cnZlci5TY3JpcHRUYXNrAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlRhc2tzLlNjcmlwdFRhc2sA
+U2NyaXB0T2JqZWN0TW9kZWwAU3lzdGVtLkNvbXBvbmVudE1vZGVsAFNUXzUxNjA4OWVmNGE2OTQx
+YmI5MjgzZGQ4OGVlM2NmMzk3LmRsbABnZXRfSXRlbQBTeXN0ZW0ARW51bQByZXNvdXJjZU1hbgBT
+Y3JpcHRNYWluAFN5c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0aW9uAFN5c3Rl
+bS5SZWZsZWN0aW9uAEV4Y2VwdGlvbgBDdWx0dXJlSW5mbwBnZXRfUmVzb3VyY2VNYW5hZ2VyAC5j
+dG9yAC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2
+aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNUXzMyNTUzMWJlMDdhODRjM2Y5YjQwZjdhMDJhMzE0NjE5
+LlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTVF8zMjU1MzFi
+ZTA3YTg0YzNmOWI0MGY3YTAyYTMxNDYxOS5Qcm9wZXJ0aWVzAGdldF9WYXJpYWJsZXMAU2V0dGlu
+Z3MAU3VjY2VzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAQ29uY2F0AEZvcm1hdABPYmplY3QAZ2V0
+X0RlZmF1bHQAc2V0X1Rhc2tSZXN1bHQAZ2V0X05vdwBnZXRfQXNzZW1ibHkAQ29weQAAAAArVQBz
+AGUAcgA6ADoAdABtAHAARgBsAG8AdwBGAGkAbABlAE4AYQBtAGUAAC9VAHMAZQByADoAOgB0AG0A
+cABEAGUAdABhAGkAbABGAGkAbABlAE4AYQBtAGUAAClVAHMAZQByADoAOgB0AG0AcABFAHgAdABG
+AGkAbABlAE4AYQBtAGUAACNVAHMAZQByADoAOgB0AG0AcABGAGkAbABlAFAAYQB0AGgAACMkAFAA
+YQBjAGsAYQBnAGUAOgA6AHMAeQBzAE4AYQBtAGUAACUkAFAAYQBjAGsAYQBnAGUAOgA6AHMAcgBj
+AEUAawBvAHIAZwAAK3sAMAA6AHkAeQB5AHkATQBNAGQAZAAgAHQAdABoAGgAbQBtAHMAcwB9AAAB
+AC1VAHMAZQByADoAOgBiAGEAcwBlAEYAbABvAHcARgBpAGwAZQBOAGEAbQBlAAADXwAAMVUAcwBl
+AHIAOgA6AGIAYQBzAGUARABlAHQAYQBpAGwARgBpAGwAZQBOAGEAbQBlAAApVQBzAGUAcgA6ADoA
+ZgBsAG8AdwBSAGUAcABvAHIAdABGAGkAbABlAAAtVQBzAGUAcgA6ADoAZABlAHQAYQBpAGwAUgBl
+AHAAbwByAHQARgBpAGwAZQAAcVMAVABfADMAMgA1ADUAMwAxAGIAZQAwADcAYQA4ADQAYwAzAGYA
+OQBiADQAMABmADcAYQAwADIAYQAzADEANAA2ADEAOQAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBS
+AGUAcwBvAHUAcgBjAGUAcwAAAAAA4LqJlurjMEmH1UTHcCHtOQAEIAEBCAMgAAEFIAEBEREEIAEB
+DgUgAQERVQ0HCw4ODg4ODg4ODg4OBCAAEmUEIAASaQUgARJtHAMgABwDIAAOBAAAEXEFAAIODhwE
+AAECDgUAAQ4dDgUAAg4ODgQgAQEcBgADDg4ODgYAAwEODgIIAAESgIERgIUFIAASgIkHIAIBDhKA
+iQi3elxWGTTgiQiJhF3NgIDMkQQAAAAABAEAAAADBhJNAwYSUQMGEhACBggDBhEUBAAAEk0EAAAS
+UQUAAQESUQQAABIQAwAAAQQIABJNBAgAElEECAASEAgBAAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4
+Y2VwdGlvblRocm93cwEIAQACAAAAAAAoAQAjU1RfMzI1NTMxYmUwN2E4NGMzZjliNDBmN2EwMmEz
+MTQ2MTkAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAxOQAASQEAGi5ORVRGcmFtZXdvcmssVmVy
+c2lvbj12NC41AQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFtZRIuTkVUIEZyYW1ld29yayA0LjUAtAAA
+AM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2NvcmxpYiwg
+VmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2
+MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQ
+QURQQURQtAAAADwyAAAAAAAAAAAAAFYyAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIMgAAAAAA
+AAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAA
+SAAAAFhAAAAaBAAAAAAAAAAAAAAaBDQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAA
+AAAAvQTv/gAAAQAAAAEAH0xvHAAAAQAfTG8cPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQA
+AAABAFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBu
+AAAAAAAAALAEegMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAAVgMAAAEAMAAwADAA
+MAAwADQAYgAwAAAAGgABAAEAQwBvAG0AbQBlAG4AdABzAAAAAAAAACIAAQABAEMAbwBtAHAAYQBu
+AHkATgBhAG0AZQAAAAAAAAAAAHAAJAABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkAbwBuAAAA
+AABTAFQAXwAzADIANQA1ADMAMQBiAGUAMAA3AGEAOAA0AGMAMwBmADkAYgA0ADAAZgA3AGEAMAAy
+AGEAMwAxADQANgAxADkAAAA+AA8AAQBGAGkAbABlAFYAZQByAHMAaQBvAG4AAAAAADEALgAwAC4A
+NwAyADcAOQAuADEAOQA0ADgANwAAAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBtAGUAAABT
+AFQAXwA1ADEANgAwADgAOQBlAGYANABhADYAOQA0ADEAYgBiADkAMgA4ADMAZABkADgAOABlAGUA
+MwBjAGYAMwA5ADcALgBkAGwAbAAAAEgAEgABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBnAGgAdAAA
+AEMAbwBwAHkAcgBpAGcAaAB0ACAAQAAgACAAMgAwADEAOQAAACoAAQABAEwAZQBnAGEAbABUAHIA
+YQBkAGUAbQBhAHIAawBzAAAAAAAAAAAAeAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUAbgBh
+AG0AZQAAAFMAVABfADUAMQA2ADAAOAA5AGUAZgA0AGEANgA5ADQAMQBiAGIAOQAyADgAMwBkAGQA
+OAA4AGUAZQAzAGMAZgAzADkANwAuAGQAbABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEAbQBl
+AAAAAABTAFQAXwAzADIANQA1ADMAMQBiAGUAMAA3AGEAOAA0AGMAMwBmADkAYgA0ADAAZgA3AGEA
+MAAyAGEAMwAxADQANgAxADkAAABCAA8AAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAx
+AC4AMAAuADcAMgA3ADkALgAxADkANAA4ADcAAAAAAEYADwABAEEAcwBzAGUAbQBiAGwAeQAgAFYA
+ZQByAHMAaQBvAG4AAAAxAC4AMAAuADcAMgA3ADkALgAxADkANAA4ADcAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAAaDIAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束]"
+      DTS:CreationName=""
+      DTS:DTSID="{B06DE907-159D-440B-83EB-91A73B02B7FC}"
+      DTS:From="Package\用檔案範本 generate 空的EXCEL檔案"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束"
+      DTS:To="Package\時序容器" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{12F1D3D1-39AE-452D-BC50-97C90ED86E11}"
+      DTS:From="Package\修正excel格式"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 1"
+      DTS:To="Package\傳送郵件工作" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{2BCD926C-0884-4180-830A-DE1ABC6AC8F4}"
+      DTS:From="Package\時序容器"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 2"
+      DTS:To="Package\修正excel格式" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{4BC14D21-37D9-4DA7-8957-AEF811ABE5C2}"
+      DTS:From="Package\從參數檔USER_PARAMS取得EXCEL檔案範本路徑"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 3"
+      DTS:To="Package\用檔案範本 generate 空的EXCEL檔案" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="280,41.6"
+          Id="Package\用檔案範本 generate 空的EXCEL檔案"
+          TopLeft="241.499994138876,188.142850596078" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\修正excel格式"
+          TopLeft="301.499991754692,535.857122837282" />
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\時序容器\產生流程報表resultSet(Sheet1)"
+          TopLeft="21.3333286311893,38.8571314714399" />
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\時序容器\產生流程報表resultSet(Sheet2)"
+          TopLeft="22.9999952316286,94.4285624148901" />
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\時序容器\產生流程報表Stat resultSet(Sheet1)"
+          TopLeft="252.666652494007,95.428569720716" />
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\時序容器\產生無資料TABLE清單"
+          TopLeft="503.333328631189,39.6952351338309" />
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\時序容器\產生資料驗證錯誤明細報表ResultSet"
+          TopLeft="249.666652891372,38.7142795470299" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="763.2,192"
+          Size="763.2,235.2"
+          Id="Package\時序容器"
+          TopLeft="0.166662527455003,274.60475395466" />
+        <NodeLayout
+          Size="352.8,41.6"
+          Id="Package\從參數檔USER_PARAMS取得EXCEL檔案範本路徑"
+          TopLeft="202.666670574082,105.919043691472" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\傳送郵件工作"
+          TopLeft="300.66665845447,629.285684588007" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束]"
+          TopLeft="381.583328333165,230.142850596078">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.4619033585817"
+              Start="0,0"
+              End="0,36.9619033585817">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.9619033585817" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 1]"
+          TopLeft="377.583325104581,577.857122837282">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.428561750725"
+              Start="0,0"
+              End="0,43.928561750725">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.928561750725" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 2]"
+          TopLeft="380.333327141073,509.60475395466">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.2523688826223"
+              Start="0,0"
+              End="0,18.7523688826223">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7523688826223" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 3]"
+          TopLeft="380.333332356479,147.919043691472">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.2238069046062"
+              Start="0,0"
+              End="0,32.7238069046062">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.7238069046062" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

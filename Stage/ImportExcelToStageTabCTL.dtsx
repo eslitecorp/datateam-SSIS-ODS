@@ -1,0 +1,1758 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/29/2019 4:06:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1505003NB02"
+  DTS:CreatorName="IEAD\1505003"
+  DTS:DTSID="{1343B6DB-2EFC-4D18-8BCC-E5C2589E0B47}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="ImportExcelToStageTabCTL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{532D426B-032C-4EF7-951E-2984D06005D4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel 連線管理員]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{AA9542F6-6AD2-4950-BD05-A2D63C1F82D7}"
+      DTS:ObjectName="Excel 連線管理員">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::filePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\SSIS_DATA\template\STAGE_TAB_CTL.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9DA209CA-A31F-4439-98A0-CABA6A7391A8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="filePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\SSIS_DATA\template\STAGE_TAB_CTL.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\將STAGE_TAB_CTL的資料清空"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="執行 SQL 工作"
+      DTS:DTSID="{7c4108cb-591b-4be4-8d57-5cfda12a7d9c}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="將STAGE_TAB_CTL的資料清空"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{317F7F78-B848-480C-B983-2137EF141394}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[STAGE_TAB_CTL];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\從Excel檔案匯入STAGE_TAB_CTL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="資料流程工作"
+      DTS:DTSID="{CEE0AAE7-D5CD-4516-9D89-952BAD878595}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="從Excel檔案匯入STAGE_TAB_CTL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="衍生的資料行;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="透過套用運算式到轉換輸入資料行來建立新資料行值。建立新資料行或覆寫現有資料行。例如，將 [名字] 和 [姓氏] 資料行的值串連成 [全名] 資料行。"
+              name="EKORG如為null轉換成空值"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Inputs[衍生的資料行輸入]"
+                  description="輸入至衍生的資料行轉換"
+                  name="衍生的資料行輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Inputs[衍生的資料行輸入].Columns[EKORG]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="EKORG"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[EKORG]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Outputs[衍生的資料行輸出]"
+                  description="衍生的資料行轉換的預設輸出"
+                  exclusionGroup="1"
+                  name="衍生的資料行輸出"
+                  synchronousInputId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Outputs[衍生的資料行輸出].Columns[衍生的資料行EKORG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Outputs[衍生的資料行輸出].Columns[衍生的資料行EKORG]"
+                      name="衍生的資料行EKORG"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">[ISNULL](#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[EKORG]}) ? "" : #{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[EKORG]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(EKORG) ? "" : EKORG</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Outputs[衍生的資料行錯誤輸出]"
+                  description="衍生的資料行轉換的錯誤輸出"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="衍生的資料行錯誤輸出"
+                  synchronousInputId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Inputs[衍生的資料行輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Outputs[衍生的資料行錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Outputs[衍生的資料行錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel 來源;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;1"
+              description="Excel 來源"
+              name="Excel 來源"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">STAGE_TAB_CTL</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="包含要執行之 SQL 命令的變數。"
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="從 SQL 命令中的參數至變數的對應。"
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel 連線管理員]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel 連線管理員]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出]"
+                  name="Excel 來源輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[NATIONALITY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[NATIONALITY]"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[NATIONALITY]"
+                      name="NATIONALITY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[SYS_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[SYS_NAME]"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[SYS_NAME]"
+                      name="SYS_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[EKORG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[EKORG]"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[EKORG]"
+                      name="EKORG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[TABLE_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[TABLE_NAME]"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[TABLE_NAME]"
+                      name="TABLE_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[TABLE_ORDER]"
+                      dataType="r8"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[TABLE_ORDER]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[TABLE_ORDER]"
+                      name="TABLE_ORDER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[CHECK_VALUE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[CHECK_VALUE]"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[CHECK_VALUE]"
+                      name="CHECK_VALUE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[DEF_OP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[DEF_OP]"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[DEF_OP]"
+                      name="DEF_OP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[UPDATE_USER]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[UPDATE_USER]"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[UPDATE_USER]"
+                      name="UPDATE_USER"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[UPDATE_DATE]"
+                      dataType="date"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[UPDATE_DATE]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[UPDATE_DATE]"
+                      name="UPDATE_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[FOLDER_PATH]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[FOLDER_PATH]"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[FOLDER_PATH]"
+                      name="FOLDER_PATH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[FILE_NAME_PATTERN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[FILE_NAME_PATTERN]"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[FILE_NAME_PATTERN]"
+                      name="FILE_NAME_PATTERN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[STATUS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[STATUS]"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[STATUS]"
+                      name="STATUS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[GID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[GID]"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[GID]"
+                      name="GID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[DG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[DG]"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[DG]"
+                      name="DG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[GOD]"
+                      dataType="r8"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[GOD]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[GOD]"
+                      name="GOD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[ZIP_FILE_NAME_PATTERN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[ZIP_FILE_NAME_PATTERN]"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[ZIP_FILE_NAME_PATTERN]"
+                      name="ZIP_FILE_NAME_PATTERN"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[NATIONALITY]"
+                      dataType="wstr"
+                      length="255"
+                      name="NATIONALITY" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[SYS_NAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="SYS_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[EKORG]"
+                      dataType="wstr"
+                      length="255"
+                      name="EKORG" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[TABLE_NAME]"
+                      dataType="wstr"
+                      length="255"
+                      name="TABLE_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[TABLE_ORDER]"
+                      dataType="r8"
+                      name="TABLE_ORDER" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[CHECK_VALUE]"
+                      dataType="wstr"
+                      length="255"
+                      name="CHECK_VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[DEF_OP]"
+                      dataType="wstr"
+                      length="255"
+                      name="DEF_OP" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[UPDATE_USER]"
+                      dataType="wstr"
+                      length="255"
+                      name="UPDATE_USER" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[UPDATE_DATE]"
+                      dataType="date"
+                      name="UPDATE_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[FOLDER_PATH]"
+                      dataType="wstr"
+                      length="255"
+                      name="FOLDER_PATH" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[FILE_NAME_PATTERN]"
+                      dataType="wstr"
+                      length="255"
+                      name="FILE_NAME_PATTERN" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[STATUS]"
+                      dataType="wstr"
+                      length="255"
+                      name="STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[GID]"
+                      dataType="wstr"
+                      length="255"
+                      name="GID" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[DG]"
+                      dataType="wstr"
+                      length="255"
+                      name="DG" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[GOD]"
+                      dataType="r8"
+                      name="GOD" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].ExternalColumns[ZIP_FILE_NAME_PATTERN]"
+                      dataType="wstr"
+                      length="255"
+                      name="ZIP_FILE_NAME_PATTERN" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出]"
+                  isErrorOut="true"
+                  name="Excel 來源錯誤輸出">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[NATIONALITY]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[NATIONALITY]"
+                      name="NATIONALITY" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[SYS_NAME]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[SYS_NAME]"
+                      name="SYS_NAME" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[EKORG]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[EKORG]"
+                      name="EKORG" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[TABLE_NAME]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[TABLE_NAME]"
+                      name="TABLE_NAME" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[TABLE_ORDER]"
+                      dataType="r8"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[TABLE_ORDER]"
+                      name="TABLE_ORDER" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[CHECK_VALUE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[CHECK_VALUE]"
+                      name="CHECK_VALUE" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[DEF_OP]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[DEF_OP]"
+                      name="DEF_OP" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[UPDATE_USER]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[UPDATE_USER]"
+                      name="UPDATE_USER" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[UPDATE_DATE]"
+                      dataType="date"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[UPDATE_DATE]"
+                      name="UPDATE_DATE" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[FOLDER_PATH]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[FOLDER_PATH]"
+                      name="FOLDER_PATH" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[FILE_NAME_PATTERN]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[FILE_NAME_PATTERN]"
+                      name="FILE_NAME_PATTERN" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[STATUS]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[STATUS]"
+                      name="STATUS" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[GID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[GID]"
+                      name="GID" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[DG]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[DG]"
+                      name="DG" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[GOD]"
+                      dataType="r8"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[GOD]"
+                      name="GOD" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[ZIP_FILE_NAME_PATTERN]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[ZIP_FILE_NAME_PATTERN]"
+                      name="ZIP_FILE_NAME_PATTERN" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 目的地;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 目的地"
+              name="Insert Into STAGE_TAB_CTL"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="命令逾時之前的秒數。值為 0 表示無限逾時。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="指定用於開啟資料列集之資料庫物件的名稱。"
+                  name="OpenRowset">[dbo].[STAGE_TAB_CTL]</property>
+                <property
+                  dataType="System.String"
+                  description="指定包含用於開啟資料列集之資料庫物件名稱的變數。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="要執行的 SQL 命令。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="指定無法從資料來源取得字碼頁資訊時，要使用的資料行字碼頁。"
+                  name="DefaultCodePage">950</property>
+                <property
+                  dataType="System.Boolean"
+                  description="描述字元資料時，強制使用 DefaultCodePage 屬性值。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定用於存取資料庫的模式。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出提供給識別欄位的值是否複製到目的地。如果為 False，則會在目的地自動產生識別欄位的值。只有在開啟快速載入時才會套用。"
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="指出包含 Null 之資料行的 Null 是否會插入目的地。若是 False，則包含 Null 的資料行的預設值會插入目的地。唯有開啟快速載入時才適用。"
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="指定快速載入使用的選項。只有開啟快速載入時才會套用。"
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="指定在資料插入期間發出認可的時間。值為 0 指定在資料插入結束時發出一次認可。只有開啟快速載入時才會套用。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Connections[OleDbConnection]"
+                  connectionManagerID="{317F7F78-B848-480C-B983-2137EF141394}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[StagingDB_TW]"
+                  description="用於存取資料庫的 OLE DB 執行階段連接。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入]"
+                  errorOrTruncationOperation="插入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 目的地輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[NATIONALITY 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="NATIONALITY 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[NATIONALITY]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[NATIONALITY 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[ZIP_FILE_NAME_PATTERN 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="512"
+                      cachedName="ZIP_FILE_NAME_PATTERN 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[ZIP_FILE_NAME_PATTERN]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[ZIP_FILE_NAME_PATTERN 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[GOD 的副本]"
+                      cachedDataType="i4"
+                      cachedName="GOD 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[GOD]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[GOD 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[DG 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="DG 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[DG]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[DG 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[GID 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="GID 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[GID]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[GID 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[FILE_NAME_PATTERN 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="FILE_NAME_PATTERN 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[FILE_NAME_PATTERN]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[FILE_NAME_PATTERN 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[STATUS 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="STATUS 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[STATUS]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[STATUS 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[FOLDER_PATH 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="FOLDER_PATH 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[FOLDER_PATH]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[FOLDER_PATH 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[UPDATE_DATE 的副本]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UPDATE_DATE 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[UPDATE_DATE]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[UPDATE_DATE 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[UPDATE_USER 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="UPDATE_USER 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[UPDATE_USER]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[UPDATE_USER 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[DEF_OP 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="DEF_OP 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[DEF_OP]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[DEF_OP 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[CHECK_VALUE 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="CHECK_VALUE 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[CHECK_VALUE]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[CHECK_VALUE 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[TABLE_ORDER 的副本]"
+                      cachedDataType="i4"
+                      cachedName="TABLE_ORDER 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[TABLE_ORDER]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[TABLE_ORDER 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[TABLE_NAME 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="TABLE_NAME 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[TABLE_NAME]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[TABLE_NAME 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[SYS_NAME 的副本]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="SYS_NAME 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[SYS_NAME]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[SYS_NAME 的副本]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].Columns[衍生的資料行EKORG 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="衍生的資料行EKORG 的副本"
+                      externalMetadataColumnId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[EKORG]"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[衍生的資料行EKORG 的副本]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[NATIONALITY]"
+                      codePage="950"
+                      dataType="str"
+                      length="20"
+                      name="NATIONALITY" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[SYS_NAME]"
+                      dataType="wstr"
+                      length="128"
+                      name="SYS_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[EKORG]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="EKORG" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[TABLE_NAME]"
+                      dataType="wstr"
+                      length="128"
+                      name="TABLE_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[TABLE_ORDER]"
+                      dataType="i4"
+                      name="TABLE_ORDER" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[CHECK_VALUE]"
+                      codePage="950"
+                      dataType="str"
+                      length="1"
+                      name="CHECK_VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[DEF_OP]"
+                      codePage="950"
+                      dataType="str"
+                      length="10"
+                      name="DEF_OP" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[UPDATE_USER]"
+                      codePage="950"
+                      dataType="str"
+                      length="50"
+                      name="UPDATE_USER" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[UPDATE_DATE]"
+                      dataType="dbTimeStamp"
+                      name="UPDATE_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[FOLDER_PATH]"
+                      dataType="wstr"
+                      length="300"
+                      name="FOLDER_PATH" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[FILE_NAME_PATTERN]"
+                      dataType="wstr"
+                      length="128"
+                      name="FILE_NAME_PATTERN" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[STATUS]"
+                      codePage="950"
+                      dataType="str"
+                      length="1"
+                      name="STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[GID]"
+                      dataType="wstr"
+                      length="300"
+                      name="GID" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[DG]"
+                      dataType="wstr"
+                      length="128"
+                      name="DG" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[GOD]"
+                      dataType="i4"
+                      name="GOD" />
+                    <externalMetadataColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入].ExternalColumns[ZIP_FILE_NAME_PATTERN]"
+                      dataType="wstr"
+                      length="512"
+                      name="ZIP_FILE_NAME_PATTERN" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Outputs[OLE DB 目的地錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 目的地錯誤輸出"
+                  synchronousInputId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Outputs[OLE DB 目的地錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="資料轉換;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; 著作權所有，並保留一切權利; http://www.microsoft.com/sql/support;0"
+              description="資料轉換"
+              name="資料轉換"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入]"
+                  name="資料轉換輸入">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[NATIONALITY]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NATIONALITY"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[NATIONALITY]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[SYS_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SYS_NAME"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[SYS_NAME]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[TABLE_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TABLE_NAME"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[TABLE_NAME]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[TABLE_ORDER]"
+                      cachedDataType="r8"
+                      cachedName="TABLE_ORDER"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[TABLE_ORDER]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[CHECK_VALUE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CHECK_VALUE"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[CHECK_VALUE]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[DEF_OP]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DEF_OP"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[DEF_OP]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[UPDATE_USER]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="UPDATE_USER"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[UPDATE_USER]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[UPDATE_DATE]"
+                      cachedDataType="date"
+                      cachedName="UPDATE_DATE"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[UPDATE_DATE]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[FOLDER_PATH]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FOLDER_PATH"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[FOLDER_PATH]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[FILE_NAME_PATTERN]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="FILE_NAME_PATTERN"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[FILE_NAME_PATTERN]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[STATUS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="STATUS"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[STATUS]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[GID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GID"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[GID]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[DG]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DG"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[DG]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[GOD]"
+                      cachedDataType="r8"
+                      cachedName="GOD"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[GOD]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[ZIP_FILE_NAME_PATTERN]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZIP_FILE_NAME_PATTERN"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[ZIP_FILE_NAME_PATTERN]" />
+                    <inputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入].Columns[衍生的資料行EKORG]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="衍生的資料行EKORG"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Outputs[衍生的資料行輸出].Columns[衍生的資料行EKORG]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出]"
+                  exclusionGroup="1"
+                  name="資料轉換輸出"
+                  synchronousInputId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[NATIONALITY 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[NATIONALITY 的副本]"
+                      name="NATIONALITY 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[NATIONALITY]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[SYS_NAME 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="128"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[SYS_NAME 的副本]"
+                      name="SYS_NAME 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[SYS_NAME]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[衍生的資料行EKORG 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[衍生的資料行EKORG 的副本]"
+                      name="衍生的資料行EKORG 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Outputs[衍生的資料行輸出].Columns[衍生的資料行EKORG]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[TABLE_NAME 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="128"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[TABLE_NAME 的副本]"
+                      name="TABLE_NAME 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[TABLE_NAME]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[TABLE_ORDER 的副本]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[TABLE_ORDER 的副本]"
+                      name="TABLE_ORDER 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[TABLE_ORDER]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[CHECK_VALUE 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[CHECK_VALUE 的副本]"
+                      name="CHECK_VALUE 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[CHECK_VALUE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[DEF_OP 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[DEF_OP 的副本]"
+                      name="DEF_OP 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[DEF_OP]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[UPDATE_USER 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[UPDATE_USER 的副本]"
+                      name="UPDATE_USER 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[UPDATE_USER]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[UPDATE_DATE 的副本]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[UPDATE_DATE 的副本]"
+                      name="UPDATE_DATE 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[UPDATE_DATE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[FOLDER_PATH 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[FOLDER_PATH 的副本]"
+                      name="FOLDER_PATH 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[FOLDER_PATH]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[FILE_NAME_PATTERN 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="128"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[FILE_NAME_PATTERN 的副本]"
+                      name="FILE_NAME_PATTERN 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[FILE_NAME_PATTERN]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[STATUS 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[STATUS 的副本]"
+                      name="STATUS 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[STATUS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[GID 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="300"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[GID 的副本]"
+                      name="GID 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[GID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[DG 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="128"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[DG 的副本]"
+                      name="DG 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[DG]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[GOD 的副本]"
+                      dataType="i4"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[GOD 的副本]"
+                      name="GOD 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[GOD]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[ZIP_FILE_NAME_PATTERN 的副本]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="512"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出].Columns[ZIP_FILE_NAME_PATTERN 的副本]"
+                      name="ZIP_FILE_NAME_PATTERN 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出].Columns[ZIP_FILE_NAME_PATTERN]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換錯誤輸出]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="資料轉換錯誤輸出"
+                  synchronousInputId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換錯誤輸出].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\從Excel檔案匯入STAGE_TAB_CTL.Paths[Excel 來源輸出]"
+              endId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Inputs[衍生的資料行輸入]"
+              name="Excel 來源輸出"
+              startId="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源.Outputs[Excel 來源輸出]" />
+            <path
+              refId="Package\從Excel檔案匯入STAGE_TAB_CTL.Paths[衍生的資料行輸出]"
+              endId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Inputs[資料轉換輸入]"
+              name="衍生的資料行輸出"
+              startId="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值.Outputs[衍生的資料行輸出]" />
+            <path
+              refId="Package\從Excel檔案匯入STAGE_TAB_CTL.Paths[資料轉換輸出]"
+              endId="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL.Inputs[OLE DB 目的地輸入]"
+              name="資料轉換輸出"
+              startId="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換.Outputs[資料轉換輸出]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\設定路徑參數StageTabCTL_excelPath"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="執行 SQL 工作"
+      DTS:DTSID="{4b02c672-fd80-4fea-9ef9-07aa9ca81cd9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="設定路徑參數StageTabCTL_excelPath"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{66214BFE-3C93-49AB-B581-7F462381403E}"
+          SQLTask:SqlStatementSource="SELECT [PARAM_VALUE]&#xA;FROM [StageETLDB].[dbo].[USER_PARAMS]&#xA;WHERE PARAM_NAME LIKE 'StageTabCTL_excelPath'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::filePath" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束]"
+      DTS:CreationName=""
+      DTS:DTSID="{DDB39530-9827-49EA-A16B-9F62BC5D2B4B}"
+      DTS:From="Package\將STAGE_TAB_CTL的資料清空"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束"
+      DTS:To="Package\從Excel檔案匯入STAGE_TAB_CTL" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{FC79837E-4D42-4E5B-A206-3C9B8048B6A6}"
+      DTS:From="Package\設定路徑參數StageTabCTL_excelPath"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 1"
+      DTS:To="Package\將STAGE_TAB_CTL的資料清空" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{E55FFB78-2F4D-4035-8DAA-5A4FFADD52EB}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="事件的傳播屬性"
+          DTS:DTSID="{F8B75706-A687-4D02-B226-9B6C40F73EA6}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Mail Error Message"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="執行封裝工作"
+          DTS:DTSID="{51EEABDC-A19E-460B-9347-0F5794D36EEB}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Mail Error Message"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Util_Mail_OnError_Log.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\紀錄OnError資訊"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="執行 SQL 工作"
+          DTS:DTSID="{11445D0C-0FA8-41B2-B22C-51CA49F65890}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="紀錄OnError資訊">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{317F7F78-B848-480C-B983-2137EF141394}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[ETL_PACKAGE_ERROR_LOG]&#xA;           ([EXECUTION_ID]&#xA;           ,[PK_ID]&#xA;           ,[MACHINE_NAME]&#xA;           ,[PACKAGE_NAME]&#xA;           ,[SOURCE_NAME]&#xA;           ,[ERROR_CODE]&#xA;           ,[ERROR_DESC]&#xA;           ,[EXECUTION_GUID]&#xA;           ,[CREATE_DATE])&#xA;     VALUES&#xA;           (?&#xA;           ,?&#xA;           ,?&#xA;           ,?&#xA;           ,?&#xA;           ,?&#xA;           ,?&#xA;           ,?&#xA;           ,GETDATE())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::ServerExecutionID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::PackageID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::MachineName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::SourceName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="System::ErrorCode"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="7"
+                SQLTask:DtsVariableName="System::ExecutionInstanceGUID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="72"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package.EventHandlers[OnError].PrecedenceConstraints[條件約束]"
+          DTS:CreationName=""
+          DTS:DTSID="{5DBA6604-8647-4578-8730-D5FC02A69D47}"
+          DTS:From="Package.EventHandlers[OnError]\紀錄OnError資訊"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="條件約束"
+          DTS:To="Package.EventHandlers[OnError]\Mail Error Message" />
+      </DTS:PrecedenceConstraints>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="252,42"
+          Id="Package\將STAGE_TAB_CTL的資料清空"
+          TopLeft="244.999992648761,176.071422641375" />
+        <NodeLayout
+          Size="268,42"
+          Id="Package\從Excel檔案匯入STAGE_TAB_CTL"
+          TopLeft="234.999990661939,270.214271909121" />
+        <NodeLayout
+          Size="285,42"
+          Id="Package\設定路徑參數StageTabCTL_excelPath"
+          TopLeft="227.499990959963,74.28571049048" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束]"
+          TopLeft="369.99999165535,218.071422641375">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.1428492677458"
+              Start="0,0"
+              End="0,44.6428492677458">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.6428492677458" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 1]"
+          TopLeft="370.499991804362,116.28571049048">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.785712150895"
+              Start="0,0"
+              End="0,52.285712150895">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.285712150895" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="183,42"
+          Id="Package.EventHandlers[OnError]\Mail Error Message"
+          TopLeft="121.666661832068,165.285705841318" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package.EventHandlers[OnError]\紀錄OnError資訊"
+          TopLeft="133.333328035143,65.928568060301" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError].PrecedenceConstraints[條件約束]"
+          TopLeft="215.749994933605,107.928568060301">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.3571377810169"
+              Start="0,0"
+              End="0,49.8571377810169">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.8571377810169" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\從Excel檔案匯入STAGE_TAB_CTL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="136,42"
+          Id="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源"
+          TopLeft="284.166655374898,77.9999960150039" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL"
+          TopLeft="238.333323862818,370.499981071269" />
+        <NodeLayout
+          Size="225,42"
+          Id="Package\從Excel檔案匯入STAGE_TAB_CTL\EKORG如為null轉換成空值"
+          TopLeft="235.833323962159,172.285708497982" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\從Excel檔案匯入STAGE_TAB_CTL\資料轉換"
+          TopLeft="288.333321875997,272.357129146859" />
+        <EdgeLayout
+          Id="Package\從Excel檔案匯入STAGE_TAB_CTL.Paths[資料轉換輸出]"
+          TopLeft="353.833322869407,314.357129146859">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56.1428519244099"
+              Start="0,0"
+              End="0,48.6428519244099">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.6428519244099" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\從Excel檔案匯入STAGE_TAB_CTL.Paths[衍生的資料行輸出]"
+          TopLeft="350.083322919078,214.285708497982">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.071420648877"
+              Start="0,0"
+              End="0,50.571420648877">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.571420648877" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\從Excel檔案匯入STAGE_TAB_CTL.Paths[Excel 來源輸出]"
+          TopLeft="350.249989668529,119.999996015004">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.285712482978"
+              Start="0,0"
+              End="0,44.785712482978">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.785712482978" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\從Excel檔案匯入STAGE_TAB_CTL\Excel 來源">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\從Excel檔案匯入STAGE_TAB_CTL\Insert Into STAGE_TAB_CTL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

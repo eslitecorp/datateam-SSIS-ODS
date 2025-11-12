@@ -1,0 +1,1586 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/27/2020 12:31:07 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="TPODS402"
+  DTS:CreatorName="TPODS402\ODS02"
+  DTS:DTSID="{078588DE-DB38-4C88-81E1-9906B4F1F526}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="CountMonthlyDataUsage"
+  DTS:PackageType="5"
+  DTS:VersionBuild="85"
+  DTS:VersionGUID="{88CC4987-11BF-4A15-8EA5-18EBED23FBAE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EE90C8BC-8F25-488A-98F5-53396EE3E167}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;Create View Monthly_Count_&quot; +  (DT_STR, 4, 1252) DATEPART(&quot;yy&quot; , DATEADD(&quot;dd&quot;, -1, GETDATE())) + RIGHT(&quot;0&quot; + (DT_STR, 2, 1252) DATEPART(&quot;mm&quot; , DATEADD(&quot;dd&quot;, -1, GETDATE())), 2) + &quot; AS SELECT u.Container, u.TableName, u.SchemaName, u.RowsThisMonth,  u.RowsLastMonth, u.RowsLastYearThisMonth, u.RowsThisYearToThisMonth, u.RowsLastYearToThisMonth, u.RowsTotal, u.TotalSpaceMBThisMonth, u.TotalSpaceMBLastMonth, u.TotalSpaceMBLastYearThisMonth, u.TotalSpaceMBThisYearToThisMonth, u.TotalSpaceMBLastYearToThisMonth, u.TotalSpaceMBTotal, u.UsedSpaceMBThisMonth, u.UsedSpaceMBLastMonth, u.UsedSpaceMBLastYearThisMonth, u.UsedSpaceMBThisYearToThisMonth, u.UsedSpaceMBLastYearToThisMonth, u.UsedSpaceMBTotal, u.UnusedSpaceMBThisMonth, u.UnusedSpaceMBLastMonth, u.UnusedSpaceMBLastYearThisMonth, u.UnusedSpaceMBThisYearToThisMonth, u.UnusedSpaceMBLastYearToThisMonth, u.UnusedSpaceMBTotal, u.CountDate FROM [StageETLDB].[dbo].[DATA_COUNTUSAGERATE_MONTH]&#xA;u INNER JOIN ( SELECT Container, TableName, SchemaName, max(CountDate) as LastDate&#xA; FROM [StageETLDB].[dbo].[DATA_COUNTUSAGERATE_MONTH]&#xA; GROUP BY Container, TableName, SchemaName) ur on u.Container = ur.Container and u.TableName = ur.TableName and u.SchemaName = ur.SchemaName and u.CountDate = ur.LastDate&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CreateViewSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">Create View Monthly_Count_202005 AS SELECT u.Container, u.TableName, u.SchemaName, u.RowsThisMonth,  u.RowsLastMonth, u.RowsLastYearThisMonth, u.RowsThisYearToThisMonth, u.RowsLastYearToThisMonth, u.RowsTotal, u.TotalSpaceMBThisMonth, u.TotalSpaceMBLastMonth, u.TotalSpaceMBLastYearThisMonth, u.TotalSpaceMBThisYearToThisMonth, u.TotalSpaceMBLastYearToThisMonth, u.TotalSpaceMBTotal, u.UsedSpaceMBThisMonth, u.UsedSpaceMBLastMonth, u.UsedSpaceMBLastYearThisMonth, u.UsedSpaceMBThisYearToThisMonth, u.UsedSpaceMBLastYearToThisMonth, u.UsedSpaceMBTotal, u.UnusedSpaceMBThisMonth, u.UnusedSpaceMBLastMonth, u.UnusedSpaceMBLastYearThisMonth, u.UnusedSpaceMBThisYearToThisMonth, u.UnusedSpaceMBLastYearToThisMonth, u.UnusedSpaceMBTotal, u.CountDate FROM [StageETLDB].[dbo].[DATA_COUNTUSAGERATE_MONTH]
+u INNER JOIN ( SELECT Container, TableName, SchemaName, max(CountDate) as LastDate
+ FROM [StageETLDB].[dbo].[DATA_COUNTUSAGERATE_MONTH]
+ GROUP BY Container, TableName, SchemaName) ur on u.Container = ur.Container and u.TableName = ur.TableName and u.SchemaName = ur.SchemaName and u.CountDate = ur.LastDate</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{71D2F685-9C57-47B6-A912-21AE7F55C227}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;Drop View if exists Monthly_Count_&quot; +  (DT_STR, 4, 1252) DATEPART(&quot;yy&quot; , DATEADD(&quot;dd&quot;, -1, GETDATE())) + RIGHT(&quot;0&quot; + (DT_STR, 2, 1252) DATEPART(&quot;mm&quot; , DATEADD(&quot;dd&quot;, -1, GETDATE())), 2)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DropViewSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">Drop View if exists Monthly_Count_202005</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1A5B4A97-941B-4BAB-8DB6-1F851AC9D217}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="incrementIndex">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create New View"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="執行 SQL 工作"
+      DTS:DTSID="{186f1872-3de0-4963-8087-37451461d4f9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create New View"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{66214BFE-3C93-49AB-B581-7F462381403E}"
+          SQLTask:SqlStmtSourceType="Variable"
+          SQLTask:SqlStatementSource="User::CreateViewSQL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Drop View"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="執行 SQL 工作"
+      DTS:DTSID="{10864c91-5ea9-4317-bb08-d689429e93b6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Drop View"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{66214BFE-3C93-49AB-B581-7F462381403E}"
+          SQLTask:SqlStmtSourceType="Variable"
+          SQLTask:SqlStatementSource="User::DropViewSQL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\儲存每月狀態"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="指令碼工作"
+      DTS:DTSID="{7C9F521E-C149-4BCD-8863-82AD71AC24F0}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="儲存每月狀態"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_b41319b8ad744c7ab5ed1519f030c08f"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadOnlyVariables="User::incrementIndex">
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_b41319b8ad744c7ab5ed1519f030c08f")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_b41319b8ad744c7ab5ed1519f030c08f")]
+[assembly: AssemblyCopyright("Copyright @  2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Collections;
+#endregion
+
+namespace ST_b41319b8ad744c7ab5ed1519f030c08f
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+        /// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+        public void Main()
+		{
+            ConnectionManager connnectionManar = (ConnectionManager)Dts.Connections["StageETLDB Script"];
+            
+            SqlConnection connection = new SqlConnection(connnectionManar.ConnectionString);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+
+            string thisMonthQueryString = "SELECT u.Container, u.TableName, u.SchemaName, u.CountDate, u.RowsToday, u.RowsTotal, u.TotalSpaceMBToday, u.TotalSpaceMBTotal, u.UsedSpaceMBToday, u.UsedSpaceMBTotal, u.UnusedSpaceMBToday, u.UnusedSpaceMBTotal, ur.LastDate" +
+                " FROM[StageETLDB].[dbo].[DATA_COUNTUSAGERATE] u" +
+                " INNER JOIN" +
+                " (SELECT Container, TableName, SchemaName, max(CountDate) as LastDate FROM [StageETLDB].[dbo].[DATA_COUNTUSAGERATE] GROUP BY Container, TableName, SchemaName) ur" +
+                " on u.Container = ur.Container and u.TableName = ur.TableName and u.SchemaName = ur.SchemaName and DATEADD(month, -1, CAST(ur.LastDate as date)) <= u.CountDate and u.CountDate < CAST(ur.LastDate as date)";
+
+            string lastMonthQueryString = "SELECT u.Container, u.TableName, u.SchemaName, u.CountDate, u.RowsToday, u.RowsTotal, u.TotalSpaceMBToday, u.TotalSpaceMBTotal, u.UsedSpaceMBToday, u.UsedSpaceMBTotal, u.UnusedSpaceMBToday, u.UnusedSpaceMBTotal, ur.LastDate" +
+                " FROM[StageETLDB].[dbo].[DATA_COUNTUSAGERATE] u" +
+                " INNER JOIN" +
+                " (SELECT Container, TableName, SchemaName, max(CountDate) as LastDate FROM [StageETLDB].[dbo].[DATA_COUNTUSAGERATE] GROUP BY Container, TableName, SchemaName) ur" +
+                " on u.Container = ur.Container and u.TableName = ur.TableName and u.SchemaName = ur.SchemaName and DATEADD(month, -2, CAST(ur.LastDate as date)) <= u.CountDate and u.CountDate < DATEADD(month, -1, CAST(ur.LastDate as date))";
+
+            string lastYearThisMonthQueryString = "SELECT u.Container, u.TableName, u.SchemaName, u.CountDate, u.RowsToday, u.RowsTotal, u.TotalSpaceMBToday, u.TotalSpaceMBTotal, u.UsedSpaceMBToday, u.UsedSpaceMBTotal, u.UnusedSpaceMBToday, u.UnusedSpaceMBTotal, ur.LastDate" +
+                " FROM[StageETLDB].[dbo].[DATA_COUNTUSAGERATE] u" +
+                " INNER JOIN" +
+                " (SELECT Container, TableName, SchemaName, max(CountDate) as LastDate FROM [StageETLDB].[dbo].[DATA_COUNTUSAGERATE] GROUP BY Container, TableName, SchemaName) ur" +
+                " on u.Container = ur.Container and u.TableName = ur.TableName and u.SchemaName = ur.SchemaName and DATEADD(year, -1, DATEADD(month, -1, CAST(ur.LastDate as date))) <= u.CountDate and u.CountDate < DATEADD(year, -1, CAST(ur.LastDate as date))";
+
+            string thisYearToThisMonthQueryString = "SELECT u.Container, u.TableName, u.SchemaName, u.CountDate, u.RowsToday, u.RowsTotal, u.TotalSpaceMBToday, u.TotalSpaceMBTotal, u.UsedSpaceMBToday, u.UsedSpaceMBTotal, u.UnusedSpaceMBToday, u.UnusedSpaceMBTotal, ur.LastDate" +
+                " FROM[StageETLDB].[dbo].[DATA_COUNTUSAGERATE] u" +
+                " INNER JOIN" +
+                " (SELECT Container, TableName, SchemaName, max(CountDate) as LastDate FROM [StageETLDB].[dbo].[DATA_COUNTUSAGERATE] GROUP BY Container, TableName, SchemaName) ur" +
+                " on u.Container = ur.Container and u.TableName = ur.TableName and u.SchemaName = ur.SchemaName and DATEADD(year, DATEDIFF(year, 0, ur.LastDate), 0) <= u.CountDate and u.CountDate < CAST(ur.LastDate as date)";
+
+            string lastYearToThisMonthQueryString = "SELECT u.Container, u.TableName, u.SchemaName, u.CountDate, u.RowsToday, u.RowsTotal, u.TotalSpaceMBToday, u.TotalSpaceMBTotal, u.UsedSpaceMBToday, u.UsedSpaceMBTotal, u.UnusedSpaceMBToday, u.UnusedSpaceMBTotal, ur.LastDate" +
+                " FROM[StageETLDB].[dbo].[DATA_COUNTUSAGERATE] u" +
+                " INNER JOIN" +
+                " (SELECT Container, TableName, SchemaName, max(CountDate) as LastDate FROM [StageETLDB].[dbo].[DATA_COUNTUSAGERATE] GROUP BY Container, TableName, SchemaName) ur" +
+                " on u.Container = ur.Container and u.TableName = ur.TableName and u.SchemaName = ur.SchemaName and DATEADD(year, DATEDIFF(year, -0, ur.LastDate) -1, 0) <= u.CountDate and u.CountDate < CAST(ur.LastDate as date)";
+
+            try
+            {
+                connection.Open();
+
+                // Create result table to save query result
+                DataTable resultTable = new DataTable();
+                DataColumn idCol = resultTable.Columns.Add("Id", typeof(Int64));
+                idCol.AutoIncrement = true;
+                idCol.AutoIncrementSeed = (int)Dts.Variables["User::incrementIndex"].Value;
+                idCol.AutoIncrementStep = 1;
+                resultTable.Columns.Add("Container", typeof(String));
+                resultTable.Columns.Add("TableName", typeof(String));
+                resultTable.Columns.Add("SchemaName", typeof(String));
+                resultTable.Columns.Add("RowsThisMonth", typeof(int));
+                resultTable.Columns.Add("RowsLastMonth", typeof(int));
+                resultTable.Columns.Add("RowsLastYearThisMonth", typeof(int));
+                resultTable.Columns.Add("RowsThisYearToThisMonth", typeof(int));
+                resultTable.Columns.Add("RowsLastYearToThisMonth", typeof(int));
+                resultTable.Columns.Add("RowsTotal", typeof(int));
+                resultTable.Columns.Add("TotalSpaceMBThisMonth", typeof(Decimal));
+                resultTable.Columns.Add("TotalSpaceMBLastMonth", typeof(Decimal));
+                resultTable.Columns.Add("TotalSpaceMBLastYearThisMonth", typeof(Decimal));
+                resultTable.Columns.Add("TotalSpaceMBThisYearToThisMonth", typeof(Decimal));
+                resultTable.Columns.Add("TotalSpaceMBLastYearToThisMonth", typeof(Decimal));
+                resultTable.Columns.Add("TotalSpaceMBTotal", typeof(Decimal));
+                resultTable.Columns.Add("UsedSpaceMBThisMonth", typeof(Decimal));
+                resultTable.Columns.Add("UsedSpaceMBLastMonth", typeof(Decimal));
+                resultTable.Columns.Add("UsedSpaceMBLastYearThisMonth", typeof(Decimal));
+                resultTable.Columns.Add("UsedSpaceMBThisYearToThisMonth", typeof(Decimal));
+                resultTable.Columns.Add("UsedSpaceMBLastYearToThisMonth", typeof(Decimal));
+                resultTable.Columns.Add("UsedSpaceMBTotal", typeof(Decimal));
+                resultTable.Columns.Add("UnusedSpaceMBThisMonth", typeof(Decimal));
+                resultTable.Columns.Add("UnusedSpaceMBLastMonth", typeof(Decimal));
+                resultTable.Columns.Add("UnusedSpaceMBLastYearThisMonth", typeof(Decimal));
+                resultTable.Columns.Add("UnusedSpaceMBThisYearToThisMonth", typeof(Decimal));
+                resultTable.Columns.Add("UnusedSpaceMBLastYearToThisMonth", typeof(Decimal));
+                resultTable.Columns.Add("UnusedSpaceMBTotal", typeof(Decimal));
+                resultTable.Columns.Add("CountDate", typeof(DateTime));
+
+                // Create dictionary to save each table
+                Dictionary<string, ArrayList> dic = new Dictionary<string, ArrayList>();
+                Dictionary<string, DataRow> dicRow = new Dictionary<string, DataRow>();
+
+                // Create table save this month query result
+                DataTable thisMonthTable = new DataTable();
+                adapter.SelectCommand = new SqlCommand(thisMonthQueryString, connection);
+                adapter.Fill(thisMonthTable);
+                
+                foreach(DataRow row in thisMonthTable.Rows)
+                {
+                    string identify = row["Container"].ToString() + '_' + row["TableName"].ToString() + '_' + row["SchemaName"].ToString();
+                    if (dic.ContainsKey(identify)) {
+                        dic[identify].Add(row);
+                    } else {
+                        ArrayList newArrayList = new ArrayList();
+                        newArrayList.Add(row);
+                        dic.Add(identify, newArrayList);
+                        DataRow newRow = resultTable.NewRow();
+                        newRow["Container"] = row["Container"];
+                        newRow["TableName"] = row["TableName"];
+                        newRow["SchemaName"] = row["SchemaName"];
+                        newRow["CountDate"] = DateTime.Now;
+                        dicRow.Add(identify, newRow);
+                    }
+                }
+                
+                foreach(string key in dic.Keys)
+                {
+                    dic[key].Sort(new DateClass());
+                    int length = dic[key].Count;
+                    if (length == 0)
+                    {
+                        dicRow[key]["RowsThisMonth"] = 0;
+                        dicRow[key]["RowsTotal"] = 0;
+                        dicRow[key]["TotalSpaceMBThisMonth"] =  0.00;
+                        dicRow[key]["TotalSpaceMBTotal"] = 0.00;
+                        dicRow[key]["UsedSpaceMBThisMonth"] = 0.00;
+                        dicRow[key]["UsedSpaceMBTotal"] = 0.00;
+                        dicRow[key]["UnusedSpaceMBThisMonth"] = 0.00;
+                        dicRow[key]["UnusedSpaceMBTotal"] = 0.00;
+                    }
+                    else
+                    {
+                        dicRow[key]["RowsThisMonth"] = (int)((DataRow)dic[key][length - 1])["RowsTotal"] - (int)((DataRow)dic[key][0])["RowsTotal"] + (int)((DataRow)dic[key][length - 1])["RowsToday"];
+                        dicRow[key]["RowsTotal"] = (int)((DataRow)dic[key][length - 1])["RowsTotal"];
+                        dicRow[key]["TotalSpaceMBThisMonth"] = (Decimal)((DataRow)dic[key][length - 1])["TotalSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["TotalSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["TotalSpaceMBToday"];
+                        dicRow[key]["TotalSpaceMBTotal"] = (Decimal)((DataRow)dic[key][length - 1])["TotalSpaceMBTotal"];
+                        dicRow[key]["UsedSpaceMBThisMonth"] = (Decimal)((DataRow)dic[key][length - 1])["UsedSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["UsedSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["UsedSpaceMBToday"];
+                        dicRow[key]["UsedSpaceMBTotal"] = (Decimal)((DataRow)dic[key][length - 1])["UsedSpaceMBTotal"];
+                        dicRow[key]["UnusedSpaceMBThisMonth"] = (Decimal)((DataRow)dic[key][length - 1])["UnusedSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["UnusedSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["UnusedSpaceMBToday"];
+                        dicRow[key]["UnusedSpaceMBTotal"] = (Decimal)((DataRow)dic[key][length - 1])["UnusedSpaceMBTotal"];
+                    }
+                    dic[key].Clear();
+                }
+
+                DataTable lastMonthTable = new DataTable();
+                adapter.SelectCommand = new SqlCommand(lastMonthQueryString, connection);
+                adapter.Fill(lastMonthTable);
+
+                foreach (DataRow row in lastMonthTable.Rows)
+                {
+                    string identify = row["Container"].ToString() + '_' + row["TableName"].ToString() + '_' + row["SchemaName"].ToString();
+                    if (dic.ContainsKey(identify))
+                    {
+                        dic[identify].Add(row);
+                    }
+                    else
+                    {
+                        ArrayList newArrayList = new ArrayList();
+                        newArrayList.Add(row);
+                        dic.Add(identify, newArrayList);
+                        DataRow newRow = resultTable.NewRow();
+                        newRow["Container"] = row["Container"];
+                        newRow["TableName"] = row["TableName"];
+                        newRow["SchemaName"] = row["SchemaName"];
+                        newRow["CountDate"] = DateTime.Now;
+                        dicRow.Add(identify, newRow);
+                    }
+                }
+
+                foreach (string key in dic.Keys)
+                {
+                    dic[key].Sort(new DateClass());
+                    int length = dic[key].Count;
+                    if (length == 0)
+                    {
+                        dicRow[key]["RowsLastMonth"] = 0;
+                        dicRow[key]["TotalSpaceMBLastMonth"] = 0.00;
+                        dicRow[key]["UsedSpaceMBLastMonth"] = 0.00;
+                        dicRow[key]["UnusedSpaceMBLastMonth"] = 0.00;
+                    }
+                    else
+                    {
+                        dicRow[key]["RowsLastMonth"] = (int)((DataRow)dic[key][length - 1])["RowsTotal"] - (int)((DataRow)dic[key][0])["RowsTotal"] + (int)((DataRow)dic[key][length - 1])["RowsToday"];
+                        dicRow[key]["TotalSpaceMBLastMonth"] = (Decimal)((DataRow)dic[key][length - 1])["TotalSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["TotalSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["TotalSpaceMBToday"];
+                        dicRow[key]["UsedSpaceMBLastMonth"] = (Decimal)((DataRow)dic[key][length - 1])["UsedSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["UsedSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["UsedSpaceMBToday"];
+                        dicRow[key]["UnusedSpaceMBLastMonth"] = (Decimal)((DataRow)dic[key][length - 1])["UnusedSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["UnusedSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["UnusedSpaceMBToday"];
+                    }
+                    dic[key].Clear();
+                }
+
+                DataTable lastYearThisMonthTable = new DataTable();
+                adapter.SelectCommand = new SqlCommand(lastYearThisMonthQueryString, connection);
+                adapter.Fill(lastYearThisMonthTable);
+
+                foreach (DataRow row in lastYearThisMonthTable.Rows)
+                {
+                    string identify = row["Container"].ToString() + '_' + row["TableName"].ToString() + '_' + row["SchemaName"].ToString();
+                    if (dic.ContainsKey(identify))
+                    {
+                        dic[identify].Add(row);
+                    }
+                    else
+                    {
+                        ArrayList newArrayList = new ArrayList();
+                        newArrayList.Add(row);
+                        dic.Add(identify, newArrayList);
+                        DataRow newRow = resultTable.NewRow();
+                        newRow["Container"] = row["Container"];
+                        newRow["TableName"] = row["TableName"];
+                        newRow["SchemaName"] = row["SchemaName"];
+                        newRow["CountDate"] = DateTime.Now;
+                        dicRow.Add(identify, newRow);
+                    }
+                }
+
+                foreach (string key in dic.Keys)
+                {
+                    dic[key].Sort(new DateClass());
+                    int length = dic[key].Count;
+                    if (length == 0)
+                    {
+                        dicRow[key]["RowsLastYearThisMonth"] = 0;
+                        dicRow[key]["TotalSpaceMBLastYearThisMonth"] = 0.00;
+                        dicRow[key]["UsedSpaceMBLastYearThisMonth"] = 0.00;
+                        dicRow[key]["UnusedSpaceMBLastYearThisMonth"] = 0.00;
+                    }
+                    else
+                    {
+                        dicRow[key]["RowsLastYearThisMonth"] = (int)((DataRow)dic[key][length - 1])["RowsTotal"] - (int)((DataRow)dic[key][0])["RowsTotal"] + (int)((DataRow)dic[key][length - 1])["RowsToday"];
+                        dicRow[key]["TotalSpaceMBLastYearThisMonth"] = (Decimal)((DataRow)dic[key][length - 1])["TotalSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["TotalSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["TotalSpaceMBToday"];
+                        dicRow[key]["UsedSpaceMBLastYearThisMonth"] = (Decimal)((DataRow)dic[key][length - 1])["UsedSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["UsedSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["UsedSpaceMBToday"];
+                        dicRow[key]["UnusedSpaceMBLastYearThisMonth"] = (Decimal)((DataRow)dic[key][length - 1])["UnusedSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["UnusedSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["UnusedSpaceMBToday"];
+                    }
+                    dic[key].Clear();
+                }
+                
+                DataTable thisYearToThisMonthTable = new DataTable();
+                adapter.SelectCommand = new SqlCommand(thisYearToThisMonthQueryString, connection);
+                adapter.Fill(thisYearToThisMonthTable);
+
+                foreach (DataRow row in thisYearToThisMonthTable.Rows)
+                {
+                    string identify = row["Container"].ToString() + '_' + row["TableName"].ToString() + '_' + row["SchemaName"].ToString();
+                    if (dic.ContainsKey(identify))
+                    {
+                        dic[identify].Add(row);
+                    }
+                    else
+                    {
+                        ArrayList newArrayList = new ArrayList();
+                        newArrayList.Add(row);
+                        dic.Add(identify, newArrayList);
+                        DataRow newRow = resultTable.NewRow();
+                        newRow["Container"] = row["Container"];
+                        newRow["TableName"] = row["TableName"];
+                        newRow["SchemaName"] = row["SchemaName"];
+                        newRow["CountDate"] = DateTime.Now;
+                        dicRow.Add(identify, newRow);
+                    }
+                }
+
+                foreach (string key in dic.Keys)
+                {
+                    dic[key].Sort(new DateClass());
+                    int length = dic[key].Count;
+                    if (length == 0)
+                    {
+                        dicRow[key]["RowsThisYearToThisMonth"] = 0;
+                        dicRow[key]["TotalSpaceMBThisYearToThisMonth"] = 0.00;
+                        dicRow[key]["UsedSpaceMBThisYearToThisMonth"] = 0.00;
+                        dicRow[key]["UnusedSpaceMBThisYearToThisMonth"] = 0.00;
+                    }
+                    else
+                    {
+                        dicRow[key]["RowsThisYearToThisMonth"] = (int)((DataRow)dic[key][length - 1])["RowsTotal"] - (int)((DataRow)dic[key][0])["RowsTotal"] + (int)((DataRow)dic[key][length - 1])["RowsToday"];
+                        dicRow[key]["TotalSpaceMBThisYearToThisMonth"] = (Decimal)((DataRow)dic[key][length - 1])["TotalSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["TotalSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["TotalSpaceMBToday"];
+                        dicRow[key]["UsedSpaceMBThisYearToThisMonth"] = (Decimal)((DataRow)dic[key][length - 1])["UsedSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["UsedSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["UsedSpaceMBToday"];
+                        dicRow[key]["UnusedSpaceMBThisYearToThisMonth"] = (Decimal)((DataRow)dic[key][length - 1])["UnusedSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["UnusedSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["UnusedSpaceMBToday"];
+                    }
+                    dic[key].Clear();
+                }
+
+                DataTable lastYearToThisMonthTable = new DataTable();
+                adapter.SelectCommand = new SqlCommand(lastYearToThisMonthQueryString, connection);
+                adapter.Fill(lastYearToThisMonthTable);
+
+                foreach (DataRow row in lastYearToThisMonthTable.Rows)
+                {
+                    string identify = row["Container"].ToString() + '_' + row["TableName"].ToString() + '_' + row["SchemaName"].ToString();
+                    if (dic.ContainsKey(identify))
+                    {
+                        dic[identify].Add(row);
+                    }
+                    else
+                    {
+                        ArrayList newArrayList = new ArrayList();
+                        newArrayList.Add(row);
+                        dic.Add(identify, newArrayList);
+                        DataRow newRow = resultTable.NewRow();
+                        newRow["Container"] = row["Container"];
+                        newRow["TableName"] = row["TableName"];
+                        newRow["SchemaName"] = row["SchemaName"];
+                        newRow["CountDate"] = DateTime.Now;
+                        dicRow.Add(identify, newRow);
+                    }
+                }
+
+                foreach (string key in dic.Keys)
+                {
+                    dic[key].Sort(new DateClass());
+                    int length = dic[key].Count;
+                    if (length == 0)
+                    {
+                        dicRow[key]["RowsLastYearToThisMonth"] = 0;
+                        dicRow[key]["TotalSpaceMBLastYearToThisMonth"] = 0.00;
+                        dicRow[key]["UsedSpaceMBLastYearToThisMonth"] = 0.00;
+                        dicRow[key]["UnusedSpaceMBLastYearToThisMonth"] = 0.00;
+                    }
+                    else
+                    {
+                        dicRow[key]["RowsLastYearToThisMonth"] = (int)((DataRow)dic[key][length - 1])["RowsTotal"] - (int)((DataRow)dic[key][0])["RowsTotal"] + (int)((DataRow)dic[key][length - 1])["RowsToday"];
+                        dicRow[key]["TotalSpaceMBLastYearToThisMonth"] = (Decimal)((DataRow)dic[key][length - 1])["TotalSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["TotalSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["TotalSpaceMBToday"];
+                        dicRow[key]["UsedSpaceMBLastYearToThisMonth"] = (Decimal)((DataRow)dic[key][length - 1])["UsedSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["UsedSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["UsedSpaceMBToday"];
+                        dicRow[key]["UnusedSpaceMBLastYearToThisMonth"] = (Decimal)((DataRow)dic[key][length - 1])["UnusedSpaceMBTotal"] - (Decimal)((DataRow)dic[key][0])["UnusedSpaceMBTotal"] + (Decimal)((DataRow)dic[key][length - 1])["UnusedSpaceMBToday"];
+                    }
+                    dic[key].Clear();
+                }
+
+                foreach (string key in dicRow.Keys)
+                {
+                    resultTable.Rows.Add(dicRow[key]);
+                }
+
+                // Burk insert to DB
+                
+                using (SqlBulkCopy sbc = new SqlBulkCopy(connection, SqlBulkCopyOptions.KeepIdentity, null))
+                {
+                    sbc.DestinationTableName = "DATA_COUNTUSAGERATE_MONTH";
+
+                    // Number of records to be processed in one go
+                    sbc.BatchSize = 100;
+
+                    // Map the Source Column from DataTabel to the Destination Columns in SQL Server 2005 Person Table
+                    // sbc.ColumnMappings.Add("ID", "ID");
+                    //sbc.ColumnMappings.Add("NAME", "NAME");
+
+                    // Number of records after which client has to be notified about its status
+                    //sbc.NotifyAfter = dtInsertRows.Rows.Count;
+
+                    // Event that gets fired when NotifyAfter number of records are processed.
+                    //sbc.SqlRowsCopied += new SqlRowsCopiedEventHandler(sbc_SqlRowsCopied);
+
+                    // Finally write to server
+                    sbc.WriteToServer(resultTable);
+                    sbc.Close();
+                }
+                Dts.TaskResult = (int)ScriptResults.Success;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Dts.TaskResult = (int)ScriptResults.Failure;
+            }
+        }
+                #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+	}
+
+    public class DateClass: IComparer
+    {
+        public int Compare(object x, object y)
+        {
+            return DateTime.Compare((DateTime)((DataRow)x)["CountDate"], (DateTime)((DataRow)y)["CountDate"]);
+        }
+    }
+
+
+}]]></ProjectItem>
+          <ProjectItem
+            Name="ST_b41319b8ad744c7ab5ed1519f030c08f.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F0C7C4C9-E3A0-44B8-94AE-D88C1E5DA790}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_b41319b8ad744c7ab5ed1519f030c08f</RootNamespace>
+    <AssemblyName>ST_b41319b8ad744c7ab5ed1519f030c08f</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST140</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_b41319b8ad744c7ab5ed1519f030c08f</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_b41319b8ad744c7ab5ed1519f030c08f</msb:DisplayName>
+    <msb:ProjectId>{8BF21561-4E6D-438E-B594-8DBF7AEED2C0}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_b41319b8ad744c7ab5ed1519f030c08f.csproj" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b41319b8ad744c7ab5ed1519f030c08f.Properties.Settings.get_Default():ST_b41319b8ad744c7ab5ed1519f030c08f.Properties.Sett" +
+    "ings")]
+
+namespace ST_b41319b8ad744c7ab5ed1519f030c08f.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b41319b8ad744c7ab5ed1519f030c08f.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b41319b8ad744c7ab5ed1519f030c08f.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_b41319b8ad744c7ab5ed1519f030c08f.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_b41319b8ad744c7ab5ed1519f030c08f.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_b41319b8ad744c7ab5ed1519f030c08f.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_b41319b8ad744c7ab5ed1519f030c08f.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAH5asl4AAAAAAAAAAOAAIiALATAAAFQAAAAIAAAAAAAAnnIA
+AAAgAAAAgAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAADAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAExyAABPAAAAAIAAAHgEAAAAAAAAAAAAAAAAAAAA
+AAAAAKAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAApFIAAAAgAAAAVAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAgAAAAAYAAABWAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAKAAAAACAAAAXAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAACA
+cgAAAAAAAEgAAAACAAUABD8AAJAyAAABAAAAAAAAAJRxAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABswBgDSHAAAAQAAEQIoEAAACm8RAAAKcgEAAHBvEgAACm8T
+AAAKcxQAAAoKcxUAAAoLciUAAHAMcjIFAHANcmcKAHATBHLADwBwEwVy0xQAcBMGBm8WAAAKcxcA
+AAoTBxEHbxgAAApy7hkAcNAqAAABKBkAAApvGgAACiUXbxsAAAolAigQAAAKbxwAAApy9BkAcG8d
+AAAKbx4AAAqlMAAAAWpvHwAAChdqbyAAAAoRB28YAAAKch4aAHDQMQAAASgZAAAKbxoAAAomEQdv
+GAAACnIyGgBw0DEAAAEoGQAACm8aAAAKJhEHbxgAAApyRhoAcNAxAAABKBkAAApvGgAACiYRB28Y
+AAAKclwaAHDQMAAAASgZAAAKbxoAAAomEQdvGAAACnJ4GgBw0DAAAAEoGQAACm8aAAAKJhEHbxgA
+AApylBoAcNAwAAABKBkAAApvGgAACiYRB28YAAAKcsAaAHDQMAAAASgZAAAKbxoAAAomEQdvGAAA
+CnLwGgBw0DAAAAEoGQAACm8aAAAKJhEHbxgAAApyIBsAcNAwAAABKBkAAApvGgAACiYRB28YAAAK
+cjQbAHDQMgAAASgZAAAKbxoAAAomEQdvGAAACnJgGwBw0DIAAAEoGQAACm8aAAAKJhEHbxgAAApy
+jBsAcNAyAAABKBkAAApvGgAACiYRB28YAAAKcsgbAHDQMgAAASgZAAAKbxoAAAomEQdvGAAACnII
+HABw0DIAAAEoGQAACm8aAAAKJhEHbxgAAApySBwAcNAyAAABKBkAAApvGgAACiYRB28YAAAKcmwc
+AHDQMgAAASgZAAAKbxoAAAomEQdvGAAACnKWHABw0DIAAAEoGQAACm8aAAAKJhEHbxgAAApywBwA
+cNAyAAABKBkAAApvGgAACiYRB28YAAAKcvocAHDQMgAAASgZAAAKbxoAAAomEQdvGAAACnI4HQBw
+0DIAAAEoGQAACm8aAAAKJhEHbxgAAApydh0AcNAyAAABKBkAAApvGgAACiYRB28YAAAKcpgdAHDQ
+MgAAASgZAAAKbxoAAAomEQdvGAAACnLGHQBw0DIAAAEoGQAACm8aAAAKJhEHbxgAAApy9B0AcNAy
+AAABKBkAAApvGgAACiYRB28YAAAKcjIeAHDQMgAAASgZAAAKbxoAAAomEQdvGAAACnJ0HgBw0DIA
+AAEoGQAACm8aAAAKJhEHbxgAAApyth4AcNAyAAABKBkAAApvGgAACiYRB28YAAAKctweAHDQMwAA
+ASgZAAAKbxoAAAomcyEAAAoTCHMiAAAKEwlzFwAAChMKBwgGcyMAAApvJAAACgcRCm8lAAAKJhEK
+byYAAApvJwAAChMPOBYBAAARD28oAAAKdBQAAAETEBuNMQAAASUWERByHhoAcG8pAAAKbyoAAAqi
+JRdy8B4AcKIlGBEQcjIaAHBvKQAACm8qAAAKoiUZcvAeAHCiJRoREHJGGgBwbykAAApvKgAACqIo
+KwAAChMREQgREW8sAAAKLBYRCBERby0AAAoREG8uAAAKJjiOAAAAcy8AAAoTEhESERBvLgAACiYR
+CBERERJvMAAAChEHbzEAAAoTExETch4aAHAREHIeGgBwbykAAApvMgAAChETcjIaAHAREHIyGgBw
+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
+IwAACm8kAAAKBxENbyUAAAomEQ1vJgAACm8nAAAKEw84FgEAABEPbygAAAp0FAAAARMkG40xAAAB
+JRYRJHIeGgBwbykAAApvKgAACqIlF3LwHgBwoiUYESRyMhoAcG8pAAAKbyoAAAqiJRly8B4AcKIl
+GhEkckYaAHBvKQAACm8qAAAKoigrAAAKEyURCBElbywAAAosFhEIESVvLQAAChEkby4AAAomOI4A
+AABzLwAAChMmESYRJG8uAAAKJhEIESURJm8wAAAKEQdvMQAAChMnESdyHhoAcBEkch4aAHBvKQAA
+Cm8yAAAKESdyMhoAcBEkcjIaAHBvKQAACm8yAAAKESdyRhoAcBEkckYaAHBvKQAACm8yAAAKESdy
+3B4AcCgzAAAKjDMAAAFvMgAAChEJESURJ280AAAKEQ9vNQAACjre/v//3hURD3UWAAABExQRFCwH
+ERRvNgAACtwRCG83AAAKbzgAAAoTFTj+AgAAEhUoOQAAChMoEQgRKG8tAAAKcwQAAAZvOgAAChEI
+EShvLQAACm87AAAKEykRKTqBAAAAEQkRKG88AAAKcsAaAHAWjDAAAAFvMgAAChEJEShvPAAACnLI
+GwBwIwAAAAAAAAAAjDgAAAFvMgAAChEJEShvPAAACnL6HABwIwAAAAAAAAAAjDgAAAFvMgAAChEJ
+EShvPAAACnIyHgBwIwAAAAAAAAAAjDgAAAFvMgAACjg8AgAAEQkRKG88AAAKcsAaAHARCBEoby0A
+AAoRKRdZbz0AAAp0FAAAAXIgGwBwbykAAAqlMAAAAREIEShvLQAAChZvPQAACnQUAAABciAbAHBv
+KQAACqUwAAABWREIEShvLQAAChEpF1lvPQAACnQUAAABcvQeAHBvKQAACqUwAAABWIwwAAABbzIA
+AAoRCREobzwAAApyyBsAcBEIEShvLQAAChEpF1lvPQAACnQUAAABckgcAHBvKQAACqUyAAABEQgR
+KG8tAAAKFm89AAAKdBQAAAFySBwAcG8pAAAKpTIAAAEoPgAAChEIEShvLQAAChEpF1lvPQAACnQU
+AAABcggfAHBvKQAACqUyAAABKD8AAAqMMgAAAW8yAAAKEQkRKG88AAAKcvocAHARCBEoby0AAAoR
+KRdZbz0AAAp0FAAAAXJ2HQBwbykAAAqlMgAAAREIEShvLQAAChZvPQAACnQUAAABcnYdAHBvKQAA
+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
+EQDeBOEBEQCGAeUBEQCxAOoBBgZCAO4BVoC/B/EBVoBmAfEBUCAAAAAAhgD1BAYAAQBsPgAAAACG
+GHUGBgABAHQ+AAAAAOYBXgH1AQEApT4AAAAAhhh1BgYAAwClPgAAAACDGHUGBgADAK0+AAAAAJMI
+AAb7AQMA2T4AAAAAkwhuAQACAwDgPgAAAACTCHoBBgIDAOg+AAAAAJYI/QcNAgQA7z4AAAAAhhh1
+BgYABAD3PgAAAACRGHsGEgIEAAAAAQCgCAAAAgDFCAAAAQCrAwMAdQAJAHUGAQARAHUGBgAZAHUG
+CgApAHUGEAAxAHUGEAA5AHUGEABBAHUGEABJAHUGEABRAHUGEABZAHUGEABhAHUGEABpAHUGBgDx
+AHUGBgARAXUGFQAhAXUGBgBxAMcHhAApAZIHigAxAcAEkAA5Af0DlwB5AHUGEACBAHUGBgBBAeoE
+BgCJAHUGBgCJAHMHmwBZAQUBoQBJAXoAqgBpATsItAApAUcHuQBxAcAEvwB5AaEDxgBpAX4AygBp
+AeQFygAMAHUGBgAUAHUGBgChAXUG3wCBAJ8A5gCpAbsE7QCJAN0H8wC5AWcG+QCpAE0IxgChAMAE
+/gDhABIElwCJAe8HAwEMAKIICQEMAMAEDwGZAHoAFgGZAHUGBgAMAHoAGwGJAIsIIwGhAMkEKAGZ
+AXsILgEUAHoAGwGpAHIINAGxAOsBBgAMAOYHOAEcAGcGSwEkAE0IXgGZAGMIYwGZAFkIaQEUAMAE
+DwGZAMAEbQGRAS8FcgGRAa8FcgGZAPoFBgAkAHIINAEUAOYHOAEsAGcGSwE0AE0IXgGxAXoAjgE0
+AHIINAHJAHUGlAHJABcBEADJALEDAQDJAE0GoAHJAOUBBgApARYIAQDRAMEAlwDZAZIIpgFxAHUG
+BgCZAV4BrQHhAHUGBgBZAa4ItwH5AHUGvQEZAXUGBgAIABQA1wEIABgA3AEpAHMATgIuAAsAJgIu
+ABMALwIuABsATgIuACMAVwIuACsAgAIuADMAgAIuADsAgAIuAEMAVwIuAEsAhgIuAFMAgAIuAFsA
+nQJDAGMA3AFJAHMATgJhAHsA3AGDAGsA3AEcAAQAAQAFAAMAAAAEBhYCAACOARsCAAABCCECAgAG
+AAMAAgAHAAUAAQAIAAUAAgAJAAcAzwDXAEMBVgF+AYYBBIAAAAEAAAAHHX9mAAAAAAAAvwMAAAQA
+AAAAAAAAAAAAAMUBVgAAAAAADgAAAAAAAAAAAAAAzgEbBAAAAAAEAAAAAAAAAAAAAADFAUoAAAAA
+AAQAAAAAAAAAAAAAAMUB0gQAAAAADgAAAAAAAAAAAAAAzgEjAAAAAAAEAAAAAAAAAAAAAADFAV4H
+AAAAAAAAAAABAAAAxgYAAAYAAgAAAABJbnQzMgBEaWN0aW9uYXJ5YDIASW50NjQAPE1vZHVsZT4A
+TWljcm9zb2Z0LlNxbFNlcnZlci5NYW5hZ2VkRFRTAHZhbHVlX18AU3lzdGVtLkRhdGEAbXNjb3Js
+aWIAU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMAQWRkAHNldF9BdXRvSW5jcmVtZW50U2VlZABT
+cWxDb21tYW5kAHNldF9TZWxlY3RDb21tYW5kAGRlZmF1bHRJbnN0YW5jZQBnZXRfTWVzc2FnZQBE
+YXRhVGFibGUAVmFyaWFibGUASURpc3Bvc2FibGUARG91YmxlAFJ1bnRpbWVUeXBlSGFuZGxlAEdl
+dFR5cGVGcm9tSGFuZGxlAHNldF9EZXN0aW5hdGlvblRhYmxlTmFtZQBEYXRlVGltZQBNaWNyb3Nv
+ZnQuU3FsU2VydmVyLkR0cy5SdW50aW1lAFR5cGUAQ29tcGFyZQBGYWlsdXJlAGdldF9DdWx0dXJl
+AHNldF9DdWx0dXJlAHJlc291cmNlQ3VsdHVyZQBWU1RBUlRTY3JpcHRPYmplY3RNb2RlbEJhc2UA
+SW50ZXJuYWxEYXRhQ29sbGVjdGlvbkJhc2UAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UAQ2xvc2UA
+RGlzcG9zZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21waWxlckdlbmVyYXRlZEF0dHJpYnV0ZQBE
+ZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVnZ2FibGVBdHRyaWJ1dGUARWRpdG9yQnJv
+d3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtB
+dHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAEFzc2VtYmx5Q29uZmlndXJhdGlvbkF0
+dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmlidXRlAENvbXBpbGF0aW9uUmVsYXhhdGlv
+bnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0
+cmlidXRlAFNTSVNTY3JpcHRUYXNrRW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlB
+dHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAZ2V0X1ZhbHVlAHZhbHVlAHNl
+dF9CYXRjaFNpemUAU1RfYjQxMzE5YjhhZDc0NGM3YWI1ZWQxNTE5ZjAzMGMwOGYAU3lzdGVtLlJ1
+bnRpbWUuVmVyc2lvbmluZwBnZXRfQ29ubmVjdGlvblN0cmluZwBUb1N0cmluZwBNaWNyb3NvZnQu
+U3FsU2VydmVyLlNjcmlwdFRhc2sATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuVGFza3MuU2NyaXB0
+VGFzawBEZWNpbWFsAFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25lbnRNb2RlbABTVF9i
+NDEzMTliOGFkNzQ0YzdhYjVlZDE1MTlmMDMwYzA4Zi5kbGwARmlsbABnZXRfSXRlbQBzZXRfSXRl
+bQBTeXN0ZW0ARW51bQByZXNvdXJjZU1hbgBPcGVuAFNjcmlwdE1haW4ARGF0YUNvbHVtbgBTeXN0
+ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBvcF9TdWJ0cmFjdGlvbgBTcWxU
+cmFuc2FjdGlvbgBTeXN0ZW0uUmVmbGVjdGlvbgBEYXRhQ29sdW1uQ29sbGVjdGlvbgBEYXRhUm93
+Q29sbGVjdGlvbgBLZXlDb2xsZWN0aW9uAERiQ29ubmVjdGlvbgBTcWxDb25uZWN0aW9uAG9wX0Fk
+ZGl0aW9uAEV4Y2VwdGlvbgBTeXN0ZW0uRGF0YS5Db21tb24AQ3VsdHVyZUluZm8Ac2V0X0F1dG9J
+bmNyZW1lbnRTdGVwAENsZWFyAGdldF9SZXNvdXJjZU1hbmFnZXIAQ29ubmVjdGlvbk1hbmFnZXIA
+SUNvbXBhcmVyAERiRGF0YUFkYXB0ZXIAU3FsRGF0YUFkYXB0ZXIAV3JpdGVUb1NlcnZlcgBJRW51
+bWVyYXRvcgBHZXRFbnVtZXJhdG9yAC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lz
+dGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNUX2I0MTMxOWI4
+YWQ3NDRjN2FiNWVkMTUxOWYwMzBjMDhmLlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBE
+ZWJ1Z2dpbmdNb2RlcwBTVF9iNDEzMTliOGFkNzQ0YzdhYjVlZDE1MTlmMDMwYzA4Zi5Qcm9wZXJ0
+aWVzAGdldF9WYXJpYWJsZXMAU2V0dGluZ3MAU3lzdGVtLldpbmRvd3MuRm9ybXMAZ2V0X0NvbHVt
+bnMAU3lzdGVtLkNvbGxlY3Rpb25zAGdldF9Db25uZWN0aW9ucwBTcWxCdWxrQ29weU9wdGlvbnMA
+RGF0ZUNsYXNzAFN1Y2Nlc3MAZ2V0X0R0cwBTY3JpcHRSZXN1bHRzAGdldF9Sb3dzAGdldF9LZXlz
+AENvbmNhdABPYmplY3QAZ2V0X0RlZmF1bHQARGlhbG9nUmVzdWx0AHNldF9UYXNrUmVzdWx0AFN5
+c3RlbS5EYXRhLlNxbENsaWVudABzZXRfQXV0b0luY3JlbWVudABnZXRfQ3VycmVudABnZXRfQ291
+bnQAU29ydABBcnJheUxpc3QATW92ZU5leHQAZ2V0X05vdwBEYXRhUm93AE5ld1JvdwBTaG93AE1l
+c3NhZ2VCb3gAQ29udGFpbnNLZXkAZ2V0X0Fzc2VtYmx5AFNxbEJ1bGtDb3B5AAAAI1MAdABhAGcA
+ZQBFAFQATABEAEIAIABTAGMAcgBpAHAAdAAAhQtTAEUATABFAEMAVAAgAHUALgBDAG8AbgB0AGEA
+aQBuAGUAcgAsACAAdQAuAFQAYQBiAGwAZQBOAGEAbQBlACwAIAB1AC4AUwBjAGgAZQBtAGEATgBh
+AG0AZQAsACAAdQAuAEMAbwB1AG4AdABEAGEAdABlACwAIAB1AC4AUgBvAHcAcwBUAG8AZABhAHkA
+LAAgAHUALgBSAG8AdwBzAFQAbwB0AGEAbAAsACAAdQAuAFQAbwB0AGEAbABTAHAAYQBjAGUATQBC
+AFQAbwBkAGEAeQAsACAAdQAuAFQAbwB0AGEAbABTAHAAYQBjAGUATQBCAFQAbwB0AGEAbAAsACAA
+dQAuAFUAcwBlAGQAUwBwAGEAYwBlAE0AQgBUAG8AZABhAHkALAAgAHUALgBVAHMAZQBkAFMAcABh
+AGMAZQBNAEIAVABvAHQAYQBsACwAIAB1AC4AVQBuAHUAcwBlAGQAUwBwAGEAYwBlAE0AQgBUAG8A
+ZABhAHkALAAgAHUALgBVAG4AdQBzAGUAZABTAHAAYQBjAGUATQBCAFQAbwB0AGEAbAAsACAAdQBy
+AC4ATABhAHMAdABEAGEAdABlACAARgBSAE8ATQBbAFMAdABhAGcAZQBFAFQATABEAEIAXQAuAFsA
+ZABiAG8AXQAuAFsARABBAFQAQQBfAEMATwBVAE4AVABVAFMAQQBHAEUAUgBBAFQARQBdACAAdQAg
+AEkATgBOAEUAUgAgAEoATwBJAE4AIAAoAFMARQBMAEUAQwBUACAAQwBvAG4AdABhAGkAbgBlAHIA
+LAAgAFQAYQBiAGwAZQBOAGEAbQBlACwAIABTAGMAaABlAG0AYQBOAGEAbQBlACwAIABtAGEAeAAo
+AEMAbwB1AG4AdABEAGEAdABlACkAIABhAHMAIABMAGEAcwB0AEQAYQB0AGUAIABGAFIATwBNACAA
+WwBTAHQAYQBnAGUARQBUAEwARABCAF0ALgBbAGQAYgBvAF0ALgBbAEQAQQBUAEEAXwBDAE8AVQBO
+AFQAVQBTAEEARwBFAFIAQQBUAEUAXQAgAEcAUgBPAFUAUAAgAEIAWQAgAEMAbwBuAHQAYQBpAG4A
+ZQByACwAIABUAGEAYgBsAGUATgBhAG0AZQAsACAAUwBjAGgAZQBtAGEATgBhAG0AZQApACAAdQBy
+ACAAbwBuACAAdQAuAEMAbwBuAHQAYQBpAG4AZQByACAAPQAgAHUAcgAuAEMAbwBuAHQAYQBpAG4A
+ZQByACAAYQBuAGQAIAB1AC4AVABhAGIAbABlAE4AYQBtAGUAIAA9ACAAdQByAC4AVABhAGIAbABl
+AE4AYQBtAGUAIABhAG4AZAAgAHUALgBTAGMAaABlAG0AYQBOAGEAbQBlACAAPQAgAHUAcgAuAFMA
+YwBoAGUAbQBhAE4AYQBtAGUAIABhAG4AZAAgAEQAQQBUAEUAQQBEAEQAKABtAG8AbgB0AGgALAAg
+AC0AMQAsACAAQwBBAFMAVAAoAHUAcgAuAEwAYQBzAHQARABhAHQAZQAgAGEAcwAgAGQAYQB0AGUA
+KQApACAAPAA9ACAAdQAuAEMAbwB1AG4AdABEAGEAdABlACAAYQBuAGQAIAB1AC4AQwBvAHUAbgB0
+AEQAYQB0AGUAIAA8ACAAQwBBAFMAVAAoAHUAcgAuAEwAYQBzAHQARABhAHQAZQAgAGEAcwAgAGQA
+YQB0AGUAKQABhTNTAEUATABFAEMAVAAgAHUALgBDAG8AbgB0AGEAaQBuAGUAcgAsACAAdQAuAFQA
+YQBiAGwAZQBOAGEAbQBlACwAIAB1AC4AUwBjAGgAZQBtAGEATgBhAG0AZQAsACAAdQAuAEMAbwB1
+AG4AdABEAGEAdABlACwAIAB1AC4AUgBvAHcAcwBUAG8AZABhAHkALAAgAHUALgBSAG8AdwBzAFQA
+bwB0AGEAbAAsACAAdQAuAFQAbwB0AGEAbABTAHAAYQBjAGUATQBCAFQAbwBkAGEAeQAsACAAdQAu
+AFQAbwB0AGEAbABTAHAAYQBjAGUATQBCAFQAbwB0AGEAbAAsACAAdQAuAFUAcwBlAGQAUwBwAGEA
+YwBlAE0AQgBUAG8AZABhAHkALAAgAHUALgBVAHMAZQBkAFMAcABhAGMAZQBNAEIAVABvAHQAYQBs
+ACwAIAB1AC4AVQBuAHUAcwBlAGQAUwBwAGEAYwBlAE0AQgBUAG8AZABhAHkALAAgAHUALgBVAG4A
+dQBzAGUAZABTAHAAYQBjAGUATQBCAFQAbwB0AGEAbAAsACAAdQByAC4ATABhAHMAdABEAGEAdABl
+ACAARgBSAE8ATQBbAFMAdABhAGcAZQBFAFQATABEAEIAXQAuAFsAZABiAG8AXQAuAFsARABBAFQA
+QQBfAEMATwBVAE4AVABVAFMAQQBHAEUAUgBBAFQARQBdACAAdQAgAEkATgBOAEUAUgAgAEoATwBJ
+AE4AIAAoAFMARQBMAEUAQwBUACAAQwBvAG4AdABhAGkAbgBlAHIALAAgAFQAYQBiAGwAZQBOAGEA
+bQBlACwAIABTAGMAaABlAG0AYQBOAGEAbQBlACwAIABtAGEAeAAoAEMAbwB1AG4AdABEAGEAdABl
+ACkAIABhAHMAIABMAGEAcwB0AEQAYQB0AGUAIABGAFIATwBNACAAWwBTAHQAYQBnAGUARQBUAEwA
+RABCAF0ALgBbAGQAYgBvAF0ALgBbAEQAQQBUAEEAXwBDAE8AVQBOAFQAVQBTAEEARwBFAFIAQQBU
+AEUAXQAgAEcAUgBPAFUAUAAgAEIAWQAgAEMAbwBuAHQAYQBpAG4AZQByACwAIABUAGEAYgBsAGUA
+TgBhAG0AZQAsACAAUwBjAGgAZQBtAGEATgBhAG0AZQApACAAdQByACAAbwBuACAAdQAuAEMAbwBu
+AHQAYQBpAG4AZQByACAAPQAgAHUAcgAuAEMAbwBuAHQAYQBpAG4AZQByACAAYQBuAGQAIAB1AC4A
+VABhAGIAbABlAE4AYQBtAGUAIAA9ACAAdQByAC4AVABhAGIAbABlAE4AYQBtAGUAIABhAG4AZAAg
+AHUALgBTAGMAaABlAG0AYQBOAGEAbQBlACAAPQAgAHUAcgAuAFMAYwBoAGUAbQBhAE4AYQBtAGUA
+IABhAG4AZAAgAEQAQQBUAEUAQQBEAEQAKABtAG8AbgB0AGgALAAgAC0AMgAsACAAQwBBAFMAVAAo
+AHUAcgAuAEwAYQBzAHQARABhAHQAZQAgAGEAcwAgAGQAYQB0AGUAKQApACAAPAA9ACAAdQAuAEMA
+bwB1AG4AdABEAGEAdABlACAAYQBuAGQAIAB1AC4AQwBvAHUAbgB0AEQAYQB0AGUAIAA8ACAARABB
+AFQARQBBAEQARAAoAG0AbwBuAHQAaAAsACAALQAxACwAIABDAEEAUwBUACgAdQByAC4ATABhAHMA
+dABEAGEAdABlACAAYQBzACAAZABhAHQAZQApACkAAYVXUwBFAEwARQBDAFQAIAB1AC4AQwBvAG4A
+dABhAGkAbgBlAHIALAAgAHUALgBUAGEAYgBsAGUATgBhAG0AZQAsACAAdQAuAFMAYwBoAGUAbQBh
+AE4AYQBtAGUALAAgAHUALgBDAG8AdQBuAHQARABhAHQAZQAsACAAdQAuAFIAbwB3AHMAVABvAGQA
+YQB5ACwAIAB1AC4AUgBvAHcAcwBUAG8AdABhAGwALAAgAHUALgBUAG8AdABhAGwAUwBwAGEAYwBl
+AE0AQgBUAG8AZABhAHkALAAgAHUALgBUAG8AdABhAGwAUwBwAGEAYwBlAE0AQgBUAG8AdABhAGwA
+LAAgAHUALgBVAHMAZQBkAFMAcABhAGMAZQBNAEIAVABvAGQAYQB5ACwAIAB1AC4AVQBzAGUAZABT
+AHAAYQBjAGUATQBCAFQAbwB0AGEAbAAsACAAdQAuAFUAbgB1AHMAZQBkAFMAcABhAGMAZQBNAEIA
+VABvAGQAYQB5ACwAIAB1AC4AVQBuAHUAcwBlAGQAUwBwAGEAYwBlAE0AQgBUAG8AdABhAGwALAAg
+AHUAcgAuAEwAYQBzAHQARABhAHQAZQAgAEYAUgBPAE0AWwBTAHQAYQBnAGUARQBUAEwARABCAF0A
+LgBbAGQAYgBvAF0ALgBbAEQAQQBUAEEAXwBDAE8AVQBOAFQAVQBTAEEARwBFAFIAQQBUAEUAXQAg
+AHUAIABJAE4ATgBFAFIAIABKAE8ASQBOACAAKABTAEUATABFAEMAVAAgAEMAbwBuAHQAYQBpAG4A
+ZQByACwAIABUAGEAYgBsAGUATgBhAG0AZQAsACAAUwBjAGgAZQBtAGEATgBhAG0AZQAsACAAbQBh
+AHgAKABDAG8AdQBuAHQARABhAHQAZQApACAAYQBzACAATABhAHMAdABEAGEAdABlACAARgBSAE8A
+TQAgAFsAUwB0AGEAZwBlAEUAVABMAEQAQgBdAC4AWwBkAGIAbwBdAC4AWwBEAEEAVABBAF8AQwBP
+AFUATgBUAFUAUwBBAEcARQBSAEEAVABFAF0AIABHAFIATwBVAFAAIABCAFkAIABDAG8AbgB0AGEA
+aQBuAGUAcgAsACAAVABhAGIAbABlAE4AYQBtAGUALAAgAFMAYwBoAGUAbQBhAE4AYQBtAGUAKQAg
+AHUAcgAgAG8AbgAgAHUALgBDAG8AbgB0AGEAaQBuAGUAcgAgAD0AIAB1AHIALgBDAG8AbgB0AGEA
+aQBuAGUAcgAgAGEAbgBkACAAdQAuAFQAYQBiAGwAZQBOAGEAbQBlACAAPQAgAHUAcgAuAFQAYQBi
+AGwAZQBOAGEAbQBlACAAYQBuAGQAIAB1AC4AUwBjAGgAZQBtAGEATgBhAG0AZQAgAD0AIAB1AHIA
+LgBTAGMAaABlAG0AYQBOAGEAbQBlACAAYQBuAGQAIABEAEEAVABFAEEARABEACgAeQBlAGEAcgAs
+ACAALQAxACwAIABEAEEAVABFAEEARABEACgAbQBvAG4AdABoACwAIAAtADEALAAgAEMAQQBTAFQA
+KAB1AHIALgBMAGEAcwB0AEQAYQB0AGUAIABhAHMAIABkAGEAdABlACkAKQApACAAPAA9ACAAdQAu
+AEMAbwB1AG4AdABEAGEAdABlACAAYQBuAGQAIAB1AC4AQwBvAHUAbgB0AEQAYQB0AGUAIAA8ACAA
+RABBAFQARQBBAEQARAAoAHkAZQBhAHIALAAgAC0AMQAsACAAQwBBAFMAVAAoAHUAcgAuAEwAYQBz
+AHQARABhAHQAZQAgAGEAcwAgAGQAYQB0AGUAKQApAAGFEVMARQBMAEUAQwBUACAAdQAuAEMAbwBu
+AHQAYQBpAG4AZQByACwAIAB1AC4AVABhAGIAbABlAE4AYQBtAGUALAAgAHUALgBTAGMAaABlAG0A
+YQBOAGEAbQBlACwAIAB1AC4AQwBvAHUAbgB0AEQAYQB0AGUALAAgAHUALgBSAG8AdwBzAFQAbwBk
+AGEAeQAsACAAdQAuAFIAbwB3AHMAVABvAHQAYQBsACwAIAB1AC4AVABvAHQAYQBsAFMAcABhAGMA
+ZQBNAEIAVABvAGQAYQB5ACwAIAB1AC4AVABvAHQAYQBsAFMAcABhAGMAZQBNAEIAVABvAHQAYQBs
+ACwAIAB1AC4AVQBzAGUAZABTAHAAYQBjAGUATQBCAFQAbwBkAGEAeQAsACAAdQAuAFUAcwBlAGQA
+UwBwAGEAYwBlAE0AQgBUAG8AdABhAGwALAAgAHUALgBVAG4AdQBzAGUAZABTAHAAYQBjAGUATQBC
+AFQAbwBkAGEAeQAsACAAdQAuAFUAbgB1AHMAZQBkAFMAcABhAGMAZQBNAEIAVABvAHQAYQBsACwA
+IAB1AHIALgBMAGEAcwB0AEQAYQB0AGUAIABGAFIATwBNAFsAUwB0AGEAZwBlAEUAVABMAEQAQgBd
+AC4AWwBkAGIAbwBdAC4AWwBEAEEAVABBAF8AQwBPAFUATgBUAFUAUwBBAEcARQBSAEEAVABFAF0A
+IAB1ACAASQBOAE4ARQBSACAASgBPAEkATgAgACgAUwBFAEwARQBDAFQAIABDAG8AbgB0AGEAaQBu
+AGUAcgAsACAAVABhAGIAbABlAE4AYQBtAGUALAAgAFMAYwBoAGUAbQBhAE4AYQBtAGUALAAgAG0A
+YQB4ACgAQwBvAHUAbgB0AEQAYQB0AGUAKQAgAGEAcwAgAEwAYQBzAHQARABhAHQAZQAgAEYAUgBP
+AE0AIABbAFMAdABhAGcAZQBFAFQATABEAEIAXQAuAFsAZABiAG8AXQAuAFsARABBAFQAQQBfAEMA
+TwBVAE4AVABVAFMAQQBHAEUAUgBBAFQARQBdACAARwBSAE8AVQBQACAAQgBZACAAQwBvAG4AdABh
+AGkAbgBlAHIALAAgAFQAYQBiAGwAZQBOAGEAbQBlACwAIABTAGMAaABlAG0AYQBOAGEAbQBlACkA
+IAB1AHIAIABvAG4AIAB1AC4AQwBvAG4AdABhAGkAbgBlAHIAIAA9ACAAdQByAC4AQwBvAG4AdABh
+AGkAbgBlAHIAIABhAG4AZAAgAHUALgBUAGEAYgBsAGUATgBhAG0AZQAgAD0AIAB1AHIALgBUAGEA
+YgBsAGUATgBhAG0AZQAgAGEAbgBkACAAdQAuAFMAYwBoAGUAbQBhAE4AYQBtAGUAIAA9ACAAdQBy
+AC4AUwBjAGgAZQBtAGEATgBhAG0AZQAgAGEAbgBkACAARABBAFQARQBBAEQARAAoAHkAZQBhAHIA
+LAAgAEQAQQBUAEUARABJAEYARgAoAHkAZQBhAHIALAAgADAALAAgAHUAcgAuAEwAYQBzAHQARABh
+AHQAZQApACwAIAAwACkAIAA8AD0AIAB1AC4AQwBvAHUAbgB0AEQAYQB0AGUAIABhAG4AZAAgAHUA
+LgBDAG8AdQBuAHQARABhAHQAZQAgADwAIABDAEEAUwBUACgAdQByAC4ATABhAHMAdABEAGEAdABl
+ACAAYQBzACAAZABhAHQAZQApAACFGVMARQBMAEUAQwBUACAAdQAuAEMAbwBuAHQAYQBpAG4AZQBy
+ACwAIAB1AC4AVABhAGIAbABlAE4AYQBtAGUALAAgAHUALgBTAGMAaABlAG0AYQBOAGEAbQBlACwA
+IAB1AC4AQwBvAHUAbgB0AEQAYQB0AGUALAAgAHUALgBSAG8AdwBzAFQAbwBkAGEAeQAsACAAdQAu
+AFIAbwB3AHMAVABvAHQAYQBsACwAIAB1AC4AVABvAHQAYQBsAFMAcABhAGMAZQBNAEIAVABvAGQA
+YQB5ACwAIAB1AC4AVABvAHQAYQBsAFMAcABhAGMAZQBNAEIAVABvAHQAYQBsACwAIAB1AC4AVQBz
+AGUAZABTAHAAYQBjAGUATQBCAFQAbwBkAGEAeQAsACAAdQAuAFUAcwBlAGQAUwBwAGEAYwBlAE0A
+QgBUAG8AdABhAGwALAAgAHUALgBVAG4AdQBzAGUAZABTAHAAYQBjAGUATQBCAFQAbwBkAGEAeQAs
+ACAAdQAuAFUAbgB1AHMAZQBkAFMAcABhAGMAZQBNAEIAVABvAHQAYQBsACwAIAB1AHIALgBMAGEA
+cwB0AEQAYQB0AGUAIABGAFIATwBNAFsAUwB0AGEAZwBlAEUAVABMAEQAQgBdAC4AWwBkAGIAbwBd
+AC4AWwBEAEEAVABBAF8AQwBPAFUATgBUAFUAUwBBAEcARQBSAEEAVABFAF0AIAB1ACAASQBOAE4A
+RQBSACAASgBPAEkATgAgACgAUwBFAEwARQBDAFQAIABDAG8AbgB0AGEAaQBuAGUAcgAsACAAVABh
+AGIAbABlAE4AYQBtAGUALAAgAFMAYwBoAGUAbQBhAE4AYQBtAGUALAAgAG0AYQB4ACgAQwBvAHUA
+bgB0AEQAYQB0AGUAKQAgAGEAcwAgAEwAYQBzAHQARABhAHQAZQAgAEYAUgBPAE0AIABbAFMAdABh
+AGcAZQBFAFQATABEAEIAXQAuAFsAZABiAG8AXQAuAFsARABBAFQAQQBfAEMATwBVAE4AVABVAFMA
+QQBHAEUAUgBBAFQARQBdACAARwBSAE8AVQBQACAAQgBZACAAQwBvAG4AdABhAGkAbgBlAHIALAAg
+AFQAYQBiAGwAZQBOAGEAbQBlACwAIABTAGMAaABlAG0AYQBOAGEAbQBlACkAIAB1AHIAIABvAG4A
+IAB1AC4AQwBvAG4AdABhAGkAbgBlAHIAIAA9ACAAdQByAC4AQwBvAG4AdABhAGkAbgBlAHIAIABh
+AG4AZAAgAHUALgBUAGEAYgBsAGUATgBhAG0AZQAgAD0AIAB1AHIALgBUAGEAYgBsAGUATgBhAG0A
+ZQAgAGEAbgBkACAAdQAuAFMAYwBoAGUAbQBhAE4AYQBtAGUAIAA9ACAAdQByAC4AUwBjAGgAZQBt
+AGEATgBhAG0AZQAgAGEAbgBkACAARABBAFQARQBBAEQARAAoAHkAZQBhAHIALAAgAEQAQQBUAEUA
+RABJAEYARgAoAHkAZQBhAHIALAAgAC0AMAAsACAAdQByAC4ATABhAHMAdABEAGEAdABlACkAIAAt
+ADEALAAgADAAKQAgADwAPQAgAHUALgBDAG8AdQBuAHQARABhAHQAZQAgAGEAbgBkACAAdQAuAEMA
+bwB1AG4AdABEAGEAdABlACAAPAAgAEMAQQBTAFQAKAB1AHIALgBMAGEAcwB0AEQAYQB0AGUAIABh
+AHMAIABkAGEAdABlACkAAQVJAGQAAClVAHMAZQByADoAOgBpAG4AYwByAGUAbQBlAG4AdABJAG4A
+ZABlAHgAABNDAG8AbgB0AGEAaQBuAGUAcgAAE1QAYQBiAGwAZQBOAGEAbQBlAAAVUwBjAGgAZQBt
+AGEATgBhAG0AZQAAG1IAbwB3AHMAVABoAGkAcwBNAG8AbgB0AGgAABtSAG8AdwBzAEwAYQBzAHQA
+TQBvAG4AdABoAAArUgBvAHcAcwBMAGEAcwB0AFkAZQBhAHIAVABoAGkAcwBNAG8AbgB0AGgAAC9S
+AG8AdwBzAFQAaABpAHMAWQBlAGEAcgBUAG8AVABoAGkAcwBNAG8AbgB0AGgAAC9SAG8AdwBzAEwA
+YQBzAHQAWQBlAGEAcgBUAG8AVABoAGkAcwBNAG8AbgB0AGgAABNSAG8AdwBzAFQAbwB0AGEAbAAA
+K1QAbwB0AGEAbABTAHAAYQBjAGUATQBCAFQAaABpAHMATQBvAG4AdABoAAArVABvAHQAYQBsAFMA
+cABhAGMAZQBNAEIATABhAHMAdABNAG8AbgB0AGgAADtUAG8AdABhAGwAUwBwAGEAYwBlAE0AQgBM
+AGEAcwB0AFkAZQBhAHIAVABoAGkAcwBNAG8AbgB0AGgAAD9UAG8AdABhAGwAUwBwAGEAYwBlAE0A
+QgBUAGgAaQBzAFkAZQBhAHIAVABvAFQAaABpAHMATQBvAG4AdABoAAA/VABvAHQAYQBsAFMAcABh
+AGMAZQBNAEIATABhAHMAdABZAGUAYQByAFQAbwBUAGgAaQBzAE0AbwBuAHQAaAAAI1QAbwB0AGEA
+bABTAHAAYQBjAGUATQBCAFQAbwB0AGEAbAAAKVUAcwBlAGQAUwBwAGEAYwBlAE0AQgBUAGgAaQBz
+AE0AbwBuAHQAaAAAKVUAcwBlAGQAUwBwAGEAYwBlAE0AQgBMAGEAcwB0AE0AbwBuAHQAaAAAOVUA
+cwBlAGQAUwBwAGEAYwBlAE0AQgBMAGEAcwB0AFkAZQBhAHIAVABoAGkAcwBNAG8AbgB0AGgAAD1V
+AHMAZQBkAFMAcABhAGMAZQBNAEIAVABoAGkAcwBZAGUAYQByAFQAbwBUAGgAaQBzAE0AbwBuAHQA
+aAAAPVUAcwBlAGQAUwBwAGEAYwBlAE0AQgBMAGEAcwB0AFkAZQBhAHIAVABvAFQAaABpAHMATQBv
+AG4AdABoAAAhVQBzAGUAZABTAHAAYQBjAGUATQBCAFQAbwB0AGEAbAAALVUAbgB1AHMAZQBkAFMA
+cABhAGMAZQBNAEIAVABoAGkAcwBNAG8AbgB0AGgAAC1VAG4AdQBzAGUAZABTAHAAYQBjAGUATQBC
+AEwAYQBzAHQATQBvAG4AdABoAAA9VQBuAHUAcwBlAGQAUwBwAGEAYwBlAE0AQgBMAGEAcwB0AFkA
+ZQBhAHIAVABoAGkAcwBNAG8AbgB0AGgAAEFVAG4AdQBzAGUAZABTAHAAYQBjAGUATQBCAFQAaABp
+AHMAWQBlAGEAcgBUAG8AVABoAGkAcwBNAG8AbgB0AGgAAEFVAG4AdQBzAGUAZABTAHAAYQBjAGUA
+TQBCAEwAYQBzAHQAWQBlAGEAcgBUAG8AVABoAGkAcwBNAG8AbgB0AGgAACVVAG4AdQBzAGUAZABT
+AHAAYQBjAGUATQBCAFQAbwB0AGEAbAAAE0MAbwB1AG4AdABEAGEAdABlAAADXwAAE1IAbwB3AHMA
+VABvAGQAYQB5AAAjVABvAHQAYQBsAFMAcABhAGMAZQBNAEIAVABvAGQAYQB5AAAhVQBzAGUAZABT
+AHAAYQBjAGUATQBCAFQAbwBkAGEAeQAAJVUAbgB1AHMAZQBkAFMAcABhAGMAZQBNAEIAVABvAGQA
+YQB5AAAzRABBAFQAQQBfAEMATwBVAE4AVABVAFMAQQBHAEUAUgBBAFQARQBfAE0ATwBOAFQASAAA
+cVMAVABfAGIANAAxADMAMQA5AGIAOABhAGQANwA0ADQAYwA3AGEAYgA1AGUAZAAxADUAMQA5AGYA
+MAAzADAAYwAwADgAZgAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAA
+AABBjyxjfuHXSqmYEieGGkl/AAQgAQEIAyAAAQUgAQEREQQgAQEOBiABARGAhWcHMxI9EkEODg4O
+DhJFFRJJAg4STRUSSQIOElESRRJFEkUSRRJFElUSUQ4STRJRElkVEWECDhJNDggSUQ4STRJRDggS
+UQ4STRJRDggSUQ4STRJRDggSUQ4STRJRDggVEWECDhJRDhJlBSAAEoCVBSAAEoCZBiABEoCdHAMg
+AA4FIAASgKUIAAESgK0RgLEJIAISgLUOEoCtBCABAQIFIAASgLkGIAESgL0cAyAAHAQgAQEKBxUS
+SQIOEk0HFRJJAg4SUQYgAgEOEj0GIAEBEoDRBSABCBJFBSAAEoDZBCAAElUEIAEcDgUAAQ4dDgUg
+AQITAAYgARMBEwAEIAEIHAcgAgETABMBBCAAElEFIAIBDhwFAAARgM0DIAACCiAAFRJdAhMAEwEH
+FRJdAg4STQogABURYQITABMBBxURYQIOEk0EIAATAAUgAQESdQMgAAgEIAEcCAsAAhGAyRGAyRGA
+yQcVEl0CDhJRBxURYQIOElEFIAEBElELIAMBEj0RgOUSgOkFIAEBEkUGAAERgPEOCQACCBGAzRGA
+zQUgABKA9QcgAgEOEoD1CLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGEn0EBhKAgQMGEhQC
+BggDBhEYBSACCBwcBAAAEn0FAAASgIEGAAEBEoCBBAAAEhQDAAABBAgAEn0FCAASgIEECAASFAgB
+AAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEIAQACAAAAAAAoAQAjU1RfYjQx
+MzE5YjhhZDc0NGM3YWI1ZWQxNTE5ZjAzMGMwOGYAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAy
+MAAASQEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC41AQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFt
+ZRIuTkVUIEZyYW1ld29yayA0LjUAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJl
+c291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWws
+IFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1l
+UmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAAAHRyAAAAAAAAAAAAAI5yAAAAIAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAACAcgAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAA
+AAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAEAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAA
+ADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAEgAAABYgAAAGgQAAAAAAAAAAAAAGgQ0AAAAVgBTAF8A
+VgBFAFIAUwBJAE8ATgBfAEkATgBGAE8AAAAAAL0E7/4AAAEAAAABAH9mBx0AAAEAf2YHHT8AAAAA
+AAAABAAAAAIAAAAAAAAAAAAAAAAAAABEAAAAAQBWAGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQA
+BAAAAFQAcgBhAG4AcwBsAGEAdABpAG8AbgAAAAAAAACwBHoDAAABAFMAdAByAGkAbgBnAEYAaQBs
+AGUASQBuAGYAbwAAAFYDAAABADAAMAAwADAAMAA0AGIAMAAAABoAAQABAEMAbwBtAG0AZQBuAHQA
+cwAAAAAAAAAiAAEAAQBDAG8AbQBwAGEAbgB5AE4AYQBtAGUAAAAAAAAAAABwACQAAQBGAGkAbABl
+AEQAZQBzAGMAcgBpAHAAdABpAG8AbgAAAAAAUwBUAF8AYgA0ADEAMwAxADkAYgA4AGEAZAA3ADQA
+NABjADcAYQBiADUAZQBkADEANQAxADkAZgAwADMAMABjADAAOABmAAAAPgAPAAEARgBpAGwAZQBW
+AGUAcgBzAGkAbwBuAAAAAAAxAC4AMAAuADcANAAzADEALgAyADYAMgAzADkAAAAAAHAAKAABAEkA
+bgB0AGUAcgBuAGEAbABOAGEAbQBlAAAAUwBUAF8AYgA0ADEAMwAxADkAYgA4AGEAZAA3ADQANABj
+ADcAYQBiADUAZQBkADEANQAxADkAZgAwADMAMABjADAAOABmAC4AZABsAGwAAABIABIAAQBMAGUA
+ZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQAAABDAG8AcAB5AHIAaQBnAGgAdAAgAEAAIAAgADIAMAAy
+ADAAAAAqAAEAAQBMAGUAZwBhAGwAVAByAGEAZABlAG0AYQByAGsAcwAAAAAAAAAAAHgAKAABAE8A
+cgBpAGcAaQBuAGEAbABGAGkAbABlAG4AYQBtAGUAAABTAFQAXwBiADQAMQAzADEAOQBiADgAYQBk
+ADcANAA0AGMANwBhAGIANQBlAGQAMQA1ADEAOQBmADAAMwAwAGMAMAA4AGYALgBkAGwAbAAAAGgA
+JAABAFAAcgBvAGQAdQBjAHQATgBhAG0AZQAAAAAAUwBUAF8AYgA0ADEAMwAxADkAYgA4AGEAZAA3
+ADQANABjADcAYQBiADUAZQBkADEANQAxADkAZgAwADMAMABjADAAOABmAAAAQgAPAAEAUAByAG8A
+ZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgA3ADQAMwAxAC4AMgA2ADIAMwA5AAAAAABG
+AA8AAQBBAHMAcwBlAG0AYgBsAHkAIABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgA3ADQAMwAxAC4A
+MgA2ADIAMwA5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAcAAADAAAAKAyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAA==</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\取得目前Id數字"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="執行 SQL 工作"
+      DTS:DTSID="{2c3c306d-7625-49f3-9e09-eb802e8c6775}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="取得目前Id數字"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{66214BFE-3C93-49AB-B581-7F462381403E}"
+          SQLTask:SqlStatementSource="Select Max(Id) + 1 &#xA;From .[dbo].[DATA_COUNTUSAGERATE_MONTH]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::incrementIndex" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\執行當日增量計算"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="執行封裝工作"
+      DTS:DTSID="{7036591a-6201-41e0-93b9-65f2eef82eed}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="執行當日增量計算"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>CalculateDailyDataUsage.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束]"
+      DTS:CreationName=""
+      DTS:DTSID="{A8509C07-B1C2-4C5C-8393-49B9CAE6F269}"
+      DTS:From="Package\取得目前Id數字"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束"
+      DTS:To="Package\儲存每月狀態" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C2CB604D-4B3A-40A0-95EC-A583916A2049}"
+      DTS:From="Package\執行當日增量計算"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 1"
+      DTS:To="Package\取得目前Id數字" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{4eaa72c4-9dad-402a-abe8-b6ee14c17b85}"
+      DTS:From="Package\Drop View"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 2"
+      DTS:To="Package\Create New View" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{FC1EE663-C3F3-4217-83C0-BBD8AFC04D17}"
+      DTS:From="Package\儲存每月狀態"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 3"
+      DTS:To="Package\Drop View" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\儲存每月狀態"
+          TopLeft="193,175.933334731526" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\取得目前Id數字"
+          TopLeft="183,98.8000007851919" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束]"
+          TopLeft="265.75,140.800000785192">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.133333946334"
+              Start="0,0"
+              End="0,27.633333946334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.633333946334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Create New View"
+          TopLeft="195,321.533335888651" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Drop View"
+          TopLeft="199,253.06666867786" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 2]"
+          TopLeft="264,295.06666867786">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.5,26.466667210791"
+              Start="0,0"
+              End="8.5,18.966667210791">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.2333336053955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.2333336053955"
+                    Point2="0,13.2333336053955"
+                    Point3="4,13.2333336053955" />
+                  <mssgle:LineSegment
+                    End="4.5,13.2333336053955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.5,13.2333336053955"
+                    Point2="8.5,13.2333336053955"
+                    Point3="8.5,17.2333336053955" />
+                  <mssgle:LineSegment
+                    End="8.5,18.966667210791" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 3]"
+          TopLeft="266.25,217.933334731526">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.1333339463339"
+              Start="0,0"
+              End="0,27.6333339463339">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.6333339463339" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="151,42"
+          Id="Package\執行當日增量計算"
+          TopLeft="189,39.8666669834985" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 1]"
+          TopLeft="340,60.8666669834985">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="3,58.9333338016934"
+              Start="0,0"
+              End="10.5,58.9333338016934">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.5,0"
+                    Point2="25.5,0"
+                    Point3="25.5,4" />
+                  <mssgle:LineSegment
+                    End="25.5,54.9333338016934" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.5,54.9333338016934"
+                    Point2="25.5,58.9333338016934"
+                    Point3="21.5,58.9333338016934" />
+                  <mssgle:LineSegment
+                    End="10.5,58.9333338016934" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

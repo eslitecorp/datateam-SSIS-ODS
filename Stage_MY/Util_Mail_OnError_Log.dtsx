@@ -1,0 +1,236 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/7/2018 5:51:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1505003NB02"
+  DTS:CreatorName="IEAD\1505003"
+  DTS:DTSID="{3235D396-97CA-4C91-984A-8EE2B2EA921E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.93"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="Util_Mail_OnError_Log"
+  DTS:PackageType="5"
+  DTS:VersionBuild="80"
+  DTS:VersionGUID="{64E8689C-01D1-4013-AF9F-BBEBBEBB080E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{74A3AC07-5FA7-4F27-8EA6-F444C50090F6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="mail_errMsg">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BAAA3996-E6D3-4F3E-83D9-D1B19526A53A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="mail_From">
+      <DTS:VariableValue
+        DTS:DataType="8">ncatest@ms2.iisigroup.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BDCC8B50-78FD-4D76-8E58-20E4515DE1E9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="mail_subject">
+      <DTS:VariableValue
+        DTS:DataType="8">[誠品ODS專案]執行封裝發生預期外錯誤</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A59DAA3B-D58E-43BC-BA5C-728F6A5126ED}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="mail_To">
+      <DTS:VariableValue
+        DTS:DataType="8">1505003@iisigroup.com</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\寄信通知維運人員"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="傳送郵件工作"
+      DTS:DTSID="{f998bcc1-296f-4058-be13-49a688a58efa}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="寄信通知維運人員"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="FromLine">@[User::mail_From]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="MessageSource">@[User::mail_errMsg]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Subject">@[User::mail_subject]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ToLine">@[User::mail_To]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{AAA07245-3276-4E20-A98C-093FFC81D00F}"
+          SendMailTask:From="ncatest@ms2.iisigroup.com"
+          SendMailTask:To="1505003@iisigroup.com"
+          SendMailTask:Subject="[誠品ODS專案]執行封裝發生預期外錯誤" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\設定Mail參數"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="執行 SQL 工作"
+      DTS:DTSID="{000066ab-70d2-49b0-b1ee-06348e89907b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="設定Mail參數"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{66214BFE-3C93-49AB-B581-7F462381403E}"
+          SQLTask:SqlStatementSource="  SELECT MailFrom, MailTo&#xA;  FROM (&#xA;   SELECT [PARAM_NAME] ,[PARAM_VALUE]&#xA;   FROM [StageETLDB].[dbo].[USER_PARAMS]&#xA;   WHERE TYPE = 1 AND PARAM_NAME LIKE 'MAIL%'&#xA;  ) UP PIVOT( MAX(PARAM_VALUE) FOR PARAM_NAME IN (MailFrom, MailTo)) UPV"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::mail_From" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="1"
+            SQLTask:DtsVariableName="User::mail_To" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\設定錯誤訊息"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="執行 SQL 工作"
+      DTS:DTSID="{e54308b4-286f-4502-a524-7e0274d42f29}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="設定錯誤訊息"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{03CA2D3E-F4F8-40A7-85A4-F81AB71ED870}"
+          SQLTask:SqlStatementSource="IF NOT EXISTS (&#xA; SELECT ERROR_DESC&#xA; FROM [dbo].[ETL_PACKAGE_ERROR_LOG]&#xA; WHERE EXECUTION_ID = ?)&#xA; SELECT '' as [ERROR_DESC]&#xA;ELSE&#xA; SELECT '相關錯誤訊息如下:' + CHAR(13) + CHAR(10)&#xA;&#x9;+ '識別碼 : ' + CAST(EXECUTION_ID　as varchar(20)) + CHAR(13) + CHAR(10)　+ CHAR(13) + CHAR(10)&#xA;  + STRING_AGG(&#xA;  '封裝名稱 : ' + PACKAGE_NAME + CHAR(13) + CHAR(10)&#xA;  + '元件名稱 : ' + SOURCE_NAME + CHAR(13) + CHAR(10)&#xA;  + 'ERROR_DESC : ' + ERROR_DESC + CHAR(13) + CHAR(10)&#xA;  ,CHAR(13) + CHAR(10)) WITHIN GROUP (ORDER BY PKEY) &#xA; FROM [dbo].[ETL_PACKAGE_ERROR_LOG]&#xA; WHERE EXECUTION_ID = ?&#xA; GROUP BY EXECUTION_ID"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::mail_errMsg" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::ServerExecutionID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="System::ServerExecutionID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束]"
+      DTS:CreationName=""
+      DTS:DTSID="{2084BD2C-17DE-40EC-A9C7-F5FF23D47A47}"
+      DTS:From="Package\設定Mail參數"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束"
+      DTS:To="Package\設定錯誤訊息" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{423BBFE7-38CD-4932-9546-8EECE6BC562B}"
+      DTS:From="Package\設定錯誤訊息"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="條件約束 1"
+      DTS:To="Package\寄信通知維運人員" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\寄信通知維運人員"
+          TopLeft="228.518497198207,257.023817653693" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\設定Mail參數"
+          TopLeft="240.185163401282,76.0952502575581" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\設定錯誤訊息"
+          TopLeft="244.35182990238,170.5238272841" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束]"
+          TopLeft="319.268496651831,118.095250257558">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.428577026542"
+              Start="0,0"
+              End="0,44.928577026542">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.928577026542" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[條件約束 1]"
+          TopLeft="317.935163550294,212.5238272841">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.4999903695929"
+              Start="0,0"
+              End="0,36.9999903695929">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.9999903695929" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

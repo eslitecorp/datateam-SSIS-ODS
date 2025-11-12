@@ -1,0 +1,288 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/15/2019 5:09:31 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="1701003NB01"
+  DTS:CreatorName="IEAD\1701003"
+  DTS:DTSID="{96679878-4AFD-4C69-A479-1E20DB1D9F52}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="1028"
+  DTS:ObjectName="Main_TW_ALL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{CD6905E6-E67B-4520-99FF-6742AB64B616}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\所有系統同步啟動資料清洗ETL作業"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="時序容器"
+      DTS:DTSID="{DB2810D1-1C0A-4824-A55B-108BB18807F5}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="4"
+      DTS:ObjectName="所有系統同步啟動資料清洗ETL作業">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\所有系統同步啟動資料清洗ETL作業\執行Main_APP封裝，啟動APP資料清洗ETL作業"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="執行封裝工作"
+          DTS:DTSID="{000b4039-223f-45bd-921b-a05c62138f1c}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="執行Main_APP封裝，啟動APP資料清洗ETL作業"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Main_TW.APP.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\所有系統同步啟動資料清洗ETL作業\執行Main_EC封裝，啟動EC資料清洗ETL作業"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="執行封裝工作"
+          DTS:DTSID="{1679B07D-E857-4E4E-845C-BAE446E4F6E0}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="執行Main_EC封裝，啟動EC資料清洗ETL作業"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Main_TW.EC.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\所有系統同步啟動資料清洗ETL作業\執行Main_FS封裝，啟動FS資料清洗ETL作業"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="執行封裝工作"
+          DTS:DTSID="{f66f548c-6876-4d1b-b368-9111c1e1fb6c}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="執行Main_FS封裝，啟動FS資料清洗ETL作業"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Main_TW.FS.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\所有系統同步啟動資料清洗ETL作業\執行Main_LMS封裝，啟動LMS資料清洗ETL作業"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="執行封裝工作"
+          DTS:DTSID="{6A1696A3-2B8C-4F91-AEA7-E7541E4DC9F2}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="執行Main_LMS封裝，啟動LMS資料清洗ETL作業"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Main_TW.LMS.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\所有系統同步啟動資料清洗ETL作業\執行Main_ME封裝，啟動ME資料清洗ETL作業"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="執行封裝工作"
+          DTS:DTSID="{d0e3ef3a-e883-4c4f-b9df-de8308b14384}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="執行Main_ME封裝，啟動ME資料清洗ETL作業"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Main_TW.ME.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\所有系統同步啟動資料清洗ETL作業\執行Main_OMI封裝，啟動OMI資料清洗ETL作業"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="執行封裝工作"
+          DTS:DTSID="{a66fb14a-0e5d-4327-ac62-1d06ff3111ce}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="執行Main_OMI封裝，啟動OMI資料清洗ETL作業"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Main_TW.OMI.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\所有系統同步啟動資料清洗ETL作業\執行Main_POS NEC封裝，啟動POS NEC資料清洗ETL作業"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="執行封裝工作"
+          DTS:DTSID="{14DB8AE4-C2C6-4B8D-9EC3-F6826A2F68F6}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="執行Main_POS NEC封裝，啟動POS NEC資料清洗ETL作業"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Main_TW.POSNEC.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\所有系統同步啟動資料清洗ETL作業\執行Main_POS封裝，啟動POS資料清洗ETL作業"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="執行封裝工作"
+          DTS:DTSID="{E1DB5E47-A353-48FC-B790-0C43AC368112}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="執行Main_POS封裝，啟動POS資料清洗ETL作業"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Main_TW.POS.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\所有系統同步啟動資料清洗ETL作業\執行Main_SAP封裝，啟動SAP資料清洗ETL作業"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="執行封裝工作"
+          DTS:DTSID="{8687B7E0-2C85-401E-A47D-823FB134E625}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="執行Main_SAP封裝，啟動SAP資料清洗ETL作業"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Main_TW.SAP.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\所有系統同步啟動資料清洗ETL作業\執行Main_SMS封裝，啟動SMS資料清洗ETL作業"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="執行封裝工作"
+          DTS:DTSID="{a04b3a7b-1859-4a03-8d5b-af99b5e3e20a}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="執行Main_SMS封裝，啟動SMS資料清洗ETL作業"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Main_TW.SMS.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\所有系統同步啟動資料清洗ETL作業\執行Main_TEAM封裝，啟動TEAM資料清洗ETL作業"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="執行封裝工作"
+          DTS:DTSID="{ad339c09-8817-4fbc-b936-ea3d595ff142}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="執行Main_TEAM封裝，啟動TEAM資料清洗ETL作業"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Main_TW.TEAM.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--此 CDATA 區段包含封裝的配置資訊。此區段包括諸如 (x,y) 座標、寬度和長度等資訊。-->
+<!--如果您手動編輯此區段但出錯，則可加以刪除。 -->
+<!--封裝仍可正常載入，但先前的配置資訊會遺失，而設計師將在設計介面上自動重新排列元素。-->
+<Objects
+  Version="8">
+  <!--下面每個節點將包含不會影響執行階段行為的屬性。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="338,42"
+          Id="Package\所有系統同步啟動資料清洗ETL作業\執行Main_APP封裝，啟動APP資料清洗ETL作業"
+          TopLeft="27.9761859869202,673.142872086591" />
+        <NodeLayout
+          Size="323,42"
+          Id="Package\所有系統同步啟動資料清洗ETL作業\執行Main_EC封裝，啟動EC資料清洗ETL作業"
+          TopLeft="23.4999953309697,82.7857108225631" />
+        <NodeLayout
+          Size="320,42"
+          Id="Package\所有系統同步啟動資料清洗ETL作業\執行Main_FS封裝，啟動FS資料清洗ETL作業"
+          TopLeft="27.7678526618654,365.089307098058" />
+        <NodeLayout
+          Size="339,42"
+          Id="Package\所有系統同步啟動資料清洗ETL作業\執行Main_LMS封裝，啟動LMS資料清洗ETL作業"
+          TopLeft="25.404757160043,26.6836676613238" />
+        <NodeLayout
+          Size="335,42"
+          Id="Package\所有系統同步啟動資料清洗ETL作業\執行Main_ME封裝，啟動ME資料清洗ETL作業"
+          TopLeft="30.4761858875791,592.785728992246" />
+        <NodeLayout
+          Size="335,42"
+          Id="Package\所有系統同步啟動資料清洗ETL作業\執行Main_OMI封裝，啟動OMI資料清洗ETL作業"
+          TopLeft="27.9761859869203,437.714303694207" />
+        <NodeLayout
+          Size="397,42"
+          Id="Package\所有系統同步啟動資料清洗ETL作業\執行Main_POS NEC封裝，啟動POS NEC資料清洗ETL作業"
+          TopLeft="23.7813806011741,196.161416396518" />
+        <NodeLayout
+          Size="340,42"
+          Id="Package\所有系統同步啟動資料清洗ETL作業\執行Main_POS封裝，啟動POS資料清洗ETL作業"
+          TopLeft="23.0238048737017,142.336733399432" />
+        <NodeLayout
+          Size="338,42"
+          Id="Package\所有系統同步啟動資料清洗ETL作業\執行Main_SAP封裝，啟動SAP資料清洗ETL作業"
+          TopLeft="24.376618672759,250.330239586732" />
+        <NodeLayout
+          Size="397,42"
+          Id="Package\所有系統同步啟動資料清洗ETL作業\執行Main_SMS封裝，啟動SMS資料清洗ETL作業"
+          TopLeft="24.690471474141,307.294527601879" />
+        <NodeLayout
+          Size="335,42"
+          Id="Package\所有系統同步啟動資料清洗ETL作業\執行Main_TEAM封裝，啟動TEAM資料清洗ETL作業"
+          TopLeft="28.8095192871398,514.07144546022" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="496,769"
+          Size="496,812"
+          Id="Package\所有系統同步啟動資料清洗ETL作業"
+          TopLeft="84.6428537794523,58.5000105317743" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
