@@ -19,9 +19,9 @@ Pipeline
 - ECS2 (資料是執行 python script 取檔下來)
 - SAP  
 - LMS  
-- LMSNS  
-願望清單
+- LMSNS 
 ---
+**願望清單
 1. 監控告警平台:資料未下檔、重複下檔、匯入資料規格有誤、轉換錯誤、Pkey重複
 2. 重轉優化:各 pipeline 從 stage to ods 會有關聯性，資料在排程時間點未上傳
 3. 資料血緣、資料字典
