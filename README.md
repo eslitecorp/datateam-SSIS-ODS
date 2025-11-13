@@ -1,8 +1,8 @@
 # datateam-SSIS-ODS
-#SSIS-Project
+# SSIS-Project
 ===
 
-##Pipeline
+## Pipeline
 ---
 資料夾包含了STAGE專案為prestage to stage 和ODS專案為stage to ods 兩階段的封裝檔，因 STAGE_MY 不在此次範圍可以略過  
 - ME  
@@ -21,7 +21,7 @@
 - LMS  
 - LMSNS 
 ---
-##願望清單
+## 願望清單
 1. 監控告警平台:資料未下檔、重複下檔、匯入資料規格有誤、轉換錯誤、Pkey重複
 2. 重轉優化:各 pipeline 從 stage to ods 會有關聯性，資料在排程時間點未上傳
 3. 資料血緣、資料字典
