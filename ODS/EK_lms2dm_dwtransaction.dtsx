@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{C33B5D32-00CF-403B-AE53-8DF7DD3BFFD0}"
+  DTS:DTSID="{85626FB9-523A-4142-9DB2-03DCA242F32D}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="EK_lms2dm_dwtransaction"
   DTS:PackageType="5"
-  DTS:VersionBuild="420"
-  DTS:VersionGUID="{17B171DC-BE07-4FD3-AFCB-8A19EAB4E650}">
+  DTS:VersionBuild="421"
+  DTS:VersionGUID="{F3249DDA-D2F6-4B76-897A-02091459EA8C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{A2365629-ABA3-4863-8598-1BD45468F4FE}"
+      DTS:DTSID="{2C83D568-C6F7-4A17-AC67-C03B8B56748C}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{36C015F2-03FD-4761-A4B0-D5D0155BB5A1}"
+      DTS:DTSID="{45CE5E10-3B96-4138-A33D-EE919EE81AD7}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -37,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{1D68D0A6-F283-4FF1-A583-1BBC40ADE67D}"
+      DTS:DTSID="{97A850D5-A125-4BFA-8C7A-4119CE6E5AF6}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -48,7 +48,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{794F5221-787D-4334-B7FE-676E470E66FB}"
+      DTS:DTSID="{0BFDACB5-54BC-4611-B275-14C53FA75CE7}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -57,7 +57,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E53A969A-8860-4E26-BBC1-23FE9EF80638}"
+      DTS:DTSID="{67B416F5-55C7-4FF9-9EDC-9587F082AB70}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ?,?,? );&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -65,11 +65,11 @@
       DTS:ObjectName="etlLogSQL">
       <DTS:VariableValue
         DTS:DataType="8">insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)
-values(?,?,?,(select count(*) from dbo.EK_lms2dm_dwtransaction_20251020),?,GETDATE(), ?,?,? );</DTS:VariableValue>
+values(?,?,?,(select count(*) from dbo.EK_lms2dm_dwtransaction_20251117),?,GETDATE(), ?,?,? );</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{303DA7BA-C1C2-433C-8718-5D40FACEE1A8}"
+      DTS:DTSID="{070BD1A4-58F8-4704-B3AF-514BC8A10C03}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -80,24 +80,23 @@ values(?,?,?,(select count(*) from dbo.EK_lms2dm_dwtransaction_20251020),?,GETDA
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1A06D5D2-55F8-4F2B-8475-A64B008795BA}"
+      DTS:DTSID="{DB0287F8-0985-4637-A6A4-FF6D5C08C188}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
       <DTS:VariableValue
-        DTS:DataType="8">20251020</DTS:VariableValue>
+        DTS:DataType="8">20251117</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{61A014AE-A4B4-45E7-86B1-7F8321F9A74B}"
+      DTS:DTSID="{B89B5716-1CBF-4409-8AE9-E6540A67E56B}"
       DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;select  [YYYYMM]&#xA;      ,[MEMBER_ID]&#xA;      ,[TXN_DATE]&#xA;      ,[TXN_TIME]&#xA;      ,[TXN_MCC_CODE]&#xA;      ,[TXN_AMT]&#xA;      ,[TXN_ORG_CURRENCY]&#xA;      ,[TXN_DESC]&#xA;&#xA;&#xA;from [LMSNS].[dwtransaction]&#xA;where ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) +&quot;' as date) as datetime)&quot;"
+      DTS:Expression="&quot;select  [TRANS_SEQ]      ,[MEMBER_ID]&#xA;      ,[TXN_DATE]&#xA;      ,[TXN_TIME]&#xA;      ,[TXN_MCC_CODE]&#xA;      ,[TXN_AMT]&#xA;      ,[TXN_ORG_CURRENCY]&#xA;      ,[TXN_DESC]&#xA;&#xA;&#xA;from [LMSNS].[dwtransaction]&#xA;where ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) +&quot;' as date) as datetime)&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="queryFromStage">
       <DTS:VariableValue
-        DTS:DataType="8">select  [YYYYMM]
-      ,[MEMBER_ID]
+        DTS:DataType="8">select  [TRANS_SEQ]      ,[MEMBER_ID]
       ,[TXN_DATE]
       ,[TXN_TIME]
       ,[TXN_MCC_CODE]
@@ -107,11 +106,11 @@ values(?,?,?,(select count(*) from dbo.EK_lms2dm_dwtransaction_20251020),?,GETDA
 
 
 from [LMSNS].[dwtransaction]
-where ETL_DATE &gt;= cast(cast('2025-10-20 16:37:50.240000000' as date) as datetime)</DTS:VariableValue>
+where ETL_DATE &gt;= cast(cast('2025-11-17 19:38:26.460000000' as date) as datetime)</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{3E855F9A-F527-4F22-BA88-79E9A04703B1}"
+      DTS:DTSID="{5CAC9933-B012-4486-9838-0BE094E9BB4F}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -120,7 +119,7 @@ where ETL_DATE &gt;= cast(cast('2025-10-20 16:37:50.240000000' as date) as datet
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{337227BC-E9CA-4BE1-B7B9-6B3E5638775D}"
+      DTS:DTSID="{5AA6C550-1B74-4F99-BF10-127ED641550A}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -129,14 +128,14 @@ where ETL_DATE &gt;= cast(cast('2025-10-20 16:37:50.240000000' as date) as datet
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{EFC3DDAF-8AB5-4385-A8D0-9AE6CF3DBD3D}"
+      DTS:DTSID="{6485E535-60EF-429A-ABBC-0E409B28548D}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="workDateTableName">
       <DTS:VariableValue
-        DTS:DataType="8">dbo.EK_lms2dm_dwtransaction_20251020</DTS:VariableValue>
+        DTS:DataType="8">dbo.EK_lms2dm_dwtransaction_20251117</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -144,7 +143,7 @@ where ETL_DATE &gt;= cast(cast('2025-10-20 16:37:50.240000000' as date) as datet
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{3B25E4A0-BFA2-48D4-A071-EE4DE8721739}"
+      DTS:DTSID="{7827F424-48D9-4A7E-9BC5-758375A1B463}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -4189,17 +4188,6 @@ from APP.Coupon</property>
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[YYYYMM]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[YYYYMM]"
-                      length="6"
-                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[YYYYMM]"
-                      name="YYYYMM"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[MEMBER_ID]"
                       codePage="950"
                       dataType="str"
@@ -4234,13 +4222,25 @@ from APP.Coupon</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_DESC]"
-                      dataType="wstr"
+                      codePage="950"
+                      dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[TXN_DESC]"
                       length="210"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_DESC]"
                       name="TXN_DESC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TRANS_SEQ]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[TRANS_SEQ]"
+                      length="14"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TRANS_SEQ]"
+                      name="TRANS_SEQ"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -4264,12 +4264,6 @@ from APP.Coupon</property>
                       precision="13"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[YYYYMM]"
-                      codePage="950"
-                      dataType="str"
-                      length="6"
-                      name="YYYYMM" />
-                    <externalMetadataColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[MEMBER_ID]"
                       codePage="950"
                       dataType="str"
@@ -4289,9 +4283,16 @@ from APP.Coupon</property>
                       name="TXN_ORG_CURRENCY" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[TXN_DESC]"
-                      dataType="wstr"
+                      codePage="950"
+                      dataType="str"
                       length="210"
                       name="TXN_DESC" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[TRANS_SEQ]"
+                      codePage="950"
+                      dataType="str"
+                      length="14"
+                      name="TRANS_SEQ" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -4299,6 +4300,13 @@ from APP.Coupon</property>
                   isErrorOut="true"
                   name="OLE DB 來源錯誤輸出">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[TRANS_SEQ]"
+                      codePage="950"
+                      dataType="str"
+                      length="14"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[TRANS_SEQ]"
+                      name="TRANS_SEQ" />
                     <outputColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[ErrorCode]"
                       dataType="i4"
@@ -4333,13 +4341,6 @@ from APP.Coupon</property>
                       precision="13"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[YYYYMM]"
-                      codePage="950"
-                      dataType="str"
-                      length="6"
-                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[YYYYMM]"
-                      name="YYYYMM" />
-                    <outputColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[MEMBER_ID]"
                       codePage="950"
                       dataType="str"
@@ -4362,7 +4363,8 @@ from APP.Coupon</property>
                       name="TXN_ORG_CURRENCY" />
                     <outputColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[TXN_DESC]"
-                      dataType="wstr"
+                      codePage="950"
+                      dataType="str"
                       length="210"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[TXN_DESC]"
                       name="TXN_DESC" />
@@ -4770,14 +4772,14 @@ public class 輸入0Buffer: ScriptBuffer
         }
     }
 
-    public String YYYYMM
+    public String MEMBERID
     {
         get
         {
             return Buffer.GetString(BufferColumnIndexes[3]);
         }
     }
-    public bool YYYYMM_IsNull
+    public bool MEMBERID_IsNull
     {
         get
         {
@@ -4785,14 +4787,14 @@ public class 輸入0Buffer: ScriptBuffer
         }
     }
 
-    public String MEMBERID
+    public String TXNMCCCODE
     {
         get
         {
             return Buffer.GetString(BufferColumnIndexes[4]);
         }
     }
-    public bool MEMBERID_IsNull
+    public bool TXNMCCCODE_IsNull
     {
         get
         {
@@ -4800,14 +4802,14 @@ public class 輸入0Buffer: ScriptBuffer
         }
     }
 
-    public String TXNMCCCODE
+    public String TXNORGCURRENCY
     {
         get
         {
             return Buffer.GetString(BufferColumnIndexes[5]);
         }
     }
-    public bool TXNMCCCODE_IsNull
+    public bool TXNORGCURRENCY_IsNull
     {
         get
         {
@@ -4815,14 +4817,14 @@ public class 輸入0Buffer: ScriptBuffer
         }
     }
 
-    public String TXNORGCURRENCY
+    public String TXNDESC
     {
         get
         {
             return Buffer.GetString(BufferColumnIndexes[6]);
         }
     }
-    public bool TXNORGCURRENCY_IsNull
+    public bool TXNDESC_IsNull
     {
         get
         {
@@ -4830,14 +4832,14 @@ public class 輸入0Buffer: ScriptBuffer
         }
     }
 
-    public String TXNDESC
+    public String TRANSSEQ
     {
         get
         {
             return Buffer.GetString(BufferColumnIndexes[7]);
         }
     }
-    public bool TXNDESC_IsNull
+    public bool TRANSSEQ_IsNull
     {
         get
         {
@@ -4973,7 +4975,7 @@ public class Variables
     <msb:CodeName>SC_229342ce7839431880383c445a141c92</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_229342ce7839431880383c445a141c92</msb:DisplayName>
-    <msb:ProjectId>{98445F2B-1C3D-4FB4-BA11-0FDED2C19315}</msb:ProjectId>
+    <msb:ProjectId>{AFC52971-4B00-4463-B48E-63F5F3CF2854}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_229342ce7839431880383c445a141c92.csproj" />
@@ -5178,14 +5180,14 @@ namespace SC_229342ce7839431880383c445a141c92.Properties {
                     <arrayElement
                       dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDAHz09WgAAAAAAAAAAOAAIiALATAAABYAAAAIAAAAAAAA4jQA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAMQHG2kAAAAAAAAAAOAAIiALATAAABYAAAAIAAAAAAAA5jQA
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
-ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAJA0AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAJQ0AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA6BQAAAAgAAAAFgAAAAIA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA7BQAAAAgAAAAFgAAAAIA
 AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAQAAAAAYAAAAYAAAAAAAAAAAAAAAAAABAAABA
-LnJlbG9jAAAMAAAAAGAAAAACAAAAHgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAADE
-NAAAAAAAAEgAAAACAAUA2CIAAAARAAABAAAAAAAAANgzAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAHgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAADI
+NAAAAAAAAEgAAAACAAUA2CIAAAQRAAABAAAAAAAAANwzAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBAAAAoqHgIoEQAACiobMAYATAAAAAEAABEDbxIAAApv
 EwAACgoWCys1BgeaDAhvFAAACtAeAAABKBUAAAozGwgDAggDFG8WAAAKKAQAAAYUbxcAAAreAybe
 AAcXWAsHBo5pMsUqARAAAAAAJgAYPgADDwAAARMwAQAYAAAAAgAAEQMsEwNvGAAACgoGLAcGbxkA
@@ -5198,87 +5200,87 @@ IgAACgICcx0AAAZ9AQAABAICcx4AAAZ9AgAABCqSBHIBAABwGm8jAAAKLBUCBQIDKCQAAAoOBHMG
 AAAGbxsAAAYqSisHAgNvHAAABgNvFwAABi3xKgYqOgIoJQAACgIDfQMAAAQqOgIoJQAACgIDfQQA
 AAQqHgIoJQAACiqufgUAAAQtHnILAABw0AcAAAIoFQAACm8mAAAKcycAAAqABQAABH4FAAAEKhp+
 BgAABCoeAoAGAAAEKhp+BwAABCoeAigoAAAKKi5zJAAABoAHAAAEKgAAAEJTSkIBAAEAAAAAAAwA
-AAB2NC4wLjMwMzE5AAAAAAUAbAAAANgGAAAjfgAARAcAAFgHAAAjU3RyaW5ncwAAAACcDgAAgAAA
-ACNVUwAcDwAAEAAAACNHVUlEAAAALA8AANQBAAAjQmxvYgAAAAAAAAACAAABVxWiAQkBAAAA+gEz
+AAB2NC4wLjMwMzE5AAAAAAUAbAAAANgGAAAjfgAARAcAAFwHAAAjU3RyaW5ncwAAAACgDgAAgAAA
+ACNVUwAgDwAAEAAAACNHVUlEAAAAMA8AANQBAAAjQmxvYgAAAAAAAAACAAABVxWiAQkBAAAA+gEz
 ABYAAAEAAAAhAAAACAAAAAcAAAAlAAAADgAAACgAAAAQAAAAAgAAAAMAAAATAAAAFAAAAAEAAAAE
-AAAAAQAAAAAAowMBAAAAAAAGAGECgAUGAPUCgAUGAK0BbQUPAPQFAAAGANoBxAQGAEQCxAQGACUC
-xAQGANwCxAQGAIECxAQGAJoCxAQGAPEBxAQGAAwCQgMKALUC5gAGAP0ExAQGANYEbAQGAIsGbAQK
-AD8F5gAOADAF5gAKAAoF5gAGAIUDbAQKAMgG5gAGAJABbQUGAFAFoAUGAPEErwQSAGABjQMSAMEB
-jQMSAEgBmgQGAHUBgAUGABsBbAQGAGgDbAQGALgAbAQGAOAEbAQGAE8HxAQAAAAAJQAAAAAAAQAB
-AAEAEACEBAAAEAABAAEAAQAQACIFAABFAAEABgABABAAqgYAAFUAAQAZAAEAEAB/BgAAQQADAB0A
-AQAQAEAGAABBAAQAHgAAABAApwUDBkEABQAfAAABEABvBgMGbQAHACMABgB/BqEABgBABqUAAQC4
-BqkAAQC4BqkAEQB4BK0AEQA4AbEAEQCoALUAUCAAAAAAxgATAwYAAQBYIAAAAADGAB4DBgABAGAg
-AAAAAMYAKwe5AAEAyCAAAAAAgQCPBL8AAgDsIAAAAACGGGAFBgADAPQgAAAAAIYYYAVNAAMA/yAA
-AAAAhghqAEkABgAUIQAAAACGCBsEbwAGAB0hAAAAAIYIXgBJAAYAMiEAAAAAhggIBG8ABgA7IQAA
-AACGCIEAxAAGAFAhAAAAAIYIQARvAAYAWSEAAAAAhgh2AEkABgBuIQAAAACGCC4EbwAGAHchAAAA
-AIYIOgBJAAYAjCEAAAAAhgjeA28ABgCVIQAAAACGCE8ASQAGAKohAAAAAIYI8gNvAAYAsyEAAAAA
-hgiMAEkABgDIIQAAAACGCFIEbwAGANEhAAAAAIYILgBJAAYA5iEAAAAAhgjLA28ABgDvIQAAAACG
-AEMHbwAGAPchAAAAAIYAkgZvAAYA/yEAAAAAhhhgBQYABgAfIgAAAADGAB4HyQAGAEQiAAAAAMYB
-Fge5AAoAVyIAAAAAxgErB7kACwBZIgAAAACGGGAF0wAMAGgiAAAAAIYYYAXTAA0AdyIAAAAAgxhg
-BQYADgB/IgAAAACTCEwF2QAOAKsiAAAAAJMIIAHeAA4AsiIAAAAAkwgsAeMADgC6IgAAAACWCJ4G
-6QAPAMEiAAAAAIYYYAUGAA8AySIAAAAAkRhmBe4ADwAAAAEARwcAAAEAbwMAAAEARQUAAAIASgYA
-AAMAGAUAAAEARwAAAAIA3AAAAAMARQUAAAQAGAUAAAEARQUAAAEARwcAAAEAzgYAAAEAzgYAAAEA
-PAMJAGAFAQARAGAFBgAZAGAFCgApAGAFEAAxAGAFEAA5AGAFEABBAGAFEABJAGAFEABRAGAFEABZ
-AGAFEABhAGAFEABpAGAFBgCxAGAFBgDRAGAFFQDhAGAFBgCpABMDBgCpAB4DBgCBAAcBJADpADIG
-KQBxAA8BJADpAMoALwBxACoDNgBxADMDPQCBAFwDSQDxAHMESQCJAGAFTQCJAEUFVwCJAEoGWwCR
-AGUDXwCJAGUEZACRAIIDaQCJAEMHbwCJAJIGbwCpAGAFBgDxAHgGcwCpAF4GewCBAGAFBgDpAEsH
-gQC5AGAFhwDZAGAFBgAuAAsADgEuABMAFwEuABsANgEuACMAPwEuACsAaAEuADMAaAEuADsAaAEu
+AAAAAQAAAAAApQMBAAAAAAAGAGMChAUGAPcChAUGAK8BcQUPAPgFAAAGANwByAQGAEYCyAQGACcC
+yAQGAN4CyAQGAIMCyAQGAJwCyAQGAPMByAQGAA4CRAMKALcC6AAGAAEFyAQGANoEcAQGAI8GcAQK
+AEMF6AAOADQF6AAKAA4F6AAGAIcDcAQKAMwG6AAGAJIBcQUGAFQFpAUGAPUEswQSAGIBjwMSAMMB
+jwMSAEoBngQGAHcBhAUGAB0BcAQGAGoDcAQGALoAcAQGAOQEcAQGAFMHyAQAAAAAJQAAAAAAAQAB
+AAEAEACIBAAAEAABAAEAAQAQACYFAABFAAEABgABABAArgYAAFUAAQAZAAEAEACDBgAAQQADAB0A
+AQAQAEQGAABBAAQAHgAAABAAqwUHBkEABQAfAAABEABzBgcGbQAHACMABgCDBqEABgBEBqUAAQC8
+BqkAAQC8BqkAEQB8BK0AEQA6AbEAEQCqALUAUCAAAAAAxgAVAwYAAQBYIAAAAADGACADBgABAGAg
+AAAAAMYALwe5AAEAyCAAAAAAgQCTBL8AAgDsIAAAAACGGGQFBgADAPQgAAAAAIYYZAVNAAMA/yAA
+AAAAhghqAEkABgAUIQAAAACGCB0EbwAGAB0hAAAAAIYIXgBJAAYAMiEAAAAAhggKBG8ABgA7IQAA
+AACGCIMAxAAGAFAhAAAAAIYIRARvAAYAWSEAAAAAhgg6AEkABgBuIQAAAACGCOADbwAGAHchAAAA
+AIYITwBJAAYAjCEAAAAAhgj0A28ABgCVIQAAAACGCI4ASQAGAKohAAAAAIYIVgRvAAYAsyEAAAAA
+hgguAEkABgDIIQAAAACGCM0DbwAGANEhAAAAAIYIdgBJAAYA5iEAAAAAhggwBG8ABgDvIQAAAACG
+AEcHbwAGAPchAAAAAIYAlgZvAAYA/yEAAAAAhhhkBQYABgAfIgAAAADGACIHyQAGAEQiAAAAAMYB
+Gge5AAoAVyIAAAAAxgEvB7kACwBZIgAAAACGGGQF0wAMAGgiAAAAAIYYZAXTAA0AdyIAAAAAgxhk
+BQYADgB/IgAAAACTCFAF2QAOAKsiAAAAAJMIIgHeAA4AsiIAAAAAkwguAeMADgC6IgAAAACWCKIG
+6QAPAMEiAAAAAIYYZAUGAA8AySIAAAAAkRhqBe4ADwAAAAEASwcAAAEAcQMAAAEASQUAAAIATgYA
+AAMAHAUAAAEARwAAAAIA3gAAAAMASQUAAAQAHAUAAAEASQUAAAEASwcAAAEA0gYAAAEA0gYAAAEA
+PgMJAGQFAQARAGQFBgAZAGQFCgApAGQFEAAxAGQFEAA5AGQFEABBAGQFEABJAGQFEABRAGQFEABZ
+AGQFEABhAGQFEABpAGQFBgCxAGQFBgDRAGQFFQDhAGQFBgCpABUDBgCpACADBgCBAAkBJADpADYG
+KQBxABEBJADpAMwALwBxACwDNgBxADUDPQCBAF4DSQDxAHcESQCJAGQFTQCJAEkFVwCJAE4GWwCR
+AGcDXwCJAGkEZACRAIQDaQCJAEcHbwCJAJYGbwCpAGQFBgDxAHwGcwCpAGIGewCBAGQFBgDpAE8H
+gQC5AGQFhwDZAGQFBgAuAAsADgEuABMAFwEuABsANgEuACMAPwEuACsAaAEuADMAaAEuADsAaAEu
 AEMAPwEuAEsAbgEuAFMAaAEuAFsAhQFDAGMAzwHhAHsAzwHjAGsAzwEpAnMANgFJAnMANgEbAEUA
-AwABAAcAEQAIABMAAABuAPIAAAAfBPYAAABiAPIAAAAMBPYAAACFAPoAAABEBPYAAAB6APIAAAAy
-BPYAAAA+APIAAADiA/YAAABTAPIAAAD2A/YAAACQAPIAAABWBPYAAAAyAPIAAADPA/YAAABQBf8A
-AABAAQQBAACiBgkBAgAHAAMAAgAIAAUAAgAJAAcAAgAKAAkAAgALAAsAAgAMAA0AAgANAA8AAgAO
+AwABAAcAEQAIABMAAABuAPIAAAAhBPYAAABiAPIAAAAOBPYAAACHAPoAAABIBPYAAAA+APIAAADk
+A/YAAABTAPIAAAD4A/YAAACSAPIAAABaBPYAAAAyAPIAAADRA/YAAAB6APIAAAA0BPYAAABUBf8A
+AABCAQQBAACmBgkBAgAHAAMAAgAIAAUAAgAJAAcAAgAKAAkAAgALAAsAAgAMAA0AAgANAA8AAgAO
 ABEAAgAPABMAAgAQABUAAgARABcAAgASABkAAgATABsAAgAUAB0AAgAVAB8AAgAWACEAAgAgACMA
-AgAhACUAAQAiACUAAgAjACcABIAAAAEAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAAAAAAI8AnwAA
-AAAADgAAAAAAAAAAAAAAmADYBgAAAAAOAAAAAAAAAAAAAACYAPUGAAAAAAQAAAAAAAAAAAAAAI8A
-bAQAAAAAAAAAAAEAAACxBQAAAAAAAABTQ18yMjkzNDJjZTc4Mzk0MzE4ODAzODNjNDQ1YTE0MWM5
+AgAhACUAAQAiACUAAgAjACcABIAAAAEAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAAAAAAI8AoQAA
+AAAADgAAAAAAAAAAAAAAmADcBgAAAAAOAAAAAAAAAAAAAACYAPkGAAAAAAQAAAAAAAAAAAAAAI8A
+cAQAAAAAAAAAAAEAAAC1BQAAAAAAAABTQ18yMjkzNDJjZTc4Mzk0MzE4ODAzODNjNDQ1YTE0MWM5
 MgA8TW9kdWxlPgBnZXRfVFhOREVTQwBnZXRfTUVNQkVSSUQASW5wdXRJRABnZXRfVFhOTUNDQ09E
-RQBnZXRfVFhOVElNRQBnZXRfVFhOREFURQBnZXRfWVlZWU1NAGdldF9UWE5BTVQAZ2V0X1RYTk9S
-R0NVUlJFTkNZAG1zY29ybGliAGRlZmF1bHRJbnN0YW5jZQBSdW50aW1lVHlwZUhhbmRsZQBHZXRU
-eXBlRnJvbUhhbmRsZQBJbnB1dE5hbWUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUGlwZWxpbmUA
-R2V0VHlwZQBnZXRfUHJvcGVydHlUeXBlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJlAHJlc291cmNl
-Q3VsdHVyZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21w
-aWxlckdlbmVyYXRlZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVn
-Z2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRy
-aWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRl
-AEFzc2VtYmx5Q29uZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmli
-dXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmli
-dXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRDb21wb25lbnRFbnRyeVBv
-aW50QXR0cmlidXRlAEFzc2VtYmx5Q29tcGFueUF0dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0
-eUF0dHJpYnV0ZQBQcmVFeGVjdXRlAFBvc3RFeGVjdXRlAEdldFZhbHVlAFNldFZhbHVlAHZhbHVl
-AFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAVG9TdHJpbmcAR2V0U3RyaW5nAFZhbHVlT2ZQcm9w
-ZXJ0eU9iagBHZXREZWNpbWFsAFN5c3RlbS5Db21wb25lbnRNb2RlbABTQ18yMjkzNDJjZTc4Mzk0
-MzE4ODAzODNjNDQ1YTE0MWM5Mi5kbGwAZ2V0X1RYTkRFU0NfSXNOdWxsAGdldF9NRU1CRVJJRF9J
-c051bGwAZ2V0X1RYTk1DQ0NPREVfSXNOdWxsAGdldF9UWE5USU1FX0lzTnVsbABnZXRfVFhOREFU
-RV9Jc051bGwAZ2V0X1lZWVlNTV9Jc051bGwAZ2V0X1RYTkFNVF9Jc051bGwAZ2V0X1RYTk9SR0NV
-UlJFTkNZX0lzTnVsbABTeXN0ZW0AVHJpbQByZXNvdXJjZU1hbgBTY3JpcHRNYWluAHRyaW1Db2x1
-bW4AU3lzdGVtLkNvbmZpZ3VyYXRpb24AU3lzdGVtLkdsb2JhbGl6YXRpb24AU3lzdGVtLlJlZmxl
-Y3Rpb24ARXhjZXB0aW9uAFN0cmluZ0NvbXBhcmlzb24AQ3VsdHVyZUluZm8AUHJvcGVydHlJbmZv
-AE91dHB1dE5hbWVNYXAAT3V0cHV0TWFwAOi8uOWFpTBCdWZmZXIAUGlwZWxpbmVCdWZmZXIAU2Ny
-aXB0QnVmZmVyAGdldF9SZXNvdXJjZU1hbmFnZXIALmN0b3IALmNjdG9yAFN5c3RlbS5EaWFnbm9z
-dGljcwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAFN5c3RlbS5SZXNvdXJjZXMAU0Nf
-MjI5MzQyY2U3ODM5NDMxODgwMzgzYzQ0NWExNDFjOTIuUHJvcGVydGllcy5SZXNvdXJjZXMucmVz
-b3VyY2VzAERlYnVnZ2luZ01vZGVzAFNDXzIyOTM0MmNlNzgzOTQzMTg4MDM4M2M0NDVhMTQxYzky
-LlByb3BlcnRpZXMAR2V0UHJvcGVydGllcwBWYXJpYWJsZXMAQnVmZmVyQ29sdW1uSW5kZXhlcwBH
-ZXRDb2x1bW5JbmRleGVzAFNldHRpbmdzAEVxdWFscwBDb25uZWN0aW9ucwBPYmplY3QARW5kT2ZS
-b3dzZXQAZ2V0X0RlZmF1bHQAVXNlckNvbXBvbmVudABQYXJlbnRDb21wb25lbnQAU2NyaXB0Q29t
-cG9uZW50AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuVHhTY3JpcHQATWljcm9zb2Z0LlNxbFNlcnZlci5Q
-aXBlbGluZUhvc3QA6Ly45YWlMF9Qcm9jZXNzSW5wdXQA6Ly45YWlMF9Qcm9jZXNzSW5wdXRSb3cA
-TmV4dFJvdwBnZXRfQXNzZW1ibHkAAAk4j2VRIAAwAAFxUwBDAF8AMgAyADkAMwA0ADIAYwBlADcA
-OAAzADkANAAzADEAOAA4ADAAMwA4ADMAYwA0ADQANQBhADEANAAxAGMAOQAyAC4AUAByAG8AcABl
-AHIAdABpAGUAcwAuAFIAZQBzAG8AdQByAGMAZQBzAAAAAACD0mD1mNMcSrfrdhmkH69hAAQgAQEI
-AyAAAQUgAQEREQQgAQEOBSABARFlCAcDHRI5CBI5BCAAEnUFIAAdEjkGAAESdRF9BiACHBwdHAcg
-AwEcHB0cAwcBDgMgAA4JIAMBEkkdCBJNAwYSSQMGHQgEIAEOCAQgAQIIBSABEVEIAyAAAgcgAgIO
-EYCBBSABHQgIBSAAEoCFByACAQ4SgIUIt3pcVhk04IkIiYRdzYCAzJEDBhIUAwYSGAMGElUDBhJd
-AwYSYQMGEiAFIAEBEgwEIAEOHAQgABFRCSAEAQgOEkkSTQUgAQESVQQAABJdBAAAEmEFAAEBEmEE
-AAASIAMAAAEDKAAOAygAAgQoABFRBAgAEl0ECAASYQQIABIgCAEACAAAAAAAHgEAAQBUAhZXcmFw
-Tm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTQ18yMjkzNDJjZTc4Mzk0MzE4ODAzODNj
-NDQ1YTE0MWM5MgAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDE5AABJAQAaLk5FVEZyYW1ld29y
-ayxWZXJzaW9uPXY0LjUBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQu
-NQQBAAAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBt
-c2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2Vu
-PWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAA
-AAAAAAAAAABQQURQQURQtAAAALg0AAAAAAAAAAAAANI0AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AADENAAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAA
+RQBnZXRfVFhOVElNRQBnZXRfVFhOREFURQBnZXRfVFJBTlNTRVEAZ2V0X1RYTkFNVABnZXRfVFhO
+T1JHQ1VSUkVOQ1kAbXNjb3JsaWIAZGVmYXVsdEluc3RhbmNlAFJ1bnRpbWVUeXBlSGFuZGxlAEdl
+dFR5cGVGcm9tSGFuZGxlAElucHV0TmFtZQBNaWNyb3NvZnQuU3FsU2VydmVyLkR0cy5QaXBlbGlu
+ZQBHZXRUeXBlAGdldF9Qcm9wZXJ0eVR5cGUAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3Vy
+Y2VDdWx0dXJlAEFwcGxpY2F0aW9uU2V0dGluZ3NCYXNlAEVkaXRvckJyb3dzYWJsZVN0YXRlAENv
+bXBpbGVyR2VuZXJhdGVkQXR0cmlidXRlAERlYnVnZ2VyTm9uVXNlckNvZGVBdHRyaWJ1dGUARGVi
+dWdnYWJsZUF0dHJpYnV0ZQBFZGl0b3JCcm93c2FibGVBdHRyaWJ1dGUAQXNzZW1ibHlUaXRsZUF0
+dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFya0F0dHJpYnV0ZQBUYXJnZXRGcmFtZXdvcmtBdHRyaWJ1
+dGUAQXNzZW1ibHlDb25maWd1cmF0aW9uQXR0cmlidXRlAEFzc2VtYmx5RGVzY3JpcHRpb25BdHRy
+aWJ1dGUAQ29tcGlsYXRpb25SZWxheGF0aW9uc0F0dHJpYnV0ZQBBc3NlbWJseVByb2R1Y3RBdHRy
+aWJ1dGUAQXNzZW1ibHlDb3B5cmlnaHRBdHRyaWJ1dGUAU1NJU1NjcmlwdENvbXBvbmVudEVudHJ5
+UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRpYmls
+aXR5QXR0cmlidXRlAFByZUV4ZWN1dGUAUG9zdEV4ZWN1dGUAR2V0VmFsdWUAU2V0VmFsdWUAdmFs
+dWUAU3lzdGVtLlJ1bnRpbWUuVmVyc2lvbmluZwBUb1N0cmluZwBHZXRTdHJpbmcAVmFsdWVPZlBy
+b3BlcnR5T2JqAEdldERlY2ltYWwAU3lzdGVtLkNvbXBvbmVudE1vZGVsAFNDXzIyOTM0MmNlNzgz
+OTQzMTg4MDM4M2M0NDVhMTQxYzkyLmRsbABnZXRfVFhOREVTQ19Jc051bGwAZ2V0X01FTUJFUklE
+X0lzTnVsbABnZXRfVFhOTUNDQ09ERV9Jc051bGwAZ2V0X1RYTlRJTUVfSXNOdWxsAGdldF9UWE5E
+QVRFX0lzTnVsbABnZXRfVFJBTlNTRVFfSXNOdWxsAGdldF9UWE5BTVRfSXNOdWxsAGdldF9UWE5P
+UkdDVVJSRU5DWV9Jc051bGwAU3lzdGVtAFRyaW0AcmVzb3VyY2VNYW4AU2NyaXB0TWFpbgB0cmlt
+Q29sdW1uAFN5c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0aW9uAFN5c3RlbS5S
+ZWZsZWN0aW9uAEV4Y2VwdGlvbgBTdHJpbmdDb21wYXJpc29uAEN1bHR1cmVJbmZvAFByb3BlcnR5
+SW5mbwBPdXRwdXROYW1lTWFwAE91dHB1dE1hcADovLjlhaUwQnVmZmVyAFBpcGVsaW5lQnVmZmVy
+AFNjcmlwdEJ1ZmZlcgBnZXRfUmVzb3VyY2VNYW5hZ2VyAC5jdG9yAC5jY3RvcgBTeXN0ZW0uRGlh
+Z25vc3RpY3MAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2Vz
+AFNDXzIyOTM0MmNlNzgzOTQzMTg4MDM4M2M0NDVhMTQxYzkyLlByb3BlcnRpZXMuUmVzb3VyY2Vz
+LnJlc291cmNlcwBEZWJ1Z2dpbmdNb2RlcwBTQ18yMjkzNDJjZTc4Mzk0MzE4ODAzODNjNDQ1YTE0
+MWM5Mi5Qcm9wZXJ0aWVzAEdldFByb3BlcnRpZXMAVmFyaWFibGVzAEJ1ZmZlckNvbHVtbkluZGV4
+ZXMAR2V0Q29sdW1uSW5kZXhlcwBTZXR0aW5ncwBFcXVhbHMAQ29ubmVjdGlvbnMAT2JqZWN0AEVu
+ZE9mUm93c2V0AGdldF9EZWZhdWx0AFVzZXJDb21wb25lbnQAUGFyZW50Q29tcG9uZW50AFNjcmlw
+dENvbXBvbmVudABNaWNyb3NvZnQuU3FsU2VydmVyLlR4U2NyaXB0AE1pY3Jvc29mdC5TcWxTZXJ2
+ZXIuUGlwZWxpbmVIb3N0AOi8uOWFpTBfUHJvY2Vzc0lucHV0AOi8uOWFpTBfUHJvY2Vzc0lucHV0
+Um93AE5leHRSb3cAZ2V0X0Fzc2VtYmx5AAAJOI9lUSAAMAABcVMAQwBfADIAMgA5ADMANAAyAGMA
+ZQA3ADgAMwA5ADQAMwAxADgAOAAwADMAOAAzAGMANAA0ADUAYQAxADQAMQBjADkAMgAuAFAAcgBv
+AHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAAAAACDC2+6SpdU2et+z8q08a5QAE
+IAEBCAMgAAEFIAEBEREEIAEBDgUgAQERZQgHAx0SOQgSOQQgABJ1BSAAHRI5BgABEnURfQYgAhwc
+HRwHIAMBHBwdHAMHAQ4DIAAOCSADARJJHQgSTQMGEkkDBh0IBCABDggEIAECCAUgARFRCAMgAAIH
+IAICDhGAgQUgAR0ICAUgABKAhQcgAgEOEoCFCLd6XFYZNOCJCImEXc2AgMyRAwYSFAMGEhgDBhJV
+AwYSXQMGEmEDBhIgBSABARIMBCABDhwEIAARUQkgBAEIDhJJEk0FIAEBElUEAAASXQQAABJhBQAB
+ARJhBAAAEiADAAABAygADgMoAAIEKAARUQQIABJdBAgAEmEECAASIAgBAAgAAAAAAB4BAAEAVAIW
+V3JhcE5vbkV4Y2VwdGlvblRocm93cwEIAQACAAAAAAAoAQAjU0NfMjI5MzQyY2U3ODM5NDMxODgw
+MzgzYzQ0NWExNDFjOTIAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAxOQAASQEAGi5ORVRGcmFt
+ZXdvcmssVmVyc2lvbj12NC41AQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFtZRIuTkVUIEZyYW1ld29y
+ayA0LjUEAQAAALQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5SZXNvdXJjZVJlYWRl
+ciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlU
+b2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGltZVJlc291cmNlU2V0
+AgAAAAAAAAAAAAAAUEFEUEFEULQAAAC8NAAAAAAAAAAAAADWNAAAACAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAyDQAAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVlLmRsbAAAAAAA/yUAIAAQAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -5310,7 +5312,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAwAAADkNAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAwAAADoNAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -5355,7 +5357,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   dataType="System.String"
                   description="將元件中繼資料比對編譯程式碼的總和檢查碼。"
                   name="MetadataChecksum140"
-                  typeConverter="NOTBROWSABLE">48</property>
+                  typeConverter="NOTBROWSABLE">1A</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
@@ -5388,13 +5390,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       cachedScale="2"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_AMT]" />
                     <inputColumn
-                      refId="Package\Stage To ODS\TRIM 所有字串型態的欄位.Inputs[輸入 0].Columns[YYYYMM]"
-                      cachedCodepage="950"
-                      cachedDataType="str"
-                      cachedLength="6"
-                      cachedName="YYYYMM"
-                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[YYYYMM]" />
-                    <inputColumn
                       refId="Package\Stage To ODS\TRIM 所有字串型態的欄位.Inputs[輸入 0].Columns[MEMBER_ID]"
                       cachedCodepage="950"
                       cachedDataType="str"
@@ -5417,10 +5412,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_ORG_CURRENCY]" />
                     <inputColumn
                       refId="Package\Stage To ODS\TRIM 所有字串型態的欄位.Inputs[輸入 0].Columns[TXN_DESC]"
-                      cachedDataType="wstr"
+                      cachedCodepage="950"
+                      cachedDataType="str"
                       cachedLength="210"
                       cachedName="TXN_DESC"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_DESC]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\TRIM 所有字串型態的欄位.Inputs[輸入 0].Columns[TRANS_SEQ]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="TRANS_SEQ"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TRANS_SEQ]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -5520,68 +5523,69 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[ETL_WORK_DATE]"
                       lineageId="Package\Stage To ODS\衍生的資料行 (固定字串).Outputs[衍生的資料行輸出].Columns[ETL_WORK_DATE]" />
                     <inputColumn
-                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TXN_DATE_ready]"
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TXN_DATE 的副本]"
                       cachedCodepage="950"
                       cachedDataType="str"
                       cachedLength="8"
-                      cachedName="TXN_DATE_ready"
+                      cachedName="TXN_DATE 的副本"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_DATE]"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DATE_ready]" />
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DATE 的副本]" />
                     <inputColumn
-                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TXN_TIME_ready]"
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TXN_TIME 的副本]"
                       cachedCodepage="950"
                       cachedDataType="str"
                       cachedLength="8"
-                      cachedName="TXN_TIME_ready"
+                      cachedName="TXN_TIME 的副本"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_TIME]"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_TIME_ready]" />
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_TIME 的副本]" />
                     <inputColumn
-                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TXN_AMT_ready]"
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TXN_AMT 的副本]"
                       cachedDataType="numeric"
-                      cachedName="TXN_AMT_ready"
+                      cachedName="TXN_AMT 的副本"
                       cachedPrecision="13"
                       cachedScale="2"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_AMT]"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_AMT_ready]" />
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_AMT 的副本]" />
                     <inputColumn
-                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[YYYYMM_ready]"
-                      cachedCodepage="950"
-                      cachedDataType="str"
-                      cachedLength="6"
-                      cachedName="YYYYMM_ready"
-                      externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[YYYYMM]"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[YYYYMM_ready]" />
-                    <inputColumn
-                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[MEMBER_ID_ready]"
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[MEMBER_ID 的副本]"
                       cachedCodepage="950"
                       cachedDataType="str"
                       cachedLength="64"
-                      cachedName="MEMBER_ID_ready"
+                      cachedName="MEMBER_ID 的副本"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[MEMBER_ID]"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[MEMBER_ID_ready]" />
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[MEMBER_ID 的副本]" />
                     <inputColumn
-                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TXN_MCC_CODE_ready]"
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TXN_MCC_CODE 的副本]"
                       cachedCodepage="950"
                       cachedDataType="str"
                       cachedLength="4"
-                      cachedName="TXN_MCC_CODE_ready"
+                      cachedName="TXN_MCC_CODE 的副本"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_MCC_CODE]"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_MCC_CODE_ready]" />
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_MCC_CODE 的副本]" />
                     <inputColumn
-                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TXN_ORG_CURRENCY_ready]"
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TXN_ORG_CURRENCY 的副本]"
                       cachedCodepage="950"
                       cachedDataType="str"
                       cachedLength="3"
-                      cachedName="TXN_ORG_CURRENCY_ready"
+                      cachedName="TXN_ORG_CURRENCY 的副本"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_ORG_CURRENCY]"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_ORG_CURRENCY_ready]" />
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_ORG_CURRENCY 的副本]" />
                     <inputColumn
-                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TXN_DESC_ready]"
-                      cachedDataType="wstr"
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TXN_DESC 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
                       cachedLength="210"
-                      cachedName="TXN_DESC_ready"
+                      cachedName="TXN_DESC 的副本"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_DESC]"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DESC_ready]" />
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DESC 的副本]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TRANS_SEQ 的副本]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="TRANS_SEQ 的副本"
+                      externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TRANS_SEQ]"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TRANS_SEQ 的副本]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5612,12 +5616,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       precision="13"
                       scale="2" />
                     <externalMetadataColumn
-                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[YYYYMM]"
-                      codePage="950"
-                      dataType="str"
-                      length="6"
-                      name="YYYYMM" />
-                    <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[MEMBER_ID]"
                       codePage="950"
                       dataType="str"
@@ -5637,9 +5635,16 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       name="TXN_ORG_CURRENCY" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_DESC]"
-                      dataType="wstr"
+                      codePage="950"
+                      dataType="str"
                       length="210"
                       name="TXN_DESC" />
+                    <externalMetadataColumn
+                      refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TRANS_SEQ]"
+                      codePage="950"
+                      dataType="str"
+                      length="14"
+                      name="TRANS_SEQ" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -5852,31 +5857,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Stage To ODS\衍生的資料行 1.Inputs[衍生的資料行輸入].Columns[YYYYMM]"
-                      cachedCodepage="950"
-                      cachedDataType="str"
-                      cachedLength="6"
-                      cachedName="YYYYMM"
-                      errorOrTruncationOperation="計算"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[YYYYMM]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="衍生的資料行運算式"
-                          name="Expression">[TRIM](#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[YYYYMM]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="衍生的資料行易記運算式"
-                          expressionType="Notify"
-                          name="FriendlyExpression">TRIM(YYYYMM)</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Stage To ODS\衍生的資料行 1.Inputs[衍生的資料行輸入].Columns[MEMBER_ID]"
                       cachedCodepage="950"
                       cachedDataType="str"
@@ -5953,7 +5933,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Stage To ODS\衍生的資料行 1.Inputs[衍生的資料行輸入].Columns[TXN_DESC]"
-                      cachedDataType="wstr"
+                      cachedCodepage="950"
+                      cachedDataType="str"
                       cachedLength="210"
                       cachedName="TXN_DESC"
                       errorOrTruncationOperation="計算"
@@ -5973,6 +5954,31 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                           description="衍生的資料行易記運算式"
                           expressionType="Notify"
                           name="FriendlyExpression">TRIM(TXN_DESC)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stage To ODS\衍生的資料行 1.Inputs[衍生的資料行輸入].Columns[TRANS_SEQ]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="TRANS_SEQ"
+                      errorOrTruncationOperation="計算"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TRANS_SEQ]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行運算式"
+                          name="Expression">[TRIM](#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TRANS_SEQ]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="衍生的資料行易記運算式"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(TRANS_SEQ)</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -6364,13 +6370,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       cachedScale="2"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_AMT]" />
                     <inputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[YYYYMM]"
-                      cachedCodepage="950"
-                      cachedDataType="str"
-                      cachedLength="6"
-                      cachedName="YYYYMM"
-                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[YYYYMM]" />
-                    <inputColumn
                       refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[MEMBER_ID]"
                       cachedCodepage="950"
                       cachedDataType="str"
@@ -6393,10 +6392,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_ORG_CURRENCY]" />
                     <inputColumn
                       refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[TXN_DESC]"
-                      cachedDataType="wstr"
+                      cachedCodepage="950"
+                      cachedDataType="str"
                       cachedLength="210"
                       cachedName="TXN_DESC"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_DESC]" />
+                    <inputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[TRANS_SEQ]"
+                      cachedCodepage="950"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="TRANS_SEQ"
+                      lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TRANS_SEQ]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -6409,14 +6416,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   synchronousInputId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DATE_ready]"
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DATE 的副本]"
                       codePage="950"
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
                       length="8"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DATE_ready]"
-                      name="TXN_DATE_ready"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DATE 的副本]"
+                      name="TXN_DATE 的副本"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -6431,14 +6438,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_TIME_ready]"
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_TIME 的副本]"
                       codePage="950"
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
                       length="8"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_TIME_ready]"
-                      name="TXN_TIME_ready"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_TIME 的副本]"
+                      name="TXN_TIME 的副本"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -6453,12 +6460,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_AMT_ready]"
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_AMT 的副本]"
                       dataType="numeric"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_AMT_ready]"
-                      name="TXN_AMT_ready"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_AMT 的副本]"
+                      name="TXN_AMT 的副本"
                       precision="13"
                       scale="2"
                       truncationRowDisposition="FailComponent">
@@ -6475,36 +6482,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[YYYYMM_ready]"
-                      codePage="950"
-                      dataType="str"
-                      errorOrTruncationOperation="轉換"
-                      errorRowDisposition="FailComponent"
-                      length="6"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[YYYYMM_ready]"
-                      name="YYYYMM_ready"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="指定作為轉換之資料來源的輸入資料行。"
-                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[YYYYMM]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[MEMBER_ID_ready]"
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[MEMBER_ID 的副本]"
                       codePage="950"
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
                       length="64"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[MEMBER_ID_ready]"
-                      name="MEMBER_ID_ready"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[MEMBER_ID 的副本]"
+                      name="MEMBER_ID 的副本"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -6519,14 +6504,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_MCC_CODE_ready]"
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_MCC_CODE 的副本]"
                       codePage="950"
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
                       length="4"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_MCC_CODE_ready]"
-                      name="TXN_MCC_CODE_ready"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_MCC_CODE 的副本]"
+                      name="TXN_MCC_CODE 的副本"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -6541,14 +6526,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_ORG_CURRENCY_ready]"
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_ORG_CURRENCY 的副本]"
                       codePage="950"
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
                       length="3"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_ORG_CURRENCY_ready]"
-                      name="TXN_ORG_CURRENCY_ready"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_ORG_CURRENCY 的副本]"
+                      name="TXN_ORG_CURRENCY 的副本"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -6563,13 +6548,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DESC_ready]"
-                      dataType="wstr"
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DESC 的副本]"
+                      codePage="950"
+                      dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
                       length="210"
-                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DESC_ready]"
-                      name="TXN_DESC_ready"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DESC 的副本]"
+                      name="TXN_DESC 的副本"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -6577,6 +6563,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                           dataType="System.Int32"
                           description="指定作為轉換之資料來源的輸入資料行。"
                           name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_DESC]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="指出資料行是否使用更快、地區設定中立的剖析常式。"
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TRANS_SEQ 的副本]"
+                      codePage="950"
+                      dataType="str"
+                      errorOrTruncationOperation="轉換"
+                      errorRowDisposition="FailComponent"
+                      length="14"
+                      lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TRANS_SEQ 的副本]"
+                      name="TRANS_SEQ 的副本"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="指定作為轉換之資料來源的輸入資料行。"
+                          name="SourceInputColumnLineageID">#{Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TRANS_SEQ]}</property>
                         <property
                           dataType="System.Boolean"
                           description="指出資料行是否使用更快、地區設定中立的剖析常式。"
@@ -6690,7 +6698,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{A31F1CF0-774A-493B-AEB5-66303E51E692}"
+      DTS:DTSID="{E53F6BDC-7A24-413D-824D-AAD2741D48BF}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -6715,7 +6723,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{54E2A110-6C0C-48E2-8351-70FBA4742A31}"
+      DTS:DTSID="{C360A4A3-A207-41A4-84B3-78C633A697BB}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -6736,7 +6744,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{891CA2AF-0A30-4146-8320-6733C2A4427B}"
+      DTS:DTSID="{DECCF7F0-4640-4F9E-84BA-EA7D89C2CD11}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -6747,7 +6755,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           DTS:refId="Package\時序容器\Delete ODS Table by PK"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{6AE9B2A6-A847-4E75-9732-9C74FB8D5E83}"
+          DTS:DTSID="{4066E2C4-0CB4-49B1-B030-55A9AC4759A8}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete ODS Table by PK"
@@ -6788,7 +6796,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{71B6B3A7-6C71-437A-ABF4-72BD72A84AF0}"
+          DTS:DTSID="{24EC75BE-933A-4384-9DD5-712DFDD89053}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -6824,7 +6832,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{B33816FC-3021-4263-80E2-5459ED38F0B7}"
+          DTS:DTSID="{B1EF9178-0094-4584-BB6C-AD2E40EE4DA2}"
           DTS:From="Package\時序容器\Delete ODS Table by PK"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -6835,7 +6843,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{ACBA7BE7-1D7D-4971-A030-D945354A5B8A}"
+      DTS:DTSID="{25081888-152B-4BB2-A853-358087B2EC03}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -6898,7 +6906,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{FC41E91D-6FD7-4AC0-A67A-8A0823F9D7B3}"
+      DTS:DTSID="{ABBEAE0A-00CB-4490-BB22-4CCCE9826DEE}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -6906,7 +6914,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{876ABFE3-C09D-4C47-B855-15D48569DFC5}"
+      DTS:DTSID="{B01B20AC-B2E5-4E43-852B-3D27671C66E1}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -6914,7 +6922,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{1C2AB83F-55DB-40D5-9A46-57027B4201C8}"
+      DTS:DTSID="{E5AB0C19-549F-438E-A419-F6D6A4E693BA}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -6922,7 +6930,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{CF7098CB-013A-48E5-9428-1FBB95ECCC98}"
+      DTS:DTSID="{252FB608-9077-48C9-BE1C-F98A68814D26}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -6939,7 +6947,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="145.333333333334,42"
           Id="Package\Stage To ODS"
@@ -6969,7 +6977,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="198.444435376813,60.3095151595511">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,24.8333254740369"
               Start="0,0"
               End="0,17.3333254740369">
@@ -6998,7 +7006,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="304.964276101719,179.963867420646">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,33.4285703848818"
               Start="0,0"
               End="0,25.9285703848818">
@@ -7020,7 +7028,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="303.880942801498,255.392437805528">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-8.8333334989,34.785699531741"
               Start="0,0"
               End="-8.8333334989,27.285699531741">
@@ -7054,7 +7062,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="298.714278386564,332.178137337269">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,64.642856905655"
               Start="0,0"
               End="0,57.142856905655">
@@ -7076,7 +7084,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="302.232796665929,621.820994242925">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,41.6666542688999"
               Start="0,0"
               End="0,34.1666542688999">
@@ -7100,73 +7108,73 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package\Stage To ODS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="285.333333333334,42"
           Id="Package\Stage To ODS\衍生資料行 - 記錄錯誤資訊欄位(select)"
-          TopLeft="619.613075328491,10.4234774255169" />
+          TopLeft="630.946408661824,10.4234774255169" />
         <NodeLayout
           Size="209.333333333334,42"
           Id="Package\Stage To ODS\GetErrorDetail (Convert)"
-          TopLeft="646.896157173598,486.586709513175" />
+          TopLeft="658.229490506931,486.586709513175" />
         <NodeLayout
           Size="172,42.6666666666667"
           Id="Package\Stage To ODS\TRIM 所有字串型態的欄位"
-          TopLeft="282.708322099515,159.364787763696" />
+          TopLeft="294.041655432848,159.364787763696" />
         <NodeLayout
           Size="222.666666666667,42"
           Id="Package\Stage To ODS\Insert Into Error Log(Insert)"
-          TopLeft="640.803564386001,788.991455968169" />
+          TopLeft="652.136897719334,788.991455968169" />
         <NodeLayout
           Size="142,42"
           Id="Package\Stage To ODS\select from Stage"
-          TopLeft="313.398797149933,7.55679962718393" />
+          TopLeft="324.732130483266,7.55679962718393" />
         <NodeLayout
           Size="128,42.6666666666667"
           Id="Package\Stage To ODS\資料型態轉換"
-          TopLeft="316.071416011879,488.570447750832" />
+          TopLeft="327.404749345212,488.570447750832" />
         <NodeLayout
           Size="133.333333333334,42.6666666666667"
           Id="Package\Stage To ODS\衍生的資料行 1"
-          TopLeft="307.333333333333,333.911112079973" />
+          TopLeft="318.666666666666,333.911112079973" />
         <NodeLayout
           Size="122.666666666667,42.6666666666667"
           Id="Package\Stage To ODS\寫入 ODSDB"
-          TopLeft="313.822738852556,688.423437575556" />
+          TopLeft="325.156072185889,688.423437575556" />
         <NodeLayout
           Size="200,42"
           Id="Package\Stage To ODS\GetErrorDetail (Select)"
-          TopLeft="662.946405946501,95.5663273574283" />
+          TopLeft="674.279739279834,95.5663273574283" />
         <NodeLayout
           Size="230,42"
           Id="Package\Stage To ODS\Insert Into Error Log (Select)"
-          TopLeft="650.446406443207,180.066323040349" />
+          TopLeft="661.77973977654,180.066323040349" />
         <NodeLayout
           Size="234.666666666667,42"
           Id="Package\Stage To ODS\Insert Into Error Log(Convert)"
-          TopLeft="632.205681129767,583.423439259691" />
+          TopLeft="643.5390144631,583.423439259691" />
         <NodeLayout
           Size="206.666666666667,42.6666666666667"
           Id="Package\Stage To ODS\衍生資料行 - 建立記錄錯誤資訊欄位"
-          TopLeft="259.613089633604,232.311221446828" />
+          TopLeft="270.946422966937,232.311221446828" />
         <NodeLayout
           Size="138.666666666667,42"
           Id="Package\Stage To ODS\資料列計數"
-          TopLeft="323.680547405253,88.0807863831979" />
+          TopLeft="335.013880738586,88.0807863831979" />
         <NodeLayout
           Size="210,42"
           Id="Package\Stage To ODS\衍生的資料行 (固定字串)"
-          TopLeft="280.644834829623,589.335012389804" />
+          TopLeft="291.978168162956,589.335012389804" />
         <NodeLayout
           Size="200,42"
           Id="Package\Stage To ODS\GetErrorDetail  (Insert)"
-          TopLeft="651.220230638747,683.134318519237" />
+          TopLeft="662.55356397208,683.134318519237" />
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[輸出 02]"
-          TopLeft="751.761897512374,725.134318519237">
+          TopLeft="763.095230845707,725.134318519237">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,63.857137448932"
               Start="0,0"
               End="0,56.357137448932">
@@ -7185,10 +7193,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[輸出 01]"
-          TopLeft="750.550919151682,528.586709513175">
+          TopLeft="761.884252485015,528.586709513175">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,54.8367297465156"
               Start="0,0"
               End="0,47.3367297465156">
@@ -7207,10 +7215,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[輸出 0]"
-          TopLeft="764.196406194854,137.566327357428">
+          TopLeft="775.529739528187,137.566327357428">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,42.4999956829205"
               Start="0,0"
               End="0,34.9999956829205">
@@ -7229,10 +7237,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[資料轉換錯誤輸出]"
-          TopLeft="444.071416011879,508.74524529867">
+          TopLeft="455.404749345212,508.74524529867">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="202.824741161719,0"
               Start="0,0"
               End="195.324741161719,0">
@@ -7247,16 +7255,16 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="57.5778979246095,5,80.1689453125,10.9208984375"
+              BoundingBox="57.5778979246094,5,80.1689453125,10.9208984375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[衍生的資料行輸出]"
-          TopLeft="762.529740637496,52.4234774255169">
+          TopLeft="773.863073970829,52.4234774255169">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,43.1428499319114"
               Start="0,0"
               End="0,35.6428499319114">
@@ -7275,10 +7283,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[OLE DB 目的地錯誤輸出]"
-          TopLeft="436.489405519223,706.945544714063">
+          TopLeft="447.822738852556,706.945544714063">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="214.730825119524,0"
               Start="0,0"
               End="207.230825119524,0">
@@ -7293,16 +7301,16 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="50.0609333930955,5,107.108958333333,10.8623046875"
+              BoundingBox="50.0609333930953,5,107.108958333333,10.8623046875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[OLE DB 來源錯誤輸出]"
-          TopLeft="455.398797149933,29.9901385263504">
+          TopLeft="466.732130483266,29.9901385263504">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="164.214278178558,0"
               Start="0,0"
               End="156.714278178558,0">
@@ -7317,7 +7325,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="29.8026599226124,5,97.1089583333333,10.8623046875"
+              BoundingBox="29.8026599226123,5,97.1089583333333,10.8623046875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7326,7 +7334,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           ParentId="Package\Stage To ODS"
           Size="129.333333333334,50.6666666666667"
           Id="98ff9835-d655-42aa-b13e-7337c9713535"
-          TopLeft="142.946427602854,583.325489432942">
+          TopLeft="154.279760936187,583.325489432942">
           <AnnotationLayout.FontInfo>
             <mssge:FontInfo
               Color="#FFF1F1F1">
@@ -7338,10 +7346,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </AnnotationLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[OLE DB 來源輸出]"
-          TopLeft="384.398797149933,49.5567996271839">
+          TopLeft="395.732130483266,49.5567996271839">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="8.61508358865331,38.523986756014"
               Start="0,0"
               End="8.61508358865331,31.023986756014">
@@ -7372,10 +7380,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[資料列計數 輸出 1]"
-          TopLeft="393.013880738586,130.080786383198">
+          TopLeft="404.34721407192,130.080786383198">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-24.3055586390713,29.2840013804981"
               Start="0,0"
               End="-24.3055586390713,21.7840013804981">
@@ -7406,10 +7414,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[輸出 03]"
-          TopLeft="365.827372533226,202.031454430363">
+          TopLeft="377.16070586656,202.031454430363">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,30.2797670164653"
               Start="0,0"
               End="0,22.7797670164653">
@@ -7428,30 +7436,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[衍生的資料行輸出1]"
-          TopLeft="362.946422966937,274.977888113495">
+          TopLeft="374.279756300271,274.977888113495">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="11.0535770330624,58.9332239664786"
+              StartConnector="{assembly:Null}"
+              EndConnector="11.0535770330624,58.9332239664784"
               Start="0,0"
-              End="11.0535770330624,51.4332239664786">
+              End="11.0535770330624,51.4332239664784">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.4666119832393" />
+                    End="0,25.4666119832392" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.4666119832393"
-                    Point2="0,29.4666119832393"
-                    Point3="4,29.4666119832393" />
+                    Point1="0,25.4666119832392"
+                    Point2="0,29.4666119832392"
+                    Point3="4,29.4666119832392" />
                   <mssgle:LineSegment
-                    End="7.05357703306237,29.4666119832393" />
+                    End="7.05357703306237,29.4666119832392" />
                   <mssgle:CubicBezierSegment
-                    Point1="7.05357703306237,29.4666119832393"
-                    Point2="11.0535770330624,29.4666119832393"
-                    Point3="11.0535770330624,33.4666119832393" />
+                    Point1="7.05357703306237,29.4666119832392"
+                    Point2="11.0535770330624,29.4666119832392"
+                    Point3="11.0535770330624,33.4666119832392" />
                   <mssgle:LineSegment
-                    End="11.0535770330624,51.4332239664786" />
+                    End="11.0535770330624,51.4332239664784" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7462,10 +7470,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[衍生的資料行輸出2]"
-          TopLeft="377.035708005939,376.57777874664">
+          TopLeft="388.369041339273,376.57777874664">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,111.992669004192"
               Start="0,0"
               End="0,104.492669004192">
@@ -7484,10 +7492,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[資料轉換輸出]"
-          TopLeft="382.858125420751,531.237114417499">
+          TopLeft="394.191458754084,531.237114417499">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,58.0978979723053"
               Start="0,0"
               End="0,50.5978979723053">
@@ -7506,10 +7514,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Stage To ODS.Paths[衍生的資料行輸出3]"
-          TopLeft="385.644834829623,631.335012389804">
+          TopLeft="396.978168162956,631.335012389804">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-10.4887626437337,57.088425185752"
               Start="0,0"
               End="-10.4887626437337,49.588425185752">
