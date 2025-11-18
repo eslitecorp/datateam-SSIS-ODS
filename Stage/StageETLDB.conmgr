@@ -15,6 +15,6 @@
     DTS:Name="ServerName">@[$Project::StageETLDB_ServerName]</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=1703001NB01\ESLITEODS;Initial Catalog=StageETLDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      DTS:ConnectionString="Data Source=TPODS402;Initial Catalog=StageETLDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

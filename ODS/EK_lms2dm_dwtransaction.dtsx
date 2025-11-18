@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1505003NB02"
   DTS:CreatorName="IEAD\1505003"
-  DTS:DTSID="{85626FB9-523A-4142-9DB2-03DCA242F32D}"
+  DTS:DTSID="{4A2DA7EF-E81D-4F11-A07C-53F77B7B2552}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="EK_lms2dm_dwtransaction"
   DTS:PackageType="5"
-  DTS:VersionBuild="421"
-  DTS:VersionGUID="{F3249DDA-D2F6-4B76-897A-02091459EA8C}">
+  DTS:VersionBuild="423"
+  DTS:VersionGUID="{D1C9A498-CE85-4035-9621-9C3FFA8AD015}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{2C83D568-C6F7-4A17-AC67-C03B8B56748C}"
+      DTS:DTSID="{03EE1EBF-EF32-44B1-A300-B51ECF5624C6}"
       DTS:ObjectName="DG">
       <DTS:Property
         DTS:DataType="8"
@@ -28,7 +28,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{45CE5E10-3B96-4138-A33D-EE919EE81AD7}"
+      DTS:DTSID="{BC1591B2-6072-460A-A024-20A2EFDDFFF5}"
       DTS:ObjectName="fullTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -37,7 +37,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{97A850D5-A125-4BFA-8C7A-4119CE6E5AF6}"
+      DTS:DTSID="{2431B668-5894-4BE8-8B6B-D590EDF933DE}"
       DTS:ObjectName="queryBaseDate">
       <DTS:Property
         DTS:DataType="8"
@@ -48,7 +48,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{0BFDACB5-54BC-4611-B275-14C53FA75CE7}"
+      DTS:DTSID="{476525D5-979F-49AB-9E64-37566E6B3D5B}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="dataCount">
@@ -57,7 +57,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{67B416F5-55C7-4FF9-9EDC-9587F082AB70}"
+      DTS:DTSID="{8B4C14B7-9DC3-4B9E-84E7-5BC8CCD3AEA9}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)&#xA;values(?,?,?,(select count(*) from &quot; + @[User::workDateTableName] + &quot;),?,GETDATE(), ?,?,? );&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -65,11 +65,11 @@
       DTS:ObjectName="etlLogSQL">
       <DTS:VariableValue
         DTS:DataType="8">insert into [dbo].[ETL_EXECUTION_LOG] ([EXECUTION_ID], [PACKAGE_NAME], [QUERY_ROW_COUNT],[UPSERT_ROW_COUNT],[WORK_DATE],[CREATE_DATE],DEL_ROW_COUNT,DG,GID)
-values(?,?,?,(select count(*) from dbo.EK_lms2dm_dwtransaction_20251117),?,GETDATE(), ?,?,? );</DTS:VariableValue>
+values(?,?,?,(select count(*) from dbo.EK_lms2dm_dwtransaction_20251118),?,GETDATE(), ?,?,? );</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{070BD1A4-58F8-4704-B3AF-514BC8A10C03}"
+      DTS:DTSID="{36554BEB-47CD-4F1A-9AE2-30973319AD31}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[System::PackageName]+ @[$Project::PackageFileExtension]"
       DTS:IncludeInDebugDump="2345"
@@ -80,16 +80,16 @@ values(?,?,?,(select count(*) from dbo.EK_lms2dm_dwtransaction_20251117),?,GETDA
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{DB0287F8-0985-4637-A6A4-FF6D5C08C188}"
+      DTS:DTSID="{5D5F1217-DA0C-447D-A256-9204FE83A217}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="param_WorkDate">
       <DTS:VariableValue
-        DTS:DataType="8">20251117</DTS:VariableValue>
+        DTS:DataType="8">20251118</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B89B5716-1CBF-4409-8AE9-E6540A67E56B}"
+      DTS:DTSID="{72E660E4-A66A-45B2-B8AD-E6B1E9110E03}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;select  [TRANS_SEQ]      ,[MEMBER_ID]&#xA;      ,[TXN_DATE]&#xA;      ,[TXN_TIME]&#xA;      ,[TXN_MCC_CODE]&#xA;      ,[TXN_AMT]&#xA;      ,[TXN_ORG_CURRENCY]&#xA;      ,[TXN_DESC]&#xA;&#xA;&#xA;from [LMSNS].[dwtransaction]&#xA;where ETL_DATE &gt;= cast(cast('&quot; + ((@[$Package::queryBaseDate]==&quot;&quot;) ? (DT_STR, 50, 950) GETDATE()  : @[$Package::queryBaseDate]) +&quot;' as date) as datetime)&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -106,11 +106,11 @@ values(?,?,?,(select count(*) from dbo.EK_lms2dm_dwtransaction_20251117),?,GETDA
 
 
 from [LMSNS].[dwtransaction]
-where ETL_DATE &gt;= cast(cast('2025-11-17 19:38:26.460000000' as date) as datetime)</DTS:VariableValue>
+where ETL_DATE &gt;= cast(cast('2025-11-18 12:08:47.150000000' as date) as datetime)</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{5CAC9933-B012-4486-9838-0BE094E9BB4F}"
+      DTS:DTSID="{E4FC299F-F6B5-4497-ACC7-4729C1ECFD8C}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varDelResulte">
@@ -119,7 +119,7 @@ where ETL_DATE &gt;= cast(cast('2025-11-17 19:38:26.460000000' as date) as datet
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{5AA6C550-1B74-4F99-BF10-127ED641550A}"
+      DTS:DTSID="{BDC1925C-32E7-4DF9-8A56-DF96211BD8AD}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="varUpsertResult">
@@ -128,14 +128,14 @@ where ETL_DATE &gt;= cast(cast('2025-11-17 19:38:26.460000000' as date) as datet
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{6485E535-60EF-429A-ABBC-0E409B28548D}"
+      DTS:DTSID="{CC978AED-81E2-4546-AC42-0568325D035F}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="@[$Package::fullTableName]+&quot;_&quot;+ @[User::param_WorkDate]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="workDateTableName">
       <DTS:VariableValue
-        DTS:DataType="8">dbo.EK_lms2dm_dwtransaction_20251117</DTS:VariableValue>
+        DTS:DataType="8">dbo.EK_lms2dm_dwtransaction_20251118</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -143,7 +143,7 @@ where ETL_DATE &gt;= cast(cast('2025-11-17 19:38:26.460000000' as date) as datet
       DTS:refId="Package\Stage To ODS"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{7827F424-48D9-4A7E-9BC5-758375A1B463}"
+      DTS:DTSID="{E40F61CD-1EA4-4C0C-B4E7-303F87DBC068}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Stage To ODS"
@@ -4161,7 +4161,7 @@ from APP.Coupon</property>
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[TXN_DATE]"
-                      length="8"
+                      length="10"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_DATE]"
                       name="TXN_DATE"
                       truncationRowDisposition="FailComponent" />
@@ -4222,8 +4222,7 @@ from APP.Coupon</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_DESC]"
-                      codePage="950"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[TXN_DESC]"
@@ -4249,7 +4248,7 @@ from APP.Coupon</property>
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[TXN_DATE]"
                       codePage="950"
                       dataType="str"
-                      length="8"
+                      length="10"
                       name="TXN_DATE" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[TXN_TIME]"
@@ -4283,8 +4282,7 @@ from APP.Coupon</property>
                       name="TXN_ORG_CURRENCY" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].ExternalColumns[TXN_DESC]"
-                      codePage="950"
-                      dataType="str"
+                      dataType="wstr"
                       length="210"
                       name="TXN_DESC" />
                     <externalMetadataColumn
@@ -4323,7 +4321,7 @@ from APP.Coupon</property>
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[TXN_DATE]"
                       codePage="950"
                       dataType="str"
-                      length="8"
+                      length="10"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[TXN_DATE]"
                       name="TXN_DATE" />
                     <outputColumn
@@ -4363,8 +4361,7 @@ from APP.Coupon</property>
                       name="TXN_ORG_CURRENCY" />
                     <outputColumn
                       refId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[TXN_DESC]"
-                      codePage="950"
-                      dataType="str"
+                      dataType="wstr"
                       length="210"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源錯誤輸出].Columns[TXN_DESC]"
                       name="TXN_DESC" />
@@ -5372,7 +5369,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       refId="Package\Stage To ODS\TRIM 所有字串型態的欄位.Inputs[輸入 0].Columns[TXN_DATE]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="8"
+                      cachedLength="10"
                       cachedName="TXN_DATE"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_DATE]" />
                     <inputColumn
@@ -5412,8 +5409,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_ORG_CURRENCY]" />
                     <inputColumn
                       refId="Package\Stage To ODS\TRIM 所有字串型態的欄位.Inputs[輸入 0].Columns[TXN_DESC]"
-                      cachedCodepage="950"
-                      cachedDataType="str"
+                      cachedDataType="wstr"
                       cachedLength="210"
                       cachedName="TXN_DESC"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_DESC]" />
@@ -5526,7 +5522,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TXN_DATE 的副本]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="8"
+                      cachedLength="10"
                       cachedName="TXN_DATE 的副本"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_DATE]"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DATE 的副本]" />
@@ -5572,8 +5568,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_ORG_CURRENCY 的副本]" />
                     <inputColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].Columns[TXN_DESC 的副本]"
-                      cachedCodepage="950"
-                      cachedDataType="str"
+                      cachedDataType="wstr"
                       cachedLength="210"
                       cachedName="TXN_DESC 的副本"
                       externalMetadataColumnId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_DESC]"
@@ -5601,7 +5596,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_DATE]"
                       codePage="950"
                       dataType="str"
-                      length="8"
+                      length="10"
                       name="TXN_DATE" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_TIME]"
@@ -5635,8 +5630,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       name="TXN_ORG_CURRENCY" />
                     <externalMetadataColumn
                       refId="Package\Stage To ODS\寫入 ODSDB.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_DESC]"
-                      codePage="950"
-                      dataType="str"
+                      dataType="wstr"
                       length="210"
                       name="TXN_DESC" />
                     <externalMetadataColumn
@@ -5785,7 +5779,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       refId="Package\Stage To ODS\衍生的資料行 1.Inputs[衍生的資料行輸入].Columns[TXN_DATE]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="8"
+                      cachedLength="10"
                       cachedName="TXN_DATE"
                       errorOrTruncationOperation="計算"
                       errorRowDisposition="FailComponent"
@@ -5933,8 +5927,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                     </inputColumn>
                     <inputColumn
                       refId="Package\Stage To ODS\衍生的資料行 1.Inputs[衍生的資料行輸入].Columns[TXN_DESC]"
-                      cachedCodepage="950"
-                      cachedDataType="str"
+                      cachedDataType="wstr"
                       cachedLength="210"
                       cachedName="TXN_DESC"
                       errorOrTruncationOperation="計算"
@@ -6352,7 +6345,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[TXN_DATE]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="8"
+                      cachedLength="10"
                       cachedName="TXN_DATE"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_DATE]" />
                     <inputColumn
@@ -6392,8 +6385,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_ORG_CURRENCY]" />
                     <inputColumn
                       refId="Package\Stage To ODS\資料型態轉換.Inputs[資料轉換輸入].Columns[TXN_DESC]"
-                      cachedCodepage="950"
-                      cachedDataType="str"
+                      cachedDataType="wstr"
                       cachedLength="210"
                       cachedName="TXN_DESC"
                       lineageId="Package\Stage To ODS\select from Stage.Outputs[OLE DB 來源輸出].Columns[TXN_DESC]" />
@@ -6421,7 +6413,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
-                      length="8"
+                      length="10"
                       lineageId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DATE 的副本]"
                       name="TXN_DATE 的副本"
                       truncationRowDisposition="FailComponent">
@@ -6549,8 +6541,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                     </outputColumn>
                     <outputColumn
                       refId="Package\Stage To ODS\資料型態轉換.Outputs[資料轉換輸出].Columns[TXN_DESC 的副本]"
-                      codePage="950"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
                       length="210"
@@ -6698,7 +6689,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\初始化作業"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="執行封裝工作"
-      DTS:DTSID="{E53F6BDC-7A24-413D-824D-AAD2741D48BF}"
+      DTS:DTSID="{11382DA4-DAA7-4468-B899-43E0847AE77A}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="初始化作業"
@@ -6723,7 +6714,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\取得WorkDate"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{C360A4A3-A207-41A4-84B3-78C633A697BB}"
+      DTS:DTSID="{11868298-D3EE-4B69-9104-59F409A878D6}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="取得WorkDate"
@@ -6744,7 +6735,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\時序容器"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="時序容器"
-      DTS:DTSID="{DECCF7F0-4640-4F9E-84BA-EA7D89C2CD11}"
+      DTS:DTSID="{E8640AF6-0FA5-4B44-B7E4-639215B92843}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="時序容器"
@@ -6755,7 +6746,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           DTS:refId="Package\時序容器\Delete ODS Table by PK"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{4066E2C4-0CB4-49B1-B030-55A9AC4759A8}"
+          DTS:DTSID="{E5EA95E8-F4D0-48C5-828C-ED223EA06DEC}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Delete ODS Table by PK"
@@ -6796,7 +6787,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           DTS:refId="Package\時序容器\insert into ODS table from WorkDateTable"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="執行 SQL 工作"
-          DTS:DTSID="{24EC75BE-933A-4384-9DD5-712DFDD89053}"
+          DTS:DTSID="{F3F7521D-4982-43E8-A518-3E00FE0EE478}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="insert into ODS table from WorkDateTable"
@@ -6832,7 +6823,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\時序容器.PrecedenceConstraints[條件約束]"
           DTS:CreationName=""
-          DTS:DTSID="{B1EF9178-0094-4584-BB6C-AD2E40EE4DA2}"
+          DTS:DTSID="{A5DE9ADE-5084-4225-A025-7434BE52710E}"
           DTS:From="Package\時序容器\Delete ODS Table by PK"
           DTS:LogicalAnd="True"
           DTS:ObjectName="條件約束"
@@ -6843,7 +6834,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
       DTS:refId="Package\紀錄執行筆數"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="執行 SQL 工作"
-      DTS:DTSID="{25081888-152B-4BB2-A853-358087B2EC03}"
+      DTS:DTSID="{6CE3D2EF-99F6-44D2-9A68-BE8181F56178}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄執行筆數"
@@ -6906,7 +6897,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束]"
       DTS:CreationName=""
-      DTS:DTSID="{ABBEAE0A-00CB-4490-BB22-4CCCE9826DEE}"
+      DTS:DTSID="{1057D252-CD3A-43F2-9121-C859358B8C7E}"
       DTS:From="Package\取得WorkDate"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束"
@@ -6914,7 +6905,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 1]"
       DTS:CreationName=""
-      DTS:DTSID="{B01B20AC-B2E5-4E43-852B-3D27671C66E1}"
+      DTS:DTSID="{C9EDA23B-F372-4FA2-AD32-632D7AFAA784}"
       DTS:From="Package\初始化作業"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 1"
@@ -6922,7 +6913,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 2]"
       DTS:CreationName=""
-      DTS:DTSID="{E5AB0C19-549F-438E-A419-F6D6A4E693BA}"
+      DTS:DTSID="{2DDE4DFF-8F77-47E7-B646-45D2230C0B32}"
       DTS:From="Package\Stage To ODS"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 2"
@@ -6930,7 +6921,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[條件約束 3]"
       DTS:CreationName=""
-      DTS:DTSID="{252FB608-9077-48C9-BE1C-F98A68814D26}"
+      DTS:DTSID="{E604F762-800E-4AC0-AB0A-4E12DC8473EB}"
       DTS:From="Package\時序容器"
       DTS:LogicalAnd="True"
       DTS:ObjectName="條件約束 3"
@@ -6947,9 +6938,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="145.333333333334,42"
+          Size="124,42.6666666666667"
           Id="Package\Stage To ODS"
           TopLeft="222.547609302598,290.178137337269" />
         <NodeLayout
@@ -6977,7 +6968,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="198.444435376813,60.3095151595511">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,24.8333254740369"
               Start="0,0"
               End="0,17.3333254740369">
@@ -7006,7 +6997,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="304.964276101719,179.963867420646">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,33.4285703848818"
               Start="0,0"
               End="0,25.9285703848818">
@@ -7025,13 +7016,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[條件約束 1]"
-          TopLeft="303.880942801498,255.392437805528">
+          TopLeft="303.714276134831,255.392437805528">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-8.8333334989,34.785699531741"
+              StartConnector="{x:Null}"
+              EndConnector="-19.1666668322333,34.785699531741"
               Start="0,0"
-              End="-8.8333334989,27.285699531741">
+              End="-19.1666668322333,27.285699531741">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -7042,13 +7033,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                     Point2="0,17.3928497658705"
                     Point3="-4,17.3928497658705" />
                   <mssgle:LineSegment
-                    End="-4.8333334989,17.3928497658705" />
+                    End="-15.1666668322333,17.3928497658705" />
                   <mssgle:CubicBezierSegment
-                    Point1="-4.8333334989,17.3928497658705"
-                    Point2="-8.8333334989,17.3928497658705"
-                    Point3="-8.8333334989,21.3928497658705" />
+                    Point1="-15.1666668322333,17.3928497658705"
+                    Point2="-19.1666668322333,17.3928497658705"
+                    Point3="-19.1666668322333,21.3928497658705" />
                   <mssgle:LineSegment
-                    End="-8.8333334989,27.285699531741" />
+                    End="-19.1666668322333,27.285699531741" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7059,18 +7050,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[條件約束 2]"
-          TopLeft="298.714278386564,332.178137337269">
+          TopLeft="284.547609302598,332.844804003936">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64.642856905655"
+              StartConnector="{x:Null}"
+              EndConnector="17.6666715012653,63.9761902389883"
               Start="0,0"
-              End="0,57.142856905655">
+              End="17.6666715012653,56.4761902389883">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.142856905655" />
+                    End="0,27.9880951194941" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.9880951194941"
+                    Point2="0,31.9880951194941"
+                    Point3="4,31.9880951194941" />
+                  <mssgle:LineSegment
+                    End="13.6666715012653,31.9880951194941" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.6666715012653,31.9880951194941"
+                    Point2="17.6666715012653,31.9880951194941"
+                    Point3="17.6666715012653,35.9880951194941" />
+                  <mssgle:LineSegment
+                    End="17.6666715012653,56.4761902389883" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7084,7 +7087,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="302.232796665929,621.820994242925">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,41.6666542688999"
               Start="0,0"
               End="0,34.1666542688999">
@@ -7108,7 +7111,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
     design-time-name="Package\Stage To ODS">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="285.333333333334,42"
           Id="Package\Stage To ODS\衍生資料行 - 記錄錯誤資訊欄位(select)"
@@ -7170,11 +7173,33 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           Id="Package\Stage To ODS\GetErrorDetail  (Insert)"
           TopLeft="662.55356397208,683.134318519237" />
         <EdgeLayout
+          Id="Package\Stage To ODS.Paths[輸出 03]"
+          TopLeft="377.16070586656,202.031454430363">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,30.2797670164653"
+              Start="0,0"
+              End="0,22.7797670164653">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.7797670164653" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Stage To ODS.Paths[輸出 02]"
           TopLeft="763.095230845707,725.134318519237">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,63.857137448932"
               Start="0,0"
               End="0,56.357137448932">
@@ -7196,7 +7221,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="761.884252485015,528.586709513175">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,54.8367297465156"
               Start="0,0"
               End="0,47.3367297465156">
@@ -7218,7 +7243,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="775.529739528187,137.566327357428">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,42.4999956829205"
               Start="0,0"
               End="0,34.9999956829205">
@@ -7240,7 +7265,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="455.404749345212,508.74524529867">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="202.824741161719,0"
               Start="0,0"
               End="195.324741161719,0">
@@ -7255,121 +7280,24 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="57.5778979246094,5,80.1689453125,10.9208984375"
+              BoundingBox="57.5778979246095,5,80.1689453125,10.9208984375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Stage To ODS.Paths[衍生的資料行輸出]"
-          TopLeft="773.863073970829,52.4234774255169">
+          Id="Package\Stage To ODS.Paths[資料轉換輸出]"
+          TopLeft="394.191458754084,531.237114417499">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43.1428499319114"
+              StartConnector="{x:Null}"
+              EndConnector="0,58.0978979723053"
               Start="0,0"
-              End="0,35.6428499319114">
+              End="0,50.5978979723053">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.6428499319114" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[OLE DB 目的地錯誤輸出]"
-          TopLeft="447.822738852556,706.945544714063">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="214.730825119524,0"
-              Start="0,0"
-              End="207.230825119524,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="207.230825119524,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="50.0609333930953,5,107.108958333333,10.8623046875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[OLE DB 來源錯誤輸出]"
-          TopLeft="466.732130483266,29.9901385263504">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="164.214278178558,0"
-              Start="0,0"
-              End="156.714278178558,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="156.714278178558,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="29.8026599226123,5,97.1089583333333,10.8623046875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <AnnotationLayout
-          Text="1. ETL_DATE&#xA;2. ETL_WORK_DATE"
-          ParentId="Package\Stage To ODS"
-          Size="129.333333333334,50.6666666666667"
-          Id="98ff9835-d655-42aa-b13e-7337c9713535"
-          TopLeft="154.279760936187,583.325489432942">
-          <AnnotationLayout.FontInfo>
-            <mssge:FontInfo
-              Color="#FFF1F1F1">
-              <mssge:FontInfo.TextDecorations>
-                <av:TextDecorationCollection />
-              </mssge:FontInfo.TextDecorations>
-            </mssge:FontInfo>
-          </AnnotationLayout.FontInfo>
-        </AnnotationLayout>
-        <EdgeLayout
-          Id="Package\Stage To ODS.Paths[OLE DB 來源輸出]"
-          TopLeft="395.732130483266,49.5567996271839">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="8.61508358865331,38.523986756014"
-              Start="0,0"
-              End="8.61508358865331,31.023986756014">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.261993378007" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.261993378007"
-                    Point2="0,19.261993378007"
-                    Point3="4,19.261993378007" />
-                  <mssgle:LineSegment
-                    End="4.61508358865331,19.261993378007" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4.61508358865331,19.261993378007"
-                    Point2="8.61508358865331,19.261993378007"
-                    Point3="8.61508358865331,23.261993378007" />
-                  <mssgle:LineSegment
-                    End="8.61508358865331,31.023986756014" />
+                    End="0,50.5978979723053" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7383,7 +7311,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="404.34721407192,130.080786383198">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-24.3055586390713,29.2840013804981"
               Start="0,0"
               End="-24.3055586390713,21.7840013804981">
@@ -7413,19 +7341,53 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Stage To ODS.Paths[輸出 03]"
-          TopLeft="377.16070586656,202.031454430363">
+          Id="Package\Stage To ODS.Paths[衍生的資料行輸出3]"
+          TopLeft="396.978168162956,631.335012389804">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.2797670164653"
+              StartConnector="{x:Null}"
+              EndConnector="-10.4887626437337,57.088425185752"
               Start="0,0"
-              End="0,22.7797670164653">
+              End="-10.4887626437337,49.588425185752">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.7797670164653" />
+                    End="0,24.544212592876" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.544212592876"
+                    Point2="0,28.544212592876"
+                    Point3="-4,28.544212592876" />
+                  <mssgle:LineSegment
+                    End="-6.48876264373371,28.544212592876" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.48876264373371,28.544212592876"
+                    Point2="-10.4887626437337,28.544212592876"
+                    Point3="-10.4887626437337,32.544212592876" />
+                  <mssgle:LineSegment
+                    End="-10.4887626437337,49.588425185752" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[衍生的資料行輸出2]"
+          TopLeft="388.369041339273,376.57777874664">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,111.992669004192"
+              Start="0,0"
+              End="0,104.492669004192">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,104.492669004192" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7439,7 +7401,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           TopLeft="374.279756300271,274.977888113495">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="11.0535770330624,58.9332239664784"
               Start="0,0"
               End="11.0535770330624,51.4332239664784">
@@ -7469,19 +7431,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Stage To ODS.Paths[衍生的資料行輸出2]"
-          TopLeft="388.369041339273,376.57777874664">
+          Id="Package\Stage To ODS.Paths[衍生的資料行輸出]"
+          TopLeft="773.863073970829,52.4234774255169">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,111.992669004192"
+              StartConnector="{x:Null}"
+              EndConnector="0,43.1428499319114"
               Start="0,0"
-              End="0,104.492669004192">
+              End="0,35.6428499319114">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,104.492669004192" />
+                    End="0,35.6428499319114" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7491,53 +7453,79 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Stage To ODS.Paths[資料轉換輸出]"
-          TopLeft="394.191458754084,531.237114417499">
+          Id="Package\Stage To ODS.Paths[OLE DB 目的地錯誤輸出]"
+          TopLeft="447.822738852556,706.945544714063">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58.0978979723053"
+              StartConnector="{x:Null}"
+              EndConnector="214.730825119524,0"
               Start="0,0"
-              End="0,50.5978979723053">
+              End="207.230825119524,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.5978979723053" />
+                    End="207.230825119524,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="50.0609333930953,5,107.108958333333,10.8623046875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Stage To ODS.Paths[衍生的資料行輸出3]"
-          TopLeft="396.978168162956,631.335012389804">
+          Id="Package\Stage To ODS.Paths[OLE DB 來源錯誤輸出]"
+          TopLeft="466.732130483266,29.9901385263504">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-10.4887626437337,57.088425185752"
+              StartConnector="{x:Null}"
+              EndConnector="164.214278178558,0"
               Start="0,0"
-              End="-10.4887626437337,49.588425185752">
+              End="156.714278178558,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.544212592876" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.544212592876"
-                    Point2="0,28.544212592876"
-                    Point3="-4,28.544212592876" />
+                    End="156.714278178558,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="29.8026599226123,5,97.1089583333333,10.8623046875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage To ODS.Paths[OLE DB 來源輸出]"
+          TopLeft="395.732130483266,49.5567996271839">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="8.61508358865331,38.523986756014"
+              Start="0,0"
+              End="8.61508358865331,31.023986756014">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-6.48876264373371,28.544212592876" />
+                    End="0,15.261993378007" />
                   <mssgle:CubicBezierSegment
-                    Point1="-6.48876264373371,28.544212592876"
-                    Point2="-10.4887626437337,28.544212592876"
-                    Point3="-10.4887626437337,32.544212592876" />
+                    Point1="0,15.261993378007"
+                    Point2="0,19.261993378007"
+                    Point3="4,19.261993378007" />
                   <mssgle:LineSegment
-                    End="-10.4887626437337,49.588425185752" />
+                    End="4.61508358865331,19.261993378007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.61508358865331,19.261993378007"
+                    Point2="8.61508358865331,19.261993378007"
+                    Point3="8.61508358865331,23.261993378007" />
+                  <mssgle:LineSegment
+                    End="8.61508358865331,31.023986756014" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7546,6 +7534,21 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="1. ETL_DATE&#xA;2. ETL_WORK_DATE"
+          ParentId="Package\Stage To ODS"
+          Size="129.333333333334,50.6666666666667"
+          Id="98ff9835-d655-42aa-b13e-7337c9713535"
+          TopLeft="154.279760936187,583.325489432942">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>

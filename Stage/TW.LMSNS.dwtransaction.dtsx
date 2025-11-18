@@ -1,18 +1,18 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="12/10/2018 9:51:28 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="1701003NB01"
   DTS:CreatorName="IEAD\1701003"
-  DTS:DTSID="{E54ABD89-C2BB-427D-95CD-2CEE6760B72E}"
+  DTS:DTSID="{B8995EB3-658F-455B-8652-44AEE34C8A09}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.93"
   DTS:LocaleID="1028"
   DTS:ObjectName="TW LMSNS dwtransaction"
   DTS:PackageType="5"
-  DTS:VersionBuild="417"
-  DTS:VersionGUID="{F145A09C-4F97-49EB-A034-71B3FF943488}">
+  DTS:VersionBuild="420"
+  DTS:VersionGUID="{C3555387-96E8-4458-AF85-115811EE46D3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:LogProviders>
@@ -20,7 +20,7 @@
       DTS:ConfigString="StagingDB_TW"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="將事件的記錄項目寫入 SQL Server 資料庫"
-      DTS:DTSID="{36B65794-4D38-45A4-B5D4-8FCE19841CE8}"
+      DTS:DTSID="{81033722-5462-40A5-BB2E-CCF16407B873}"
       DTS:ObjectName="SQL Server 的 SSIS 記錄提供者">
       <DTS:ObjectData>
         <InnerObject />
@@ -31,7 +31,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{AD3B4B06-9063-41B2-B9E4-96D66F18F426}"
+      DTS:DTSID="{FECFC69E-57DE-4DD0-BC08-AF5D947242C3}"
       DTS:ObjectName="dbPrestageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -40,7 +40,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{AC5259B8-9731-4293-9E03-E2F2E050D6CC}"
+      DTS:DTSID="{79021371-AC62-4A54-A44E-7ED845950B43}"
       DTS:ObjectName="dbSchemaName">
       <DTS:Property
         DTS:DataType="8"
@@ -50,7 +50,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{3BB0D83D-76D0-4B8C-BC78-5794905C1F1F}"
+      DTS:DTSID="{03842E37-A8CE-49C8-8636-1DF2A366247C}"
       DTS:ObjectName="dbStageTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -59,7 +59,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{844089D9-30E3-44CF-A185-009B766F140D}"
+      DTS:DTSID="{A1550C2D-3EA3-402F-B66A-5369ED72B405}"
       DTS:ObjectName="dbTableName">
       <DTS:Property
         DTS:DataType="8"
@@ -68,7 +68,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{26F02C13-EDAD-4999-87FC-F90BF9127FF5}"
+      DTS:DTSID="{52CF03E7-E08B-47D4-A556-F3DC7B409DD8}"
       DTS:ObjectName="srcRawDataFileName">
       <DTS:Property
         DTS:DataType="8"
@@ -77,7 +77,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{873DEC00-6018-4457-9B4E-750EDC69D29C}"
+      DTS:DTSID="{2645BCFB-2201-4A97-AE72-849C73C8A1A4}"
       DTS:ObjectName="srcSysName">
       <DTS:Property
         DTS:DataType="8"
@@ -86,7 +86,7 @@
     <DTS:PackageParameter
       DTS:CreationName=""
       DTS:DataType="8"
-      DTS:DTSID="{EC3F322A-5A8E-4CB8-9152-F7ED1E8C60E1}"
+      DTS:DTSID="{522BDAAF-D750-45C4-83D2-C565839A08E5}"
       DTS:ObjectName="writeInEvent">
       <DTS:Property
         DTS:DataType="8"
@@ -97,7 +97,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C928F33D-8148-447F-93C9-D621C4C8DD9A}"
+      DTS:DTSID="{7DC2AD0B-4148-48F2-A0D3-6F01D8A2C971}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;SELECT *  FROM &quot; + @[$Package::dbPrestageTableName] + &quot; WHERE FILE_NAME =  '&quot; + @[$Package::srcRawDataFileName]  +&quot;' and PKEY not in (select isnull(PRESTAGE_PKEY,0) from dbo.veri_prestage_log_fail_detail fd join dbo.VERI_PRESTAGE_LOG l on fd.LOG_PKEY = l.PKEY where l.file_name = '&quot;+ @[$Package::srcRawDataFileName] +&quot;' and l.executionid = &quot;+ (DT_WSTR,100) @[System::ServerExecutionID] +&quot;)&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -112,7 +112,7 @@
     DTS:LoggingMode="1">
     <DTS:SelectedLogProviders>
       <DTS:SelectedLogProvider
-        DTS:InstanceID="{36B65794-4D38-45A4-B5D4-8FCE19841CE8}" />
+        DTS:InstanceID="{81033722-5462-40A5-BB2E-CCF16407B873}" />
     </DTS:SelectedLogProviders>
   </DTS:LoggingOptions>
   <DTS:Executables>
@@ -120,7 +120,7 @@
       DTS:refId="Package\I／IU資料流程"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="資料流程工作"
-      DTS:DTSID="{9D46C7B2-01AF-461A-8597-B19251B56AB3}"
+      DTS:DTSID="{02CBAFBD-E326-4095-9E31-1D1E3DB844C1}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="I／IU資料流程"
@@ -222,7 +222,7 @@
                       refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[TXN_DATE 的副本]"
                       cachedCodepage="950"
                       cachedDataType="str"
-                      cachedLength="8"
+                      cachedLength="10"
                       cachedName="TXN_DATE 的副本"
                       externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_DATE]"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TXN_DATE 的副本]" />
@@ -259,8 +259,7 @@
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TXN_ORG_CURRENCY 的副本]" />
                     <inputColumn
                       refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].Columns[TXN_DESC 的副本]"
-                      cachedCodepage="950"
-                      cachedDataType="str"
+                      cachedDataType="wstr"
                       cachedLength="210"
                       cachedName="TXN_DESC 的副本"
                       externalMetadataColumnId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_DESC]"
@@ -302,7 +301,7 @@
                       refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_DATE]"
                       codePage="950"
                       dataType="str"
-                      length="8"
+                      length="10"
                       name="TXN_DATE" />
                     <externalMetadataColumn
                       refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_TIME]"
@@ -330,8 +329,7 @@
                       name="TXN_ORG_CURRENCY" />
                     <externalMetadataColumn
                       refId="Package\I／IU資料流程\intsert into stage.Inputs[OLE DB 目的地輸入].ExternalColumns[TXN_DESC]"
-                      codePage="950"
-                      dataType="str"
+                      dataType="wstr"
                       length="210"
                       name="TXN_DESC" />
                     <externalMetadataColumn
@@ -473,7 +471,7 @@
                       dataType="str"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
-                      length="8"
+                      length="10"
                       lineageId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TXN_DATE 的副本]"
                       name="TXN_DATE 的副本"
                       truncationRowDisposition="FailComponent">
@@ -578,8 +576,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換.Outputs[資料轉換輸出].Columns[TXN_DESC 的副本]"
-                      codePage="950"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="轉換"
                       errorRowDisposition="FailComponent"
                       length="210"
@@ -1082,7 +1079,7 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
       DTS:refId="Package\紀錄目前檔案執行封裝至dbo sysssislog"
       DTS:CreationName="Microsoft.ScriptTask"
       DTS:Description="指令碼工作"
-      DTS:DTSID="{08D623F4-8E55-4F53-9F14-2789A73C55C8}"
+      DTS:DTSID="{1D066445-BA06-45B7-809E-E0306B537C00}"
       DTS:ExecutableType="Microsoft.ScriptTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="紀錄目前檔案執行封裝至dbo sysssislog"
@@ -1243,34 +1240,35 @@ WHERE FILE_NAME = ? and VER_VALUE = 0</property>
   </resheader>
 </root>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
 //
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
 
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Settings.get_Default():ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Sett" +
-    "ings")]
-
-namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -1406,35 +1404,34 @@ namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
 
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_8b98b3e4edfb4eb5b79b43c89c378d70")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Settings.get_Default():ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties.Sett" +
+    "ings")]
 
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+namespace ST_8b98b3e4edfb4eb5b79b43c89c378d70.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
           <ProjectItem
             Name="Properties\Settings.settings"
             Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
@@ -1652,7 +1649,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package\I／IU資料流程">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="208,42.6666666666667"
           Id="Package\I／IU資料流程\依Stage資料表的欄位格式做資料轉換"
@@ -1670,11 +1667,39 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Id="Package\I／IU資料流程\從prestage資料表把驗證通過的資料取出"
           TopLeft="166.586888199632,336.523808986151" />
         <EdgeLayout
+          Id="Package\I／IU資料流程.Paths[衍生的資料行輸出]"
+          TopLeft="307,492.400002217822">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.6666666666667,38.1333340840877"
+              Start="0,0"
+              End="85.6666666666667,30.6333340840877">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="81.6666666666667,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.6666666666667,0"
+                    Point2="85.6666666666667,0"
+                    Point3="85.6666666666667,4" />
+                  <mssgle:LineSegment
+                    End="85.6666666666667,30.6333340840877" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\I／IU資料流程.Paths[OLE DB 來源輸出]"
           TopLeft="309.253554866299,378.523808986151">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-28.2535548662987,25.209526737196"
               Start="0,0"
               End="-28.2535548662987,17.709526737196">
@@ -1708,7 +1733,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           TopLeft="281,446.400002390014">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-38,24.6666664944753"
               Start="0,0"
               End="-38,17.1666664944753">
@@ -1729,34 +1754,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
                     Point3="-38,16.3333332472376" />
                   <mssgle:LineSegment
                     End="-38,17.1666664944753" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\I／IU資料流程.Paths[衍生的資料行輸出]"
-          TopLeft="307,492.400002217822">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="85.6666666666667,38.1333340840877"
-              Start="0,0"
-              End="85.6666666666667,30.6333340840877">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="81.6666666666667,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="81.6666666666667,0"
-                    Point2="85.6666666666667,0"
-                    Point3="85.6666666666667,4" />
-                  <mssgle:LineSegment
-                    End="85.6666666666667,30.6333340840877" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
